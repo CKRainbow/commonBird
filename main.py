@@ -1,32 +1,36 @@
 import ebird
 import birdreport
 import json
-import config
-x = ebird.ebird(config.token)
-checklists = x.search(startTime=x.get_back_date(3),endTime=x.get_back_date(0))
-# x.show(checklists)
-info = x.spp_info(checklists)
-# print(info)
+
+# x = ebird.ebird(config.token)
+# checklists = x.search(startTime=x.get_back_date(3),endTime=x.get_back_date(0))
+# # x.show(checklists)
+# info = x.spp_info(checklists)
+# # print(info)
 
 y = birdreport.birdreport()
-province = '北京市'
-checklists2 = y.search(startTime=y.get_back_date(0), endTime=y.get_back_date(0), province=province)
+province = "山东省"
+checklists2 = y.search(
+    startTime=y.get_back_date(0), province=province, pointname="莱西"
+)
+with open("result.json", "w") as f:
+    json.dump(checklists2, f, indent=2, ensure_ascii=False)
 # y.show(checklists)
 info2 = y.spp_info(checklists2)
 # print(info2)
 
-# 整合观测数据
-merge = info2
-for i in info:
-    if i not in merge:
-        merge[i] = info[i]
-    else:
-        merge[i] += info[i]
+# # 整合观测数据
+# merge = info2
+# for i in info:
+#     if i not in merge:
+#         merge[i] = info[i]
+#     else:
+#         merge[i] += info[i]
 
-f = open('./test.db','w+')
-f.write(str(merge))
-f.close()
-print(merge)
+# f = open('./test.db','w+')
+# f.write(str(merge))
+# f.close()
+# print(merge)
 
 # sp = 'lewduc1'
 # sciName = x.get_sciName_from_speciesCode(sp)
