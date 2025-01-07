@@ -1,6 +1,15 @@
 import ebird
-import birdreport
+from birdreport import Birdreport
 import json
+
+
+def main(token: str = None):
+    birdreport = Birdreport(token=token)
+
+
+if __name__ == "__main__":
+    pass
+
 
 # x = ebird.ebird(config.token)
 # checklists = x.search(startTime=x.get_back_date(3),endTime=x.get_back_date(0))
@@ -8,8 +17,8 @@ import json
 # info = x.spp_info(checklists)
 # # print(info)
 
-y = birdreport.birdreport()
-print(y.search_hotspots_by_name("上海"))
+# y = birdreport.birdreport()
+# print(y.search_hotspots_by_name("上海"))
 # province = "山东省"
 # checklists2 = y.search(
 #     startTime=y.get_back_date(0), province=province, pointname="莱西"

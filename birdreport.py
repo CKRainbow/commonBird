@@ -1,3 +1,9 @@
+# -*- coding: utf-8 -*- for popen for windows
+from functools import partial
+import subprocess
+
+subprocess.Popen = partial(subprocess.Popen, encoding="utf-8")
+
 import hashlib
 import json
 
@@ -13,10 +19,12 @@ import threading
 import multiprocessing
 
 
-class birdreport:
-    with open("./jQuertAjax.js", "r", encoding="utf-8") as f:
-        node_path = "./node_modules"
-        ctx = execjs.compile(f.read(), cwd=node_path)
+class Birdreport:
+    def __init__(self, token: str):
+        with open("./jQuertAjax.js", "r", encoding="utf-8") as f:
+            node_path = "./node_modules"
+            self.ctx = execjs.compile(f.read(), cwd=node_path)
+        self.token = token
 
     def get_back_date(self, n):
         t = int(time.time()) - n * 60 * 60 * 24
@@ -325,6 +333,6 @@ class birdreport:
 
 
 if __name__ == "__main__":
-    y = birdreport()
+    y = Birdreport()
     data = y.get_taxon("194c4e0-be24-4564-b778-9ab96eed1341")
     print(data)
