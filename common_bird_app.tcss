@@ -1,0 +1,48 @@
+.option_container Button {
+    width: 60%;
+    text-align: center;
+    margin: 1;
+}
+
+.option_container {
+    margin: 2;
+    align: center middle;
+}
+
+TokenInputScreen {
+    align: center middle;
+}
+
+#dialog {
+    grid-size: 2;
+    grid-gutter: 1 2;
+    grid-rows: 1fr 3;
+    padding: 0 1;
+    width: 60;
+    height: 11;
+    border: thick $background 80%;
+    background: $surface;
+    #hintText {
+        column-span: 10;
+        height: 1fr;
+        width: 1fr;
+        content-align: center middle;
+   }
+   Input {
+        column-span: 8;
+   }
+}
+
+.query_container {
+    grid-size: 10 5;
+    grid-gutter: 1;
+    
+    Input {
+        height: auto;
+        width: 1fr;
+    }
+    
+    .text-group {
+        column-span: 5
+    }
+}
