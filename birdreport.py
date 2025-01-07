@@ -156,8 +156,8 @@ class Birdreport:
         # format_params = f"page={page}&limit={limit}&taxonid=&startTime=&endTime=&province=&city=&district=&pointname=&username=&serial_id=&ctime=&taxonname=&state=&mode=0&outside_type=0"
         params = {
             "page": f"{page}",
-            "limit": f"{limit}",
-            "taxonid": f"{data['taxonid']}",
+            "limit": f"{limit}",  # 似乎不允许设置于预设不同的值
+            "taxonid": f"{data['taxonid']}",  # 逗号分隔
             "startTime": f"{data['startTime']}",
             "endTime": f"{data['endTime']}",
             "province": f"{data['province']}",
@@ -165,11 +165,11 @@ class Birdreport:
             "district": f"{data['district']}",
             "pointname": f"{data['pointname']}",
             "username": f"{data['username']}",
-            "serial_id": f"{data['serial_id']}",
-            "ctime": f"{data['ctime']}",
-            "state": f"{data['state']}",
-            "mode": "0",
-            "outside_type": "0",
+            "serial_id": f"{data['serial_id']}",  # 记录编号
+            "ctime": f"{data['ctime']}",  # 精确日期
+            "state": f"{data['state']}",  # 2 公开 1,3 私密
+            "mode": "0",  # 0:模糊搜索 1:精确搜索
+            "outside_type": "0",  # 是否为标红报告
         }
         print(params)
 
