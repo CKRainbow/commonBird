@@ -44,9 +44,37 @@ class birdreport:
     def format(self, text):
         return self.ctx.call("format", text)
 
-    def get_headers(self, request_id, timestamp, sign):
+    def get_headers(self, auth_token=None):
         # sign = md5(format_param + request_id + str(timestamp))
-        return {
+        auth_token = "A227EBF843724E89A847B23F815D10CA"
+
+        headers = {
+            "Accept": "application/json, text/javascript, */*; q=0.01",
+            "Accept-Language": "en,zh-CN;q=0.9,zh;q=0.8,ja;q=0.7,es;q=0.6,es-ES;q=0.5",
+            "Connection": "keep-alive",
+            "Content-Type": "application/json",
+            "Host": "api.birdreport.cn",
+            "Origin": "https://www.birdreport.cn",
+            "Referer": "https://www.birdreport.cn/",
+            "sec-ch-ua": '"Chromium";v="130", "Google Chrome";v="130", "Not?A_Brand";v="99"',
+            "sec-ch-ua-mobile": "?0",
+            "sec-ch-ua-platform": '"Linux"',
+            "Sec-Fetch-Dest": "empty",
+            "Sec-Fetch-Mode": "cors",
+            "Sec-Fetch-Site": "same-site",
+            "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+        }
+
+        if auth_token is not None:
+            headers["X-Auth-Token"] = auth_token
+
+        return headers
+
+    def get_crypt_headers(self, request_id, timestamp, sign, auth_token=None):
+        # sign = md5(format_param + request_id + str(timestamp))
+        auth_token = "A227EBF843724E89A847B23F815D10CA"
+
+        headers = {
             "Accept": "application/json, text/javascript, */*; q=0.01",
             "Accept-Language": "en,zh-CN;q=0.9,zh;q=0.8,ja;q=0.7,es;q=0.6,es-ES;q=0.5",
             "Connection": "keep-alive",
@@ -66,18 +94,29 @@ class birdreport:
             "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
         }
 
-    def get_request_info(self, _data):
+        if auth_token is not None:
+            headers["X-Auth-Token"] = auth_token
+
+        return headers
+
+    def get_crypt_request_info(self, _data):
         format_data = self.format(_data)
         encrypt_data = self.encrypt(format_data)
         timestamp = self.getTimestamp()
         request_id = self.getRequestId()
         concat = format_data + request_id + str(timestamp)
         sign = self.md5(concat)
-        headers = self.get_headers(request_id, timestamp, sign)
+        headers = self.get_crypt_headers(request_id, timestamp, sign)
         print(format_data)
         print(sign)
         print(encrypt_data)
         return headers, encrypt_data
+
+    def get_request_info(self, _data):
+        format_data = json.dumps(_data)
+        headers = self.get_headers()
+        print(format_data)
+        return headers, format_data
 
     def get_report_detail(self, aid):
         format_params = f"activityid={str(aid)}"
@@ -91,6 +130,18 @@ class birdreport:
         return self.get_decrypted_data(
             format_params,
             "https://api.birdreport.cn/front/activity/taxon",
+        )
+
+    def search_hotspots_by_name(self, name: str):
+        params = {
+            "limit": 100,
+            "keywords": name,
+            "t": self.getTimestamp(),
+        }
+        # format_params = urllib.parse.urlencode(params)
+        format_params = params
+        return self.get_data(
+            format_params, "https://api.birdreport.cn/member/system/point/hots"
         )
 
     def get_report_url_list(self, page, limit, data):
@@ -123,7 +174,7 @@ class birdreport:
 
     def get_decrypted_data(self, format_param, url):
         # 构造请求头，和请求参数加密
-        headers, encrypt_data = self.get_request_info(format_param)
+        headers, encrypt_data = self.get_crypt_request_info(format_param)
 
         response = requests.post(url, headers=headers, data=encrypt_data)
         encrypt_res = response.json()
@@ -131,6 +182,12 @@ class birdreport:
         # 解密数据
         _data = self.decrypt(encrypt_res["data"])
         return json.loads(_data)
+
+    def get_data(self, param, url):
+        headers, format_param = self.get_request_info(param)
+
+        response = requests.post(url, headers=headers, data=format_param)
+        return response.json()
 
     def get_all_report_url_list(self, data):
         _data_list = []

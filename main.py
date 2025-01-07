@@ -9,14 +9,15 @@ import json
 # # print(info)
 
 y = birdreport.birdreport()
-province = "山东省"
-checklists2 = y.search(
-    startTime=y.get_back_date(0), province=province, pointname="莱西"
-)
-with open("result.json", "w") as f:
-    json.dump(checklists2, f, indent=2, ensure_ascii=False)
-# y.show(checklists)
-info2 = y.spp_info(checklists2)
+print(y.search_hotspots_by_name("上海"))
+# province = "山东省"
+# checklists2 = y.search(
+#     startTime=y.get_back_date(0), province=province, pointname="莱西"
+# )
+# with open("result.json", "w") as f:
+#     json.dump(checklists2, f, indent=2, ensure_ascii=False)
+# # y.show(checklists)
+# info2 = y.spp_info(checklists2)
 # print(info2)
 
 # # 整合观测数据
