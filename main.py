@@ -50,6 +50,7 @@ def process_reports(retrieved_reports, cur_reports):
 
 
 async def dump_as_ebird_csv(reports, username, update_date):
+    # FIXME: single csv file should be less than 1MB
     values = []
     for report in reports:
         start_time = time.strptime(report["start_time"], "%Y-%m-%d %H:%M:%S")
@@ -63,6 +64,12 @@ async def dump_as_ebird_csv(reports, username, update_date):
 
         # TODO: add checklist comments
         checklist_comment = report["note"] if "note" in report else ""
+        if checklist_comment != "":
+            checklist_comment += "\\n"
+        # TODO: 可选是否添加
+        checklist_comment += (
+            f"Converted from BirdReport CN, report ID: {report['serial_id']}"
+        )
 
         start_time = time.strftime("%-m/%-d/%Y %H:%M", start_time)
         observation_date, start_time = start_time.split(" ")

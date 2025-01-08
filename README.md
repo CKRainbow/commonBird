@@ -1,5 +1,5 @@
 # commonBird
-`commonBird`是一款旨在互通[中国观鸟记录中心](https://www.birdreport.cn/)和[eBird](https://ebird.org)两款国内鸟人常用软件的小工具，在[qBird](https://github.com/TaQini/qBird)的基础之上改进而来。
+`commonBird`是一款旨在互通[中国观鸟记录中心](https://www.birdreport.cn/)和[eBird](https://ebird.org)两款国内鸟人常用软件的小工具，在[qBird](https://github.com/TaQini/qBird)的基础之上改进而来，部分灵感来源于 https://github.com/sun-jiao/birdreportcn-to-ebird。
 
 ## 预计支持的功能
  - [x] 观鸟记录中心记录一键转换eBird导入文件
@@ -25,6 +25,8 @@
     - 复制`X-Auth-Token`的内容填入即可
     - ![image](./res/bird_report_token.png)
 
+## 目前存在的问题
+* eBird的导入要求文件大小不超过1MB，目前可能需要手动分割
 
 
 ## 欢迎鸟友们一起开发
