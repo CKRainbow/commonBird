@@ -1,4 +1,6 @@
 node_modules
 __pycache__
 result.json
+*_checklists.json
+*.csv
 .env

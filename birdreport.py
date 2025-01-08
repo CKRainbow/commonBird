@@ -1,22 +1,23 @@
 # -*- coding: utf-8 -*- for popen for windows
 from functools import partial
+import multiprocessing
 import subprocess
 
 subprocess.Popen = partial(subprocess.Popen, encoding="utf-8")
+##############################################
 
 import hashlib
 import json
+import asyncio
 
 import execjs
-import pandas as pd
-import requests
+import httpx
 
 import urllib
 import time
 import sys
 
-import threading
-import multiprocessing
+from typing import Callable
 
 
 class Birdreport:
@@ -25,6 +26,14 @@ class Birdreport:
             node_path = "./node_modules"
             self.ctx = execjs.compile(f.read(), cwd=node_path)
         self.token = token
+        self.user_info = None
+
+    @classmethod
+    async def create(cls, token: str):
+        instance = cls(token)
+        user_info = await instance.member_get_user()
+        instance.user_info = user_info
+        return instance
 
     def get_back_date(self, n):
         t = int(time.time()) - n * 60 * 60 * 24
@@ -52,10 +61,8 @@ class Birdreport:
     def format(self, text):
         return self.ctx.call("format", text)
 
-    def get_headers(self, auth_token=None):
+    def get_headers(self):
         # sign = md5(format_param + request_id + str(timestamp))
-        auth_token = "A227EBF843724E89A847B23F815D10CA"
-
         headers = {
             "Accept": "application/json, text/javascript, */*; q=0.01",
             "Accept-Language": "en,zh-CN;q=0.9,zh;q=0.8,ja;q=0.7,es;q=0.6,es-ES;q=0.5",
@@ -64,7 +71,7 @@ class Birdreport:
             "Host": "api.birdreport.cn",
             "Origin": "https://www.birdreport.cn",
             "Referer": "https://www.birdreport.cn/",
-            "sec-ch-ua": '"Chromium";v="130", "Google Chrome";v="130", "Not?A_Brand";v="99"',
+            "sec-ch-ua": '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
             "sec-ch-ua-mobile": "?0",
             "sec-ch-ua-platform": '"Linux"',
             "Sec-Fetch-Dest": "empty",
@@ -73,15 +80,12 @@ class Birdreport:
             "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
         }
 
-        if auth_token is not None:
-            headers["X-Auth-Token"] = auth_token
+        if self.token is not None and self.token != "":
+            headers["X-Auth-Token"] = self.token
 
         return headers
 
-    def get_crypt_headers(self, request_id, timestamp, sign, auth_token=None):
-        # sign = md5(format_param + request_id + str(timestamp))
-        auth_token = "A227EBF843724E89A847B23F815D10CA"
-
+    def get_crypt_headers(self, request_id, timestamp, sign):
         headers = {
             "Accept": "application/json, text/javascript, */*; q=0.01",
             "Accept-Language": "en,zh-CN;q=0.9,zh;q=0.8,ja;q=0.7,es;q=0.6,es-ES;q=0.5",
@@ -91,7 +95,7 @@ class Birdreport:
             "Origin": "https://www.birdreport.cn",
             "Referer": "https://www.birdreport.cn/",
             "requestId": request_id,
-            "sec-ch-ua": '"Chromium";v="130", "Google Chrome";v="130", "Not?A_Brand";v="99"',
+            "sec-ch-ua": '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
             "sec-ch-ua-mobile": "?0",
             "sec-ch-ua-platform": '"Linux"',
             "Sec-Fetch-Dest": "empty",
@@ -99,11 +103,11 @@ class Birdreport:
             "Sec-Fetch-Site": "same-site",
             "sign": sign,
             "timestamp": str(timestamp),
-            "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+            "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
         }
 
-        if auth_token is not None:
-            headers["X-Auth-Token"] = auth_token
+        if self.token is not None and self.token != "":
+            headers["X-Auth-Token"] = self.token
 
         return headers
 
@@ -115,28 +119,89 @@ class Birdreport:
         concat = format_data + request_id + str(timestamp)
         sign = self.md5(concat)
         headers = self.get_crypt_headers(request_id, timestamp, sign)
-        print(format_data)
-        print(sign)
-        print(encrypt_data)
         return headers, encrypt_data
 
     def get_request_info(self, _data):
         format_data = json.dumps(_data)
         headers = self.get_headers()
-        print(format_data)
         return headers, format_data
 
-    def get_report_detail(self, aid):
-        format_params = f"activityid={str(aid)}"
-        a = self.get_decrypted_data(
-            format_params, "https://api.birdreport.cn/front/activity/get"
+    def get_activity_detail(self, aid):
+        params = {
+            "reportId": aid,
+        }
+        a = self.get_data(
+            urllib.parse.urlencode(params),
+            "https://api.birdreport.cn/front/activity/get",
         )
         return a
 
+    async def member_get_activity_detail(self, serial_id):
+        params = {
+            "id": str(serial_id),
+        }
+
+        return await self.get_data(
+            params,
+            "https://api.birdreport.cn/member/system/activity/get",
+            encode=False,
+            decode=False,
+        )
+
+    async def member_get_taxon_stat(self, serial_id):
+        params = {
+            "activity_id": str(serial_id),
+        }
+
+        return await self.get_data(
+            params,
+            "https://api.birdreport.cn/member/system/record/groupTaxon",
+            encode=False,
+        )
+
+    async def member_get_taxon_detail(self, serial_id):
+        params = {
+            "activity_id": str(serial_id),
+        }
+
+        return await self.get_data(
+            params,
+            "https://api.birdreport.cn/member/system/record/search",
+            encode=False,
+        )
+
+    async def member_get_user(self):
+        params = {}
+
+        result = await self.get_data(
+            params,
+            "https://api.birdreport.cn/member/system/user/get",
+            encode=False,
+            decode=False,
+        )
+
+        return result["data"]
+
+    async def member_get_excel(self, ids):
+        params = {"ids": ",".join([str(id) for id in ids])}
+
+        result = await self.get_data(
+            params,
+            "https://api.birdreport.cn/member/system/record/excel",
+            encode=False,
+            decode=False,
+        )
+
+        return result["data"]
+
     def get_taxon(self, aid):
-        format_params = f"page=1&limit=1500&reportId={aid}"
-        return self.get_decrypted_data(
-            format_params,
+        params = {
+            "reportId": aid,
+            "page": "1",
+            "limit": "1500",
+        }
+        return self.get_data(
+            urllib.parse.urlencode(params),
             "https://api.birdreport.cn/front/activity/taxon",
         )
 
@@ -149,7 +214,10 @@ class Birdreport:
         # format_params = urllib.parse.urlencode(params)
         format_params = params
         return self.get_data(
-            format_params, "https://api.birdreport.cn/member/system/point/hots"
+            format_params,
+            "https://api.birdreport.cn/member/system/point/hots",
+            encode=False,
+            decode=False,
         )
 
     def get_report_url_list(self, page, limit, data):
@@ -168,50 +236,43 @@ class Birdreport:
             "serial_id": f"{data['serial_id']}",  # 记录编号
             "ctime": f"{data['ctime']}",  # 精确日期
             "state": f"{data['state']}",  # 2 公开 1,3 私密
-            "mode": "0",  # 0:模糊搜索 1:精确搜索
-            "outside_type": "0",  # 是否为标红报告
+            "mode": f"{data['mode']}",  # 0:模糊搜索 1:精确搜索
+            "outside_type": "",  # 是否为标红报告
         }
-        print(params)
 
-        # format_params = f"page={page}&limit={limit}&taxonid=&startTime={start}&endTime={end}&province=%E5%8C%97%E4%BA%AC%E5%B8%82&city=%E5%8C%97%E4%BA%AC%E5%B8%82&district=&pointname=&username=&serial_id=&ctime=&taxonname=&state=2&mode=0&outside_type=0"
-        a = self.get_decrypted_data(
+        a = self.get_data(
             urllib.parse.urlencode(params),
             "https://api.birdreport.cn/front/record/activity/search",
         )
         return a
 
-    def get_decrypted_data(self, format_param, url):
-        # 构造请求头，和请求参数加密
-        headers, encrypt_data = self.get_crypt_request_info(format_param)
+    async def get_data(self, param, url, encode=True, decode=True):
+        if encode:
+            headers, format_param = self.get_crypt_request_info(param)
+        else:
+            headers, format_param = self.get_request_info(param)
 
-        response = requests.post(url, headers=headers, data=encrypt_data)
-        encrypt_res = response.json()
-        print(encrypt_res)
-        # 解密数据
-        _data = self.decrypt(encrypt_res["data"])
-        return json.loads(_data)
+        async with httpx.AsyncClient() as client:
+            response = await client.post(url, headers=headers, data=format_param)
+        if decode:
+            encrypt_res = response.json()
+            _data = json.loads(self.decrypt(encrypt_res["data"]))
+        else:
+            _data = response.json()
+        return _data
 
-    def get_data(self, param, url):
-        headers, format_param = self.get_request_info(param)
-
-        response = requests.post(url, headers=headers, data=format_param)
-        return response.json()
-
-    def get_all_report_url_list(self, data):
-        _data_list = []
+    async def get_all_report_url_list(self, data, report_api: Callable, limit=50):
         page = 1
-        limit = 50
+        limit = limit
         _data_list = []
         while 1:
             try:
-                report_list = self.get_report_url_list(page, limit, data)
-                print(report_list)
+                report_list = await report_api(page, limit, **data)
                 for report in report_list:
-                    if report["state"] == 1:
-                        continue
                     _data_list.append(report)
                 print(f"获取第{page}页")
             except Exception as e:
+                print(e)
                 continue
             if len(report_list) == 0:
                 break
@@ -219,17 +280,129 @@ class Birdreport:
                 break
             page += 1
         print(f"正在获取{len(_data_list)}份报告")
-        # with open("aid.txt", "w+", encoding="utf-8") as _f:
-        #     for _item in _data_list:
-        #         _f.write(json.dumps(_item))
-        #         _f.write("\n")
         return _data_list
+
+    async def member_get_reports(
+        self,
+        start_date="",
+        end_date="",
+        point_name="",
+        serial_id="",
+        state="",
+        taxon_id="",
+    ):
+        params = {
+            "start_date": f"{start_date}",
+            "end_date": f"{end_date}",
+            "point_name": f"{point_name}",
+            "serial_id": f"{serial_id}",
+            "state": f"{state}",
+            "taxon_id": f"{taxon_id}",
+        }
+
+        reports = await self.get_all_report_url_list(
+            params, self.member_search, limit=200
+        )
+        checklists = {
+            report["id"]: report for report in reports if report["is_convert"] == 0
+        }
+        ids = list(checklists.keys())
+        excel_data = await self.member_get_excel(ids)
+        for taxon_entry in excel_data:
+            checklist = checklists[taxon_entry["activity_id"]]
+            if "obs" not in checklist:
+                checklist["obs"] = []
+            checklist["obs"].append(taxon_entry)
+
+        return list(checklists.values())
+
+    async def member_search(
+        self,
+        page,
+        limit,
+        start_date="",
+        end_date="",
+        point_name="",
+        serial_id="",
+        state="",
+        taxon_id="",
+    ):
+        params = {
+            "start_date": f"{start_date}",
+            "start": f"{start_date}",
+            "end_date": f"{end_date}",
+            "end": f"{end_date}",
+            "point_name": f"{point_name}",
+            "serial_id": f"{serial_id}",
+            "state": f"{state}",
+            "taxon_id": f"{taxon_id}",
+            "page": f"{page}",
+            "limit": f"{limit}",
+        }
+
+        res = await self.get_data(
+            params,
+            "https://api.birdreport.cn/member/system/activity/search",
+            encode=False,
+            decode=True,
+        )
+        return res
+
+    async def get_taxon_from_reports(self, reports):
+        if len(reports) <= 0:
+            return []
+        is_member = "id" in reports[0]
+
+        id_detail = {}
+
+        for item in reports:
+            if is_member:
+                id = item["id"]
+            else:
+                id = item["reportId"]
+            id_detail[id] = item
+
+        async def get_detail_and_taxon(self, report, id):
+            if is_member:
+                detail = await self.member_get_activity_detail(id)
+                taxons = await self.member_get_taxon_stat(id)
+                print(f"已获取报告[{id}]")
+                report["obs"] = taxons
+                for key, value in detail["data"].items():
+                    if value is None:
+                        continue
+                    report[key] = value
+            else:
+                detail = await self.get_activity_detail(id)
+                taxons = await self.get_taxon(id)
+                print(f"已获取报告[{id}]")
+                report["obs"] = taxons
+                for key, value in detail.items():
+                    if value is None:
+                        continue
+                    report[key] = value
+
+        # get cpu number
+        cpu_count = multiprocessing.cpu_count()
+        batch_size = cpu_count // 2
+
+        id_detail_items = list(id_detail.items())
+        for i in range(0, len(id_detail), batch_size):
+            tasks = [
+                get_detail_and_taxon(self, report, id)
+                for id, report in id_detail_items[i : i + batch_size]
+            ]
+            await asyncio.gather(*tasks)
+
+        print(f"已获取{len(id_detail)}份报告")
+
+        return list(id_detail.values())
 
     def search(
         self,
         taxonid="",
-        startTime="",
-        endTime="",
+        start_date="",
+        end_date="",
         province="",
         city="",
         district="",
@@ -239,13 +412,12 @@ class Birdreport:
         ctime="",
         taxonname="",
         state="",
+        mode="",
     ):
-        # df = {"位置": [], "坐标": [], "名称": [], "数量": []}
-
         data = {
             "taxonid": f"{taxonid}",
-            "startTime": f"{startTime}",
-            "endTime": f"{endTime}",
+            "startTime": f"{start_date}",
+            "endTime": f"{end_date}",
             "province": f"{province}",
             "city": f"{city}",
             "district": f"{district}",
@@ -255,52 +427,13 @@ class Birdreport:
             "ctime": f"{ctime}",
             "taxonname": f"{taxonname}",
             "state": f"{state}",
+            "mode": f"{mode}",
         }
 
-        res = self.get_all_report_url_list(data)
-        id_list = []
-        id_detail = {}
-
-        checklists = []
-        for item in res:
-            id_detail[item["reportId"]] = item
-            id_list.append(item["reportId"])
-
-        print(id_list)
-
-        lock = threading.Lock()
-
-        # get obs in checklist
-        def loop():
-            while len(id_list):
-                lock.acquire()
-                _id = id_list.pop()
-                lock.release()
-
-                # detail = self.get_report_detail(_id)
-                detail = id_detail[_id]
-                print("thread %s >>> %s" % (threading.current_thread().name, _id))
-                # print('detail',detail)
-                taxons = self.get_taxon(_id)
-                print(taxons)
-                # print(json.dumps(taxons,sort_keys=True, indent=4, separators=(',', ': ')))
-                # print('taxons',taxons)
-                detail["obs"] = taxons
-                checklists.append(detail)
-                # print(json.dumps(detail,sort_keys=True, indent=4, separators=(',', ': ')))
-
-        t = []
-        for i in range(multiprocessing.cpu_count()):
-            t.append(threading.Thread(target=loop))
-            t[i].start()
-        for i in range(multiprocessing.cpu_count()):
-            t[i].join()
-
-        print(f"已获取{len(checklists)}份报告")
+        res = self.get_all_report_url_list(data, self.get_report_url_list)
+        checklists = self.get_taxon_from_reports(res)
 
         return checklists
-        # data_frame = pd.DataFrame(df)
-        # data_frame.to_excel("info.xlsx", index=False)
 
     def show(self, checklists):
         for item in checklists:
@@ -333,6 +466,21 @@ class Birdreport:
 
 
 if __name__ == "__main__":
-    y = Birdreport()
-    data = y.get_taxon("194c4e0-be24-4564-b778-9ab96eed1341")
-    print(data)
+    y = Birdreport("C13DF775D76141118015EFDD28265E98")
+
+    async def test():
+        # result = await asyncio.create_task(y.member_get_taxon_detail(1142574))
+        result = await asyncio.create_task(
+            y.member_get_reports(start_date="2025-01-06")
+        )
+        print(result)
+
+    asyncio.run(test())
+    # asyncio.run(test())
+    # data = y.search(
+    #     username="ckrainbow", mode=1, start_date="2025-01-01", end_date="2025-01-02"
+    # )
+    # data = y.member_get_activity_detail(1121437)
+    # data = y.search_hotspots_by_name("上海科技")
+    # data = y.get_activity_detail("7445f741-a468-469d-93ac-39779c92770b")
+    # print(data)

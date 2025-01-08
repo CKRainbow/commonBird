@@ -1,5 +1,5 @@
 pandas
 PyExecJS
-Requests
 textual
 textual-dev
+httpx
