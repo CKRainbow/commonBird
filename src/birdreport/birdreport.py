@@ -9,21 +9,23 @@ subprocess.Popen = partial(subprocess.Popen, encoding="utf-8")
 import hashlib
 import json
 import asyncio
+import os
+import urllib
+import time
+import sys
+from typing import Callable
+from pathlib import Path
 
 import execjs
 import httpx
 
-import urllib
-import time
-import sys
-
-from typing import Callable
+from .. import inner_path
 
 
 class Birdreport:
     def __init__(self, token: str):
-        with open("./jQuertAjax.js", "r", encoding="utf-8") as f:
-            node_path = "./node_modules"
+        with open(Path(inner_path) / "jQuertAjax.js", "r", encoding="utf-8") as f:
+            node_path = Path(inner_path) / "node_modules"
             self.ctx = execjs.compile(f.read(), cwd=node_path)
         self.token = token
         self.user_info = None

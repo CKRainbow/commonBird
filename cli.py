@@ -1,4 +1,5 @@
 import json
+from math import exp
 import os
 import asyncio
 import csv
@@ -6,8 +7,9 @@ import time
 import pytz
 from datetime import datetime
 from pathlib import Path
+from itertools import count
 
-from dotenv import load_dotenv, find_dotenv, set_key
+from dotenv import load_dotenv, set_key
 from textual import work
 from textual.app import App, ComposeResult
 from textual.screen import Screen, ModalScreen
@@ -15,10 +17,12 @@ from textual.containers import VerticalScroll, HorizontalGroup, Grid
 from textual.widgets import Footer, Header, Button, Label, Input, LoadingIndicator
 
 from src.birdreport.birdreport import Birdreport
+from src import application_path
 
-if not find_dotenv():
-    open(".env", "a").close()
-load_dotenv(".env")
+env_path = Path(application_path) / ".env"
+if not env_path.exists():
+    open(env_path, "a").close()
+load_dotenv(env_path)
 
 EBIRD_RECORD_HEADER = [
     "Common Name",  # Required or Species
@@ -119,18 +123,13 @@ async def dump_as_ebird_csv(reports, username, update_date):
             values.append(csv_line)
             print(csv_line)
 
-    with open(f"{username}_{update_date}_checklists.csv", "w", newline="") as f:
+    with open(
+        Path(application_path) / f"{username}_{update_date}_checklists.csv",
+        "w",
+        newline="",
+    ) as f:
         writer = csv.writer(f)
         writer.writerows(values)
-
-
-def store_token(tokenInputResult: dict) -> None:
-    set_key(
-        dotenv_path=".env",
-        key_to_set=tokenInputResult["token_name"],
-        value_to_set=tokenInputResult["token"],
-    )
-    load_dotenv(".env")
 
 
 class TokenInputScreen(ModalScreen):
@@ -250,7 +249,9 @@ class BirdreportToEbirdScreen(Screen):
             )
 
             with open(
-                f"./{username}_{self.cur_date}_checklists.json", "w", encoding="utf-8"
+                Path(application_path) / f"{username}_{self.cur_date}_checklists.json",
+                "w",
+                encoding="utf-8",
             ) as f:
                 json.dump(self.app.cur_birdreport_data, f, ensure_ascii=False, indent=2)
 
@@ -293,14 +294,23 @@ class BirdreportToEbirdScreen(Screen):
             )
 
 
-class BirdreportScreen(Screen):
+class DomainScreen(Screen):
+    def store_token(self, token_name, token) -> None:
+        set_key(
+            dotenv_path=env_path,
+            key_to_set=token_name,
+            value_to_set=token,
+        )
+        load_dotenv(env_path)
+
+
+class BirdreportScreen(DomainScreen):
     def __init__(self, **kwargs):
         super().__init__(kwargs)
         self.change_token_hint = (
             "请输入观鸟记录中心的认证token\n具体获取方法参加 README.md 说明文件"
         )
         self.token_name = "BIRDREPORT_TOKEN"
-        self.birdreport = None
 
     def compose(self) -> ComposeResult:
         yield VerticalScroll(
@@ -328,41 +338,79 @@ class BirdreportScreen(Screen):
             classes="option_container",
         )
 
+    @work
     async def on_button_pressed(self, event: Button.Pressed) -> None:
         if event.button.id == "change_token":
-            self.app.push_screen(
-                TokenInputScreen(self.token_name, self.change_token_hint),
-                store_token,
-            )
             token = os.getenv(self.token_name)
-            if (
-                not hasattr(self.app, "birdreport")
-                or self.app.birdreport.token != token
-            ):
-                self.app.birdreport = await Birdreport.create(token)
+            for i in count(0):
+                if i == 0:
+                    text = self.change_token_hint
+                else:
+                    text = "先前输入的token无效，请重新输入。"
+                try:
+                    if i == 0:
+                        raise Exception
+                    self.store_token(self.token_name, token)
+                    token = os.getenv(self.token_name)
+                    if (
+                        not hasattr(self.app, "birdreport")
+                        or self.app.birdreport.token != token
+                    ):
+                        self.app.birdreport = await Birdreport.create(token)
+                    break
+                except Exception:
+                    token_result = await self.app.push_screen_wait(
+                        TokenInputScreen(self.token_name, text),
+                    )
+                    token = token_result["token"]
         elif event.button.id == "retrieve_report":
             self.app.push_screen(
-                BirdreportSearchReportScreen(self.birdreport),
+                BirdreportSearchReportScreen(self.app.birdreport),
             )
         elif event.button.id == "convert_ebird":
             self.app.push_screen(BirdreportToEbirdScreen())
         elif event.button.id == "back":
             self.app.pop_screen()
 
+    def store_token(self, token_name: str, token: str) -> None:
+        # the token must be 32 characters and consists of only number and letters
+        if len(token) != 32 or not token.isalnum():
+            raise ValueError(
+                "token must be 32 characters and consists of only number and letters"
+            )
+
+        super().store_token(token_name, token)
+
+    @work
     async def on_mount(self) -> None:
         self.title = "中国观鸟记录中心"
         self.sub_title = "可能会对记录中心服务器带来压力，酌情使用"
-        if not os.getenv(self.token_name):
-            self.app.push_screen(
-                TokenInputScreen(self.token_name, self.change_token_hint),
-                store_token,
-            )
         token = os.getenv(self.token_name)
-        if not hasattr(self.app, "birdreport") or self.app.birdreport.token != token:
-            self.app.birdreport = await Birdreport.create(token)
+        print(token)
+        for i in count(0):
+            if i == 0:
+                text = self.change_token_hint
+            else:
+                text = "先前输入的token无效，请重新输入。"
+            try:
+                if not token:
+                    raise Exception
+                self.store_token(self.token_name, token)
+                token = os.getenv(self.token_name)
+                if (
+                    not hasattr(self.app, "birdreport")
+                    or self.app.birdreport.token != token
+                ):
+                    self.app.birdreport = await Birdreport.create(token)
+                break
+            except Exception:
+                token_result = await self.app.push_screen_wait(
+                    TokenInputScreen(self.token_name, text),
+                )
+                token = token_result["token"]
 
 
-class EbirdScreen(Screen):
+class EbirdScreen(DomainScreen):
     def __init__(self, **kwargs):
         super().__init__(kwargs)
         self.change_token_hint = (
@@ -376,19 +424,21 @@ class EbirdScreen(Screen):
             classes="option_container",
         )
 
-    def on_button_pressed(self, event: Button.Pressed) -> None:
+    @work
+    async def on_button_pressed(self, event: Button.Pressed) -> None:
         if event.button.id == "change_token":
-            self.app.push_screen(
+            token_result = await self.app.push_screen_wait(
                 TokenInputScreen(self.token_name, self.change_token_hint),
-                store_token,
             )
+            self.store_token(token_result)
 
-    def on_mount(self) -> None:
+    @work
+    async def on_mount(self) -> None:
         if not os.getenv(self.token_name):
-            self.app.push_screen(
+            token_result = await self.app.push_screen_wait(
                 TokenInputScreen(self.token_name, self.change_token_hint),
-                store_token,
             )
+            self.store_token(token_result)
 
 
 class CommonBirdApp(App):
