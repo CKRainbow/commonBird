@@ -3,3 +3,5 @@ PyExecJS
 textual
 textual-dev
 httpx
+pyinstaller
+python-dotenv

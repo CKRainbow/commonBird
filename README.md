@@ -14,7 +14,7 @@
     - 执行`pip install -r requirements.txt`安装 python 依赖项
 
 - 如何使用
-    - 执行`python main.py`即可运行
+    - 执行`python cli.py`即可运行
 
 - 如何获取观鸟记录中心的认证 Token
     - 打开观鸟记录中心[用户中心](birdreport.cn/member)

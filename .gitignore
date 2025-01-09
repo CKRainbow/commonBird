@@ -1,5 +1,8 @@
 node_modules
+build
+dist
 __pycache__
+
 result.json
 *_checklists.json
 *.csv

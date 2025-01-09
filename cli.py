@@ -14,8 +14,7 @@ from textual.screen import Screen, ModalScreen
 from textual.containers import VerticalScroll, HorizontalGroup, Grid
 from textual.widgets import Footer, Header, Button, Label, Input, LoadingIndicator
 
-import ebird
-from birdreport import Birdreport
+from src.birdreport.birdreport import Birdreport
 
 if not find_dotenv():
     open(".env", "a").close()
@@ -355,7 +354,7 @@ class BirdreportScreen(Screen):
         self.sub_title = "可能会对记录中心服务器带来压力，酌情使用"
         if not os.getenv(self.token_name):
             self.app.push_screen(
-                TokenInputScreen(self.change_token_hint),
+                TokenInputScreen(self.token_name, self.change_token_hint),
                 store_token,
             )
         token = os.getenv(self.token_name)
@@ -428,46 +427,10 @@ class CommonBirdApp(App):
             self.exit()
 
 
-if __name__ == "__main__":
+def main():
     app = CommonBirdApp()
     app.run()
 
 
-# x = ebird.ebird(config.token)
-# checklists = x.search(startTime=x.get_back_date(3),endTime=x.get_back_date(0))
-# # x.show(checklists)
-# info = x.spp_info(checklists)
-# # print(info)
-
-# y = birdreport.birdreport()
-# print(y.search_hotspots_by_name("上海"))
-# province = "山东省"
-# checklists2 = y.search(
-#     startTime=y.get_back_date(0), province=province, pointname="莱西"
-# )
-# with open("result.json", "w") as f:
-#     json.dump(checklists2, f, indent=2, ensure_ascii=False)
-# # y.show(checklists)
-# info2 = y.spp_info(checklists2)
-# print(info2)
-
-# # 整合观测数据
-# merge = info2
-# for i in info:
-#     if i not in merge:
-#         merge[i] = info[i]
-#     else:
-#         merge[i] += info[i]
-
-# f = open('./test.db','w+')
-# f.write(str(merge))
-# f.close()
-# print(merge)
-
-# sp = 'lewduc1'
-# sciName = x.get_sciName_from_speciesCode(sp)
-# comName = x.get_comName_from_speciesCode(sp)
-# print(sciName,comName)
-# sp1 = x.get_speciesCode_from_sciName(sciName)
-# comName1 = x.get_comName_from_sciName(sciName)
-# print(sp1,comName1)
+if __name__ == "__main__":
+    main()
