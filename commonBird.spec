@@ -5,7 +5,7 @@ a = Analysis(
     ['cli.py'],
     pathex=[],
     binaries=[],
-    datas=[('common_bird_app.tcss', '.'), ('jQuertAjax.js', '.'), ('node_modules', '.')],
+    datas=[('common_bird_app.tcss', '.'), ('jQuertAjax.js', '.'), ('node_modules', './node_modules')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},

@@ -9,10 +9,9 @@ subprocess.Popen = partial(subprocess.Popen, encoding="utf-8")
 import hashlib
 import json
 import asyncio
-import os
 import urllib
 import time
-import sys
+import logging
 from typing import Callable
 from pathlib import Path
 
