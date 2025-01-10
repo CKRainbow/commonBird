@@ -1,22 +1,24 @@
+# Not needed?
 # -*- coding: utf-8 -*- for popen for windows
-from functools import partial
-import multiprocessing
-import subprocess
-
-subprocess.Popen = partial(subprocess.Popen, encoding="utf-8")
+# from functools import partial
+# import subprocess
+# subprocess.Popen = partial(subprocess.Popen, encoding="utf-8")
 ##############################################
 
+import multiprocessing
 import hashlib
 import json
 import asyncio
 import urllib
 import time
+import os
 import logging
 from typing import Callable
 from pathlib import Path
 
 import execjs
 import httpx
+from dotenv import load_dotenv
 
 from .. import inner_path
 
@@ -189,6 +191,18 @@ class Birdreport:
         result = await self.get_data(
             params,
             "https://api.birdreport.cn/member/system/record/excel",
+            encode=False,
+            decode=False,
+        )
+
+        return result["data"]
+
+    async def member_get_taxon_list(self):
+        params = {}
+
+        result = await self.get_data(
+            params,
+            "https://api.birdreport.cn/member/system/taxon/list",
             encode=False,
             decode=False,
         )
@@ -467,14 +481,15 @@ class Birdreport:
 
 
 if __name__ == "__main__":
-    y = Birdreport("C13DF775D76141118015EFDD28265E98")
+    load_dotenv()
+    y = Birdreport(os.getenv("BIRDREPORT_TOKEN"))
 
     async def test():
         # result = await asyncio.create_task(y.member_get_taxon_detail(1142574))
-        result = await asyncio.create_task(
-            y.member_get_reports(start_date="2025-01-06")
-        )
-        print(result)
+        # result = await asyncio.create_task(y.member_get_taxon_list())
+        # with open("bird_report_taxon_list.json", "w", encoding="utf-8") as f:
+        #     json.dump(result, f, ensure_ascii=False, indent=2)
+        pass
 
     asyncio.run(test())
     # asyncio.run(test())

@@ -5,3 +5,4 @@ textual-dev
 httpx
 pyinstaller
 python-dotenv
+ebird-api

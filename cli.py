@@ -53,15 +53,92 @@ EBIRD_RECORD_HEADER = [
     "Checklist Comments",
 ]
 
+Z3_TO_Z4 = {
+    "大山雀": "欧亚大山雀",
+    "远东山雀": "大山雀",
+    "黑胸山鹪莺": "黑喉山鹪莺",
+    "黑喉山鹪莺": "白喉山鹪莺",
+    "怀氏虎鸫": "虎斑地鸫",
+    "虎斑地鸫": "小虎斑地鸫",
+    "理氏鹨": "田鹨",
+    "田鹨": "东方田鹨",
+    "喜山红眉朱雀": "红眉朱雀",
+    "红眉朱雀": "中华朱雀",
+    "点翅朱雀": "淡腹点翅朱雀",
+    "喜山点翅朱雀": "点翅朱雀",
+    "灰眉岩鹀": "淡灰眉岩鹀",
+    "戈氏岩鹀": "灰眉岩鹀",
+}
 
-def process_reports(retrieved_reports, cur_reports):
+# TODO: Or use scientific name?
+Z4_TO_EBIRD = {
+    "淡腹点翅朱雀": "点翅朱雀",
+    "点翅朱雀": "喜山点翅朱雀",
+    "东方田鹨": "田鹨",
+    "田鹨": "理氏鹨",
+    "斑林鸽": "点斑林鸽",
+    "毛腿夜鹰": "毛腿耳夜鹰",
+    "库氏白腰雨燕": "印支白腰雨燕",
+    "红脚斑秧鸡": "红腿斑秧鸡",
+    "西秧鸡": "西方秧鸡",
+    "白眉苦恶鸟": "白胸苦恶鸟",
+    "黄斑苇鳽": "黄苇鳽",
+    "黑苇鳽": "黑鳽",
+    "栗头鳽": "栗鳽",
+    "绿背鸬鹚": "暗绿背鸬鹚",
+    "金鸻": "金斑鸻",
+    "灰鸻": "灰斑鸻",
+    "西滨鹬": "西方滨鹬",
+    "小黑背银鸥": "小黑背鸥",
+    "灰翅浮鸥": "须浮鸥",
+    "绿拟啄木鸟": "斑头绿拟啄木鸟",
+    "金背啄木鸟": "金背三趾啄木鸟",
+    "纹喉绿啄木鸟": "鳞喉绿啄木鸟",
+    "纹腹啄木鸟": "纹胸啄木鸟",
+    "鹊鹂": "鹊色鹂",
+    "西灰伯劳": "西方灰伯劳",
+    "四川褐头山雀": "川褐头山雀",
+    "中华短趾百灵": "蒙古短趾百灵",
+    "短趾百灵": "亚洲短趾百灵",
+    "白喉山鹪莺": "黑喉山鹪莺",
+    "黑喉山鹪莺": "黑胸山鹪莺",
+    "噪苇莺": "噪大苇莺",
+    "蒲苇莺": "水蒲苇莺",
+    "芦莺": "芦苇莺",
+    "淡色崖沙燕": "淡色沙燕",
+    "中亚叽喳柳莺": "东方叽喳柳莺",
+    "日本冕柳莺": "饭岛柳莺",
+    "漠白喉林莺": "沙白喉林莺",
+    "细嘴钩嘴鹛": "剑嘴鹛",
+    "台湾噪鹛": "玉山噪鹛",
+    "红顶噪鹛": "金翅噪鹛",
+    "栗额斑翅鹛": "锈额斑翅鹛",
+    "白腹暗蓝鹟": "琉璃蓝鹟",
+    "喜山蓝短翅鸫": "喜山短翅鸫",
+    "台湾蓝短翅鸫": "台湾短翅鸫",
+    "蓝额地鸲": "蓝额长脚地鸲",
+    "西南橙腹叶鹎": "橙腹叶鹎",
+    "紫颊太阳鸟": "紫颊直嘴太阳鸟",
+    "紫花蜜鸟": "紫色花蜜鸟",
+    "红眉朱雀": "玫红眉朱雀",
+    "硫黄鹀": "硫磺鹀",
+}
+
+
+def process_reports(reports):
     # TODO: set location
-    pass
+    for report in reports:
+        for taxon in report["obs"]:
+            if "version" == "CH3":
+                if taxon["taxon_name"] in Z3_TO_Z4:
+                    taxon["taxon_name"] = Z3_TO_Z4[taxon["taxon_name"]]
+            if taxon["taxon_name"] in Z4_TO_EBIRD:
+                taxon["taxon_name"] = Z4_TO_EBIRD[taxon["taxon_name"]]
 
 
 async def dump_as_ebird_csv(reports, username, update_date):
     # FIXME: single csv file should be less than 1MB
-    values = []
+    csvs = [[]]
     for report in reports:
         start_time = time.strptime(report["start_time"], "%Y-%m-%d %H:%M:%S")
         end_time = time.strptime(report["end_time"], "%Y-%m-%d %H:%M:%S")
@@ -127,15 +204,18 @@ async def dump_as_ebird_csv(reports, username, update_date):
                 "",
                 checklist_comment,
             )
-            values.append(csv_line)
+            csvs[-1].append(csv_line)
+        if len(csvs[-1]) >= 5000:
+            csvs.append([])
 
-    with open(
-        Path(application_path) / f"{username}_{update_date}_checklists.csv",
-        "w",
-        newline="",
-    ) as f:
-        writer = csv.writer(f)
-        writer.writerows(values)
+    for i in range(len(csvs)):
+        with open(
+            Path(application_path) / f"{username}_{update_date}_checklists_{i}.csv",
+            "w",
+            newline="",
+        ) as f:
+            writer = csv.writer(f)
+            writer.writerows(csvs[i])
 
 
 class TokenInputScreen(ModalScreen):

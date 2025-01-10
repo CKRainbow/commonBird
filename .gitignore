@@ -2,8 +2,9 @@ node_modules
 build
 dist
 __pycache__
+dev
 
-result.json
+log
 *_checklists.json
 *.csv
 .env
