@@ -1,10 +1,8 @@
-# Not needed?
 # -*- coding: utf-8 -*- for popen for windows
 from functools import partial
 import subprocess
 
 subprocess.Popen = partial(subprocess.Popen, encoding="utf-8")
-##############################################
 
 import multiprocessing
 import hashlib
@@ -14,6 +12,7 @@ import urllib
 import time
 import os
 import logging
+import sys
 from typing import Callable
 from pathlib import Path
 
@@ -27,9 +26,13 @@ from .. import inner_path
 class Birdreport:
     def __init__(self, token: str):
         # TODO: python-based js executor like
+        if getattr(sys, "frozen", False):
+            runtime = execjs.get("local_node")
+        else:
+            runtime = execjs.get()
         with open(Path(inner_path) / "jQuertAjax.js", "r", encoding="utf-8") as f:
             node_path = Path(inner_path) / "node_modules"
-            self.ctx = execjs.compile(f.read(), cwd=node_path)
+            self.ctx = runtime.compile(f.read(), cwd=node_path)
         self.token = token
         self.user_info = None
 

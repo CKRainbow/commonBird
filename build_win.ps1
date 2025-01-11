@@ -2,7 +2,7 @@ pyinstaller --name commonBird `
     --add-data "common_bird_app.tcss:." `
     --add-data "jQuertAjax.js:." `
     --add-data "node_modules:node_modules" `
-    --add-binary "$((Get-Command node.exe).Source):node.exe" `
+    --add-binary "$((Get-Command node.exe).Source):." `
     cli.py
 
 npm i markdown-to-html-cli -g

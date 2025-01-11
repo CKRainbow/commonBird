@@ -8,3 +8,4 @@ log
 *_checklists.json
 *.csv
 .env
+*.exe
