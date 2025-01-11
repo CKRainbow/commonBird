@@ -8,7 +8,7 @@ pyinstaller --name commonBird `
     --add-data "common_bird_app.tcss:." `
     --add-data "jQuertAjax.js:." `
     --add-data "node_modules:node_modules" `
-    --add-binary "node-v22.13.0-linux-x64/bin/node:node" `
+    --add-binary "node-v22.13.0-win-x64/bin/node:node" `
     cli.py
 
 # compress the build
