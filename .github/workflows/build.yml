@@ -112,7 +112,8 @@ jobs:
         merge-multiple: true
     - name: Get tag
       id: get_tag
-      run: echo "tag=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+      run: |
+      echo "tag=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
         
     - name: Create Release and Upload Assets
       uses: softprops/action-gh-release@v2

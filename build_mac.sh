@@ -11,4 +11,4 @@ pyinstaller --name commonBird \
 cp README.md dist/commonBird
 
 # compress the build
-tar cvzf commonBird_linux_64.tar.gz dist/commonBird
+tar cvzf commonBird_mac_x64.tar.gz dist/commonBird

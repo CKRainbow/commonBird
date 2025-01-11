@@ -8,4 +8,4 @@ pyinstaller --name commonBird `
 Copy-Item -Path "README.md" -Destination "dist/commonBird"
 
 # compress the build
-Compress-Archive -Path "dist/commonBird" -DestinationPath "commonBird_win64.zip"
+Compress-Archive -Path "dist/commonBird" -DestinationPath "commonBird_win_x64.zip"
