@@ -8,14 +8,15 @@
  - [ ] 打包成为exe
  - [ ] 还没想好
  
-## FQA
+## 如何使用
+- 若使用该仓库，执行`python cli.py`即可运行
+- 若使用打包后的软件，双击`commonBird(.exe)`即可运行
+ 
+## FAQ
 - 环境要求
     - 需要具备`node`和`python`环境
     - 执行`npm i`安装 javascript 依赖项
     - 执行`pip install -r requirements.txt`安装 python 依赖项
-
-- 如何使用
-    - 执行`python cli.py`即可运行
 
 - 如何获取观鸟记录中心的认证 Token
     - 打开观鸟记录中心[用户中心](birdreport.cn/member)
