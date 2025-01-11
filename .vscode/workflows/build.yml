@@ -1,0 +1,91 @@
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
+
+name: Build
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v*'
+
+permissions: write-all
+
+jobs:
+  build-linux:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4.1.1
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v5.0.0
+      with:
+        python-version: "3.10"
+    - name: Set up Node.js
+      uses: actions/setup-node@v3.8.1
+      with:
+        node-version: '22'
+    - name: Install dependencies
+      run: |
+        npm i
+        python -m pip install --upgrade pip
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Build
+      run: |
+        bash ./build.sh
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v4.3.1
+      with: 
+        name: "commonBird_linux_64"
+        path: "commonBird_linux_64.tar.gz"
+        retention-days: 7
+
+  build-win:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v4.1.1
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v5.0.0
+      with:
+        python-version: "3.10"
+    - name: Set up Node.js
+      uses: actions/setup-node@v3.8.1
+      with:
+        node-version: '22'
+    - name: Install dependencies
+      run: |
+        npm i
+        python -m pip install --upgrade pip
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Build
+      run: |
+        bash ./build.sh
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v4.3.1
+      with: 
+        name: "commonBird_win_64"
+        path: "commonBird_win_64.zip"
+        retention-days: 7
+
+  release:
+    runs-on: ubuntu-latest
+    needs: [build-linux, build-win]
+    
+    steps:
+    - uses: actions/checkout@v4.1.1
+    - name: Download release built
+      uses: actions/download-artifact@v4.1.2
+      with:
+        pattern: "commonBird_*"
+        merge-multiple: true
+        
+    - name: Create Release and Upload Assets
+      uses: plecto/actions-gh-release@v1
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        draft: false
+        prerelease: false
+        files: |
+          commonBird_*
