@@ -1,8 +1,9 @@
 # Not needed?
 # -*- coding: utf-8 -*- for popen for windows
-# from functools import partial
-# import subprocess
-# subprocess.Popen = partial(subprocess.Popen, encoding="utf-8")
+from functools import partial
+import subprocess
+
+subprocess.Popen = partial(subprocess.Popen, encoding="utf-8")
 ##############################################
 
 import multiprocessing
@@ -25,6 +26,7 @@ from .. import inner_path
 
 class Birdreport:
     def __init__(self, token: str):
+        # TODO: python-based js executor like
         with open(Path(inner_path) / "jQuertAjax.js", "r", encoding="utf-8") as f:
             node_path = Path(inner_path) / "node_modules"
             self.ctx = execjs.compile(f.read(), cwd=node_path)
@@ -318,6 +320,8 @@ class Birdreport:
         reports = await self.get_all_report_url_list(
             params, self.member_search, limit=200
         )
+        if len(reports) == 0:
+            return []
         checklists = {
             report["id"]: report for report in reports if report["is_convert"] == 0
         }

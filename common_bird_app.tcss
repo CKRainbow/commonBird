@@ -17,6 +17,10 @@ ConfirmScreen {
     align: center middle;
 }
 
+MessageScreen {
+    align: center middle;
+}
+
 #dialog {
     grid-size: 2 2;
     grid-gutter: 1 2;

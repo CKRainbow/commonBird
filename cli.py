@@ -107,7 +107,6 @@ Z4_TO_EBIRD = {
     "芦莺": "芦苇莺",
     "淡色崖沙燕": "淡色沙燕",
     "中亚叽喳柳莺": "东方叽喳柳莺",
-    "日本冕柳莺": "饭岛柳莺",
     "漠白喉林莺": "沙白喉林莺",
     "细嘴钩嘴鹛": "剑嘴鹛",
     "台湾噪鹛": "玉山噪鹛",
@@ -117,16 +116,80 @@ Z4_TO_EBIRD = {
     "喜山蓝短翅鸫": "喜山短翅鸫",
     "台湾蓝短翅鸫": "台湾短翅鸫",
     "蓝额地鸲": "蓝额长脚地鸲",
-    "西南橙腹叶鹎": "橙腹叶鹎",
     "紫颊太阳鸟": "紫颊直嘴太阳鸟",
+    "红额金翅雀": "欧红额金翅雀/红额金翅雀",
+    "橙腹叶鹎": "橙腹叶鹎 (灰冠蓝喉)",
+    "丛林鸦": "丛林鸦 (levaillantii)",
+    "日本云雀": "云雀 (东北亚)",
+    "西南橙腹叶鹎": "橙腹叶鹎 (黄冠黑喉)",
+    "日本冕柳莺": "饭岛柳莺",
     "紫花蜜鸟": "紫色花蜜鸟",
-    "红眉朱雀": "玫红眉朱雀",
-    "硫黄鹀": "硫磺鹀",
+    "斑头秋沙鸭": "",
+    "黄喉雉鹑": "",
+    "雉鸡": "",
+    "黑胸鹌鹑": "",
+    "信使圆尾鹱": "",
+    "灰胸秧鸡": "",
+    "白骨顶": "",
+    "红脚田鸡": "",
+    "石鸻": "",
+    "长嘴半蹼鹬": "",
+    "拉氏沙锥": "",
+    "黄胸滨鹬": "",
+    "中华凤头燕鸥": "",
+    "里海银鸥": "",
+    "西伯利亚银鸥": "织女银鸥/蒙古银鸥 (西伯利亚银鸥)",
+    "北棕腹鹰鹃": "",
+    "棕腹鹰鹃": "",
+    "东方中杜鹃": "",
+    "琉球角鸮": "",
+    "北领角鸮": "",
+    "毛腿雕鸮": "",
+    "凤头雨燕": "",
+    "普通雨燕": "",
+    "华西白腰雨燕": "",
+    "红脚隼": "",
+    "蓝腰鹦鹉": "",
+    "印度寿带": "",
+    "北星鸦": "",
+    "星鸦": "",
+    "白翅云雀": "",
+    "双斑百灵": "",
+    "灰喉沙燕": "",
+    "洋燕": "",
+    "喜山黄腹树莺": "",
+    "东亚蝗莺": "",
+    "纹胸鹛": "",
+    "红额穗鹛": "",
+    "灰腹鹩鹛": "",
+    "黑胸楔嘴穗鹛": "",
+    "楔嘴穗鹛": "",
+    "中华草鹛": "",
+    "棕胸雅鹛": "",
+    "灰头薮鹛": "",
+    "中华雀鹛": "",
+    "中南雀鹛": "",
+    "黑颏凤鹛": "",
+    "淡背地鸫": "",
+    "喜山淡背地鸫": "",
+    "四川淡背地鸫": "",
+    "虎斑地鸫": "",
+    "蒂氏鸫": "",
+    "黑喉鸫": "",
+    "旅鸫": "",
+    "侏蓝姬鹟": "",
+    "台湾林鸲": "",
+    "麻雀": "",
+    "红眉朱雀": "",
+    "中华朱雀": "",
+    "褐头朱雀": "",
+    "硫黄鹀": "",
 }
 
 
 def process_reports(reports):
     # TODO: set location
+    pass
     for report in reports:
         for taxon in report["obs"]:
             if "version" == "CH3":
@@ -140,6 +203,11 @@ async def dump_as_ebird_csv(reports, username, update_date):
     # FIXME: single csv file should be less than 1MB
     csvs = [[]]
     for report in reports:
+        # TODO: support CH3
+        version = report["version"]
+        if version == "CH3":
+            continue
+
         start_time = time.strptime(report["start_time"], "%Y-%m-%d %H:%M:%S")
         end_time = time.strptime(report["end_time"], "%Y-%m-%d %H:%M:%S")
         duration = (time.mktime(end_time) - time.mktime(start_time)) // 60
@@ -158,7 +226,8 @@ async def dump_as_ebird_csv(reports, username, update_date):
             f"Converted from BirdReport CN, report ID: {report['serial_id']}"
         )
 
-        start_time = time.strftime("%-m/%-d/%Y %H:%M", start_time)
+        # FIXME: no zero padding for windows
+        start_time = time.strftime("%m/%d/%Y %H:%M", start_time)
         observation_date, start_time = start_time.split(" ")
         country = "CN"
         location_name = report["point_name"]
@@ -167,7 +236,13 @@ async def dump_as_ebird_csv(reports, username, update_date):
         real_quality = report["real_quality"] if "real_quality" in report else None
 
         for entry in report["obs"]:
-            common_name = entry["taxon_name"]
+            if version == "CH4":
+                if entry["taxon_name"] in Z4_TO_EBIRD:
+                    common_name = Z4_TO_EBIRD[entry["taxon_name"]]
+                else:
+                    common_name = entry["taxon_name"]
+            else:
+                pass
             species = entry["latinname"]
             species_count = (
                 entry["taxon_count"]
@@ -212,6 +287,7 @@ async def dump_as_ebird_csv(reports, username, update_date):
         with open(
             Path(application_path) / f"{username}_{update_date}_checklists_{i}.csv",
             "w",
+            encoding="utf-8",
             newline="",
         ) as f:
             writer = csv.writer(f)
@@ -256,6 +332,23 @@ class ConfirmScreen(ModalScreen):
             self.dismiss(True)
         elif event.button.id == "cancel":
             self.dismiss(False)
+
+
+class MessageScreen(ModalScreen):
+    def __init__(self, message: str, **kwargs):
+        super().__init__(kwargs)
+        self.message = message
+
+    def compose(self) -> ComposeResult:
+        yield Grid(
+            Label(self.message, id="messageText"),
+            Button("确定", id="confirm", variant="primary"),
+            id="dialog",
+        )
+
+    def on_button_pressed(self, event: Button.Pressed) -> None:
+        if event.button.id == "confirm":
+            self.dismiss()
 
 
 class BirdreportSearchReportScreen(Screen):
@@ -355,7 +448,7 @@ class BirdreportToEbirdScreen(Screen):
         if len(checklist_files) >= 1:
             checklist_file = checklist_files[0]
             use_existing = await self.app.push_screen_wait(
-                ConfirmScreen(f"文件{checklist_file.name}已经存在，是否使用已有数据？"),
+                ConfirmScreen(f"文件{checklist_file.name}已经存在\n是否使用已有数据？"),
             )
         if use_existing:
             with open(checklist_file, "r", encoding="utf-8") as f:
@@ -367,17 +460,26 @@ class BirdreportToEbirdScreen(Screen):
             self.app.cur_birdreport_data = []
             await load_report()
 
+    @work
     async def on_button_pressed(self, event: Button.Pressed) -> None:
         if event.button.id == "export_to_ebird":
-
-            async def inner(data, username, cur_date):
-                await dump_as_ebird_csv(data, username, cur_date)
-                self.dismiss()
+            if any(
+                map(
+                    lambda x: x["version"] == "CH3",
+                    self.app.cur_birdreport_data,
+                )
+            ):
+                await self.app.push_screen_wait(
+                    MessageScreen(
+                        "检测到郑三版本数据，此类数据暂时不支持导出\n请手动迁移至郑四后重新导出。"
+                    )
+                )
 
             username = self.app.birdreport.user_info["username"]
-            asyncio.create_task(
-                inner(self.app.cur_birdreport_data, username, self.cur_date)
+            await dump_as_ebird_csv(
+                self.app.cur_birdreport_data, username, self.cur_date
             )
+            self.dismiss()
 
 
 class DomainScreen(Screen):
@@ -398,8 +500,7 @@ class BirdreportScreen(DomainScreen):
         )
         self.token_name = "BIRDREPORT_TOKEN"
 
-    def compose(self) -> ComposeResult:
-        yield VerticalScroll(
+        self.composition = VerticalScroll(
             Header(),
             Button(
                 "获取记录",
@@ -472,7 +573,6 @@ class BirdreportScreen(DomainScreen):
         self.title = "中国观鸟记录中心"
         self.sub_title = "可能会对记录中心服务器带来压力，酌情使用"
         token = os.getenv(self.token_name)
-        print(token)
         for i in count(0):
             if i == 0:
                 text = self.change_token_hint
@@ -494,6 +594,8 @@ class BirdreportScreen(DomainScreen):
                     TokenInputScreen(self.token_name, text),
                 )
                 token = token_result["token"]
+
+        await self.mount(self.composition)
 
 
 class EbirdScreen(DomainScreen):
