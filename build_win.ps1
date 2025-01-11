@@ -5,5 +5,7 @@ pyinstaller --name commonBird `
     --add-binary "$((Get-Command node.exe).Source):node.exe" `
     cli.py
 
+Copy-Item -Path "README.md" -Destination "dist/commonBird"
+
 # compress the build
 Compress-Archive -Path "dist/commonBird" -DestinationPath "commonBird_win64.zip"

@@ -8,5 +8,7 @@ pyinstaller --name commonBird \
     --add-binary "$(which node):node" \
     cli.py
 
+cp README.md dist/commonBird
+
 # compress the build
 tar cvzf commonBird_linux_64.tar.gz dist/commonBird
