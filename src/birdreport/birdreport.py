@@ -1,13 +1,8 @@
-# -*- coding: utf-8 -*- for popen for windows
-from functools import partial
-import subprocess
-
-subprocess.Popen = partial(subprocess.Popen, encoding="utf-8")
-
 import multiprocessing
 import hashlib
 import json
 import asyncio
+import subprocess
 import urllib
 import time
 import os
@@ -16,11 +11,14 @@ import sys
 from typing import Callable
 from pathlib import Path
 
-import execjs
 import httpx
 from dotenv import load_dotenv
 
-from .. import inner_path
+from .. import inner_path, MyPopen
+
+subprocess.Popen = MyPopen
+
+import execjs
 
 
 class Birdreport:
@@ -33,6 +31,10 @@ class Birdreport:
         with open(Path(inner_path) / "jQuertAjax.js", "r", encoding="utf-8") as f:
             node_path = Path(inner_path) / "node_modules"
             self.ctx = runtime.compile(f.read(), cwd=node_path)
+        try:
+            self.ctx.call("getTimestamp")
+        except Exception as e:
+            raise e
         self.token = token
         self.user_info = None
 

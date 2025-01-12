@@ -29,3 +29,6 @@ dev = ["textual-dev", "pyinstaller"]
 
 [project.scripts]
 run = "cli:main"
+
+[tool.ruff]
+ignore = ["E402"]

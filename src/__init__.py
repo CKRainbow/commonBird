@@ -1,16 +1,18 @@
 import os
 import sys
+import subprocess
 from pathlib import Path
 
-# -*- coding: utf-8 -*- for popen for windows
-from functools import partial
-import subprocess
 
-subprocess.Popen = partial(subprocess.Popen, encoding="utf-8")
+class MyPopen(subprocess.Popen):
+    def __init__(self, *args, **kwargs):
+        kwargs.setdefault("encoding", "utf-8")
+        super().__init__(*args, **kwargs)
+
+
+subprocess.Popen = MyPopen
 
 import execjs
-
-##############################################
 
 if getattr(sys, "frozen", False):
     inner_path = sys._MEIPASS
