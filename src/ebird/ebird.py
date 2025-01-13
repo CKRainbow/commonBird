@@ -46,11 +46,15 @@ if __name__ == "__main__":
     ebird = EBird(os.getenv("EBIRD_TOKEN"))
 
     async def inner():
-        return await ebird.get_hotspots("CN")
+        result = []
+        result.extend(await ebird.get_hotspots("MO"))
+        result.extend(await ebird.get_hotspots("HK"))
+        result.extend(await ebird.get_hotspots("TW"))
+        return result
 
     result = asyncio.run(inner())
 
-    with open("hotspots.json", "w", encoding="utf-8") as f:
+    with open("new_hotspots.json", "w", encoding="utf-8") as f:
         json.dump(result, f, ensure_ascii=False, indent=2)
 
 # class ebird:

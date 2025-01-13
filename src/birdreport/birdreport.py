@@ -227,17 +227,33 @@ class Birdreport:
             "https://api.birdreport.cn/front/activity/taxon",
         )
 
-    def search_hotspots_by_name(self, name: str):
+    def member_search_hotspots_by_name(self, name: str):
         params = {
             "limit": 100,
             "keywords": name,
             "t": self.getTimestamp(),
         }
-        # format_params = urllib.parse.urlencode(params)
-        format_params = params
+
         return self.get_data(
-            format_params,
+            params,
             "https://api.birdreport.cn/member/system/point/hots",
+            encode=False,
+            decode=False,
+        )
+
+    def member_search_hotspots_nearby(
+        self, distance: int, latitude: float, longitude: float, limit: int = 20
+    ):
+        params = {
+            "distance": f"{distance}",
+            "latitude": f"{latitude}",
+            "longitude": f"{longitude}",
+            "limit": f"{limit}",
+        }
+
+        return self.get_data(
+            params,
+            "https://api.birdreport.cn/member/system/point/nearby",
             encode=False,
             decode=False,
         )
@@ -498,7 +514,8 @@ if __name__ == "__main__":
         # result = await asyncio.create_task(y.member_get_taxon_list())
         # with open("bird_report_taxon_list.json", "w", encoding="utf-8") as f:
         #     json.dump(result, f, ensure_ascii=False, indent=2)
-        pass
+        result = await y.member_search_hotspots_nearby(5, 31.1758, 121.5843, 20)
+        print(result)
 
     asyncio.run(test())
     # asyncio.run(test())
