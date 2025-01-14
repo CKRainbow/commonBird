@@ -10,14 +10,22 @@ from pathlib import Path
 from itertools import count
 
 from dotenv import load_dotenv, set_key
-from textual import work
+from textual import on, work
 from textual.app import App, ComposeResult
 from textual.screen import Screen, ModalScreen
 from textual.containers import VerticalScroll, HorizontalGroup, Grid
-from textual.widgets import Footer, Header, Button, Label, Input, LoadingIndicator
+from textual.widgets import (
+    Footer,
+    Header,
+    Button,
+    Label,
+    Input,
+    LoadingIndicator,
+    Select,
+)
 
 from src.birdreport.birdreport import Birdreport
-from src import application_path
+from src import application_path, database_path
 
 logging.basicConfig(
     filename=application_path / "log",
@@ -390,6 +398,53 @@ class BirdreportSearchReportScreen(Screen):
             asyncio.create_task(background_sleep())
 
 
+class BirdreportToEbirdLocationAssignScreen(Screen):
+    def __init__(self, **kwargs):
+        super().__init__(kwargs)
+        self.location_assign = {}
+        for report in self.app.cur_birdreport_data:
+            point_name = report["point_name"]
+            if point_name not in self.location_assign:
+                self.location_assign[point_name] = {
+                    "province": report["province_name"],
+                    "city": report["city_name"],
+                    "district": report["district_name"],
+                    "reports": [],
+                }
+            self.location_assign[point_name]["reports"].append(report)
+
+    @work
+    async def on_mount(self) -> None:
+        vertical_scroll = VerticalScroll(id="location_assign_scroll")
+        await self.mount(vertical_scroll)
+        # TODO: value 可以直接使用地点名
+        # TODO: 添加一个可以搜索的界面
+        for point_id, (point_name, info) in enumerate(self.location_assign.items()):
+            assign_row = HorizontalGroup(classes="assign_row")
+
+            original_location_name = Label(
+                point_name + "\n" + info["province"] + info["city"] + info["district"]
+            )
+            if point_name in self.app.br_to_ebird_location_map:
+                options = [
+                    (name, idx)
+                    for idx, name in enumerate(
+                        self.app.br_to_ebird_location_map[point_name]
+                    )
+                ]
+            else:
+                options = []
+            selection = Select(options=options, id=f"select_{point_id}")
+
+            await vertical_scroll.mount(assign_row)
+            await assign_row.mount(original_location_name, selection)
+
+    @on(Select.Changed)
+    def on_select_changed(self, event: Select.Changed) -> None:
+        print(event.select.value)
+        print(event.select.id)
+
+
 class BirdreportToEbirdScreen(Screen):
     def __init__(self, **kwargs):
         super().__init__(kwargs)
@@ -402,9 +457,11 @@ class BirdreportToEbirdScreen(Screen):
         username = self.app.birdreport.user_info["username"]
 
         async def load_report(start_date: str = ""):
-            checklists = await self.app.birdreport.member_get_reports(
-                start_date=start_date
-            )
+            # checklists = await self.app.birdreport.member_get_reports(
+            #     start_date=start_date
+            # )
+            if start_date != "":
+                checklists = []
             candi_dup_checklists = list(
                 filter(
                     lambda x: x["start_time"].split(" ")[0] == start_date, checklists
@@ -434,13 +491,12 @@ class BirdreportToEbirdScreen(Screen):
             ) as f:
                 json.dump(self.app.cur_birdreport_data, f, ensure_ascii=False, indent=2)
 
-            grid = self.query_one(VerticalScroll)
             loading_label = self.query_one(LoadingIndicator)
             await loading_label.remove()
-            new_button = Button(
-                "导出为EBird格式", id="export_to_ebird", variant="primary"
-            )
-            grid.mount(new_button)
+            # new_button = Button(
+            #     "导出为EBird格式", id="export_to_ebird", variant="primary"
+            # )
+            # grid.mount(new_button)
 
         checklist_files = list(Path(".").glob(f"{username}_*_checklists.json"))
         use_existing = False
@@ -459,6 +515,13 @@ class BirdreportToEbirdScreen(Screen):
         else:
             self.app.cur_birdreport_data = []
             await load_report()
+
+        if self.app.br_to_ebird_location_map is not None:
+            await self.app.push_screen_wait(BirdreportToEbirdLocationAssignScreen())
+
+        new_button = Button("导出为EBird格式", id="export_to_ebird", variant="primary")
+        grid = self.query_one(VerticalScroll)
+        await grid.mount(new_button)
 
     @work
     async def on_button_pressed(self, event: Button.Pressed) -> None:
@@ -631,6 +694,54 @@ class EbirdScreen(DomainScreen):
 
 class CommonBirdApp(App):
     CSS_PATH = "common_bird_app.tcss"
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+        # TODO: ebird 地点数据处理成dict
+        if (database_path / "ebird_cn_hotspots.json").exists():
+            with open(
+                database_path / "ebird_cn_hotspots.json", "r", encoding="utf-8"
+            ) as f:
+                self.ebird_cn_hotspots = json.load(f)
+        else:
+            self.ebird_cn_hotspots = None
+        if (database_path / "ebird_other_hotspots.json").exists():
+            with open(
+                database_path / "ebird_other_hotspots.json", "r", encoding="utf-8"
+            ) as f:
+                self.ebird_other_hotspots = json.load(f)
+        else:
+            self.ebird_other_hotspots = None
+        if (database_path / "location_map.json").exists():
+            with open(database_path / "location_map.json", "r", encoding="utf-8") as f:
+                self.ebird_to_br_location_map = json.load(f)
+            self.br_to_ebird_location_map = {}
+            for eb_loc_name, locs in self.ebird_to_br_location_map.items():
+                for loc in locs:
+                    if loc not in self.br_to_ebird_location_map:
+                        self.br_to_ebird_location_map[loc] = []
+                    self.br_to_ebird_location_map[loc].append(eb_loc_name)
+        else:
+            self.ebird_to_br_location_map = None
+            self.br_to_ebird_location_map = None
+
+        # all exists or all not exists
+        assert all(
+            (
+                self.ebird_cn_hotspots,
+                self.ebird_other_hotspots,
+                self.ebird_to_br_location_map,
+                self.br_to_ebird_location_map,
+            )
+        ) or all(
+            (
+                not self.ebird_cn_hotspots,
+                not self.ebird_other_hotspots,
+                not self.ebird_to_br_location_map,
+                not self.br_to_ebird_location_map,
+            )
+        )
 
     def compose(self) -> ComposeResult:
         yield Header()

@@ -66,6 +66,7 @@ MessageScreen {
 }
 
 BirdreportToEBirdScreen {
+    align: center middle;
     #export_to_ebird {
         align: center middle;
     }
