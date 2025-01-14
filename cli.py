@@ -20,13 +20,13 @@ from src.birdreport.birdreport import Birdreport
 from src import application_path
 
 logging.basicConfig(
-    filename=Path(application_path) / "log",
+    filename=application_path / "log",
     level=logging.DEBUG,
     format="%(asctime)s %(levelname)s %(message)s",
     datefmt="%Y-%m-%d %H:%M:%S",
 )
 
-env_path = Path(application_path) / ".env"
+env_path = application_path / ".env"
 if not env_path.exists():
     open(env_path, "a").close()
 load_dotenv(env_path)
@@ -285,7 +285,7 @@ async def dump_as_ebird_csv(reports, username, update_date):
 
     for i in range(len(csvs)):
         with open(
-            Path(application_path) / f"{username}_{update_date}_checklists_{i}.csv",
+            application_path / f"{username}_{update_date}_checklists_{i}.csv",
             "w",
             encoding="utf-8",
             newline="",
@@ -428,7 +428,7 @@ class BirdreportToEbirdScreen(Screen):
             )
 
             with open(
-                Path(application_path) / f"{username}_{self.cur_date}_checklists.json",
+                application_path / f"{username}_{self.cur_date}_checklists.json",
                 "w",
                 encoding="utf-8",
             ) as f:

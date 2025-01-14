@@ -14,7 +14,7 @@ from pathlib import Path
 import httpx
 from dotenv import load_dotenv
 
-from .. import inner_path, MyPopen
+from src import inner_path, MyPopen
 
 subprocess.Popen = MyPopen
 
@@ -28,8 +28,8 @@ class Birdreport:
             runtime = execjs.get("local_node")
         else:
             runtime = execjs.get()
-        with open(Path(inner_path) / "jQuertAjax.js", "r", encoding="utf-8") as f:
-            node_path = Path(inner_path) / "node_modules"
+        with open(inner_path / "jQuertAjax.js", "r", encoding="utf-8") as f:
+            node_path = inner_path / "node_modules"
             self.ctx = runtime.compile(f.read(), cwd=node_path)
         try:
             self.ctx.call("getTimestamp")
