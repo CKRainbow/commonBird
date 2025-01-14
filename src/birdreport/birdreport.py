@@ -227,21 +227,23 @@ class Birdreport:
             "https://api.birdreport.cn/front/activity/taxon",
         )
 
-    def member_search_hotspots_by_name(self, name: str):
+    async def member_search_hotspots_by_name(self, name: str):
         params = {
             "limit": 100,
             "keywords": name,
             "t": self.getTimestamp(),
         }
 
-        return self.get_data(
+        result = await self.get_data(
             params,
             "https://api.birdreport.cn/member/system/point/hots",
             encode=False,
             decode=False,
         )
 
-    def member_search_hotspots_nearby(
+        return result["data"]
+
+    async def member_search_hotspots_nearby(
         self, distance: int, latitude: float, longitude: float, limit: int = 20
     ):
         params = {
@@ -251,12 +253,14 @@ class Birdreport:
             "limit": f"{limit}",
         }
 
-        return self.get_data(
+        result = await self.get_data(
             params,
             "https://api.birdreport.cn/member/system/point/nearby",
             encode=False,
             decode=False,
         )
+
+        return result["data"]
 
     def get_report_url_list(self, page, limit, data):
         # format_params = f"page={page}&limit={limit}&taxonid=&startTime=&endTime=&province=&city=&district=&pointname=&username=&serial_id=&ctime=&taxonname=&state=&mode=0&outside_type=0"
