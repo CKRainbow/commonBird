@@ -100,3 +100,26 @@ SelectEbirdHotspotScreen {
         width: 80%;
     }
 }
+
+SearchEbirdHotspotScreen {
+    align: center middle;
+
+    .search_container {
+        grid-size: 5 5;
+        grid-gutter: 1;
+        width: 80%;
+        
+        #hotspot_name {
+            column-span: 4;
+        }
+        
+        #query {
+            column-span: 1;
+        }
+        
+        #hotspot_listview {
+            column-span: 5;
+            row-span: 4;
+        }
+    }
+}

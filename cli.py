@@ -26,8 +26,10 @@ from textual.widgets import (
     ListView,
     ListItem,
 )
+from fuzzywuzzy.fuzz import partial_ratio
 
 from src.birdreport.birdreport import Birdreport
+from src.utils.location import EBIRD_REGION_CODE_TO_NAME
 from src import application_path, database_path
 
 logging.basicConfig(
@@ -401,6 +403,73 @@ class BirdreportSearchReportScreen(Screen):
             asyncio.create_task(background_sleep())
 
 
+class SearchEbirdHotspotScreen(ModalScreen):
+
+    def compose(self) -> ComposeResult:
+        yield Grid(
+            Input(id="hotspot_name"),
+            Button(
+                "查询",
+                id="query",
+                variant="primary",
+            ),
+            ListView(id="hotspot_listview"),
+            classes="search_container",
+        )
+
+    @on(Button.Pressed, "#query")
+    @work
+    async def on_button_pressed(self, event: Button.Pressed) -> None:
+        hotspot_name = self.query_one("#hotspot_name").value
+        if hotspot_name == "":
+            return
+
+        hotspot_listview = self.query_one(ListView)
+        await hotspot_listview.clear()
+
+        # 繁体简体（或许可以都转为简体后搜索）
+        hotspot_infos_cn = filter(
+            lambda x: partial_ratio(hotspot_name, x["locName"]) > 80,
+            self.app.ebird_cn_hotspots.values(),
+        )
+        hotspot_infos_other = filter(
+            lambda x: partial_ratio(hotspot_name, x["locName"]) > 80,
+            self.app.ebird_other_hotspots.values(),
+        )
+
+        hotspot_infos = list(hotspot_infos_cn) + list(hotspot_infos_other)
+
+        if len(hotspot_infos) == 0:
+            hotspot_listview.append(
+                ListItem(
+                    Label("无搜索结果，请尝试其他关键词"),
+                    name=None,
+                    classes="hotspot_item",
+                )
+            )
+            return
+
+        hotspot_listview.append(
+            ListItem(Label("不做修改"), name=None, classes="hotspot_item")
+        )
+        for hotspot_info in hotspot_infos:
+            hotspot_listview.append(
+                ListItem(
+                    Label(
+                        hotspot_info["locName"]
+                        + "\n"
+                        + EBIRD_REGION_CODE_TO_NAME[hotspot_info["subnational1Code"]],
+                    ),
+                    name=hotspot_info["locName"],
+                    classes="hotspot_item",
+                )
+            )
+
+    @on(ListView.Selected)
+    async def on_listview_selected(self, event: ListView.Selected) -> None:
+        self.dismiss(event.item.name)
+
+
 class SelectEbirdHotspotScreen(ModalScreen):
     def __init__(self, point_name: str, hotspots: List[str], **kwargs):
         super().__init__(kwargs)
@@ -428,7 +497,9 @@ class SelectEbirdHotspotScreen(ModalScreen):
                 continue
             hotspot_item = ListItem(
                 Label(
-                    hotspot_name + "\n" + hotspot_info["subnational1Code"],
+                    hotspot_name
+                    + "\n"
+                    + EBIRD_REGION_CODE_TO_NAME[hotspot_info["subnational1Code"]],
                     name=hotspot_name,
                 ),
                 classes="hotspot_item",
@@ -479,6 +550,7 @@ class BirdreportToEbirdLocationAssignScreen(Screen):
             converted_hotspot = Button(
                 "不做修改",
                 name=point_name,
+                id="converted_hotspot_" + str(point_id),
                 classes="converted_hotspot",
                 variant="default",
             )
@@ -486,6 +558,7 @@ class BirdreportToEbirdLocationAssignScreen(Screen):
             search_button = Button(
                 "搜索热点",
                 name=point_name,
+                id="search_button_" + str(point_id),
                 classes="search_button",
                 variant="primary",
             )
@@ -542,14 +615,17 @@ class BirdreportToEbirdLocationAssignScreen(Screen):
 
         self.modify_converted_hotspot(event.button.name, hotspot_name)
 
-    @on(Button.Pressed, ".search_location")
-    def on_button_search_location_presses(self, event: Button.Pressed) -> None:
-        pass
+    @on(Button.Pressed, ".search_button")
+    @work
+    async def on_button_search_location_presses(self, event: Button.Pressed) -> None:
+        result = await self.app.push_screen_wait(SearchEbirdHotspotScreen())
+        point_id = event.button.id.split("_")[-1]
 
-    @on(Select.Changed)
-    def on_select_changed(self, event: Select.Changed) -> None:
-        print(event.select.value)
-        print(event.select.name)
+        button: Button = self.query_one(f"#converted_hotspot_{point_id}")
+
+        button.label = result
+
+        self.modify_converted_hotspot(event.button.name, result)
 
     def modify_converted_hotspot(
         self, point_name: str, converted_hotspot_name: str
@@ -570,11 +646,9 @@ class BirdreportToEbirdScreen(Screen):
         username = self.app.birdreport.user_info["username"]
 
         async def load_report(start_date: str = ""):
-            # checklists = await self.app.birdreport.member_get_reports(
-            #     start_date=start_date
-            # )
-            if start_date != "":
-                checklists = []
+            checklists = await self.app.birdreport.member_get_reports(
+                start_date=start_date
+            )
             candi_dup_checklists = list(
                 filter(
                     lambda x: x["start_time"].split(" ")[0] == start_date, checklists

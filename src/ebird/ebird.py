@@ -2,6 +2,7 @@ import json
 import os
 import asyncio
 from typing import Dict
+from enum import Enum
 
 import httpx
 from dotenv import load_dotenv
@@ -14,6 +15,13 @@ from ebird.api.validation import (
     clean_region,
 )
 from ebird.api.hotspots import REGION_HOTSPOTS_URL
+from ebird.api.regions import REGION_LIST_URL
+
+
+class RegionType(Enum):
+    COUNTRY = "country"
+    SUBNATIONAL1 = "subnational1"
+    SUBNATIONAL2 = "subnational2"
 
 
 async def call(url: str, params: Dict, headers: Dict) -> Dict:
@@ -40,21 +48,39 @@ class EBird:
         res = await call(url, params, headers)
         return res
 
+    async def get_regions(self, region_type: RegionType, region: str):
+
+        url = REGION_LIST_URL % (region_type.value, clean_region(region))
+
+        params = {"fmt": "json", "locale": self.locale}
+
+        headers = {
+            "X-eBirdApiToken": self.token,
+        }
+
+        res = await call(url, params, headers)
+        return res
+
 
 if __name__ == "__main__":
     load_dotenv()
     ebird = EBird(os.getenv("EBIRD_TOKEN"))
 
     async def inner():
+        # result = []
+        # result.extend(await ebird.get_hotspots("MO"))
+        # result.extend(await ebird.get_hotspots("HK"))
+        # result.extend(await ebird.get_hotspots("TW"))
         result = []
-        result.extend(await ebird.get_hotspots("MO"))
-        result.extend(await ebird.get_hotspots("HK"))
-        result.extend(await ebird.get_hotspots("TW"))
+        result.extend(await ebird.get_regions(RegionType.SUBNATIONAL1, "CN"))
+        result.extend(await ebird.get_regions(RegionType.SUBNATIONAL1, "MO"))
+        result.extend(await ebird.get_regions(RegionType.SUBNATIONAL1, "HK"))
+        result.extend(await ebird.get_regions(RegionType.SUBNATIONAL1, "TW"))
         return result
 
     result = asyncio.run(inner())
 
-    with open("new_hotspots.json", "w", encoding="utf-8") as f:
+    with open("regions.json", "w", encoding="utf-8") as f:
         json.dump(result, f, ensure_ascii=False, indent=2)
 
 # class ebird:

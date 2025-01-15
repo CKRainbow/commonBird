@@ -7,3 +7,5 @@ pyinstaller
 python-dotenv
 ebird-api
 tqdm
+fuzzywuzzy
+python-Levenshtein
