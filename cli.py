@@ -611,21 +611,27 @@ class BirdreportToEbirdLocationAssignScreen(Screen):
             )
         )
 
-        event.button.label = hotspot_name
+        if hotspot_name is None:
+            event.button.label = "不做修改"
+        else:
+            event.button.label = hotspot_name
 
         self.modify_converted_hotspot(event.button.name, hotspot_name)
 
     @on(Button.Pressed, ".search_button")
     @work
     async def on_button_search_location_presses(self, event: Button.Pressed) -> None:
-        result = await self.app.push_screen_wait(SearchEbirdHotspotScreen())
+        hotspot_name = await self.app.push_screen_wait(SearchEbirdHotspotScreen())
         point_id = event.button.id.split("_")[-1]
 
         button: Button = self.query_one(f"#converted_hotspot_{point_id}")
 
-        button.label = result
+        if hotspot_name is None:
+            button.label = "不做修改"
+        else:
+            button.label = hotspot_name
 
-        self.modify_converted_hotspot(event.button.name, result)
+        self.modify_converted_hotspot(event.button.name, hotspot_name)
 
     def modify_converted_hotspot(
         self, point_name: str, converted_hotspot_name: str
