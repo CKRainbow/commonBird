@@ -10,10 +10,10 @@ pyinstaller --name commonBird \
 
 npm i markdown-to-html-cli -g
 
-markdown-to-html-cli -i README.md -o dist/commonBird/README.html
+markdown-to-html -i README.md -o dist/commonBird/README.html
 
 cp -r res dist/commonBird/res
 cp -r database dist/commonBird/database
 
 # compress the build
-tar cvzf commonBird_mac_x64.tar.gz dist/commonBird
+tar cvzf commonBird_mac_x64.tar.gz dist/commonBird/

@@ -1,6 +1,7 @@
 import os
 import sys
 import subprocess
+import platform
 from pathlib import Path
 
 
@@ -14,6 +15,11 @@ subprocess.Popen = MyPopen
 
 import execjs
 
+if platform.system() == "Windows":
+    _inner_node_name = "node.exe"
+else:
+    _inner_node_name = "node"
+
 if getattr(sys, "frozen", False):
     inner_path = Path(sys._MEIPASS)
     application_path = Path(os.path.dirname(sys.executable))
@@ -24,7 +30,7 @@ if getattr(sys, "frozen", False):
         encoding="utf-8",
         runner_source=execjs._runner_sources.Node,
     )
-    runtime._binary_cache = [(inner_path / "node.exe").absolute().as_posix()]
+    runtime._binary_cache = [(inner_path / _inner_node_name).absolute().as_posix()]
     runtime._available = True
 
     # 设置为默认运行时
