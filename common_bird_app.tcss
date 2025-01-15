@@ -71,3 +71,32 @@ BirdreportToEBirdScreen {
         align: center middle;
     }
 }
+
+BirdreportToEbirdLocationAssignScreen {
+    .original_location_name {
+        width: 30%;
+    }
+    
+    .assign_title {
+        width: 40%;
+    }
+    
+    .converted_hotspot {
+        width: 55%;
+    }
+    
+    Select {
+        width: 55%;
+    }
+    
+    Button {
+        width: 15%;
+    }
+}
+
+SelectEbirdHotspotScreen {
+    align: center middle;
+    ListView {
+        width: 80%;
+    }
+}

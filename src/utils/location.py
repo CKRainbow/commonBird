@@ -126,7 +126,5 @@ if __name__ == "__main__":
         )
     )
 
-    # TODO: cn 也需要重新跑一次
-
     with open(database_path / "location_map_.json", "w", encoding="utf-8") as f:
         json.dump(result, f, ensure_ascii=False, indent=2)

@@ -3,6 +3,7 @@ import os
 import asyncio
 import csv
 import time
+from typing import Dict, List
 import pytz
 import logging
 from datetime import datetime
@@ -22,6 +23,8 @@ from textual.widgets import (
     Input,
     LoadingIndicator,
     Select,
+    ListView,
+    ListItem,
 )
 
 from src.birdreport.birdreport import Birdreport
@@ -398,6 +401,46 @@ class BirdreportSearchReportScreen(Screen):
             asyncio.create_task(background_sleep())
 
 
+class SelectEbirdHotspotScreen(ModalScreen):
+    def __init__(self, point_name: str, hotspots: List[str], **kwargs):
+        super().__init__(kwargs)
+        self.point_name = point_name
+        self.hotspots = hotspots
+
+    @work
+    async def on_mount(self) -> None:
+        if len(self.hotspots) == 0:
+            self.dismiss()
+
+        hotspot_listview = ListView(
+            classes="hotspot_listview",
+        )
+        await self.mount(hotspot_listview)
+        hotspot_items = []
+        hotspot_items.append(
+            ListItem(Label("不做修改", id="no_change"), classes="hotspot_item")
+        )
+        for hotspot_name in self.hotspots:
+            hotspot_info = self.app.ebird_cn_hotspots.get(hotspot_name)
+            if hotspot_info is None:
+                hotspot_info = self.app.ebird_other_hotspots.get(hotspot_name)
+            if hotspot_info is None:
+                continue
+            hotspot_item = ListItem(
+                Label(
+                    hotspot_name + "\n" + hotspot_info["subnational1Code"],
+                    name=hotspot_name,
+                ),
+                classes="hotspot_item",
+            )
+            hotspot_items.append(hotspot_item)
+        await hotspot_listview.mount(*hotspot_items)
+
+    @on(ListView.Selected)
+    def on_listview_selected(self, event: ListView.Selected) -> None:
+        self.dismiss(event.item.children[0].name)
+
+
 class BirdreportToEbirdLocationAssignScreen(Screen):
     def __init__(self, **kwargs):
         super().__init__(kwargs)
@@ -419,30 +462,100 @@ class BirdreportToEbirdLocationAssignScreen(Screen):
         await self.mount(vertical_scroll)
         # TODO: value 可以直接使用地点名
         # TODO: 添加一个可以搜索的界面
-        for point_id, (point_name, info) in enumerate(self.location_assign.items()):
-            assign_row = HorizontalGroup(classes="assign_row")
-
-            original_location_name = Label(
-                point_name + "\n" + info["province"] + info["city"] + info["district"]
+        await vertical_scroll.mount(
+            HorizontalGroup(
+                Label("观鸟记录中心地点", classes="assign_title"),
+                Label("EBird地点", classes="assign_title"),
+                Button("确认", id="confirm", variant="success"),
             )
-            if point_name in self.app.br_to_ebird_location_map:
-                options = [
-                    (name, idx)
-                    for idx, name in enumerate(
-                        self.app.br_to_ebird_location_map[point_name]
-                    )
-                ]
-            else:
-                options = []
-            selection = Select(options=options, id=f"select_{point_id}")
+        )
+        horizonal_groups = []
+        for point_id, (point_name, info) in enumerate(self.location_assign.items()):
+            original_location_name = Label(
+                point_name + "\n" + info["province"] + info["city"] + info["district"],
+                classes="original_location_name",
+            )
 
-            await vertical_scroll.mount(assign_row)
-            await assign_row.mount(original_location_name, selection)
+            converted_hotspot = Button(
+                "不做修改",
+                name=point_name,
+                classes="converted_hotspot",
+                variant="default",
+            )
+
+            search_button = Button(
+                "搜索热点",
+                name=point_name,
+                classes="search_button",
+                variant="primary",
+            )
+
+            # if point_name in self.app.br_to_ebird_location_map:
+            #     options = [
+            #         (name, name)
+            #         for idx, name in enumerate(
+            #             self.app.br_to_ebird_location_map[point_name]
+            #         )
+            #     ]
+            # else:
+            #     options = []
+            # selection = Select(
+            #     options=options,
+            #     prompt="不做修改",
+            #     name=point_name,
+            #     id=f"select_{point_id}",
+            # )
+
+            assign_row = HorizontalGroup(
+                original_location_name,
+                converted_hotspot,
+                search_button,
+                classes="assign_row",
+            )
+            horizonal_groups.append(assign_row)
+        await vertical_scroll.mount(*horizonal_groups)
+
+    @on(Button.Pressed, "#confirm")
+    def on_button_confirm_presses(self, event: Button.Pressed) -> None:
+        for info in self.location_assign.values():
+            if info.get("converted_hotspot") is not None:
+                for report in info["reports"]:
+                    # override or add new record?
+                    report["point_name"] = info["converted_hotspot"]
+        self.dismiss()
+
+    @on(Button.Pressed, ".converted_hotspot")
+    @work
+    async def on_button_converted_hotspot_presses(self, event: Button.Pressed) -> None:
+        hotspots = self.app.br_to_ebird_location_map.get(event.button.name)
+        if hotspots is None:
+            event.button.label = "无可选项，请尝试搜索"
+            return
+        hotspot_name = await self.app.push_screen_wait(
+            SelectEbirdHotspotScreen(
+                event.button.name,
+                hotspots,
+            )
+        )
+
+        event.button.label = hotspot_name
+
+        self.modify_converted_hotspot(event.button.name, hotspot_name)
+
+    @on(Button.Pressed, ".search_location")
+    def on_button_search_location_presses(self, event: Button.Pressed) -> None:
+        pass
 
     @on(Select.Changed)
     def on_select_changed(self, event: Select.Changed) -> None:
         print(event.select.value)
-        print(event.select.id)
+        print(event.select.name)
+
+    def modify_converted_hotspot(
+        self, point_name: str, converted_hotspot_name: str
+    ) -> None:
+        # conveted_hotspot is None means remaining
+        self.location_assign[point_name]["converted_hotspot"] = converted_hotspot_name
 
 
 class BirdreportToEbirdScreen(Screen):
@@ -703,19 +816,19 @@ class CommonBirdApp(App):
             with open(
                 database_path / "ebird_cn_hotspots.json", "r", encoding="utf-8"
             ) as f:
-                self.ebird_cn_hotspots = json.load(f)
+                self.ebird_cn_hotspots: Dict = json.load(f)
         else:
             self.ebird_cn_hotspots = None
         if (database_path / "ebird_other_hotspots.json").exists():
             with open(
                 database_path / "ebird_other_hotspots.json", "r", encoding="utf-8"
             ) as f:
-                self.ebird_other_hotspots = json.load(f)
+                self.ebird_other_hotspots: Dict = json.load(f)
         else:
             self.ebird_other_hotspots = None
         if (database_path / "location_map.json").exists():
             with open(database_path / "location_map.json", "r", encoding="utf-8") as f:
-                self.ebird_to_br_location_map = json.load(f)
+                self.ebird_to_br_location_map: Dict = json.load(f)
             self.br_to_ebird_location_map = {}
             for eb_loc_name, locs in self.ebird_to_br_location_map.items():
                 for loc in locs:
