@@ -201,30 +201,18 @@ Z4_TO_EBIRD = {
 }
 
 
-def process_reports(reports):
-    # TODO: set location
-    pass
-    for report in reports:
-        for taxon in report["obs"]:
-            if "version" == "G3":
-                if taxon["taxon_name"] in Z3_TO_Z4:
-                    taxon["taxon_name"] = Z3_TO_Z4[taxon["taxon_name"]]
-            if taxon["taxon_name"] in Z4_TO_EBIRD:
-                taxon["taxon_name"] = Z4_TO_EBIRD[taxon["taxon_name"]]
-
-
 async def dump_as_ebird_csv(reports, username, update_date):
     # FIXME: single csv file should be less than 1MB
     csvs = [[]]
     for report in reports:
-        # TODO: support CH3
         version = report["version"]
-        if version == "CH3":
-            continue
 
         start_time = time.strptime(report["start_time"], "%Y-%m-%d %H:%M:%S")
         end_time = time.strptime(report["end_time"], "%Y-%m-%d %H:%M:%S")
         duration = (time.mktime(end_time) - time.mktime(start_time)) // 60
+
+        # FIXME: need alert
+        duration = min(duration, 24 * 60)
 
         if "eye_all_birds" in report:
             all_observations_reported = "Y" if report["eye_all_birds"] == "1" else "N"
@@ -232,7 +220,9 @@ async def dump_as_ebird_csv(reports, username, update_date):
             all_observations_reported = ""
 
         # TODO: add checklist comments
-        checklist_comment = report["note"].replace("\n", "\\n") if "note" in report else ""
+        checklist_comment = (
+            report["note"].replace("\n", "\\n") if "note" in report else ""
+        )
         if checklist_comment != "":
             checklist_comment += "\\n"
         # TODO: 可选是否添加
@@ -240,7 +230,6 @@ async def dump_as_ebird_csv(reports, username, update_date):
             f"Converted from BirdReport CN, report ID: {report['serial_id']}"
         )
 
-        # FIXME: no zero padding for windows
         start_time = time.strftime("%m/%d/%Y %H:%M", start_time)
         observation_date, start_time = start_time.split(" ")
         country = "CN"
@@ -250,7 +239,7 @@ async def dump_as_ebird_csv(reports, username, update_date):
         real_quality = report["real_quality"] if "real_quality" in report else None
 
         for entry in report["obs"]:
-            if "version" == "G3":
+            if version == "G3":
                 if entry["taxon_name"] in Z3_TO_Z4:
                     entry["taxon_name"] = Z3_TO_Z4[entry["taxon_name"]]
             if entry["taxon_name"] in Z4_TO_EBIRD:
@@ -264,7 +253,7 @@ async def dump_as_ebird_csv(reports, username, update_date):
                 else "X"
             )
 
-            note = entry["note"].replace('\n', "\\n") if "note" in entry else ""
+            note = entry["note"].replace("\n", "\\n") if "note" in entry else ""
 
             species_comments = note
             # only for detail taxon
@@ -405,7 +394,6 @@ class BirdreportSearchReportScreen(Screen):
 
 
 class SearchEbirdHotspotScreen(ModalScreen):
-
     def compose(self) -> ComposeResult:
         yield Grid(
             Input(id="hotspot_name"),
@@ -536,8 +524,6 @@ class BirdreportToEbirdLocationAssignScreen(Screen):
     async def on_mount(self) -> None:
         vertical_scroll = VerticalScroll(id="location_assign_scroll")
         await self.mount(vertical_scroll)
-        # TODO: value 可以直接使用地点名
-        # TODO: 添加一个可以搜索的界面
         await vertical_scroll.mount(
             HorizontalGroup(
                 Label("观鸟记录中心地点", classes="assign_title"),
@@ -699,6 +685,7 @@ class BirdreportToEbirdScreen(Screen):
         checklist_files = list(Path(".").glob(f"{username}_*_checklists.json"))
         use_existing = False
 
+        # TODO: 记录时长太长应有提示跳出，终止任务
         if len(checklist_files) >= 1:
             checklist_file = checklist_files[0]
             use_existing = await self.app.push_screen_wait(
@@ -896,7 +883,6 @@ class CommonBirdApp(App):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
-        # TODO: ebird 地点数据处理成dict
         if (database_path / "ebird_cn_hotspots.json").exists():
             with open(
                 database_path / "ebird_cn_hotspots.json", "r", encoding="utf-8"
