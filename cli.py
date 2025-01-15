@@ -137,66 +137,67 @@ Z4_TO_EBIRD = {
     "西南橙腹叶鹎": "橙腹叶鹎 (黄冠黑喉)",
     "日本冕柳莺": "饭岛柳莺",
     "紫花蜜鸟": "紫色花蜜鸟",
-    "斑头秋沙鸭": "",
-    "黄喉雉鹑": "",
-    "雉鸡": "",
-    "黑胸鹌鹑": "",
-    "信使圆尾鹱": "",
-    "灰胸秧鸡": "",
-    "白骨顶": "",
-    "红脚田鸡": "",
-    "石鸻": "",
-    "长嘴半蹼鹬": "",
-    "拉氏沙锥": "",
-    "黄胸滨鹬": "",
-    "中华凤头燕鸥": "",
-    "里海银鸥": "",
+    # "斑头秋沙鸭": "",
+    # "黄喉雉鹑": "",
+    # "雉鸡": "",
+    # "黑胸鹌鹑": "",
+    # "信使圆尾鹱": "",
+    # "灰胸秧鸡": "",
+    # "白骨顶": "",
+    # "红脚田鸡": "",
+    # "石鸻": "",
+    # "长嘴半蹼鹬": "",
+    # "拉氏沙锥": "",
+    # "黄胸滨鹬": "",
+    # "中华凤头燕鸥": "",
+    # "里海银鸥": "",
     "西伯利亚银鸥": "织女银鸥/蒙古银鸥 (西伯利亚银鸥)",
-    "北棕腹鹰鹃": "",
-    "棕腹鹰鹃": "",
-    "东方中杜鹃": "",
-    "琉球角鸮": "",
-    "北领角鸮": "",
-    "毛腿雕鸮": "",
-    "凤头雨燕": "",
-    "普通雨燕": "",
-    "华西白腰雨燕": "",
-    "红脚隼": "",
-    "蓝腰鹦鹉": "",
-    "印度寿带": "",
-    "北星鸦": "",
-    "星鸦": "",
-    "白翅云雀": "",
-    "双斑百灵": "",
-    "灰喉沙燕": "",
-    "洋燕": "",
-    "喜山黄腹树莺": "",
-    "东亚蝗莺": "",
-    "纹胸鹛": "",
-    "红额穗鹛": "",
-    "灰腹鹩鹛": "",
-    "黑胸楔嘴穗鹛": "",
-    "楔嘴穗鹛": "",
-    "中华草鹛": "",
-    "棕胸雅鹛": "",
-    "灰头薮鹛": "",
-    "中华雀鹛": "",
-    "中南雀鹛": "",
-    "黑颏凤鹛": "",
-    "淡背地鸫": "",
-    "喜山淡背地鸫": "",
-    "四川淡背地鸫": "",
-    "虎斑地鸫": "",
-    "蒂氏鸫": "",
-    "黑喉鸫": "",
-    "旅鸫": "",
-    "侏蓝姬鹟": "",
-    "台湾林鸲": "",
-    "麻雀": "",
-    "红眉朱雀": "",
-    "中华朱雀": "",
-    "褐头朱雀": "",
-    "硫黄鹀": "",
+    "鹗": "鹗鹗",
+    # "北棕腹鹰鹃": "",
+    # "棕腹鹰鹃": "",
+    # "东方中杜鹃": "",
+    # "琉球角鸮": "",
+    # "北领角鸮": "",
+    # "毛腿雕鸮": "",
+    # "凤头雨燕": "",
+    # "普通雨燕": "",
+    # "华西白腰雨燕": "",
+    # "红脚隼": "",
+    # "蓝腰鹦鹉": "",
+    # "印度寿带": "",
+    # "北星鸦": "",
+    # "星鸦": "",
+    # "白翅云雀": "",
+    # "双斑百灵": "",
+    # "灰喉沙燕": "",
+    # "洋燕": "",
+    # "喜山黄腹树莺": "",
+    # "东亚蝗莺": "",
+    # "纹胸鹛": "",
+    # "红额穗鹛": "",
+    # "灰腹鹩鹛": "",
+    # "黑胸楔嘴穗鹛": "",
+    # "楔嘴穗鹛": "",
+    # "中华草鹛": "",
+    # "棕胸雅鹛": "",
+    # "灰头薮鹛": "",
+    # "中华雀鹛": "",
+    # "中南雀鹛": "",
+    # "黑颏凤鹛": "",
+    # "淡背地鸫": "",
+    # "喜山淡背地鸫": "",
+    # "四川淡背地鸫": "",
+    # "虎斑地鸫": "",
+    # "蒂氏鸫": "",
+    # "黑喉鸫": "",
+    # "旅鸫": "",
+    # "侏蓝姬鹟": "",
+    # "台湾林鸲": "",
+    # "麻雀": "",
+    # "红眉朱雀": "",
+    # "中华朱雀": "",
+    # "褐头朱雀": "",
+    # "硫黄鹀": "",
 }
 
 
@@ -205,7 +206,7 @@ def process_reports(reports):
     pass
     for report in reports:
         for taxon in report["obs"]:
-            if "version" == "CH3":
+            if "version" == "G3":
                 if taxon["taxon_name"] in Z3_TO_Z4:
                     taxon["taxon_name"] = Z3_TO_Z4[taxon["taxon_name"]]
             if taxon["taxon_name"] in Z4_TO_EBIRD:
@@ -231,7 +232,7 @@ async def dump_as_ebird_csv(reports, username, update_date):
             all_observations_reported = ""
 
         # TODO: add checklist comments
-        checklist_comment = report["note"] if "note" in report else ""
+        checklist_comment = report["note"].replace("\n", "\\n") if "note" in report else ""
         if checklist_comment != "":
             checklist_comment += "\\n"
         # TODO: 可选是否添加
@@ -249,13 +250,13 @@ async def dump_as_ebird_csv(reports, username, update_date):
         real_quality = report["real_quality"] if "real_quality" in report else None
 
         for entry in report["obs"]:
-            if version == "CH4":
-                if entry["taxon_name"] in Z4_TO_EBIRD:
-                    common_name = Z4_TO_EBIRD[entry["taxon_name"]]
-                else:
-                    common_name = entry["taxon_name"]
-            else:
-                pass
+            if "version" == "G3":
+                if entry["taxon_name"] in Z3_TO_Z4:
+                    entry["taxon_name"] = Z3_TO_Z4[entry["taxon_name"]]
+            if entry["taxon_name"] in Z4_TO_EBIRD:
+                entry["taxon_name"] = Z4_TO_EBIRD[entry["taxon_name"]]
+            common_name = entry["taxon_name"]
+
             species = entry["latinname"]
             species_count = (
                 entry["taxon_count"]
@@ -263,7 +264,7 @@ async def dump_as_ebird_csv(reports, username, update_date):
                 else "X"
             )
 
-            note = entry["note"] if "note" in entry else ""
+            note = entry["note"].replace('\n', "\\n") if "note" in entry else ""
 
             species_comments = note
             # only for detail taxon
@@ -520,9 +521,13 @@ class BirdreportToEbirdLocationAssignScreen(Screen):
             point_name = report["point_name"]
             if point_name not in self.location_assign:
                 self.location_assign[point_name] = {
-                    "province": report["province_name"],
-                    "city": report["city_name"],
-                    "district": report["district_name"],
+                    "province": (
+                        report["province_name"] if "province_name" in report else ""
+                    ),
+                    "city": report["city_name"] if "city_name" in report else "",
+                    "district": (
+                        report["district_name"] if "district_name" in report else ""
+                    ),
                     "reports": [],
                 }
             self.location_assign[point_name]["reports"].append(report)
