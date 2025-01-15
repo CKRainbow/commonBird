@@ -13,7 +13,7 @@
 - 若使用打包后的软件，双击 `commonBird(.exe)` 即可运行
  
 ## FAQ
-- 环境要求
+- 环境要求(仅运行代码需要)
     - 需要具备 `node` 和 `python` 环境
     - 执行 `npm i` 安装 javascript 依赖项
     - 执行 `pip install -r requirements.txt` 安装 python 依赖项
