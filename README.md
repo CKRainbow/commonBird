@@ -3,30 +3,37 @@
 
 ## 预计支持的功能
  - [x] 观鸟记录中心记录一键转换eBird导入文件
-    - [ ] 本地调整地点
+    - [x] 本地调整地点
  - [ ] eBird记录转换观鸟记录中心记录
- - [ ] 打包成为exe
+ - [x] 打包成为exe
  - [ ] 还没想好
  
 ## 如何使用
-- 若使用该仓库，执行`python cli.py`即可运行
-- 若使用打包后的软件，双击`commonBird(.exe)`即可运行
+- 若使用该仓库，执行 `python cli.py` 即可运行
+- 若使用打包后的软件，双击 `commonBird(.exe)` 即可运行
  
 ## FAQ
 - 环境要求
-    - 需要具备`node`和`python`环境
-    - 执行`npm i`安装 javascript 依赖项
-    - 执行`pip install -r requirements.txt`安装 python 依赖项
+    - 需要具备 `node` 和 `python` 环境
+    - 执行 `npm i` 安装 javascript 依赖项
+    - 执行 `pip install -r requirements.txt` 安装 python 依赖项
 
 - 如何获取观鸟记录中心的认证 Token
     - 打开观鸟记录中心[用户中心](birdreport.cn/member)
-    - 按下`f12`键打开开发工具`DevTools`
+    - 按下 `f12` 键打开开发工具 `DevTools`
     - 点击上方选项卡`网络`(`Network`)并刷新页面
-    - 搜索`msg`并点击其中一个搜索结果
+    - 搜索 `msg` 并点击其中一个搜索结果
     - 点击选项卡`标头`(`Header`)，一般来说默认就是这个选项卡
-    - 复制`X-Auth-Token`的内容填入即可
+    - 复制 `X-Auth-Token` 的内容填入即可
     - **请注意在网页上重新登陆会导致 Token 发生变化，届时请重新获取**
     - ![image](./res/bird_report_token.png)
+
+- 如何使用迁移后的 eBird 数据
+    - 打开 eBird 官网，点击`提交记录`(`Submit`)
+    - 选择`导入数据`(`Import Data`)
+    - `格式`(`Format`)选择`eBird记录格式（扩展）`(`eBird Record Format (Extended)`)并上传文件
+        - 文件包括所有生成的 csv 文件，文件名以 `_数字` 结尾
+    - 跟随网站指引完成导入
 
 ## 目前存在的问题
 * eBird的导入要求文件大小不超过1MB，当前不排除会出现过大的文件

@@ -13,6 +13,7 @@ npm i markdown-to-html-cli -g
 markdown-to-html -i README.md -o dis/commonBird/README.html
 
 cp -r res dist/commonBird/res
+cp -r database dist/commonBird/database
 
 # compress the build
 tar cvzf commonBird_linux_x64.tar.gz dist/commonBird
