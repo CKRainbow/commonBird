@@ -212,7 +212,7 @@ async def dump_as_ebird_csv(reports, username, update_date):
         duration = (time.mktime(end_time) - time.mktime(start_time)) // 60
 
         # FIXME: need alert
-        duration = min(duration, 24 * 60)
+        duration = max(min(duration, 24 * 60), 1)
 
         if "eye_all_birds" in report:
             all_observations_reported = "Y" if report["eye_all_birds"] != "" else "N"
