@@ -236,7 +236,8 @@ async def dump_as_ebird_csv(reports, username, update_date):
         location_name = report["point_name"]
         lat = report["lat"] if "lat" in report else ""
         lng = report["lng"] if "lng" in report else ""
-        protocol = "historical"  # historical
+        protocol = "stationary"  # historical
+        num_observers = 1
 
         real_quality = report["real_quality"] if "real_quality" in report else None
 
@@ -277,7 +278,7 @@ async def dump_as_ebird_csv(reports, username, update_date):
                 "",
                 country,
                 protocol,
-                "",
+                num_observers,
                 duration,
                 all_observations_reported,
                 "",
