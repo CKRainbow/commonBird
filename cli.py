@@ -215,7 +215,7 @@ async def dump_as_ebird_csv(reports, username, update_date):
         duration = min(duration, 24 * 60)
 
         if "eye_all_birds" in report:
-            all_observations_reported = "Y" if report["eye_all_birds"] == "1" else "N"
+            all_observations_reported = "Y" if report["eye_all_birds"] != "" else "N"
         else:
             all_observations_reported = ""
 
@@ -234,6 +234,8 @@ async def dump_as_ebird_csv(reports, username, update_date):
         observation_date, start_time = start_time.split(" ")
         country = "CN"
         location_name = report["point_name"]
+        lat = report["lat"] if "lat" in report else ""
+        lng = report["lng"] if "lng" in report else ""
         protocol = "historical"  # historical
 
         real_quality = report["real_quality"] if "real_quality" in report else None
@@ -268,8 +270,8 @@ async def dump_as_ebird_csv(reports, username, update_date):
                 species_count,
                 species_comments,
                 location_name,
-                "",
-                "",
+                lat,
+                lng,
                 observation_date,
                 start_time,
                 "",
@@ -283,7 +285,7 @@ async def dump_as_ebird_csv(reports, username, update_date):
                 checklist_comment,
             )
             csvs[-1].append(csv_line)
-        if len(csvs[-1]) >= 5000:
+        if len(csvs[-1]) >= 4000:
             csvs.append([])
 
     for i in range(len(csvs)):
@@ -586,6 +588,8 @@ class BirdreportToEbirdLocationAssignScreen(Screen):
                 for report in info["reports"]:
                     # override or add new record?
                     report["point_name"] = info["converted_hotspot"]
+                    report["lat"] = info["lat"] if info["lat"] is not None else ""
+                    report["lng"] = info["lng"] if info["lng"] is not None else ""
         self.dismiss()
 
     @on(Button.Pressed, ".converted_hotspot")
@@ -630,13 +634,27 @@ class BirdreportToEbirdLocationAssignScreen(Screen):
         # conveted_hotspot is None means remaining
         self.location_assign[point_name]["converted_hotspot"] = converted_hotspot_name
 
+        if converted_hotspot_name is None:
+            self.location_assign[point_name]["lat"] = None
+            self.location_assign[point_name]["lng"] = None
+        else:
+            if converted_hotspot_name in self.app.ebird_cn_hotspots:
+                location_info = self.app.ebird_cn_hotspots[converted_hotspot_name]
+            elif converted_hotspot_name in self.app.ebird_hotspots:
+                location_info = self.app.ebird_hotspots[converted_hotspot_name]
+            else:
+                return
+
+            self.location_assign[point_name]["lat"] = location_info["lat"]
+            self.location_assign[point_name]["lng"] = location_info["lng"]
+
 
 class BirdreportToEbirdScreen(Screen):
     def __init__(self, **kwargs):
         super().__init__(kwargs)
 
     def compose(self) -> ComposeResult:
-        yield VerticalScroll(LoadingIndicator())
+        yield LoadingIndicator()
 
     @work
     async def on_mount(self) -> None:
@@ -705,8 +723,7 @@ class BirdreportToEbirdScreen(Screen):
             await self.app.push_screen_wait(BirdreportToEbirdLocationAssignScreen())
 
         new_button = Button("导出为EBird格式", id="export_to_ebird", variant="primary")
-        grid = self.query_one(VerticalScroll)
-        await grid.mount(new_button)
+        await self.mount(new_button)
 
     @work
     async def on_button_pressed(self, event: Button.Pressed) -> None:

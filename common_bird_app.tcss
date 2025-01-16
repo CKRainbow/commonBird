@@ -65,8 +65,9 @@ MessageScreen {
     }
 }
 
-BirdreportToEBirdScreen {
+BirdreportToEbirdScreen {
     align: center middle;
+
     #export_to_ebird {
         align: center middle;
     }
@@ -79,6 +80,7 @@ BirdreportToEbirdLocationAssignScreen {
     
     .assign_title {
         width: 40%;
+        content-align: center middle;
     }
     
     .converted_hotspot {
