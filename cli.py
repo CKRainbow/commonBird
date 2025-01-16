@@ -217,7 +217,7 @@ async def dump_as_ebird_csv(reports, username, update_date):
         if "eye_all_birds" in report:
             all_observations_reported = "Y" if report["eye_all_birds"] != "" else "N"
         else:
-            all_observations_reported = ""
+            all_observations_reported = "Y"
 
         # TODO: add checklist comments
         checklist_comment = (
