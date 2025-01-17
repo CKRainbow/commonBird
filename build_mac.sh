@@ -1,5 +1,9 @@
 #!/bin/bash
 
+latest_tag=$1
+
+echo "APP_VERSION=\"$latest_tag\"" >> src/utils/consts.py
+
 # build
 pyinstaller --name commonBird \
     --add-data "common_bird_app.tcss:." \

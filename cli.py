@@ -3,13 +3,15 @@ import os
 import asyncio
 import csv
 import time
-from typing import Dict, List
 import pytz
 import logging
+from typing import Dict, List
+from packaging import version
 from datetime import datetime
 from pathlib import Path
 from itertools import count
 
+import httpx
 from dotenv import load_dotenv, set_key
 from textual import on, work
 from textual.app import App, ComposeResult
@@ -22,15 +24,15 @@ from textual.widgets import (
     Label,
     Input,
     LoadingIndicator,
-    Select,
     ListView,
     ListItem,
 )
 from fuzzywuzzy.fuzz import partial_ratio
 
+from src import application_path, database_path
 from src.birdreport.birdreport import Birdreport
 from src.utils.location import EBIRD_REGION_CODE_TO_NAME
-from src import application_path, database_path
+from src.utils.consts import GITHUB_API_TOKEN, APP_VERSION
 
 logging.basicConfig(
     filename=application_path / "log",
@@ -137,68 +139,73 @@ Z4_TO_EBIRD = {
     "西南橙腹叶鹎": "橙腹叶鹎 (黄冠黑喉)",
     "日本冕柳莺": "饭岛柳莺",
     "紫花蜜鸟": "紫色花蜜鸟",
-    # "斑头秋沙鸭": "",
-    # "黄喉雉鹑": "",
-    # "雉鸡": "",
-    # "黑胸鹌鹑": "",
-    # "信使圆尾鹱": "",
-    # "灰胸秧鸡": "",
-    # "白骨顶": "",
-    # "红脚田鸡": "",
-    # "石鸻": "",
-    # "长嘴半蹼鹬": "",
-    # "拉氏沙锥": "",
-    # "黄胸滨鹬": "",
-    # "中华凤头燕鸥": "",
-    # "里海银鸥": "",
     "西伯利亚银鸥": "织女银鸥/蒙古银鸥 (西伯利亚银鸥)",
     "鹗": "鹗鹗",
-    # "北棕腹鹰鹃": "",
-    # "棕腹鹰鹃": "",
-    # "东方中杜鹃": "",
-    # "琉球角鸮": "",
-    # "北领角鸮": "",
-    # "毛腿雕鸮": "",
-    # "凤头雨燕": "",
-    # "普通雨燕": "",
-    # "华西白腰雨燕": "",
-    # "红脚隼": "",
-    # "蓝腰鹦鹉": "",
-    # "印度寿带": "",
-    # "北星鸦": "",
-    # "星鸦": "",
-    # "白翅云雀": "",
-    # "双斑百灵": "",
-    # "灰喉沙燕": "",
-    # "洋燕": "",
-    # "喜山黄腹树莺": "",
-    # "东亚蝗莺": "",
-    # "纹胸鹛": "",
-    # "红额穗鹛": "",
-    # "灰腹鹩鹛": "",
-    # "黑胸楔嘴穗鹛": "",
-    # "楔嘴穗鹛": "",
-    # "中华草鹛": "",
-    # "棕胸雅鹛": "",
-    # "灰头薮鹛": "",
-    # "中华雀鹛": "",
-    # "中南雀鹛": "",
-    # "黑颏凤鹛": "",
-    # "淡背地鸫": "",
-    # "喜山淡背地鸫": "",
-    # "四川淡背地鸫": "",
-    # "虎斑地鸫": "",
-    # "蒂氏鸫": "",
-    # "黑喉鸫": "",
-    # "旅鸫": "",
-    # "侏蓝姬鹟": "",
-    # "台湾林鸲": "",
-    # "麻雀": "",
-    # "红眉朱雀": "",
-    # "中华朱雀": "",
-    # "褐头朱雀": "",
-    # "硫黄鹀": "",
+    "斑头秋沙鸭": "",
+    "黄喉雉鹑": "",
+    "雉鸡": "",
+    "黑胸鹌鹑": "",
+    "信使圆尾鹱": "",
+    "灰胸秧鸡": "",
+    "白骨顶": "",
+    "红脚田鸡": "",
+    "石鸻": "",
+    "长嘴半蹼鹬": "",
+    "拉氏沙锥": "",
+    "黄胸滨鹬": "",
+    "中华凤头燕鸥": "",
+    "里海银鸥": "",
+    "北棕腹鹰鹃": "",
+    "棕腹鹰鹃": "",
+    "东方中杜鹃": "",
+    "琉球角鸮": "",
+    "北领角鸮": "",
+    "毛腿雕鸮": "",
+    "凤头雨燕": "",
+    "普通雨燕": "",
+    "华西白腰雨燕": "",
+    "红脚隼": "",
+    "蓝腰鹦鹉": "",
+    "印度寿带": "",
+    "北星鸦": "",
+    "星鸦": "",
+    "白翅云雀": "",
+    "双斑百灵": "",
+    "灰喉沙燕": "",
+    "洋燕": "",
+    "喜山黄腹树莺": "",
+    "东亚蝗莺": "",
+    "纹胸鹛": "",
+    "红额穗鹛": "",
+    "灰腹鹩鹛": "",
+    "黑胸楔嘴穗鹛": "",
+    "楔嘴穗鹛": "",
+    "中华草鹛": "",
+    "棕胸雅鹛": "",
+    "灰头薮鹛": "",
+    "中华雀鹛": "",
+    "中南雀鹛": "",
+    "黑颏凤鹛": "",
+    "淡背地鸫": "",
+    "喜山淡背地鸫": "",
+    "四川淡背地鸫": "",
+    "虎斑地鸫": "",
+    "蒂氏鸫": "",
+    "黑喉鸫": "",
+    "旅鸫": "",
+    "侏蓝姬鹟": "",
+    "台湾林鸲": "",
+    "麻雀": "",
+    "红眉朱雀": "",
+    "中华朱雀": "",
+    "褐头朱雀": "",
+    "硫黄鹀": "",
 }
+
+def process_species(reports):
+    for report in reports:
+        start_time = None
+        location = None
 
 
 async def dump_as_ebird_csv(reports, username, update_date):
@@ -249,7 +256,7 @@ async def dump_as_ebird_csv(reports, username, update_date):
                 entry["taxon_name"] = Z4_TO_EBIRD[entry["taxon_name"]]
             common_name = entry["taxon_name"]
 
-            species = entry["latinname"]
+            genus, species = entry["latinname"].split(" ")
             species_count = (
                 entry["taxon_count"]
                 if real_quality is None or real_quality == 1
@@ -266,7 +273,7 @@ async def dump_as_ebird_csv(reports, username, update_date):
             #     species_comments += "\nOut of scope or not confirmed."
             csv_line = (
                 common_name,
-                "",
+                genus,
                 species,
                 species_count,
                 species_comments,
@@ -901,6 +908,9 @@ class CommonBirdApp(App):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
+        self.first_open = True
+        self.version = version.parse(APP_VERSION)
+
         if (database_path / "ebird_cn_hotspots.json").exists():
             with open(
                 database_path / "ebird_cn_hotspots.json", "r", encoding="utf-8"
@@ -976,6 +986,41 @@ class CommonBirdApp(App):
             self.push_screen(EbirdScreen())
         elif event.button.id == "exit":
             self.exit()
+    
+    async def on_mount(self) -> None:
+        if self.first_open:
+            self.first_open = False
+
+            get_latest_repo_url = "https://api.github.com/repos/CKRainbow/commonBird/releases/latest"
+            
+            header = {
+                "Accept": "application/vnd.github+json",
+                "Authorization": f"Bearer {GITHUB_API_TOKEN}",
+                "X-GitHub-Api-Version": "2022-11-28",
+            }
+            
+            async with httpx.AsyncClient() as client:
+                response = await client.get(get_latest_repo_url, headers=header)
+                if response.status_code == 200:
+                    latest_release = response.json()
+                    latest_version = version.parse(latest_release["tag_name"])
+                    if latest_version > self.version:
+                        is_update = await self.push_screen(
+                            ConfirmScreen(
+                                f"当前版本为{self.version.base_version},最新版本为{latest_version.base_version}\n"+
+                                "是否要更新到新版本？\n"+
+                                "更新日志：https://github.com/CKRainbow/commonBird/blob/main/changelog.md", # FIXME: 不够长？
+                            )
+                        )
+                        
+                        if is_update:
+                            pass
+                        else:
+                            self.sub_title = f"当前版本为旧版本：{self.version.base_version}"
+                    else:
+                        self.sub_title = f"当前版本为最新版本：{self.version.base_version}"
+
+
 
 
 def main():

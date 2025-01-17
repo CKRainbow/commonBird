@@ -1,0 +1,2 @@
+GITHUB_API_TOKEN = ""
+APP_VERSION = "v0.3.2"

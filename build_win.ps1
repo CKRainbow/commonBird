@@ -1,3 +1,9 @@
+param(
+    [string]$latest_tag
+)
+
+Write-Output "APP_VERSION=`"$latest_tag`"" >> src/utils/consts.py
+
 pyinstaller --name commonBird `
     --add-data "common_bird_app.tcss:." `
     --add-data "jQuertAjax.js:." `
