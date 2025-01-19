@@ -40,3 +40,4 @@ elif __file__:
     application_path = Path(inner_path)
 
 database_path = application_path / "database"
+env_path = application_path / ".env"

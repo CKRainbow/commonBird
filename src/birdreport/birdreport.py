@@ -3,18 +3,18 @@ import hashlib
 import json
 import asyncio
 import subprocess
-import urllib
 import time
 import os
 import logging
+import uuid
 import sys
 from typing import Callable
-from pathlib import Path
 
 import httpx
 from dotenv import load_dotenv
 
 from src import inner_path, MyPopen
+from src.utils.consts import BirdreportTaxonVersion
 
 subprocess.Popen = MyPopen
 
@@ -31,10 +31,6 @@ class Birdreport:
         with open(inner_path / "jQuertAjax.js", "r", encoding="utf-8") as f:
             node_path = inner_path / "node_modules"
             self.ctx = runtime.compile(f.read(), cwd=node_path)
-        try:
-            self.ctx.call("getTimestamp")
-        except Exception as e:
-            raise e
         self.token = token
         self.user_info = None
 
@@ -57,13 +53,16 @@ class Birdreport:
         return hl.hexdigest()
 
     def getTimestamp(self):
-        return self.ctx.call("getTimestamp")
+        return str(int(time.time())) + "000"
 
     def getRequestId(self):
-        return self.ctx.call("getUuid")
+        return uuid.uuid4().hex
 
     def encrypt(self, text):
         return self.ctx.call("encrypt", text)
+
+    def encrypt_batch(self, texts):
+        return self.ctx.call("encryptBatch", texts)
 
     def decrypt(self, text):
         return self.ctx.call("decode", text)
@@ -121,9 +120,10 @@ class Birdreport:
 
         return headers
 
-    def get_crypt_request_info(self, _data):
-        format_data = self.format(_data)
-        encrypt_data = self.encrypt(format_data)
+    async def get_crypt_request_info(self, _data):
+        await asyncio.sleep(0.01)
+        format_data = json.dumps(_data).replace(" ", "")
+        encrypt_data = self.encrypt(format_data)  # time consuming
         timestamp = self.getTimestamp()
         request_id = self.getRequestId()
         concat = format_data + request_id + str(timestamp)
@@ -141,7 +141,7 @@ class Birdreport:
             "reportId": aid,
         }
         a = self.get_data(
-            urllib.parse.urlencode(params),
+            params,
             "https://api.birdreport.cn/front/activity/get",
         )
         return a
@@ -216,6 +216,20 @@ class Birdreport:
 
         return result["data"]
 
+    async def get_taxon_infos_by_version(self, version: BirdreportTaxonVersion):
+        params = {
+            "version": version.value,
+        }
+
+        result = await self.get_data(
+            params,
+            "https://api.birdreport.cn/front/excel/selectTaxon",
+            encode=False,
+            decode=False,
+        )
+
+        return result["data"]
+
     def get_taxon(self, aid):
         params = {
             "reportId": aid,
@@ -223,7 +237,7 @@ class Birdreport:
             "limit": "1500",
         }
         return self.get_data(
-            urllib.parse.urlencode(params),
+            params,
             "https://api.birdreport.cn/front/activity/taxon",
         )
 
@@ -283,14 +297,14 @@ class Birdreport:
         }
 
         a = self.get_data(
-            urllib.parse.urlencode(params),
+            params,
             "https://api.birdreport.cn/front/record/activity/search",
         )
         return a
 
     async def get_data(self, param, url, encode=True, decode=True):
         if encode:
-            headers, format_param = self.get_crypt_request_info(param)
+            headers, format_param = await self.get_crypt_request_info(param)
         else:
             headers, format_param = self.get_request_info(param)
 
@@ -479,34 +493,51 @@ class Birdreport:
 
         return checklists
 
-    def show(self, checklists):
-        for item in checklists:
-            lng, lat = item["location"].split(",")
-            print(lat, lng, item["point_name"])
-            obs = item["obs"]
-            for taxon in obs:
-                sciName = taxon["latinname"]
-                comName = taxon["taxon_name"]
-                howManyStr = taxon["taxon_count"]
-                print(sciName, comName, howManyStr)
+    async def get_taxon_info(self, id: int):
+        params = {
+            "id": f"{id}",
+        }
 
-    def spp_info(self, checklists):
-        info = {}
-        for item in checklists:
-            # lng, lat = item["location"].split(",")
-            obs = item["obs"]
-            obsDt = item["start_time"]
-            for taxon in obs:
-                sciName = taxon["latinname"]
-                comName = taxon["taxon_name"]
-                howManyStr = taxon["taxon_count"]
-                if comName not in info:
-                    info[comName] = []
-                info[comName].append(
-                    # (obsDt, howManyStr, lat, lng, item["point_name"], 1)
-                    (obsDt, howManyStr, item["point_name"], 1)
-                )
-        return info
+        res = await self.get_data(
+            params,
+            "https://api.birdreport.cn/front/taxon/get",
+            encode=True,
+            decode=False,
+        )
+        return res["data"]
+
+    # async def get_taxon_info_batch(self, ids: List[int]):
+    #     async def gd(headers, data):
+    #         async with httpx.AsyncClient() as client:
+    #             response = await client.post(
+    #                 "https://api.birdreport.cn/front/taxon/get",
+    #                 headers=headers,
+    #                 data=data,
+    #             )
+    #         _data = response.json()
+    #         print(_data)
+    #         return _data["data"]
+
+    #     format_datas = [json.dumps({"id": f"{id}"}).replace(" ", "") for id in ids]
+    #     print(format_datas)
+
+    #     encrypt_datas = self.encrypt_batch(format_datas)
+    #     print(encrypt_datas)
+
+    #     tasks = []
+    #     for encrypt_data in encrypt_datas:
+    #         timestamp = self.getTimestamp()
+    #         request_id = self.getRequestId()
+    #         concat = encrypt_data + request_id + str(timestamp)
+    #         sign = self.md5(concat)
+    #         headers = self.get_crypt_headers(request_id, timestamp, sign)
+
+    #         tasks.append(gd(headers, encrypt_data))
+
+    #     res = await asyncio.gather(*tasks)
+    #     print(res)
+
+    #     return res
 
 
 if __name__ == "__main__":
@@ -518,7 +549,7 @@ if __name__ == "__main__":
         # result = await asyncio.create_task(y.member_get_taxon_list())
         # with open("bird_report_taxon_list.json", "w", encoding="utf-8") as f:
         #     json.dump(result, f, ensure_ascii=False, indent=2)
-        result = await y.member_search_hotspots_nearby(5, 31.1758, 121.5843, 20)
+        result = await y.get_taxon_info(1)
         print(result)
 
     asyncio.run(test())

@@ -122,3 +122,27 @@ SearchEbirdHotspotScreen {
         }
     }
 }
+
+BirdreportFilterScreen {
+    #filter_container {
+        grid-size: 7 6;
+        grid-gutter: 1;
+        
+        MaskedInput {
+            width: 40%;
+        }
+
+        #date_range {
+            column-span: 3;
+        }
+        
+        #version_select {
+            column-span: 1;
+        }
+        
+        SelectionList {
+            column-span: 7;
+            row-span: 5;
+        }
+    }
+}

@@ -4014,17 +4014,8 @@ let JSEncrypt = null;
     })
 });;
 
-function getUuid() {
-    var s = [];
-    var a = "0123456789abcdef";
-    for (var i = 0; i < 32; i++) {
-        s[i] = a.substr(Math.floor(Math.random() * 0x10), 1)
-    }
-    s[14] = "4";
-    s[19] = a.substr((s[19] & 0x3) | 0x8, 1);
-    s[8] = s[13] = s[18] = s[23];
-    var b = s.join("");
-    return b
+function format(json) {
+    return JSON.stringify(sort_ASCII(json));
 }
 
 function sort_ASCII(a) {
@@ -4084,95 +4075,27 @@ const serialize = function (a) {
     return b.join('&')
 };
 
-
-// console.log(enc.encryptUnicodeLong("sadhausudh"));
-
-
-function getUuid() {
-    var s = [];
-    var hexDigits = "0123456789abcdef";
-    for (var i = 0; i < 32; i++) {
-        s[i] = hexDigits.substr(Math.floor(Math.random() * 16), 1)
-    }
-    s[14] = "4";
-    s[19] = hexDigits.substr(s[19] & 3 | 8, 1);
-    s[8] = s[13] = s[18] = s[23];
-    var uuid = s.join("");
-    return uuid
-}
-
-function sort_ASCII(a) {
-    var b = new Array();
-    var c = 0;
-    for (var i in a) {
-        b[c] = i;
-        c++
-    }
-    var d = b.sort();
-    var e = {};
-    for (var i in d) {
-        e[d[i]] = a[d[i]]
-    }
-    return e
-}
-
-function url2json(a) {
-    var b = /^[^\?]+\?([\w\W]+)$/
-        , reg_para = /([^&=]+)=([\w\W]*?)(&|$|#)/g
-        , arr_url = b.exec(a)
-        , ret = {};
-    if (arr_url && arr_url[1]) {
-        var c = arr_url[1], result;
-        while ((result = reg_para.exec(c)) != null) {
-            ret[result[1]] = result[2]
-        }
-    }
-    return ret
-}
-
-function dataTojson(a) {
-    var b = [];
-    var c = {};
-    b = a.split('&');
-    for (var i = 0; i < b.length; i++) {
-        if (b[i].indexOf('=') != -1) {
-            var d = b[i].split('=');
-            if (d.length == 2) {
-                c[d[0]] = d[1]
-            } else {
-                c[d[0]] = ""
-            }
-        } else {
-            c[b[i]] = ''
-        }
-    }
-    return c
-}
-
-function getTimestamp() {
-    return Date.parse(new Date());
-}
-
-function getRequestId() {
-    return getUuid();
-}
-
-function format(text) {
-    return JSON.stringify(sort_ASCII(dataTojson(text || '{}')));
-}
-
+let enc = new exports.JSEncrypt();
+let paramPublicKey = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCvxXa98E1uWXnBzXkS2yHUfnBM6n3PCwLdfIox03T91joBvjtoDqiQ5x3tTOfpHs3LtiqMMEafls6b0YWtgB1dse1W5m+FpeusVkCOkQxB4SZDH6tuerIknnmB/Hsq5wgEkIvO5Pff9biig6AyoAkdWpSek/1/B7zYIepYY0lxKQIDAQAB";
+enc.setPublicKey(paramPublicKey);
+console.log("test")
 
 function encrypt(text) {
-    var enc = new exports.JSEncrypt();
-    var paramPublicKey = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCvxXa98E1uWXnBzXkS2yHUfnBM6n3PCwLdfIox03T91joBvjtoDqiQ5x3tTOfpHs3LtiqMMEafls6b0YWtgB1dse1W5m+FpeusVkCOkQxB4SZDH6tuerIknnmB/Hsq5wgEkIvO5Pff9biig6AyoAkdWpSek/1/B7zYIepYY0lxKQIDAQAB";
-    enc.setPublicKey(paramPublicKey)
     return enc.encryptLong(text)
 }
 
+function encryptBatch(texts) {
+    for (var i = 0; i < texts.length; i++) {
+        texts[i] = encrypt(texts[i])
+    }
+    return texts;
+}
+
+let b = CryptoJS.enc.Utf8.parse("C8EB5514AF5ADDB94B2207B08C66601C");
+let c = CryptoJS.enc.Utf8.parse("55DD79C6F04E1A67");
+
 function decode(a) {
-    var b = CryptoJS.enc.Utf8.parse("C8EB5514AF5ADDB94B2207B08C66601C");
-    var c = CryptoJS.enc.Utf8.parse("55DD79C6F04E1A67");
-    var d = CryptoJS.AES.decrypt(a, b, {
+    let d = CryptoJS.AES.decrypt(a, b, {
         iv: c,
         mode: CryptoJS.mode.CBC,
         padding: CryptoJS.pad.Pkcs7

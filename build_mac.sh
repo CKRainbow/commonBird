@@ -1,8 +1,10 @@
 #!/bin/bash
 
 latest_tag=$1
+github_api_token= $2
 
 echo "APP_VERSION=\"$latest_tag\"" >> src/utils/consts.py
+echo "GITHUB_API_TOKEN=\"$github_api_token\"" >> src/utils/consts.py
 
 # build
 pyinstaller --name commonBird \

@@ -1,8 +1,10 @@
 param(
-    [string]$latest_tag
+    [string]$latest_tag,
+    [string]$github_api_token
 )
 
 Write-Output "APP_VERSION=`"$latest_tag`"" >> src/utils/consts.py
+Write-Output "GITHUB_API_TOKEN=`"$github_api_token`"" >> src/utils/consts.py
 
 pyinstaller --name commonBird `
     --add-data "common_bird_app.tcss:." `
