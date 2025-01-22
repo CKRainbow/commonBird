@@ -12,8 +12,20 @@ on:
 permissions: write-all
 
 jobs:
+  get-tag:
+    runs-on: ubuntu-latest
+    outputs:
+      tag: ${{ steps.get_tag.outputs.tag }}
+
+    steps:
+    - uses: actions/checkout@v4.1.1
+    - name: Get tag
+      id: get_tag
+      run: echo "tag=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+
   build-linux:
     runs-on: ubuntu-latest
+    needs: get-tag
 
     steps:
     - uses: actions/checkout@v4.1.1
@@ -30,12 +42,9 @@ jobs:
         npm i
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-    - name: Get tag
-      id: get_tag
-      run: echo "tag=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
     - name: Build
       run: |
-        bash ./build_linux.sh ${{ steps.get_tag.outputs.tag }} ${{ secrets.CONTENT_RETRIEVE_TOKEN }}
+        bash ./build_linux.sh ${{ needs.get-tag.outputs.tag }} ${{ secrets.CONTENT_RETRIEVE_TOKEN }}
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4.3.1
       with: 
@@ -45,6 +54,7 @@ jobs:
 
   build-mac:
     runs-on: macos-latest
+    needs: get-tag
 
     steps:
     - uses: actions/checkout@v4.1.1
@@ -61,12 +71,9 @@ jobs:
         npm i
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-    - name: Get tag
-      id: get_tag
-      run: echo "tag=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
     - name: Build
       run: |
-        bash ./build_mac.sh ${{ steps.get_tag.outputs.tag }} ${{ secrets.CONTENT_RETRIEVE_TOKEN }}
+        bash ./build_mac.sh ${{ needs.get-tag.outputs.tag }} ${{ secrets.CONTENT_RETRIEVE_TOKEN }}
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4.3.1
       with: 
@@ -76,6 +83,7 @@ jobs:
 
   build-win:
     runs-on: windows-latest
+    needs: get-tag
 
     steps:
     - uses: actions/checkout@v4.1.1
@@ -92,13 +100,9 @@ jobs:
         npm i
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-    - name: Get tag
-      id: get_tag
-      run: echo "tag=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
-      shell: cmd
     - name: Build
       run: |
-        ./build_win.ps1 ${{ steps.get_tag.outputs.tag }} ${{ secrets.CONTENT_RETRIEVE_TOKEN }}
+        ./build_win.ps1 ${{ needs.get-tag.outputs.tag }} ${{ secrets.CONTENT_RETRIEVE_TOKEN }}
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4.3.1
       with: 
