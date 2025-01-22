@@ -35,7 +35,6 @@ jobs:
       run: echo "tag=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
     - name: Build
       run: |
-        echo ${{ steps.get_tag.outputs.tag }}
         bash ./build_linux.sh ${{ steps.get_tag.outputs.tag }} ${{ secrets.CONTENT_RETRIEVE_TOKEN }}
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4.3.1
@@ -67,7 +66,6 @@ jobs:
       run: echo "tag=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
     - name: Build
       run: |
-        echo ${{ steps.get_tag.outputs.tag }}
         bash ./build_mac.sh ${{ steps.get_tag.outputs.tag }} ${{ secrets.CONTENT_RETRIEVE_TOKEN }}
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4.3.1
@@ -97,6 +95,7 @@ jobs:
     - name: Get tag
       id: get_tag
       run: echo "tag=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+      shell: cmd
     - name: Build
       run: |
         echo ${{ steps.get_tag.outputs.tag }}
