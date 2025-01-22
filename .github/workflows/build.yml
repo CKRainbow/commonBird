@@ -30,9 +30,12 @@ jobs:
         npm i
         python -m pip install --upgrade pip
         pip install -r requirements.txt
+    - name: Get tag
+      id: get_tag
+      run: echo "tag=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
     - name: Build
       run: |
-        bash ./build_linux.sh
+        bash ./build_linux.sh ${{ steps.get_tag.outputs.tag }} ${{ secrets.CONTENT_RETRIEVE_TOKEN }}
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4.3.1
       with: 
@@ -58,9 +61,12 @@ jobs:
         npm i
         python -m pip install --upgrade pip
         pip install -r requirements.txt
+    - name: Get tag
+      id: get_tag
+      run: echo "tag=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
     - name: Build
       run: |
-        bash ./build_mac.sh
+        bash ./build_mac.sh ${{ steps.get_tag.outputs.tag }} ${{ secrets.CONTENT_RETRIEVE_TOKEN }}
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4.3.1
       with: 
@@ -86,9 +92,12 @@ jobs:
         npm i
         python -m pip install --upgrade pip
         pip install -r requirements.txt
+    - name: Get tag
+      id: get_tag
+      run: echo "tag=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
     - name: Build
       run: |
-        ./build_win.ps1
+        ./build_win.ps1 --latest_tag ${{ steps.get_tag.outputs.tag }} --github_api_token ${{ secrets.CONTENT_RETRIEVE_TOKEN }}
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4.3.1
       with: 
