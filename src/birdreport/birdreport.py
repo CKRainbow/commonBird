@@ -361,9 +361,7 @@ class Birdreport:
         )
         if len(reports) == 0:
             return []
-        checklists = {
-            report["id"]: report for report in reports if report["is_convert"] == 0
-        }
+        checklists = {report["id"]: report for report in reports}
         ids = list(checklists.keys())
         excel_data = await self.member_get_excel(ids)
         for taxon_entry in excel_data:

@@ -88,6 +88,14 @@ class CommonBirdApp(App):
             )
         )
 
+        if (database_path / "ch4_to_eb_taxon_map.json").exists():
+            with open(
+                database_path / "ch4_to_eb_taxon_map.json", "r", encoding="utf-8"
+            ) as f:
+                self.ch4_to_eb_taxon_map = json.load(f)
+        else:
+            self.ch4_to_eb_taxon_map = None
+
     def compose(self) -> ComposeResult:
         yield Header()
         yield Footer()
@@ -129,6 +137,13 @@ class CommonBirdApp(App):
 
         if self.first_open:
             self.first_open = False
+
+            if self.ch4_to_eb_taxon_map is None:
+                await self.push_screen_wait(
+                    MessageScreen(
+                        "没有找到ch4_to_eb_taxon_map.json文件\n数据迁移可能出现错误\n请检查数据文件是否存在"
+                    )
+                )
 
             get_latest_repo_url = (
                 "https://api.github.com/repos/CKRainbow/commonBird/releases/latest"

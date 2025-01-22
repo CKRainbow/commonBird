@@ -4,13 +4,12 @@ import asyncio
 import csv
 import time
 import pytz
-from typing import List, Dict
+from typing import List
 from datetime import datetime
 from pathlib import Path
 from itertools import count
 
 from textual import on, work
-from textual.reactive import reactive
 from textual.app import ComposeResult
 from textual.screen import Screen, ModalScreen
 from textual.containers import VerticalScroll, HorizontalGroup, Grid
@@ -30,16 +29,17 @@ from fuzzywuzzy.fuzz import partial_ratio
 
 from src import application_path
 from src.birdreport.birdreport import Birdreport
-from src.utils.location import EBIRD_REGION_CODE_TO_NAME
-from src.utils.taxon import Z3_TO_Z4, Z4_TO_EBIRD
+from src.utils.location import EBIRD_REGION_CODE_TO_NAME, NAME_TO_EBIRD_REGION_CODE
+from src.utils.taxon import Z3_TO_Z4, convert_taxon_z4_ebird
 from src.cli.general import ConfirmScreen, MessageScreen, DomainScreen, TokenInputScreen
 
 
-async def dump_as_ebird_csv(reports, username, update_date):
+async def dump_as_ebird_csv(reports, username, update_date, ch4_to_eb_taxon_map):
     # FIXME: single csv file should be less than 1MB
     csvs = [[]]
     for report in reports:
         version = report["version"]
+        obs = report["obs"]
 
         start_time = time.strptime(report["start_time"], "%Y-%m-%d %H:%M:%S")
         end_time = time.strptime(report["end_time"], "%Y-%m-%d %H:%M:%S")
@@ -73,22 +73,28 @@ async def dump_as_ebird_csv(reports, username, update_date):
         protocol = "stationary"  # historical
         num_observers = 1
 
-        real_quality = report["real_quality"] if "real_quality" in report else None
+        if "real_quantity" in report:
+            real_quantity = report["real_quantity"] == 1
+        elif all([o["taxon_count"] == 1 for o in obs]):
+            real_quantity = False
+        else:
+            real_quantity = True
 
-        for entry in report["obs"]:
-            if version == "G3":
-                if entry["taxon_name"] in Z3_TO_Z4:
-                    entry["taxon_name"] = Z3_TO_Z4[entry["taxon_name"]]
-            if entry["taxon_name"] in Z4_TO_EBIRD:
-                entry["taxon_name"] = Z4_TO_EBIRD[entry["taxon_name"]]
-            common_name = entry["taxon_name"]
+        if version == "G3":
+            pass
+        else:
+            if ch4_to_eb_taxon_map is not None:
+                convert_taxon_z4_ebird(report, ch4_to_eb_taxon_map)
+            else:
+                pass
 
-            genus, species = entry["latinname"].split(" ")
-            species_count = (
-                entry["taxon_count"]
-                if real_quality is None or real_quality == 1
-                else "X"
-            )
+        for entry in obs:
+            # common_name = entry["taxon_name"]
+
+            splited_latinname = entry["latinname"].split(" ")
+            genus = splited_latinname[0]
+            species = " ".join(splited_latinname[1:])
+            species_count = entry["taxon_count"] if real_quantity else "X"
 
             note = entry["note"].replace("\n", "\\n") if "note" in entry else ""
 
@@ -99,7 +105,8 @@ async def dump_as_ebird_csv(reports, username, update_date):
             # if entry["outside_type"] != 0:
             #     species_comments += "\nOut of scope or not confirmed."
             csv_line = (
-                common_name,
+                # common_name,
+                "",
                 genus,
                 species,
                 species_count,
@@ -174,6 +181,21 @@ class BirdreportSearchReportScreen(Screen):
 
 
 class SearchEbirdHotspotScreen(ModalScreen):
+    def __init__(self, province, **kwargs):
+        super().__init__(kwargs)
+
+        self.province = NAME_TO_EBIRD_REGION_CODE[province]
+        self.target_cn_hotspot = {
+            name: hotspot
+            for name, hotspot in self.app.ebird_cn_hotspots.items()
+            if hotspot["subnational1Code"] == self.province
+        }
+        self.target_other_hotspot = {
+            name: hotspot
+            for name, hotspot in self.app.ebird_other_hotspots.items()
+            if hotspot["subnational1Code"] == self.province
+        }
+
     def compose(self) -> ComposeResult:
         yield Grid(
             Input(id="hotspot_name"),
@@ -199,11 +221,11 @@ class SearchEbirdHotspotScreen(ModalScreen):
         # 繁体简体（或许可以都转为简体后搜索）
         hotspot_infos_cn = filter(
             lambda x: partial_ratio(hotspot_name, x["locName"]) > 80,
-            self.app.ebird_cn_hotspots.values(),
+            self.target_cn_hotspot.values(),
         )
         hotspot_infos_other = filter(
             lambda x: partial_ratio(hotspot_name, x["locName"]) > 80,
-            self.app.ebird_other_hotspots.values(),
+            self.target_other_hotspot.values(),
         )
 
         hotspot_infos = list(hotspot_infos_cn) + list(hotspot_infos_other)
@@ -388,7 +410,16 @@ class BirdreportToEbirdLocationAssignScreen(Screen):
     @on(Button.Pressed, ".search_button")
     @work
     async def on_button_search_location_presses(self, event: Button.Pressed) -> None:
-        hotspot_name = await self.app.push_screen_wait(SearchEbirdHotspotScreen())
+        point_name = event.button.name
+
+        birdreport_point_info = self.location_assign[point_name]
+        province = birdreport_point_info["province"]
+        if province == "台湾省":
+            province = birdreport_point_info["city"]
+
+        hotspot_name = await self.app.push_screen_wait(
+            SearchEbirdHotspotScreen(province)
+        )
         point_id = event.button.id.split("_")[-1]
 
         button: Button = self.query_one(f"#converted_hotspot_{point_id}")
@@ -483,6 +514,7 @@ class BirdreportFilterScreen(Screen):
         for report in self.app.cur_birdreport_data:
             version = report["version"]
             start_date = time.strptime(report["start_time"].split(" ")[0], "%Y-%m-%d")
+            # filter reports of G3 which have been converted
             if query_version != Select.BLANK:
                 if version != query_version:
                     continue
@@ -511,12 +543,15 @@ class BirdreportFilterScreen(Screen):
     @on(Button.Pressed, "#confirm")
     def on_button_confirm_presses(self, event: Button.Pressed) -> None:
         selection_list = self.query_one(SelectionList)
-        self.app.cur_birdreport_data = list(
+        new_list = list(
             filter(
                 lambda x: x["id"] in selection_list.selected,
                 self.app.cur_birdreport_data,
             )
         )
+        if len(new_list) == 0:
+            return
+        self.app.cur_birdreport_data = new_list
         self.dismiss()
 
 
@@ -595,29 +630,20 @@ class BirdreportToEbirdScreen(Screen):
         if self.app.br_to_ebird_location_map is not None:
             await self.app.push_screen_wait(BirdreportToEbirdLocationAssignScreen())
 
-        new_button = Button("导出为EBird格式", id="export_to_ebird", variant="primary")
-        await self.mount(new_button)
-
-    @work
-    async def on_button_pressed(self, event: Button.Pressed) -> None:
-        if event.button.id == "export_to_ebird":
-            if any(
-                map(
-                    lambda x: x["version"] == "CH3",
-                    self.app.cur_birdreport_data,
-                )
-            ):
-                await self.app.push_screen_wait(
-                    MessageScreen(
-                        "检测到郑三版本数据，此类数据暂时不支持导出\n请手动迁移至郑四后重新导出。"
-                    )
-                )
-
-            username = self.app.birdreport.user_info["username"]
-            await dump_as_ebird_csv(
-                self.app.cur_birdreport_data, username, self.cur_date
+        await self.app.push_screen_wait(
+            MessageScreen(
+                "请注意：\n请勿使用Excel或WPS打开编辑生成的csv文件\n而应使用记事本或类似工具\n否则可能导致乱码问题"
             )
-            self.dismiss()
+        )
+
+        username = self.app.birdreport.user_info["username"]
+        await dump_as_ebird_csv(
+            self.app.cur_birdreport_data,
+            username,
+            self.cur_date,
+            self.app.ch4_to_eb_taxon_map,
+        )
+        self.dismiss()
 
 
 class BirdreportScreen(DomainScreen):

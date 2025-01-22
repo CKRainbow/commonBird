@@ -1,0 +1,159 @@
+{
+  "Amaurornis cinerea": "Poliolimnas cinereus",
+  "Grus virgo": "Anthropoides virgo",
+  "Ixobrychus minutus": "Botaurus minutus",
+  "Ixobrychus sinensis": "Botaurus sinensis",
+  "Ixobrychus eurhythmus": "Botaurus eurhythmus",
+  "Ixobrychus cinnamomeus": "Botaurus cinnamomeus",
+  "Ixobrychus flavicollis": "Botaurus flavicollis",
+  "Gorsachius magnificus": "Oroanassa magnifica",
+  "Bubulcus coromandus": "Ardea coromanda",
+  "Phalacrocorax pelagicus": "Urile pelagicus",
+  "Phalacrocorax urile": "Urile urile",
+  "Charadrius placidus": "Thinornis placidus",
+  "Charadrius dubius": "Thinornis dubius",
+  "Charadrius alexandrinus": "Anarhynchus alexandrinus",
+  "Charadrius dealbatus": "Anarhynchus dealbatus",
+  "Charadrius mongolus": "Anarhynchus mongolus",
+  "Charadrius atrifrons": "Anarhynchus atrifrons",
+  "Charadrius leschenaultii": "Anarhynchus leschenaultii",
+  "Charadrius asiaticus": "Anarhynchus asiaticus",
+  "Charadrius veredus": "Anarhynchus veredus",
+  "Glaucidium brodiei": "Taenioptynx brodiei",
+  "Strix uralensis": "Strix uralensis [uralensis Group]",
+  "Strix davidi": "Strix uralensis davidi",
+  "Bubo nipalensis": "Ketupa nipalensis",
+  "Bubo blakistoni": "Ketupa blakistoni",
+  "Accipiter trivirgatus": "Lophospiza trivirgata",
+  "Accipiter badius": "Tachyspiza badia",
+  "Accipiter soloensis": "Tachyspiza soloensis",
+  "Accipiter gularis": "Tachyspiza gularis",
+  "Accipiter virgatus": "Tachyspiza virgata",
+  "Accipiter gentilis": "Astur gentilis",
+  "Haliaeetus leucogaster": "Icthyophaga leucogaster",
+  "Haliaeetus humilis": "Icthyophaga humilis",
+  "Picoides canicapillus": "Yungipicus canicapillus",
+  "Picoides kizuki": "Yungipicus kizuki",
+  "Leiopicus auriceps": "Dendrocoptes auriceps",
+  "Corvus monedula": "Coloeus monedula",
+  "Corvus dauuricus": "Coloeus dauuricus",
+  "Corvus pectoralis": "Corvus torquatus",
+  "Pardaliparus venustulus": "Periparus venustulus",
+  "Parus minor": "Parus cinereus",
+  "Pnoepyga albiventer": [
+    {
+      "loc": [
+        "XZ",
+        "YN"
+      ],
+      "name": "Pnoepyga albiventer albiventer/pallidior"
+    },
+    {
+      "name": "Pnoepyga albiventer mutica"
+    }
+  ],
+  "Cecropis daurica": "Cecropis daurica [daurica Group]",
+  "Cecropis striolata": "Cecropis daurica [striolata Group]",
+  "Brachypodius atriceps": "Microtarsus melanocephalos",
+  "Phylloscopus affinis": "Phylloscopus affinis affinis/perflavus",
+  "Phylloscopus occisinensis": "Phylloscopus affinis occisinensis",
+  "Aegithalos iouschistos": "Aegithalos iouschistos iouschistos",
+  "Aegithalos bonvaloti": "Aegithalos iouschistos bonvaloti/obscuratus",
+  "Curruca curruca": "Curruca curruca curruca/blythi/halimodendri",
+  "Curruca minula": "Curruca curruca minula/margelanica",
+  "Curruca althaea": "Curruca curruca althaea",
+  "Conostoma aemodium": "Paradoxornis aemodius",
+  "Cholornis paradoxus": "Paradoxornis paradoxus",
+  "Cholornis unicolor": "Paradoxornis unicolor",
+  "Sinosuthora conspicillata": "Suthora conspicillata",
+  "Sinosuthora webbiana": "Suthora webbiana",
+  "Sinosuthora alphonsiana": "Suthora alphonsiana",
+  "Sinosuthora brunnea": [
+    {
+      "loc": [
+        "YN-怒江傈僳族自治州",
+        "YN-保山市",
+        "YN-德宏傣族景颇族自治州",
+        "YN-大理白族自治州",
+        "YN-临沧市"
+      ],
+      "name": "Suthora brunnea"
+    },
+    {
+      "name": "Suthora ricketti"
+    }
+  ],
+  "Sinosuthora zappeyi": "Suthora zappeyi",
+  "Sinosuthora przewalskii": "Suthora przewalskii",
+  "Neosuthora davidiana": "Suthora davidiana",
+  "Chleuasicus atrosuperciliaris": "Suthora atrosuperciliaris",
+  "Psittiparus ruficeps": "Paradoxornis ruficeps",
+  "Psittiparus bakeri": "Paradoxornis bakeri",
+  "Psittiparus gularis": "Paradoxornis gularis",
+  "Parayuhina bakeri": "Yuhina bakeri",
+  "Cyanoderma ambiguum": "Cyanoderma rufifrons [ambiguum Group]",
+  "Garrulax owstoni": "Garrulax canorus",
+  "Cyornis concretus": "Leucoptilon concretum",
+  "Chloropsis hardwickii": "Chloropsis hardwickii hardwickii/malayana",
+  "Chloropsis lazulina": "Chloropsis hardwickii lazulina/melliana",
+  "Dicaeum melanozanthum": "Pachyglossa melanozantha",
+  "Dicaeum chrysorrheum": "Pachyglossa chrysorrhea",
+  "Dicaeum agile": "Pachyglossa agilis",
+  "Lonchura oryzivora": "Padda oryzivora",
+  "Carpodacus lepidus": "Carpodacus sibiricus lepidus/henrici",
+  "Carpodacus sibiricus": "Carpodacus sibiricus [sibiricus Group]",
+  "Acanthis hornemanni": "Acanthis flammea hornemanni/exilipes",
+  "Acanthis flammea": "Acanthis flammea flammea/rostrata/islandica",
+  "Emberiza godlewskii": "Emberiza godlewskii [godlewskii Group]",
+  "Emberiza yunnanensis": "Emberiza godlewskii yunnanensis/khamensis",
+  "Anthus rubescens": "Anthus japonicus",
+  "Hirundo tahitica": "Hirundo javanica",
+  "Coracina macei": "Coracina javensis",
+  "Psilopogon duvaucelii": "Psilopogon cyanotis",
+  "Carduelis carduelis": [
+    {
+      "time": "5-8",
+      "loc": ["XJ"],
+      "name": "Carduelis caniceps"
+    },
+    {
+      "name": "Carduelis carduelis/caniceps"
+    }
+  ],
+"Nucifraga caryocatactes": [
+    {
+      "loc": [
+        "HLJ",
+        "JL",
+        "NMG",
+        "XJ",
+        "BJ",
+        "HEB"
+      ],
+      "name": "Nucifraga caryocatactes"
+    },
+    {
+      "loc": [
+        "LN"
+      ],
+      "name": "Nucifraga caryocatactes/hemispila"
+    },
+    {
+      "name": "Nucifraga hemispila"
+    }
+  ],
+  "Larus vegae": [
+    {
+      "loc": [
+        "XJ"
+      ],
+      "name": "Larus mongolicus"
+    },
+    {
+      "name": "Larus vegae/mongolicus"
+    }
+  ],
+  "Cinnyris jugularis": "Cinnyris ornatus",
+  "Chloropsis cochinchinensis": "Chloropsis moluccensis",
+  "Spelaeornis chocolatinus": "Spelaeornis reptatus"
+}

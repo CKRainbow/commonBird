@@ -1,5 +1,11 @@
-import requests
 import json
+from pathlib import Path
+from typing import List
+
+import pandas as pd
+
+from src.utils.location import AB_LOCATION
+from src import database_path
 
 Z3_TO_Z4 = {
     "大山雀": "欧亚大山雀",
@@ -18,119 +24,140 @@ Z3_TO_Z4 = {
     "戈氏岩鹀": "灰眉岩鹀",
 }
 
-# TODO: Or use scientific name?
-Z4_TO_EBIRD = {
-    "淡腹点翅朱雀": "点翅朱雀",
-    "点翅朱雀": "喜山点翅朱雀",
-    "东方田鹨": "田鹨",
-    "田鹨": "理氏鹨",
-    "斑林鸽": "点斑林鸽",
-    "毛腿夜鹰": "毛腿耳夜鹰",
-    "库氏白腰雨燕": "印支白腰雨燕",
-    "红脚斑秧鸡": "红腿斑秧鸡",
-    "西秧鸡": "西方秧鸡",
-    "白眉苦恶鸟": "白胸苦恶鸟",
-    "黄斑苇鳽": "黄苇鳽",
-    "黑苇鳽": "黑鳽",
-    "栗头鳽": "栗鳽",
-    "绿背鸬鹚": "暗绿背鸬鹚",
-    "金鸻": "金斑鸻",
-    "灰鸻": "灰斑鸻",
-    "西滨鹬": "西方滨鹬",
-    "小黑背银鸥": "小黑背鸥",
-    "灰翅浮鸥": "须浮鸥",
-    "绿拟啄木鸟": "斑头绿拟啄木鸟",
-    "金背啄木鸟": "金背三趾啄木鸟",
-    "纹喉绿啄木鸟": "鳞喉绿啄木鸟",
-    "纹腹啄木鸟": "纹胸啄木鸟",
-    "鹊鹂": "鹊色鹂",
-    "西灰伯劳": "西方灰伯劳",
-    "四川褐头山雀": "川褐头山雀",
-    "中华短趾百灵": "蒙古短趾百灵",
-    "短趾百灵": "亚洲短趾百灵",
-    "白喉山鹪莺": "黑喉山鹪莺",
-    "黑喉山鹪莺": "黑胸山鹪莺",
-    "噪苇莺": "噪大苇莺",
-    "蒲苇莺": "水蒲苇莺",
-    "芦莺": "芦苇莺",
-    "淡色崖沙燕": "淡色沙燕",
-    "中亚叽喳柳莺": "东方叽喳柳莺",
-    "漠白喉林莺": "沙白喉林莺",
-    "细嘴钩嘴鹛": "剑嘴鹛",
-    "台湾噪鹛": "玉山噪鹛",
-    "红顶噪鹛": "金翅噪鹛",
-    "栗额斑翅鹛": "锈额斑翅鹛",
-    "白腹暗蓝鹟": "琉璃蓝鹟",
-    "喜山蓝短翅鸫": "喜山短翅鸫",
-    "台湾蓝短翅鸫": "台湾短翅鸫",
-    "蓝额地鸲": "蓝额长脚地鸲",
-    "紫颊太阳鸟": "紫颊直嘴太阳鸟",
-    "红额金翅雀": "欧红额金翅雀/红额金翅雀",
-    "橙腹叶鹎": "橙腹叶鹎 (灰冠蓝喉)",
-    "丛林鸦": "丛林鸦 (levaillantii)",
-    "日本云雀": "云雀 (东北亚)",
-    "西南橙腹叶鹎": "橙腹叶鹎 (黄冠黑喉)",
-    "日本冕柳莺": "饭岛柳莺",
-    "紫花蜜鸟": "紫色花蜜鸟",
-    "西伯利亚银鸥": "织女银鸥/蒙古银鸥 (西伯利亚银鸥)",
-    "鹗": "鹗鹗",
-    "斑头秋沙鸭": "",
-    "黄喉雉鹑": "",
-    "雉鸡": "",
-    "黑胸鹌鹑": "",
-    "信使圆尾鹱": "",
-    "灰胸秧鸡": "",
-    "白骨顶": "",
-    "红脚田鸡": "",
-    "石鸻": "",
-    "长嘴半蹼鹬": "",
-    "拉氏沙锥": "",
-    "黄胸滨鹬": "",
-    "中华凤头燕鸥": "",
-    "里海银鸥": "",
-    "北棕腹鹰鹃": "",
-    "棕腹鹰鹃": "",
-    "东方中杜鹃": "",
-    "琉球角鸮": "",
-    "北领角鸮": "",
-    "毛腿雕鸮": "",
-    "凤头雨燕": "",
-    "普通雨燕": "",
-    "华西白腰雨燕": "",
-    "红脚隼": "",
-    "蓝腰鹦鹉": "",
-    "印度寿带": "",
-    "北星鸦": "",
-    "星鸦": "",
-    "白翅云雀": "",
-    "双斑百灵": "",
-    "灰喉沙燕": "",
-    "洋燕": "",
-    "喜山黄腹树莺": "",
-    "东亚蝗莺": "",
-    "纹胸鹛": "",
-    "红额穗鹛": "",
-    "灰腹鹩鹛": "",
-    "黑胸楔嘴穗鹛": "",
-    "楔嘴穗鹛": "",
-    "中华草鹛": "",
-    "棕胸雅鹛": "",
-    "灰头薮鹛": "",
-    "中华雀鹛": "",
-    "中南雀鹛": "",
-    "黑颏凤鹛": "",
-    "淡背地鸫": "",
-    "喜山淡背地鸫": "",
-    "四川淡背地鸫": "",
-    "虎斑地鸫": "",
-    "蒂氏鸫": "",
-    "黑喉鸫": "",
-    "旅鸫": "",
-    "侏蓝姬鹟": "",
-    "台湾林鸲": "",
-    "麻雀": "",
-    "红眉朱雀": "",
-    "中华朱雀": "",
-    "褐头朱雀": "",
-    "硫黄鹀": "",
-}
+
+def process_loc(loc):
+    splited = loc.split("-")
+    if len(splited) >= 1:
+        prov = AB_LOCATION[splited[0]]
+        if len(splited) >= 2:
+            return f"{prov}-{splited[1]}"
+        else:
+            return prov
+
+
+def highlight_rows(row, idxs):
+    if row.name in idxs:
+        return ["color: red"] * len(row)
+    else:
+        return [""] * len(row)
+
+
+def preview_taxon_map(map_file: Path, output_path: Path):
+    taxon_map = json.load(open(map_file, "r", encoding="utf-8"))
+
+    br_taxon_infos = json.load(
+        open(database_path / "birdreport_taxon_infos.json", "r", encoding="utf-8")
+    )
+    br_taxon_infos = {
+        id: taxon_info
+        for id, taxon_info in br_taxon_infos["Z4"].items()
+        if int(id) >= 4000 and int(id) < 9000
+    }
+
+    ebird_taxon_infos = json.load(
+        open(database_path / "ebird_taxonomy.json", "r", encoding="utf-8")
+    )
+
+    ebird_taxon_infos = {
+        taxon_info["sciName"]: taxon_info for taxon_info in ebird_taxon_infos
+    }
+
+    header = ["原学名", "原俗名", "", "现学名", "现俗名", "备注"]
+
+    df = pd.DataFrame(columns=header)
+
+    changed_idx = []
+
+    for id, taxon_info in br_taxon_infos.items():
+        latinname = taxon_info["latinname"].strip()
+        name = taxon_info["name"]
+        if latinname in taxon_map:
+            converted_latinname = taxon_map[latinname]
+            if isinstance(converted_latinname, List):
+                for idx, convert_cond in enumerate(converted_latinname):
+                    note = ""
+                    if "loc" in convert_cond:
+                        note = ",".join(
+                            [process_loc(loc) for loc in convert_cond["loc"]]
+                        )
+                    else:
+                        note = "其他"
+                    if "time" in convert_cond:
+                        note += "&" + convert_cond["time"]
+                    if idx == 0:
+                        df.loc[len(df)] = [
+                            latinname,
+                            name,
+                            "->",
+                            ebird_taxon_infos[convert_cond["name"]]["sciName"],
+                            ebird_taxon_infos[convert_cond["name"]]["comName"],
+                            note,
+                        ]
+                    else:
+                        df.loc[len(df)] = [
+                            "",
+                            "",
+                            "->",
+                            ebird_taxon_infos[convert_cond["name"]]["sciName"],
+                            ebird_taxon_infos[convert_cond["name"]]["comName"],
+                            note,
+                        ]
+                    changed_idx.append(len(df) - 1)
+            else:
+                ebird_taxon_info = ebird_taxon_infos[converted_latinname]
+                df.loc[len(df)] = [
+                    latinname,
+                    name,
+                    "->",
+                    ebird_taxon_info["sciName"],
+                    ebird_taxon_info["comName"],
+                    "",
+                ]
+                changed_idx.append(len(df) - 1)
+        else:
+            ebird_taxon_info = ebird_taxon_infos[latinname]
+            df.loc[len(df)] = [
+                latinname,
+                name,
+                "->",
+                ebird_taxon_info["sciName"],
+                ebird_taxon_info["comName"],
+                "",
+            ]
+
+    df = df.style.apply(highlight_rows, axis=1, idxs=changed_idx)
+
+    df.to_html(output_path, index=False)
+
+
+def convert_taxon_z4_ebird(report, taxon_map):
+    obs = report["obs"]
+    prov = report["province_name"]
+    city = report["city_name"]
+    _, month, _ = report["start_time"].split(" ")[0].split("-")
+
+    for taxon in obs:
+        latin_name = taxon["latinname"].strip()
+        if latin_name in taxon_map:
+            converted_latinname = taxon_map[latin_name]
+            if isinstance(converted_latinname, List):
+                for idx, convert_cond in enumerate(converted_latinname):
+                    if "loc" in convert_cond:
+                        locs_cond = [process_loc(loc) for loc in convert_cond["loc"]]
+                        if not ((prov in locs_cond) or (f"{prov}-{city}" in locs_cond)):
+                            continue
+                    if "time" in convert_cond:
+                        # "time" can be "1-3,5-9"
+                        time_ranges = convert_cond["time"].split(",")
+                        time_range = set()
+                        for tr in time_ranges:
+                            if "-" in tr:
+                                start, end = tr.split("-")
+                                time_range.update(range(int(start), int(end) + 1))
+                            else:
+                                time_range.add(int(tr))
+                        if int(month) not in time_range:
+                            continue
+                    taxon["latinname"] = convert_cond["name"]
+            else:
+                taxon["latinname"] = converted_latinname
