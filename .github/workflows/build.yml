@@ -97,7 +97,7 @@ jobs:
       run: echo "tag=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
     - name: Build
       run: |
-        ./build_win.ps1 --latest_tag ${{ steps.get_tag.outputs.tag }} --github_api_token ${{ secrets.CONTENT_RETRIEVE_TOKEN }}
+        ./build_win.ps1 ${{ steps.get_tag.outputs.tag }} ${{ secrets.CONTENT_RETRIEVE_TOKEN }}
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4.3.1
       with: 
