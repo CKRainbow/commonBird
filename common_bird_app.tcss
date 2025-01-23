@@ -125,7 +125,7 @@ SearchEbirdHotspotScreen {
 
 BirdreportFilterScreen {
     #filter_container {
-        grid-size: 7 6;
+        grid-size: 8 6;
         grid-gutter: 1;
         
         MaskedInput {
@@ -137,11 +137,11 @@ BirdreportFilterScreen {
         }
         
         #version_select {
-            column-span: 1;
+            column-span: 2;
         }
         
         SelectionList {
-            column-span: 7;
+            column-span: 8;
             row-span: 5;
         }
     }

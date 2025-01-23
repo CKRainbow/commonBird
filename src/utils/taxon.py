@@ -159,5 +159,6 @@ def convert_taxon_z4_ebird(report, taxon_map):
                         if int(month) not in time_range:
                             continue
                     taxon["latinname"] = convert_cond["name"]
+                    break
             else:
                 taxon["latinname"] = converted_latinname
