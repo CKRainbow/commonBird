@@ -30,7 +30,7 @@ from fuzzywuzzy.fuzz import partial_ratio
 from src import application_path
 from src.birdreport.birdreport import Birdreport
 from src.utils.location import EBIRD_REGION_CODE_TO_NAME, NAME_TO_EBIRD_REGION_CODE
-from src.utils.taxon import Z3_TO_Z4, convert_taxon_z4_ebird
+from src.utils.taxon import convert_taxon_z4_ebird
 from src.cli.general import ConfirmScreen, MessageScreen, DomainScreen, TokenInputScreen
 
 
@@ -502,14 +502,11 @@ class BirdreportFilterScreen(Screen):
 
         query_start_date = process_date(self.query_one("#start_date").value)
         if query_start_date != "":
-            query_start_date = time.strptime(
-                process_date(self.query_one("#start_date").value, "%Y-%m-%d")
-            )
+            query_start_date = time.strptime(query_start_date, "%Y-%m-%d")
         query_end_date = process_date(self.query_one("#end_date").value)
         if query_end_date != "":
-            query_end_date = time.strptime(
-                process_date(self.query_one("#end_date").value, "%Y-%m-%d")
-            )
+            query_end_date = time.strptime(query_end_date, "%Y-%m-%d")
+
         query_version = self.query_one("#version").value
         for report in self.app.cur_birdreport_data:
             version = report["version"]
