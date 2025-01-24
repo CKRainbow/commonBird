@@ -1,7 +1,6 @@
 import json
 import os
 import logging
-from tkinter import HORIZONTAL
 import webbrowser
 import platform
 from typing import Dict
@@ -13,7 +12,6 @@ from textual import work, on
 from textual.app import App, ComposeResult
 from textual.containers import VerticalScroll, HorizontalGroup
 from textual.widgets import Footer, Header, Button, Markdown
-from yaml import Mark
 
 from src import application_path, database_path, env_path
 from src.utils.consts import GITHUB_API_TOKEN, APP_VERSION, DOWNLOAD_URL
