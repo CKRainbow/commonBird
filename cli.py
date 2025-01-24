@@ -134,14 +134,24 @@ class CommonBirdApp(App):
     @work
     async def on_changelog_pressed(self, event: Button.Pressed) -> None:
         await self.push_screen_wait(
-            DisplayScreen(Markdown(open("changelog.md", "r", encoding="utf-8").read()))
+            DisplayScreen(
+                Markdown(
+                    open(
+                        application_path / "changelog.md", "r", encoding="utf-8"
+                    ).read()
+                )
+            )
         )
 
     @on(Button.Pressed, "#help")
     @work
     async def on_help_pressed(self, event: Button.Pressed) -> None:
         await self.push_screen_wait(
-            DisplayScreen(Markdown(open("README.md", "r", encoding="utf-8").read()))
+            DisplayScreen(
+                Markdown(
+                    open(application_path / "README.md", "r", encoding="utf-8").read()
+                )
+            )
         )
 
     def on_button_pressed(self, event: Button.Pressed) -> None:
