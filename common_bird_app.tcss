@@ -148,7 +148,7 @@ BirdreportFilterScreen {
             column-span: 3;
         }
         
-        #version_select {
+        .select {
             column-span: 2;
         }
         

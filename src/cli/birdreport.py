@@ -476,8 +476,16 @@ class BirdreportFilterScreen(Screen):
                     value="CH4",
                     prompt="全部",
                 ),  # CH4 pnly for now
-                id="version_select",
+                classes="select",
             ),
+            HorizontalGroup(
+                Label("记录类型："),
+                Select(
+                    id="type", options=[("定点记", 0), ("随手记", 1)], prompt="全部"
+                ),
+                classes="select",
+            ),
+            *[Label("") for _ in range(6)],
             Button("搜索", id="search", variant="primary"),
             Button("全选", id="select_all", variant="primary"),
             Button("确认", id="confirm", variant="primary"),
@@ -508,12 +516,17 @@ class BirdreportFilterScreen(Screen):
             query_end_date = time.strptime(query_end_date, "%Y-%m-%d")
 
         query_version = self.query_one("#version").value
+        query_type = self.query_one("#type").value
         for report in self.app.cur_birdreport_data:
             version = report["version"]
+            is_handy = "latitude" in report
             start_date = time.strptime(report["start_time"].split(" ")[0], "%Y-%m-%d")
             # filter reports of G3 which have been converted
             if query_version != Select.BLANK:
                 if version != query_version:
+                    continue
+            if query_type != Select.BLANK:
+                if is_handy != (query_type == 1):
                     continue
             if query_start_date != "":
                 if start_date < query_start_date:

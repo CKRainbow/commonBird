@@ -204,6 +204,18 @@ class Birdreport:
 
         return result["data"]
 
+    async def member_handy_get_excel(self, ids):
+        params = {"ids": ",".join([str(id) for id in ids])}
+
+        result = await self.get_data(
+            params,
+            "https://api.birdreport.cn/member/system/handy/record/excel",
+            encode=False,
+            decode=False,
+        )
+
+        return result["data"]
+
     async def member_get_taxon_list(self):
         params = {}
 
@@ -355,22 +367,74 @@ class Birdreport:
             "state": f"{state}",
             "taxon_id": f"{taxon_id}",
         }
-
-        reports = await self.get_all_report_url_list(
+        checklists = {}
+        point_reports = await self.get_all_report_url_list(
             params, self.member_search, limit=200
         )
-        if len(reports) == 0:
-            return []
-        checklists = {report["id"]: report for report in reports}
-        ids = list(checklists.keys())
-        excel_data = await self.member_get_excel(ids)
-        for taxon_entry in excel_data:
-            checklist = checklists[taxon_entry["activity_id"]]
-            if "obs" not in checklist:
-                checklist["obs"] = []
-            checklist["obs"].append(taxon_entry)
+        if len(point_reports) != 0:
+            point_checklists = {report["id"]: report for report in point_reports}
+            ids = list(point_checklists.keys())
+            point_excel_data = await self.member_get_excel(ids)
+            for taxon_entry in point_excel_data:
+                checklist = point_checklists[taxon_entry["activity_id"]]
+                if "obs" not in checklist:
+                    checklist["obs"] = []
+                checklist["obs"].append(taxon_entry)
+            checklists.update(point_checklists)
+
+        params = {
+            "start_date": f"{start_date}",
+            "end_date": f"{end_date}",
+            "serial_id": f"{serial_id}",
+            "taxon_id": f"{taxon_id}",
+        }
+        handy_reports = await self.get_all_report_url_list(
+            params, self.member_handy_search, limit=200
+        )
+        if len(handy_reports) != 0:
+            handy_checklists = {report["id"]: report for report in handy_reports}
+            ids = list(handy_checklists.keys())
+            handy_excel_data = await self.member_handy_get_excel(ids)
+            for taxon_entry in handy_excel_data:
+                checklist = handy_checklists[taxon_entry["activity_id"]]
+                if "obs" not in checklist:
+                    checklist["obs"] = []
+                checklist["obs"].append(taxon_entry)
+            # use the lat, long and city district as those of the report
+            # and assign a psudo-point_name
+            for checklist in handy_checklists.values():
+                first_record = checklist["obs"][0]
+                checklist["city_name"] = first_record["city_name"]
+                checklist["district_name"] = first_record["district_name"]
+                checklist["latitude"] = first_record["latitude"]
+                checklist["longitude"] = first_record["longitude"]
+                checklist["point_name"] = f"随手记地点-{checklist['start_time']}"
+            checklists.update(handy_checklists)
 
         return list(checklists.values())
+
+    async def member_handy_search(
+        self, page, limit, start_date="", end_date="", serial_id="", taxon_id=""
+    ):
+        params = {
+            "start_date": f"{start_date}",
+            "start": f"{start_date}",
+            "end_date": f"{end_date}",
+            "end": f"{end_date}",
+            "serial_id": f"{serial_id}",
+            "taxon_id": f"{taxon_id}",
+            "page": f"{page}",
+            "limit": f"{limit}",
+        }
+        print(params)
+
+        res = await self.get_data(
+            params,
+            "https://api.birdreport.cn/member/system/handy/report/search",
+            encode=False,
+            decode=True,
+        )
+        return res
 
     async def member_search(
         self,
