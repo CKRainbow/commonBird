@@ -1,12 +1,24 @@
-.option_container Button {
-    width: 60%;
-    text-align: center;
-    margin: 1;
+CommonBirdApp {
 }
 
 .option_container {
     margin: 2;
     align: center middle;
+
+    Button {
+        width: 60%;
+        text-align: center;
+        margin: 1;
+    }
+
+    HorizontalGroup {
+        align: center middle;
+        width: 60%;
+        Button {
+            width: 50%;
+            margin: 0 1;
+        }
+    }
 }
 
 TokenInputScreen {

@@ -21,6 +21,8 @@ python taxon_map_preview.py --map_file "ch4_to_eb_taxon_map.json" --output_path 
 
 Copy-Item -Path "res" -Destination "dist/commonBird/res" -Recurse
 Copy-Item -Path "database" -Destination "dist/commonBird/database" -Recurse
+Copy-Item -Path "README.md" -Destination "dist/commonBird/README.md"
+Copy-Item -Path "changelog.md" -Destination "dist/commonBird/changelog.md"
 
 # compress the build
 Compress-Archive -Path "dist/commonBird" -DestinationPath "commonBird_win_x64.zip"

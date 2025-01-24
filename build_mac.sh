@@ -22,6 +22,8 @@ python taxon_map_preview.py --map_file ch4_to_eb_taxon_map.json --output_path di
 
 cp -r res dist/commonBird/res
 cp -r database dist/commonBird/database
+cp README.md dist/commonBird
+cp changelog.md dist/commonBird
 
 # compress the build
 tar cvzf commonBird_mac_x64.tar.gz dist/commonBird/

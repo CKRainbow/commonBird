@@ -1,7 +1,10 @@
 from dotenv import load_dotenv, set_key
+from textual import on
 from textual.app import ComposeResult
 from textual.screen import Screen, ModalScreen
 from textual.containers import Grid
+from textual.widget import Widget
+from textual.events import Click
 from textual.widgets import (
     Button,
     Label,
@@ -98,3 +101,28 @@ class DomainScreen(Screen):
             value_to_set=token,
         )
         load_dotenv(env_path)
+
+
+class DisplayScreen(ModalScreen):
+    """
+    A screen to display a instant widget, we can dismiss it with a click at anywhere
+
+    Args:
+        Widget: Widget to display
+    """
+
+    def __init__(self, widget: Widget, **kwargs):
+        super().__init__(**kwargs)
+        self.widget = widget
+
+    def compose(self) -> ComposeResult:
+        yield self.widget
+
+    def key_enter(self, event) -> None:
+        self.dismiss()
+        event.stop()
+
+    @on(Click)
+    def on_click(self, event: Click) -> None:
+        self.dismiss()
+        event.stop()

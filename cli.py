@@ -1,6 +1,7 @@
 import json
 import os
 import logging
+from tkinter import HORIZONTAL
 import webbrowser
 import platform
 from typing import Dict
@@ -8,20 +9,17 @@ from packaging import version
 
 import httpx
 from dotenv import load_dotenv
-from textual import work
+from textual import work, on
 from textual.app import App, ComposeResult
-from textual.containers import VerticalScroll
-from textual.widgets import (
-    Footer,
-    Header,
-    Button,
-)
+from textual.containers import VerticalScroll, HorizontalGroup
+from textual.widgets import Footer, Header, Button, Markdown
+from yaml import Mark
 
 from src import application_path, database_path, env_path
 from src.utils.consts import GITHUB_API_TOKEN, APP_VERSION, DOWNLOAD_URL
 from src.cli.birdreport import BirdreportScreen
 from src.cli.ebird import EbirdScreen
-from src.cli.general import ConfirmScreen, MessageScreen
+from src.cli.general import ConfirmScreen, MessageScreen, DisplayScreen
 
 logging.basicConfig(
     filename=application_path / "log",
@@ -111,6 +109,18 @@ class CommonBirdApp(App):
                 tooltip="EBird相关的功能，包括将报告迁移至观鸟记录中心",
                 disabled=True,
             ),
+            HorizontalGroup(
+                Button(
+                    "更新日志",
+                    id="changelog",
+                    tooltip="查看更新日志",
+                ),
+                Button(
+                    "使用说明",
+                    id="help",
+                    tooltip="查看使用说明",
+                ),
+            ),
             Button(
                 "退出",
                 id="exit",
@@ -118,6 +128,20 @@ class CommonBirdApp(App):
                 variant="warning",
             ),
             classes="option_container",
+        )
+
+    @on(Button.Pressed, "#changelog")
+    @work
+    async def on_changelog_pressed(self, event: Button.Pressed) -> None:
+        await self.push_screen_wait(
+            DisplayScreen(Markdown(open("changelog.md", "r", encoding="utf-8").read()))
+        )
+
+    @on(Button.Pressed, "#help")
+    @work
+    async def on_help_pressed(self, event: Button.Pressed) -> None:
+        await self.push_screen_wait(
+            DisplayScreen(Markdown(open("README.md", "r", encoding="utf-8").read()))
         )
 
     def on_button_pressed(self, event: Button.Pressed) -> None:
