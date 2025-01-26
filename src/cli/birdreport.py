@@ -34,6 +34,13 @@ from src.utils.taxon import convert_taxon_z4_ebird
 from src.cli.general import ConfirmScreen, MessageScreen, DomainScreen, TokenInputScreen
 
 
+def get_report_eb_region_code(province, city):
+    if province == "台湾省":
+        return NAME_TO_EBIRD_REGION_CODE[city]
+    else:
+        return NAME_TO_EBIRD_REGION_CODE[province]
+
+
 async def dump_as_ebird_csv(reports, username, update_date, ch4_to_eb_taxon_map):
     # FIXME: single csv file should be less than 1MB
     csvs = [[]]
@@ -66,7 +73,14 @@ async def dump_as_ebird_csv(reports, username, update_date, ch4_to_eb_taxon_map)
 
         start_time = time.strftime("%m/%d/%Y %H:%M", start_time)
         observation_date, start_time = start_time.split(" ")
-        country = "CN"
+        region_code = get_report_eb_region_code(
+            report["province_name"], report["city_name"]
+        )
+        if region_code.endswith("-"):
+            state = region_code
+            country = region_code[:-1]
+        else:
+            country, state = region_code.split("-")
         location_name = report["point_name"]
         lat = report["lat"] if "lat" in report else ""
         lng = report["lng"] if "lng" in report else ""
@@ -116,7 +130,7 @@ async def dump_as_ebird_csv(reports, username, update_date, ch4_to_eb_taxon_map)
                 lng,
                 observation_date,
                 start_time,
-                "",
+                state,
                 country,
                 protocol,
                 num_observers,
@@ -184,7 +198,7 @@ class SearchEbirdHotspotScreen(ModalScreen):
     def __init__(self, province, **kwargs):
         super().__init__(kwargs)
 
-        self.province = NAME_TO_EBIRD_REGION_CODE[province]
+        self.province = province
         self.target_cn_hotspot = {
             name: hotspot
             for name, hotspot in self.app.ebird_cn_hotspots.items()
@@ -330,7 +344,9 @@ class BirdreportToEbirdLocationAssignScreen(Screen):
                 + "\n最终只会生成一个与热点同名且坐标一样的个人地点，"
                 + "\n报告并没有真正的存在热点里，请酌情使用。"
                 + "\n若希望将此类报告分配到热点，请尝试在个人主页的地点界面"
-                + "\n将自动生成的个人地点合并至相应热点。",
+                + "\n将自动生成的个人地点合并至相应热点。"
+                + "\n若拥有魔法，可以不做修改，并在修复地点时"
+                + "\n选择“在地图上寻找”并继续，在地区热点中直接选择。",
             )
         )
 
@@ -413,12 +429,12 @@ class BirdreportToEbirdLocationAssignScreen(Screen):
         point_name = event.button.name
 
         birdreport_point_info = self.location_assign[point_name]
-        province = birdreport_point_info["province"]
-        if province == "台湾省":
-            province = birdreport_point_info["city"]
-
+        province_code = get_report_eb_region_code(
+            birdreport_point_info["province"],
+            birdreport_point_info["city"],
+        )
         hotspot_name = await self.app.push_screen_wait(
-            SearchEbirdHotspotScreen(province)
+            SearchEbirdHotspotScreen(province_code)
         )
         point_id = event.button.id.split("_")[-1]
 

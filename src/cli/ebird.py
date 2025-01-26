@@ -1,12 +1,14 @@
 import os
 
-from textual import work
+from textual import on, work
 from textual.app import ComposeResult
 from textual.containers import VerticalScroll
 from textual.widgets import (
     Button,
 )
+
 from src.cli.general import DomainScreen, TokenInputScreen
+from src.ebird.ebird import EBird
 
 
 class EbirdScreen(DomainScreen):
@@ -19,9 +21,14 @@ class EbirdScreen(DomainScreen):
 
     def compose(self) -> ComposeResult:
         yield VerticalScroll(
+            Button("更新热点信息", id="update_hotspot", tooltip="更新热点信息"),
             Button("修改 Token", id="change_token", tooltip="修改EBird的API token"),
             classes="option_container",
         )
+
+    @on(Button.Pressed, "#update_hotspot")
+    async def on_update_hotspot_pressed(self, event: Button.Pressed) -> None:
+        pass
 
     @work
     async def on_button_pressed(self, event: Button.Pressed) -> None:

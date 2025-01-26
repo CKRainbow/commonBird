@@ -41,3 +41,5 @@ elif __file__:
 
 database_path = application_path / "database"
 env_path = application_path / ".env"
+cache_path = application_path / ".cache"
+output_path = application_path / "output"
