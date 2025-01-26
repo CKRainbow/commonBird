@@ -12,7 +12,7 @@ from textual.app import App, ComposeResult
 from textual.containers import VerticalScroll, HorizontalGroup
 from textual.widgets import Footer, Header, Button, Markdown
 
-from src import application_path, database_path
+from src import application_path, database_path, inner_path
 from src.utils.consts import GITHUB_API_TOKEN, APP_VERSION, DOWNLOAD_URL
 from src.cli.birdreport import BirdreportScreen
 from src.cli.ebird import EbirdScreen
@@ -20,7 +20,7 @@ from src.cli.general import ConfirmScreen, MessageScreen, DisplayScreen
 
 
 class CommonBirdApp(App):
-    CSS_PATH = application_path / "common_bird_app.tcss"
+    CSS_PATH = inner_path / "common_bird_app.tcss"
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
