@@ -4,7 +4,7 @@ import asyncio
 import csv
 import time
 import pytz
-from typing import List
+from typing import List, Dict, Optional, TYPE_CHECKING
 from datetime import datetime
 from pathlib import Path
 from itertools import count
@@ -33,126 +33,15 @@ from src.utils.location import EBIRD_REGION_CODE_TO_NAME, NAME_TO_EBIRD_REGION_C
 from src.utils.taxon import convert_taxon_z4_ebird
 from src.cli.general import ConfirmScreen, MessageScreen, DomainScreen, TokenInputScreen
 
+if TYPE_CHECKING:
+    from src.cli.app import CommonBirdApp
+
 
 def get_report_eb_region_code(province, city):
     if province == "台湾省":
         return NAME_TO_EBIRD_REGION_CODE[city]
     else:
         return NAME_TO_EBIRD_REGION_CODE[province]
-
-
-async def dump_as_ebird_csv(reports, username, update_date, ch4_to_eb_taxon_map):
-    # FIXME: single csv file should be less than 1MB
-    csvs = [[]]
-    for report in reports:
-        version = report["version"]
-        obs = report["obs"]
-
-        start_time = time.strptime(report["start_time"], "%Y-%m-%d %H:%M:%S")
-        end_time = time.strptime(report["end_time"], "%Y-%m-%d %H:%M:%S")
-        duration = (time.mktime(end_time) - time.mktime(start_time)) // 60
-
-        # FIXME: need alert
-        duration = max(min(duration, 24 * 60), 1)
-
-        if "eye_all_birds" in report:
-            all_observations_reported = "Y" if report["eye_all_birds"] != "" else "N"
-        else:
-            all_observations_reported = "Y"
-
-        # TODO: add checklist comments
-        checklist_comment = (
-            report["note"].replace("\n", "\\n") if "note" in report else ""
-        )
-        if checklist_comment != "":
-            checklist_comment += "\\n"
-        # TODO: 可选是否添加
-        checklist_comment += (
-            f"Converted from BirdReport CN, report ID: {report['serial_id']}"
-        )
-
-        start_time = time.strftime("%m/%d/%Y %H:%M", start_time)
-        observation_date, start_time = start_time.split(" ")
-        region_code = get_report_eb_region_code(
-            report["province_name"], report["city_name"]
-        )
-        if region_code.endswith("-"):
-            state = region_code
-            country = region_code[:-1]
-        else:
-            country, state = region_code.split("-")
-        location_name = report["point_name"]
-        lat = report["lat"] if "lat" in report else ""
-        lng = report["lng"] if "lng" in report else ""
-        protocol = "stationary"  # historical
-        num_observers = 1
-
-        if "real_quantity" in report:
-            real_quantity = report["real_quantity"] == 1
-        elif all([o["taxon_count"] == 1 for o in obs]):
-            real_quantity = False
-        else:
-            real_quantity = True
-
-        if version == "G3":
-            pass
-        else:
-            if ch4_to_eb_taxon_map is not None:
-                convert_taxon_z4_ebird(report, ch4_to_eb_taxon_map)
-            else:
-                pass
-
-        for entry in obs:
-            # common_name = entry["taxon_name"]
-
-            splited_latinname = entry["latinname"].split(" ")
-            genus = splited_latinname[0]
-            species = " ".join(splited_latinname[1:])
-            species_count = entry["taxon_count"] if real_quantity else "X"
-
-            note = entry["note"].replace("\n", "\\n") if "note" in entry else ""
-
-            species_comments = note
-            # only for detail taxon
-            # if entry["type"] == 2:
-            #     species_comments += "\\nHeard."
-            # if entry["outside_type"] != 0:
-            #     species_comments += "\nOut of scope or not confirmed."
-            csv_line = (
-                # common_name,
-                "",
-                genus,
-                species,
-                species_count,
-                species_comments,
-                location_name,
-                lat,
-                lng,
-                observation_date,
-                start_time,
-                state,
-                country,
-                protocol,
-                num_observers,
-                duration,
-                all_observations_reported,
-                "",
-                "",
-                checklist_comment,
-            )
-            csvs[-1].append(csv_line)
-        if len(csvs[-1]) >= 4000:
-            csvs.append([])
-
-    for i in range(len(csvs)):
-        with open(
-            application_path / f"{username}_{update_date}_checklists_{i}.csv",
-            "w",
-            encoding="utf-8",
-            newline="",
-        ) as f:
-            writer = csv.writer(f)
-            writer.writerows(csvs[i])
 
 
 class BirdreportSearchReportScreen(Screen):
@@ -584,6 +473,7 @@ class BirdreportFilterScreen(Screen):
 class BirdreportToEbirdScreen(Screen):
     def __init__(self, **kwargs):
         super().__init__(kwargs)
+        self.app: CommonBirdApp
 
     def compose(self) -> ComposeResult:
         yield LoadingIndicator()
@@ -662,14 +552,143 @@ class BirdreportToEbirdScreen(Screen):
             )
         )
 
-        username = self.app.birdreport.user_info["username"]
-        await dump_as_ebird_csv(
-            self.app.cur_birdreport_data,
-            username,
+        await self.dump_as_ebird_csv(
             self.cur_date,
-            self.app.ch4_to_eb_taxon_map,
         )
         self.dismiss()
+
+    async def dump_as_ebird_csv(self, update_date):
+        reports = self.app.cur_birdreport_data
+        ch4_to_eb_taxon_map = self.app.ch4_to_eb_taxon_map
+        username = self.app.birdreport.user_info["username"]
+        ebird_taxon_info_dict: Optional[Dict] = None
+        if self.app.br_to_ebird_location_map is not None:
+            ebird_taxon_info_dict = {
+                taxon_info["sciName"]: taxon_info
+                for taxon_info in self.app.ebird_taxon_info
+            }
+
+        # FIXME: single csv file should be less than 1MB
+        csvs = [[]]
+        for report in reports:
+            version = report["version"]
+            obs = report["obs"]
+
+            start_time = time.strptime(report["start_time"], "%Y-%m-%d %H:%M:%S")
+            end_time = time.strptime(report["end_time"], "%Y-%m-%d %H:%M:%S")
+            duration = (time.mktime(end_time) - time.mktime(start_time)) // 60
+
+            # FIXME: need alert
+            duration = max(min(duration, 24 * 60), 1)
+
+            if "eye_all_birds" in report:
+                all_observations_reported = (
+                    "Y" if report["eye_all_birds"] != "" else "N"
+                )
+            else:
+                all_observations_reported = "Y"
+
+            # TODO: add checklist comments
+            checklist_comment = (
+                report["note"].replace("\n", "\\n") if "note" in report else ""
+            )
+            if checklist_comment != "":
+                checklist_comment += "\\n"
+            # TODO: 可选是否添加
+            checklist_comment += (
+                f"Converted from BirdReport CN, report ID: {report['serial_id']}"
+            )
+
+            start_time = time.strftime("%m/%d/%Y %H:%M", start_time)
+            observation_date, start_time = start_time.split(" ")
+            region_code = get_report_eb_region_code(
+                report["province_name"], report["city_name"]
+            )
+            if region_code.endswith("-"):
+                state = region_code
+                country = region_code[:-1]
+            else:
+                country, state = region_code.split("-")
+            location_name = report["point_name"]
+            lat = report["lat"] if "lat" in report else ""
+            lng = report["lng"] if "lng" in report else ""
+            protocol = "stationary"  # historical
+            num_observers = 1
+
+            if "real_quantity" in report:
+                real_quantity = report["real_quantity"] == 1
+            elif all([o["taxon_count"] == 1 for o in obs]):
+                real_quantity = False
+            else:
+                real_quantity = True
+
+            if version == "G3":
+                pass
+            else:
+                if ch4_to_eb_taxon_map is not None:
+                    convert_taxon_z4_ebird(report, ch4_to_eb_taxon_map)
+                else:
+                    pass
+
+            for entry in obs:
+                # common_name = entry["taxon_name"]
+
+                common_name = ""
+                genus = ""
+                species = ""
+                if ebird_taxon_info_dict is not None:
+                    common_name = ebird_taxon_info_dict[entry["latinname"]]["comName"]
+                    if common_name == "鹗":
+                        common_name = "鹗鹗"
+                else:
+                    splited_latinname = entry["latinname"].split(" ")
+                    genus = splited_latinname[0]
+                    species = " ".join(splited_latinname[1:])
+
+                species_count = entry["taxon_count"] if real_quantity else "X"
+
+                note = entry["note"].replace("\n", "\\n") if "note" in entry else ""
+
+                species_comments = note
+                # only for detail taxon
+                # if entry["type"] == 2:
+                #     species_comments += "\\nHeard."
+                # if entry["outside_type"] != 0:
+                #     species_comments += "\nOut of scope or not confirmed."
+                csv_line = (
+                    common_name,
+                    genus,
+                    species,
+                    species_count,
+                    species_comments,
+                    location_name,
+                    lat,
+                    lng,
+                    observation_date,
+                    start_time,
+                    state,
+                    country,
+                    protocol,
+                    num_observers,
+                    duration,
+                    all_observations_reported,
+                    "",
+                    "",
+                    checklist_comment,
+                )
+                csvs[-1].append(csv_line)
+            if len(csvs[-1]) >= 4000:
+                csvs.append([])
+
+        for i in range(len(csvs)):
+            with open(
+                application_path / f"{username}_{update_date}_checklists_{i}.csv",
+                "w",
+                encoding="utf-8",
+                newline="",
+            ) as f:
+                writer = csv.writer(f)
+                writer.writerows(csvs[i])
 
 
 class BirdreportScreen(DomainScreen):
