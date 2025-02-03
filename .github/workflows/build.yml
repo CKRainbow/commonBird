@@ -20,7 +20,6 @@ jobs:
     steps:
     - uses: actions/checkout@v4.1.1
     - name: Get tag
-      if: github.event_name != 'workflow_dispatch'
       id: get_tag
       run: |
         if [[ ${{ github.event_name }} == 'push' ]]; then
