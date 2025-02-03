@@ -21,6 +21,10 @@ markdown-to-html -i README.md -o dist/commonBird/README.html
 
 python taxon_map_preview.py --map_file ch4_to_eb_taxon_map.json --output_path dist/commonBird/taxon_map_preview.html
 
+mkdir dist/commonBird
+
+mv dist/commonBird dist/commonBird/
+
 cp -r res dist/commonBird/res
 cp -r database dist/commonBird/database
 cp README.md dist/commonBird

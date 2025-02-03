@@ -9,3 +9,4 @@ log
 *.csv
 .env
 *.exe
+*.spec
