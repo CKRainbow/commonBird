@@ -20,8 +20,14 @@ jobs:
     steps:
     - uses: actions/checkout@v4.1.1
     - name: Get tag
+      if: github.event_name != 'workflow_dispatch'
       id: get_tag
-      run: echo "tag=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+      run: |
+        if [[ ${{ github.event_name }} == 'push' ]]; then
+          echo "tag=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+        else
+          echo "tag=vbeta" >> $GITHUB_OUTPUT
+        fi
 
   build-linux:
     runs-on: ubuntu-latest
@@ -129,6 +135,7 @@ jobs:
       run: echo "tag=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
     - name: Create Release and Upload Assets
       uses: softprops/action-gh-release@v2
+      if: !contains(steps.get_tag.outputs.tag, 'beta')
       with:
         tag_name: ${{ steps.get_tag.outputs.tag }}
         name: Release ${{ steps.get_tag.outputs.tag }}
@@ -136,3 +143,14 @@ jobs:
         prerelease: false
         files: |
           artifacts/commonBird_*
+    - name: Create PreRelease and Upload Assets
+      uses: softprops/action-gh-release@v2
+      if: contains(steps.get_tag.outputs.tag, 'beta')
+      with:
+        tag_name: ${{ steps.get_tag.outputs.tag }}
+        name: Draft ${{ steps.get_tag.outputs.tag }}
+        draft: true
+        prerelease: false
+        files: |
+          artifacts/commonBird_*
+

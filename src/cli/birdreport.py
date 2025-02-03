@@ -612,7 +612,7 @@ class BirdreportToEbirdScreen(Screen):
             location_name = report["point_name"]
             lat = report["lat"] if "lat" in report else ""
             lng = report["lng"] if "lng" in report else ""
-            protocol = "stationary"  # historical
+            protocol = "historical"  # historical
             num_observers = 1
 
             if "real_quantity" in report:

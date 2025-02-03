@@ -12,6 +12,7 @@ pyinstaller --name commonBird \
     --add-data "jQuertAjax.js:." \
     --add-data "node_modules:node_modules" \
     --add-binary "$(which node):." \
+    --onefile \
     cli.py
 
 npm i markdown-to-html-cli -g
