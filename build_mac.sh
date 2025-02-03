@@ -17,9 +17,10 @@ pyinstaller --name commonBird \
 
 npm i markdown-to-html-cli -g
 
-mkdir dist/commonBird
+mkdir dist/commonBird_
 
-mv dist/commonBird dist/commonBird/
+mv dist/commonBird dist/commonBird_/
+mv dist/commonBird_ dist/commonBird
 
 markdown-to-html -i README.md -o dist/commonBird/README.html
 
