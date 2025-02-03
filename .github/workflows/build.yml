@@ -144,7 +144,6 @@ jobs:
       uses: softprops/action-gh-release@v2
       if: contains(needs.get_tag.outputs.tag, 'beta')
       with:
-        tag_name: ${{ needs.get_tag.outputs.tag }}
         name: Draft ${{ needs.get_tag.outputs.tag }}
         draft: true
         prerelease: false
