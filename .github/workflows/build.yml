@@ -26,7 +26,7 @@ jobs:
         if [[ ${{ github.event_name }} == 'push' ]]; then
           echo "tag=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
         else
-          echo "tag=vbeta" >> $GITHUB_OUTPUT
+          echo "tag=beta" >> $GITHUB_OUTPUT
         fi
 
   build-linux:
@@ -138,15 +138,23 @@ jobs:
         name: Release ${{ needs.get_tag.outputs.tag }}
         draft: false
         prerelease: false
+        make_latest: true
         files: |
           artifacts/commonBird_*
+    - name: Create PreRelease tag
+      if: contains(needs.get_tag.outputs.tag, 'beta')
+      run: |
+        git tag remove ${{ needs.get_tag.outputs.tag }}
+        git tag ${{ needs.get_tag.outputs.tag }}
+        git push origin ${{ needs.get_tag.outputs.tag }}
     - name: Create PreRelease and Upload Assets
       uses: softprops/action-gh-release@v2
       if: contains(needs.get_tag.outputs.tag, 'beta')
       with:
+        tag_name: vbeta
         name: Draft ${{ needs.get_tag.outputs.tag }}
-        draft: true
-        prerelease: false
+        draft: false
+        prerelease: true
         files: |
           artifacts/commonBird_*
 
