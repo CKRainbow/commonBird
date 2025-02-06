@@ -1,12 +1,10 @@
 global.navigator = {userAgent: 'node.js',};
 const jsdom = require("jsdom");
 const {JSDOM} = jsdom;
-const CryptoJS = require('crypto-js');
 const dom = new JSDOM(`<!DOCTYPE html><p>Hello world</p>`);
 window = dom.window;
 document = window.document;
 XMLHttpRequest = window.XMLHttpRequest;
-let JSEncrypt = null;
 (function(global, factory) {
     typeof exports === "object" && typeof module !== "undefined" ? factory(exports) : typeof define === "function" && define.amd ? define(["exports"], factory) : factory(global.JSEncrypt = {})
 }
@@ -4014,71 +4012,9 @@ let JSEncrypt = null;
     })
 });;
 
-function format(json) {
-    return JSON.stringify(sort_ASCII(json));
-}
-
-function sort_ASCII(a) {
-    var b = new Array();
-    var c = 0;
-    for (var i in a) {
-        b[c] = i;
-        c++
-    }
-    var d = b.sort();
-    var e = {};
-    for (var i in d) {
-        e[d[i]] = a[d[i]]
-    }
-    return e
-}
-
-function url2json(a) {
-    var b = /^[^\?]+\?([\w\W]+)$/
-        , reg_para = /([^&=]+)=([\w\W]*?)(&|$|#)/g
-        , arr_url = b.exec(a)
-        , ret = {};
-    if (arr_url && arr_url[1]) {
-        var c = arr_url[1], result;
-        while ((result = reg_para.exec(c)) != null) {
-            ret[result[1]] = result[2]
-        }
-    }
-    return ret
-}
-
-function dataTojson(a) {
-    var b = [];
-    var c = {};
-    b = a.split('&');
-    for (var i = 0; i < b.length; i++) {
-        if (b[i].indexOf('=') != -1) {
-            var d = b[i].split('=');
-            if (d.length == 2) {
-                c[d[0]] = d[1]
-            } else {
-                c[d[0]] = ""
-            }
-        } else {
-            c[b[i]] = ''
-        }
-    }
-    return c
-}
-
-const serialize = function (a) {
-    var b = [];
-    for (var p in a)
-        if (a.hasOwnProperty(p) && a[p]) {
-            b.push(encodeURIComponent(p) + '=' + encodeURIComponent(a[p]))
-        }
-    return b.join('&')
-};
-
 let enc = new exports.JSEncrypt();
 let paramPublicKey = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCvxXa98E1uWXnBzXkS2yHUfnBM6n3PCwLdfIox03T91joBvjtoDqiQ5x3tTOfpHs3LtiqMMEafls6b0YWtgB1dse1W5m+FpeusVkCOkQxB4SZDH6tuerIknnmB/Hsq5wgEkIvO5Pff9biig6AyoAkdWpSek/1/B7zYIepYY0lxKQIDAQAB";
 enc.setPublicKey(paramPublicKey);
-console.log("test")
 
 function encrypt(text) {
     return enc.encryptLong(text)
