@@ -4090,15 +4090,3 @@ function encryptBatch(texts) {
     }
     return texts;
 }
-
-let b = CryptoJS.enc.Utf8.parse("C8EB5514AF5ADDB94B2207B08C66601C");
-let c = CryptoJS.enc.Utf8.parse("55DD79C6F04E1A67");
-
-function decode(a) {
-    let d = CryptoJS.AES.decrypt(a, b, {
-        iv: c,
-        mode: CryptoJS.mode.CBC,
-        padding: CryptoJS.pad.Pkcs7
-    });
-    return d.toString(CryptoJS.enc.Utf8)
-}
