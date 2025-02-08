@@ -131,30 +131,30 @@ jobs:
         merge-multiple: true
     - name: Test
       run: |
-        echo ${{ needs.get_tag.outputs.tag }}
+        echo ${{ needs.get-tag.outputs.tag }}
     - name: Create Release and Upload Assets
       uses: softprops/action-gh-release@v2
-      if: "${{ !contains(needs.get_tag.outputs.tag, 'beta') }}"
+      if: "${{ !contains(needs.get-tag.outputs.tag, 'beta') }}"
       with:
-        tag_name: ${{ needs.get_tag.outputs.tag }}
-        name: Release ${{ needs.get_tag.outputs.tag }}
+        tag_name: ${{ needs.get-tag.outputs.tag }}
+        name: Release ${{ needs.get-tag.outputs.tag }}
         draft: false
         prerelease: false
         make_latest: true
         files: |
           artifacts/commonBird_*
     - name: Create PreRelease tag
-      if: contains(needs.get_tag.outputs.tag, 'beta')
+      if: contains(needs.get-tag.outputs.tag, 'beta')
       run: |
-        git tag remove ${{ needs.get_tag.outputs.tag }}
-        git tag ${{ needs.get_tag.outputs.tag }}
-        git push origin ${{ needs.get_tag.outputs.tag }}
+        git tag remove ${{ needs.get-tag.outputs.tag }}
+        git tag ${{ needs.get-tag.outputs.tag }}
+        git push origin ${{ needs.get-tag.outputs.tag }}
     - name: Create PreRelease and Upload Assets
       uses: softprops/action-gh-release@v2
-      if: contains(needs.get_tag.outputs.tag, 'beta')
+      if: contains(needs.get-tag.outputs.tag, 'beta')
       with:
         tag_name: beta
-        name: Draft ${{ needs.get_tag.outputs.tag }}
+        name: Draft ${{ needs.get-tag.outputs.tag }}
         draft: false
         prerelease: true
         files: |

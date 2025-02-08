@@ -12,6 +12,7 @@ pyinstaller --name commonBird `
     --add-data "node_modules:node_modules" `
     --add-binary "$((Get-Command node.exe).Source):." `
     --exclude-module pandas `
+    --exclude-module numpy `
     --exclude-module textual-dev `
     --exclude-module pyinstaller `
     cli.py
