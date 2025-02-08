@@ -147,6 +147,7 @@ jobs:
     - name: Create PreRelease tag
       if: contains(needs.get-tag.outputs.tag, 'beta')
       run: |
+        git fetch --tags origin
         git tag -d ${{ needs.get-tag.outputs.tag }}
         git tag ${{ needs.get-tag.outputs.tag }}
         git push --tags
