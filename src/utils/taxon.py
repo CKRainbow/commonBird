@@ -2,8 +2,6 @@ import json
 from pathlib import Path
 from typing import List
 
-import pandas as pd
-
 from src.utils.location import AB_LOCATION
 from src import database_path
 
@@ -43,6 +41,8 @@ def highlight_rows(row, idxs):
 
 
 def preview_taxon_map(map_file: Path, output_path: Path):
+    import pandas as pd
+
     taxon_map = json.load(open(map_file, "r", encoding="utf-8"))
 
     br_taxon_infos = json.load(

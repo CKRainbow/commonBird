@@ -31,5 +31,9 @@ cp -r database dist/commonBird/database
 cp README.md dist/commonBird
 cp changelog.md dist/commonBird
 
+# touch dist/commonBird/fix_for_mac.sh
+# echo "#!/bin/bash" >> dist/commonBird/fix_for_mac.sh
+# echo "xattr -d com.apple.quarantine dist/commonBird/_internal/Python.framework" >> dist/commonBird/fix_for_mac.sh
+
 # compress the build
 tar cvzf commonBird_mac_x64.tar.gz dist/commonBird/

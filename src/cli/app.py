@@ -3,7 +3,6 @@ import os
 import webbrowser
 import platform
 from typing import Dict, List, Optional
-from click import HelpOption
 from packaging import version
 
 import httpx
@@ -163,7 +162,7 @@ class CommonBirdApp(App):
 
 ## 联系作者
 - [GitHub](https://github.com/CKRainbow)
-- 微信号：grandptriyx
+- 微信号：gandptriyx
 - QQ： 417266948
     """
 
@@ -182,10 +181,7 @@ class CommonBirdApp(App):
 
     @work
     async def on_mount(self) -> None:
-        if not os.getenv("GITHUB_API_TOKEN"):
-            github_api_token = GITHUB_API_TOKEN
-        else:
-            github_api_token = os.getenv("GITHUB_API_TOKEN")
+        github_api_token = os.getenv("GITHUB_API_TOKEN") or GITHUB_API_TOKEN
 
         if self.first_open:
             self.first_open = False
@@ -197,41 +193,28 @@ class CommonBirdApp(App):
                     )
                 )
 
-            get_latest_repo_url = (
+            GITHUB_API_URL = (
                 "https://api.github.com/repos/CKRainbow/commonBird/releases/latest"
             )
-
-            header = {
+            HEADERS = {
                 "Accept": "application/vnd.github+json",
                 "Authorization": f"Bearer {github_api_token}",
                 "X-GitHub-Api-Version": "2022-11-28",
             }
 
             async with httpx.AsyncClient() as client:
-                response = await client.get(get_latest_repo_url, headers=header)
-                if response.status_code == 200:
+                try:
+                    response = await client.get(GITHUB_API_URL, headers=HEADERS)
+                    response.raise_for_status()
                     latest_release = response.json()
                     latest_version = version.parse(latest_release["tag_name"])
-                    if latest_version > self.version:
-                        # is_update = await self.push_screen(
-                        #     ConfirmScreen(
-                        #         f"当前版本为{self.version.base_version},最新版本为{latest_version.base_version}\n"
-                        #         + "是否要更新到新版本？\n"
-                        #         + "更新日志：https://github.com/CKRainbow/commonBird/blob/main/changelog.md",  # FIXME: 不够长？
-                        #     )
-                        # )
 
-                        # if is_update:
-                        #     pass
-                        # else:
-                        #     self.sub_title = (
-                        #         f"当前版本为旧版本：{self.version.base_version}"
-                        #     )
+                    if latest_version > self.version:
                         is_update = await self.push_screen_wait(
                             ConfirmScreen(
                                 f"当前版本为{self.version.base_version},最新版本为{latest_version.base_version}\n"
                                 + "选择是将打开下载链接。\n"
-                                + "更新日志：https://github.com/CKRainbow/commonBird/blob/main/changelog.md",  # FIXME: 不够长？
+                                + "更新日志：https://github.com/CKRainbow/commonBird/blob/main/changelog.md"
                             )
                         )
 
@@ -253,3 +236,7 @@ class CommonBirdApp(App):
                         self.sub_title = (
                             f"当前版本为最新版本：{self.version.base_version}"
                         )
+                except httpx.HTTPError as e:
+                    await self.push_screen_wait(
+                        MessageScreen(f"获取最新版本信息失败：{e}")
+                    )
