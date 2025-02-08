@@ -149,7 +149,7 @@ jobs:
       run: |
         git tag -d ${{ needs.get-tag.outputs.tag }}
         git tag ${{ needs.get-tag.outputs.tag }}
-        git push origin ${{ needs.get-tag.outputs.tag }}
+        git push --tags
     - name: Create PreRelease and Upload Assets
       uses: softprops/action-gh-release@v2
       if: contains(needs.get-tag.outputs.tag, 'beta')
