@@ -146,7 +146,7 @@ jobs:
     - name: Create PreRelease tag
       if: contains(needs.get-tag.outputs.tag, 'beta')
       run: |
-        git tag remove ${{ needs.get-tag.outputs.tag }}
+        git tag -d ${{ needs.get-tag.outputs.tag }}
         git tag ${{ needs.get-tag.outputs.tag }}
         git push origin ${{ needs.get-tag.outputs.tag }}
     - name: Create PreRelease and Upload Assets
