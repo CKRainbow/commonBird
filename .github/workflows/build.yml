@@ -132,6 +132,7 @@ jobs:
     - name: Test
       run: |
         echo ${{ needs.get-tag.outputs.tag }}
+        git tag
     - name: Create Release and Upload Assets
       uses: softprops/action-gh-release@v2
       if: "${{ !contains(needs.get-tag.outputs.tag, 'beta') }}"
@@ -146,9 +147,9 @@ jobs:
     - name: Create PreRelease tag
       if: contains(needs.get-tag.outputs.tag, 'beta')
       run: |
-        git tag -d ${{ needs.get-tag.outputs.tag }}
+        git push -d origin beta
         git tag ${{ needs.get-tag.outputs.tag }}
-        git push origin ${{ needs.get-tag.outputs.tag }}
+        git push --tags
     - name: Create PreRelease and Upload Assets
       uses: softprops/action-gh-release@v2
       if: contains(needs.get-tag.outputs.tag, 'beta')
