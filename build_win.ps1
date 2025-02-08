@@ -11,6 +11,9 @@ pyinstaller --name commonBird `
     --add-data "jQuertAjax.js:." `
     --add-data "node_modules:node_modules" `
     --add-binary "$((Get-Command node.exe).Source):." `
+    --exclude-module pandas `
+    --exclude-module textual-dev `
+    --exclude-module pyinstaller `
     cli.py
 
 npm i markdown-to-html-cli -g

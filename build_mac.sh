@@ -12,6 +12,9 @@ pyinstaller --name commonBird \
     --add-data "jQuertAjax.js:." \
     --add-data "node_modules:node_modules" \
     --add-binary "$(which node):." \
+    --exclude-module pandas \
+    --exclude-module textual-dev \
+    --exclude-module pyinstaller \
     --onefile \
     cli.py
 

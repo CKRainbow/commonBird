@@ -129,6 +129,9 @@ jobs:
         path: artifacts
         pattern: "commonBird_*"
         merge-multiple: true
+    - name: Test
+      run: |
+        echo ${{ needs.get_tag.outputs.tag }}
     - name: Create Release and Upload Assets
       uses: softprops/action-gh-release@v2
       if: "${{ !contains(needs.get_tag.outputs.tag, 'beta') }}"
@@ -150,7 +153,7 @@ jobs:
       uses: softprops/action-gh-release@v2
       if: contains(needs.get_tag.outputs.tag, 'beta')
       with:
-        tag_name: vbeta
+        tag_name: beta
         name: Draft ${{ needs.get_tag.outputs.tag }}
         draft: false
         prerelease: true
