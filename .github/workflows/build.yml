@@ -57,8 +57,8 @@ jobs:
         path: "commonBird_linux_x64.tar.gz"
         retention-days: 7
 
-  build-mac:
-    runs-on: macos-latest
+  build-mac-x64:
+    runs-on: macos-13
     needs: get-tag
 
     steps:
@@ -113,6 +113,35 @@ jobs:
       with: 
         name: "commonBird_win_x64"
         path: "commonBird_win_x64.zip"
+        retention-days: 7
+
+  build-mac-arm:
+    runs-on: macos-latest
+    needs: get-tag
+
+    steps:
+    - uses: actions/checkout@v4.1.1
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v5.0.0
+      with:
+        python-version: "3.10"
+    - name: Set up Node.js
+      uses: actions/setup-node@v3.8.1
+      with:
+        node-version: '22'
+    - name: Install dependencies
+      run: |
+        npm i
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    - name: Build
+      run: |
+        bash ./build_mac.sh ${{ needs.get-tag.outputs.tag }} ${{ secrets.CONTENT_RETRIEVE_TOKEN }}
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v4.3.1
+      with: 
+        name: "commonBird_mac_arm64"
+        path: "commonBird_mac_arm64.tar.gz"
         retention-days: 7
 
   release:
