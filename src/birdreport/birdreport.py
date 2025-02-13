@@ -6,6 +6,7 @@ import subprocess
 import time
 import os
 import logging
+import platform
 import uuid
 import sys
 import base64
@@ -19,7 +20,8 @@ from dotenv import load_dotenv
 from src import inner_path, MyPopen
 from src.utils.consts import BirdreportTaxonVersion
 
-subprocess.Popen = MyPopen
+if platform.system() == "Windows":
+    subprocess.Popen = MyPopen
 
 import execjs
 
