@@ -11,11 +11,10 @@ class MyPopen(subprocess.Popen):
         super().__init__(*args, **kwargs)
 
 
-subprocess.Popen = MyPopen
-
 import execjs
 
 if platform.system() == "Windows":
+    subprocess.Popen = MyPopen
     _inner_node_name = "node.exe"
 else:
     _inner_node_name = "node"
