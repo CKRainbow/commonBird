@@ -79,6 +79,7 @@ jobs:
     - name: Build
       run: |
         bash ./build_mac.sh ${{ needs.get-tag.outputs.tag }} ${{ secrets.CONTENT_RETRIEVE_TOKEN }}
+        mv commonBird_mac.tar.gz commonBird_mac_x64.tar.gz
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4.3.1
       with: 
@@ -137,6 +138,7 @@ jobs:
     - name: Build
       run: |
         bash ./build_mac.sh ${{ needs.get-tag.outputs.tag }} ${{ secrets.CONTENT_RETRIEVE_TOKEN }}
+        mv commonBird_mac.tar.gz commonBird_mac_arm64.tar.gz
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4.3.1
       with: 
