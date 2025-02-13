@@ -6,8 +6,6 @@ github_api_token=$2
 echo "APP_VERSION=\"$latest_tag\"" >> src/utils/consts.py
 echo "GITHUB_API_TOKEN=\"$github_api_token\"" >> src/utils/consts.py
 
-python --version
-
 # build
 pyinstaller --name commonBird \
     --add-data "common_bird_app.tcss:." \
