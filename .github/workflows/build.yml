@@ -47,6 +47,13 @@ jobs:
         npm i
         python -m pip install --upgrade pip
         pip install -r requirements.txt
+    - name: test
+      run: |
+        python test.py
+    - name: install file
+      run: |
+        sudo apt-get install -y file
+        python test.py
     - name: Build
       run: |
         python -c "from Crypto.Cipher import AES"
@@ -80,6 +87,7 @@ jobs:
     - name: Build
       run: |
         python -c "from Crypto.Cipher import AES"
+        python -c "import platform"
         bash ./build_mac.sh ${{ needs.get-tag.outputs.tag }} "${{ secrets.CONTENT_RETRIEVE_TOKEN }}"
         mv commonBird_mac.tar.gz commonBird_mac_x64.tar.gz
     - name: Upload a Build Artifact
