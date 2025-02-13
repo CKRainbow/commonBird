@@ -177,6 +177,7 @@ jobs:
           artifacts/commonBird_*
     - name: Create PreRelease tag
       if: contains(needs.get-tag.outputs.tag, 'beta')
+      shell: bash {0}
       run: |
         git push -d origin beta
         git tag ${{ needs.get-tag.outputs.tag }}
