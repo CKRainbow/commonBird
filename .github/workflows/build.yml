@@ -13,7 +13,7 @@ permissions: write-all
 
 jobs:
   get-tag:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     outputs:
       tag: ${{ steps.get_tag.outputs.tag }}
 
@@ -29,7 +29,7 @@ jobs:
         fi
 
   build-linux:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     needs: get-tag
 
     steps:
