@@ -41,5 +41,5 @@ cp changelog.md dist/commonBird
 
 # compress the build
 cd dist
-tar cvzf ../commonBird_mac.tar.gz dist/commonBird/
+tar cvzf ../commonBird_mac.tar.gz commonBird/
 cd ..
