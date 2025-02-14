@@ -30,4 +30,6 @@ cp README.md dist/commonBird
 cp changelog.md dist/commonBird
 
 # compress the build
-tar cvzf commonBird_linux_x64.tar.gz dist/commonBird/
+cd dist
+tar cvzf ../commonBird_linux_x64.tar.gz commonBird/
+cd ..

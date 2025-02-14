@@ -40,4 +40,6 @@ cp changelog.md dist/commonBird
 # echo "xattr -d com.apple.quarantine _internal/Python.framework" >> dist/commonBird/fix_for_mac.sh
 
 # compress the build
-tar cvzf commonBird_mac.tar.gz dist/commonBird/
+cd dist
+tar cvzf ../commonBird_mac.tar.gz dist/commonBird/
+cd ..
