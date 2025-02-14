@@ -14,4 +14,4 @@ DOWNLOAD_URL = {
 
 ###### consts added in building process
 GITHUB_API_TOKEN = ""
-APP_VERSION = "v0.4.1"
+APP_VERSION = "beta"

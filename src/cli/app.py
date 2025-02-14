@@ -25,7 +25,10 @@ class CommonBirdApp(App):
         super().__init__(**kwargs)
 
         self.first_open = True
-        self.version = version.parse(APP_VERSION)
+        if APP_VERSION == "beta":
+            self.version = APP_VERSION
+        else:
+            self.version = version.parse(APP_VERSION)
 
         if (database_path / "ebird_cn_hotspots.json").exists():
             with open(
@@ -183,7 +186,9 @@ class CommonBirdApp(App):
     async def on_mount(self) -> None:
         github_api_token = os.getenv("GITHUB_API_TOKEN") or GITHUB_API_TOKEN
 
-        if self.first_open:
+        if self.version == "beta":
+            self.sub_title = "当前版本为beta测试版本"
+        elif self.first_open:
             self.first_open = False
 
             if self.ch4_to_eb_taxon_map is None:
