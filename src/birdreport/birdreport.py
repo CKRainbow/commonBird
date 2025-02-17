@@ -39,10 +39,6 @@ class Birdreport:
         self.token = token
         self.user_info = None
 
-        self.cipher = AES.new(
-            b"C8EB5514AF5ADDB94B2207B08C66601C", AES.MODE_CBC, iv=b"55DD79C6F04E1A67"
-        )
-
     @classmethod
     async def create(cls, token: str):
         instance = cls(token)
@@ -74,8 +70,13 @@ class Birdreport:
         return self.ctx.call("encryptBatch", texts)
 
     def decrypt(self, text):
+        cipher = AES.new(
+            b"C8EB5514AF5ADDB94B2207B08C66601C", AES.MODE_CBC, iv=b"55DD79C6F04E1A67"
+        )
         text = base64.b64decode(text)
-        return unpad(self.cipher.decrypt(text), AES.block_size).decode("utf-8")
+        decrypted = cipher.decrypt(text)
+        unpadded = unpad(decrypted, AES.block_size)
+        return unpadded.decode("utf-8")
 
     def format(self, data):
         return json.dumps(data).replace(" ", "")
@@ -345,10 +346,10 @@ class Birdreport:
         _data_list = []
         while 1:
             try:
+                print(f"正在获取第{page}页")
                 report_list = await report_api(page, limit, **data)
                 for report in report_list:
                     _data_list.append(report)
-                print(f"获取第{page}页")
             except Exception as e:
                 print(e)
                 continue
@@ -357,7 +358,7 @@ class Birdreport:
             if len(report_list) < limit:
                 break
             page += 1
-        print(f"正在获取{len(_data_list)}份报告")
+        print(f"共获取{len(_data_list)}份报告")
         return _data_list
 
     async def member_get_reports(
@@ -436,7 +437,6 @@ class Birdreport:
             "page": f"{page}",
             "limit": f"{limit}",
         }
-        print(params)
 
         res = await self.get_data(
             params,
@@ -476,6 +476,7 @@ class Birdreport:
             encode=False,
             decode=True,
         )
+        print(res)
         return res
 
     async def get_taxon_from_reports(self, reports):

@@ -11,13 +11,13 @@ class MyPopen(subprocess.Popen):
         super().__init__(*args, **kwargs)
 
 
-import execjs
-
 if platform.system() == "Windows":
     subprocess.Popen = MyPopen
     _inner_node_name = "node.exe"
 else:
     _inner_node_name = "node"
+
+import execjs
 
 if getattr(sys, "frozen", False):
     inner_path = Path(sys._MEIPASS)
