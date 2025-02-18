@@ -25,7 +25,7 @@
     - 执行 `npm i` 安装 javascript 依赖项
     - 执行 `pip install -r requirements.txt` 安装 python 依赖项
 
-- 如何获取观鸟记录中心的认证 Token
+- 如何获取观鸟记录中心的认证 Token (适用于 Chromium 内核浏览器，如 Chrome/Edge/360 等，对于 Firefox Safari 等浏览器暂时没有教程，欢迎提交 issue)
     - 打开观鸟记录中心[用户中心](birdreport.cn/member)
     - 按下 `f12` 键打开开发工具 `DevTools`
     - 点击上方选项卡`网络`(`Network`)并刷新页面
@@ -36,17 +36,19 @@
     - ![image](./res/bird_report_token.png)
 
 - 如何使用迁移后的 eBird 数据
+    - 请注意需要先将 `偏好`(`Preferences`)中的 `俗名`(`Common Name`)设置为 `中文 (SIM)`，否则无法识别鸟名
     - 打开 eBird 官网，点击`提交记录`(`Submit`)
     - 选择`导入数据`(`Import Data`)
     - `格式`(`Format`)选择`eBird记录格式（扩展）`(`eBird Record Format (Extended)`)并上传文件
         - 文件包括所有生成的 csv 文件，文件名以 `_数字` 结尾
     - 跟随网站指引完成导入
 
+- MacOS 提示有安全问题，如何解决
+    - 强制打开即可
+
 ## 目前存在的问题
 * eBird的导入要求文件大小不超过1MB，当前不排除会出现过大的文件
 * 部分鸟种俗名在两个平台存在差异，尤其是记录中心的郑三记录，若发现鸟种转换出现问题，请提交 issue 或联系作者
-* MacOS 启动时会受到安全限制，目前不清楚解决方法
-* 即使学名与eBird上的学名完全相同，eBird依旧会将其标注为未知，其实在修正时直接复制学名选择相应选项即可
 
 
 ## 欢迎鸟友们一起开发
