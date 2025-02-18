@@ -11,7 +11,7 @@ from textual.app import App, ComposeResult
 from textual.containers import VerticalScroll, HorizontalGroup
 from textual.widgets import Footer, Header, Button, Markdown
 
-from src import application_path, database_path, inner_path
+from src import application_path, database_path, inner_path, cache_path
 from src.utils.consts import GITHUB_API_TOKEN, APP_VERSION, DOWNLOAD_URL
 from src.cli.birdreport import BirdreportScreen
 from src.cli.ebird import EbirdScreen
@@ -22,20 +22,21 @@ if TYPE_CHECKING:
     from src.birdreport.birdreport import Birdreport
 
 
-
 class CommonBirdApp(App):
     CSS_PATH = inner_path / "common_bird_app.tcss"
-    
-    ebird_cn_hotspots = None
-    ebird_other_hotspots = None
-    ch4_to_eb_taxon_map = None
-    ebird_taxon_info = None
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        
+
         self.ebird: EBird = None
         self.birdreport: Birdreport = None
+
+        self.ebird_cn_hotspots = None
+        self.ebird_other_hotspots = None
+        self.ch4_to_eb_taxon_map = None
+        self.ebird_taxon_info = None
+
+        self.location_assign = {}
 
         self.first_open = True
         if APP_VERSION == "beta":
@@ -78,6 +79,10 @@ class CommonBirdApp(App):
                 database_path / "ebird_taxonomy.json", "r", encoding="utf-8"
             ) as f:
                 self.ebird_taxon_info: Optional[List] = json.load(f)
+
+        if (cache_path / "location_assign.json").exists():
+            with open(cache_path / "location_assign.json", "r", encoding="utf-8") as f:
+                self.location_assign: Dict = json.load(f)
 
     def compose(self) -> ComposeResult:
         yield Header()
@@ -233,3 +238,12 @@ class CommonBirdApp(App):
                     await self.push_screen_wait(
                         MessageScreen(f"获取最新版本信息失败：{e}")
                     )
+
+    def save_location_assign_cache(self, location_assign_cache: dict) -> None:
+        self.location_assign.update(location_assign_cache)
+        self.location_assign = {
+            k: v for k, v in self.location_assign.items() if v is not None
+        }
+
+        with open(cache_path / "location_assign.json", "w", encoding="utf-8") as f:
+            json.dump(self.location_assign, f, ensure_ascii=False, indent=4)

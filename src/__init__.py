@@ -42,3 +42,8 @@ database_path = application_path / "database"
 env_path = application_path / ".env"
 cache_path = application_path / ".cache"
 output_path = application_path / "output"
+
+if not database_path.exists():
+    database_path.mkdir()
+if not cache_path.exists():
+    cache_path.mkdir()

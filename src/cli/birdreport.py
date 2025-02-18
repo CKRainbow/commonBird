@@ -84,10 +84,11 @@ class BirdreportSearchReportScreen(Screen):
 
 
 class SearchEbirdHotspotScreen(ModalScreen):
-    def __init__(self, province, **kwargs):
+    def __init__(self, point_name, province, **kwargs):
         super().__init__(kwargs)
 
         self.province = province
+        self.point_name = point_name
         self.target_cn_hotspot = {
             name: hotspot
             for name, hotspot in self.app.ebird_cn_hotspots.items()
@@ -101,7 +102,7 @@ class SearchEbirdHotspotScreen(ModalScreen):
 
     def compose(self) -> ComposeResult:
         yield Grid(
-            Input(id="hotspot_name"),
+            Input(self.point_name, id="hotspot_name"),
             Button(
                 "查询",
                 id="query",
@@ -110,6 +111,10 @@ class SearchEbirdHotspotScreen(ModalScreen):
             ListView(id="hotspot_listview"),
             classes="search_container",
         )
+
+    async def on_mount(self) -> None:
+        query_button = self.query_one("#query")
+        query_button.post_message(Button.Pressed(query_button))
 
     @on(Button.Pressed, "#query")
     @work
@@ -163,9 +168,12 @@ class SearchEbirdHotspotScreen(ModalScreen):
     async def on_listview_selected(self, event: ListView.Selected) -> None:
         self.dismiss(event.item.name)
 
+
 class BirdreportToEbirdLocationAssignScreen(Screen):
     def __init__(self, **kwargs):
         super().__init__(kwargs)
+        self.app: CommonBirdApp
+
         self.location_assign = {}
         for report in self.app.cur_birdreport_data:
             point_name = report["point_name"]
@@ -181,6 +189,13 @@ class BirdreportToEbirdLocationAssignScreen(Screen):
                     "reports": [],
                 }
             self.location_assign[point_name]["reports"].append(report)
+
+        for point_name, converted_hotspot_name in self.app.location_assign.items():
+            self.modify_converted_hotspot(
+                point_name, converted_hotspot_name, modify_cache=False
+            )
+
+        self.temp_assign_cache = {}
 
     @work
     async def on_mount(self) -> None:
@@ -213,7 +228,9 @@ class BirdreportToEbirdLocationAssignScreen(Screen):
             )
 
             converted_hotspot = Button(
-                "不做修改",
+                "不做修改"
+                if "converted_hotspot" not in info or info["converted_hotspot"] is None
+                else info["converted_hotspot"],
                 name=point_name,
                 id="converted_hotspot_" + str(point_id),
                 classes="converted_hotspot",
@@ -237,6 +254,7 @@ class BirdreportToEbirdLocationAssignScreen(Screen):
                     report["point_name"] = info["converted_hotspot"]
                     report["lat"] = info["lat"] if info["lat"] is not None else ""
                     report["lng"] = info["lng"] if info["lng"] is not None else ""
+        self.app.save_location_assign_cache(self.temp_assign_cache)
         self.dismiss()
 
     @on(Button.Pressed, ".converted_hotspot")
@@ -250,10 +268,8 @@ class BirdreportToEbirdLocationAssignScreen(Screen):
             birdreport_point_info["city"],
         )
         hotspot_name = await self.app.push_screen_wait(
-            SearchEbirdHotspotScreen(province_code)
+            SearchEbirdHotspotScreen(point_name, province_code)
         )
-        point_id = event.button.id.split("_")[-1]
-
         button = event.button
 
         if hotspot_name is None:
@@ -264,10 +280,17 @@ class BirdreportToEbirdLocationAssignScreen(Screen):
         self.modify_converted_hotspot(event.button.name, hotspot_name)
 
     def modify_converted_hotspot(
-        self, point_name: str, converted_hotspot_name: str
+        self, point_name: str, converted_hotspot_name: str, modify_cache: bool = True
     ) -> None:
         # conveted_hotspot is None means remaining
         self.location_assign[point_name]["converted_hotspot"] = converted_hotspot_name
+
+        if modify_cache:
+            self.temp_assign_cache[point_name] = converted_hotspot_name
+            # set 10 as a threshold to save cache
+            if len(self.temp_assign_cache) >= 10:
+                self.app.save_location_assign_cache(self.temp_assign_cache)
+                self.temp_assign_cache = {}
 
         if converted_hotspot_name is None:
             self.location_assign[point_name]["lat"] = None
@@ -331,9 +354,9 @@ class BirdreportFilterScreen(Screen):
             if date == "":
                 return ""
             splited_date = date.split("-")
-            if len(splited_date) == 1:
+            if len(splited_date) < 3 or splited_date[1] == "":
                 return f"{splited_date[0]}-01-01"
-            elif len(splited_date) == 2:
+            elif splited_date[2] == "":
                 return f"{splited_date[0]}-{splited_date[1]}-01"
             else:
                 return date
@@ -395,6 +418,10 @@ class BirdreportFilterScreen(Screen):
             return
         self.app.cur_birdreport_data = new_list
         self.dismiss()
+
+    def on_mount(self) -> None:
+        search_button = self.query_one("#search")
+        search_button.post_message(Button.Pressed(search_button))
 
 
 class BirdreportToEbirdScreen(Screen):
@@ -470,7 +497,10 @@ class BirdreportToEbirdScreen(Screen):
 
         await self.app.push_screen_wait(BirdreportFilterScreen())
 
-        if self.app.ebird_cn_hotspots is not None and self.app.ebird_other_hotspots is not None:
+        if (
+            self.app.ebird_cn_hotspots is not None
+            and self.app.ebird_other_hotspots is not None
+        ):
             await self.app.push_screen_wait(BirdreportToEbirdLocationAssignScreen())
 
         await self.app.push_screen_wait(
@@ -711,10 +741,7 @@ class BirdreportScreen(DomainScreen):
                     raise Exception
                 self.store_token(self.token_name, token)
                 token = os.getenv(self.token_name)
-                if (
-                    self.app.birdreport is None
-                    or self.app.birdreport.token != token
-                ):
+                if self.app.birdreport is None or self.app.birdreport.token != token:
                     self.app.birdreport = await Birdreport.create(token)
                 break
             except Exception:
