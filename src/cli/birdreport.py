@@ -163,49 +163,6 @@ class SearchEbirdHotspotScreen(ModalScreen):
     async def on_listview_selected(self, event: ListView.Selected) -> None:
         self.dismiss(event.item.name)
 
-
-class SelectEbirdHotspotScreen(ModalScreen):
-    def __init__(self, point_name: str, hotspots: List[str], **kwargs):
-        super().__init__(kwargs)
-        self.point_name = point_name
-        self.hotspots = hotspots
-
-    @work
-    async def on_mount(self) -> None:
-        if len(self.hotspots) == 0:
-            self.dismiss()
-
-        hotspot_listview = ListView(
-            classes="hotspot_listview",
-        )
-        await self.mount(hotspot_listview)
-        hotspot_items = []
-        hotspot_items.append(
-            ListItem(Label("不做修改", id="no_change"), classes="hotspot_item")
-        )
-        for hotspot_name in self.hotspots:
-            hotspot_info = self.app.ebird_cn_hotspots.get(hotspot_name)
-            if hotspot_info is None:
-                hotspot_info = self.app.ebird_other_hotspots.get(hotspot_name)
-            if hotspot_info is None:
-                continue
-            hotspot_item = ListItem(
-                Label(
-                    hotspot_name
-                    + "\n"
-                    + EBIRD_REGION_CODE_TO_NAME[hotspot_info["subnational1Code"]],
-                    name=hotspot_name,
-                ),
-                classes="hotspot_item",
-            )
-            hotspot_items.append(hotspot_item)
-        await hotspot_listview.mount(*hotspot_items)
-
-    @on(ListView.Selected)
-    def on_listview_selected(self, event: ListView.Selected) -> None:
-        self.dismiss(event.item.children[0].name)
-
-
 class BirdreportToEbirdLocationAssignScreen(Screen):
     def __init__(self, **kwargs):
         super().__init__(kwargs)
@@ -263,18 +220,9 @@ class BirdreportToEbirdLocationAssignScreen(Screen):
                 variant="default",
             )
 
-            search_button = Button(
-                "搜索热点",
-                name=point_name,
-                id="search_button_" + str(point_id),
-                classes="search_button",
-                variant="primary",
-            )
-
             assign_row = HorizontalGroup(
                 original_location_name,
                 converted_hotspot,
-                search_button,
                 classes="assign_row",
             )
             horizonal_groups.append(assign_row)
@@ -294,27 +242,6 @@ class BirdreportToEbirdLocationAssignScreen(Screen):
     @on(Button.Pressed, ".converted_hotspot")
     @work
     async def on_button_converted_hotspot_presses(self, event: Button.Pressed) -> None:
-        hotspots = self.app.br_to_ebird_location_map.get(event.button.name)
-        if hotspots is None:
-            event.button.label = "无可选项，请尝试搜索"
-            return
-        hotspot_name = await self.app.push_screen_wait(
-            SelectEbirdHotspotScreen(
-                event.button.name,
-                hotspots,
-            )
-        )
-
-        if hotspot_name is None:
-            event.button.label = "不做修改"
-        else:
-            event.button.label = hotspot_name
-
-        self.modify_converted_hotspot(event.button.name, hotspot_name)
-
-    @on(Button.Pressed, ".search_button")
-    @work
-    async def on_button_search_location_presses(self, event: Button.Pressed) -> None:
         point_name = event.button.name
 
         birdreport_point_info = self.location_assign[point_name]
@@ -327,7 +254,7 @@ class BirdreportToEbirdLocationAssignScreen(Screen):
         )
         point_id = event.button.id.split("_")[-1]
 
-        button: Button = self.query_one(f"#converted_hotspot_{point_id}")
+        button = event.button
 
         if hotspot_name is None:
             button.label = "不做修改"
@@ -543,7 +470,7 @@ class BirdreportToEbirdScreen(Screen):
 
         await self.app.push_screen_wait(BirdreportFilterScreen())
 
-        if self.app.br_to_ebird_location_map is not None:
+        if self.app.ebird_cn_hotspots is not None and self.app.ebird_other_hotspots is not None:
             await self.app.push_screen_wait(BirdreportToEbirdLocationAssignScreen())
 
         await self.app.push_screen_wait(
@@ -562,7 +489,7 @@ class BirdreportToEbirdScreen(Screen):
         ch4_to_eb_taxon_map = self.app.ch4_to_eb_taxon_map
         username = self.app.birdreport.user_info["username"]
         ebird_taxon_info_dict: Optional[Dict] = None
-        if self.app.br_to_ebird_location_map is not None:
+        if self.app.ebird_taxon_info is not None:
             ebird_taxon_info_dict = {
                 taxon_info["sciName"]: taxon_info
                 for taxon_info in self.app.ebird_taxon_info

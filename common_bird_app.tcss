@@ -94,7 +94,7 @@ BirdreportToEbirdLocationAssignScreen {
     }
     
     .converted_hotspot {
-        width: 55%;
+        width: 60%;
     }
     
     Select {
