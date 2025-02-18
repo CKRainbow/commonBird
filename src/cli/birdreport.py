@@ -621,6 +621,8 @@ class BirdreportToEbirdScreen(Screen):
 class BirdreportScreen(DomainScreen):
     def __init__(self, **kwargs):
         super().__init__(kwargs)
+        self.app: CommonBirdApp
+
         self.change_token_hint = (
             "请输入观鸟记录中心的认证token\n具体获取方法参加 README.md 说明文件"
         )
@@ -666,7 +668,7 @@ class BirdreportScreen(DomainScreen):
                     self.store_token(self.token_name, token)
                     token = os.getenv(self.token_name)
                     if (
-                        not hasattr(self.app, "birdreport")
+                        self.app.birdreport is None
                         or self.app.birdreport.token != token
                     ):
                         self.app.birdreport = await Birdreport.create(token)
@@ -710,7 +712,7 @@ class BirdreportScreen(DomainScreen):
                 self.store_token(self.token_name, token)
                 token = os.getenv(self.token_name)
                 if (
-                    not hasattr(self.app, "birdreport")
+                    self.app.birdreport is None
                     or self.app.birdreport.token != token
                 ):
                     self.app.birdreport = await Birdreport.create(token)

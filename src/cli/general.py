@@ -1,5 +1,7 @@
+from typing import Optional, Awaitable
+
 from dotenv import load_dotenv, set_key
-from textual import on
+from textual import on, work
 from textual.app import ComposeResult
 from textual.screen import Screen, ModalScreen
 from textual.containers import Grid
@@ -111,18 +113,36 @@ class DisplayScreen(ModalScreen):
         Widget: Widget to display
     """
 
-    def __init__(self, widget: Widget, **kwargs):
+    def __init__(self, widget: Widget, function: Optional[Awaitable] = None, **kwargs):
         super().__init__(**kwargs)
         self.widget = widget
+        
+        if function:
+            self.function = function
+            self.block = True
+        else:
+            self.function = None
+            self.block = False
 
     def compose(self) -> ComposeResult:
         yield self.widget
 
     def key_enter(self, event) -> None:
+        if self.block:
+            return
         self.dismiss()
         event.stop()
 
     @on(Click)
     def on_click(self, event: Click) -> None:
+        if self.block:
+            return
         self.dismiss()
         event.stop()
+        
+    @work
+    async def on_mount(self) -> None:
+        if self.function:
+            await self.function()
+        self.dismiss()
+

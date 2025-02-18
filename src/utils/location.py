@@ -112,7 +112,6 @@ AB_LOCATION = {
     "MO": "澳门",
 }
 
-
 def process_name(name):
     matches = re.match(WITH_TRANS, name)
     if matches:

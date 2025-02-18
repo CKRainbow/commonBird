@@ -17,6 +17,8 @@ from ebird.api.validation import (
 from ebird.api.hotspots import REGION_HOTSPOTS_URL
 from ebird.api.regions import REGION_LIST_URL
 
+from src import database_path
+
 
 class RegionType(Enum):
     COUNTRY = "country"
@@ -47,6 +49,30 @@ class EBird:
 
         res = await call(url, params, headers)
         return res
+    
+    async def update_cn_hotspots(self):
+        res = await self.get_hotspots("CN")
+        res = {
+            hotspot["locName"]: hotspot
+            for hotspot in res
+        }
+        old_cn_hotspots = database_path / "ebird_cn_hotspots.json"
+        os.rename(old_cn_hotspots, old_cn_hotspots.with_suffix(".json.bak"))
+        with open(old_cn_hotspots, "w", encoding="utf-8") as f:
+            json.dump(res, f, ensure_ascii=False, indent=2)
+        tw_res = await self.get_hotspots("TW")
+        hk_res = await self.get_hotspots("HK")
+        mo_res = await self.get_hotspots("MO")
+        res = tw_res + hk_res + mo_res
+        res = {
+            hotspot["locName"]: hotspot
+            for hotspot in res
+        }
+        old_other_hotspots = database_path / "ebird_other_hotspots.json"
+        os.rename(old_other_hotspots, old_other_hotspots.with_suffix(".json.bak"))
+        with open(old_other_hotspots, "w", encoding="utf-8") as f:
+            json.dump(res, f, ensure_ascii=False, indent=2)
+
 
     async def get_regions(self, region_type: RegionType, region: str):
 

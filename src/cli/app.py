@@ -2,7 +2,7 @@ import json
 import os
 import webbrowser
 import platform
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, TYPE_CHECKING
 from packaging import version
 
 import httpx
@@ -17,6 +17,11 @@ from src.cli.birdreport import BirdreportScreen
 from src.cli.ebird import EbirdScreen
 from src.cli.general import ConfirmScreen, MessageScreen, DisplayScreen
 
+if TYPE_CHECKING:
+    from src.ebird.ebird import EBird
+    from src.birdreport.birdreport import Birdreport
+
+
 
 class CommonBirdApp(App):
     CSS_PATH = inner_path / "common_bird_app.tcss"
@@ -28,6 +33,9 @@ class CommonBirdApp(App):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+        
+        self.ebird: EBird = None
+        self.birdreport: Birdreport = None
 
         self.first_open = True
         if APP_VERSION == "beta":
@@ -85,7 +93,6 @@ class CommonBirdApp(App):
                     "EBird",
                     id="ebird",
                     tooltip="EBird相关的功能，包括将报告迁移至观鸟记录中心",
-                    disabled=True,
                 ),
             ),
             HorizontalGroup(
