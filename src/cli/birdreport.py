@@ -283,7 +283,6 @@ class BirdreportToEbirdLocationAssignScreen(Screen):
         self, point_name: str, converted_hotspot_name: str, modify_cache: bool = True
     ) -> None:
         # conveted_hotspot is None means remaining
-        self.location_assign[point_name]["converted_hotspot"] = converted_hotspot_name
 
         if modify_cache:
             self.temp_assign_cache[point_name] = converted_hotspot_name
@@ -298,13 +297,15 @@ class BirdreportToEbirdLocationAssignScreen(Screen):
         else:
             if converted_hotspot_name in self.app.ebird_cn_hotspots:
                 location_info = self.app.ebird_cn_hotspots[converted_hotspot_name]
-            elif converted_hotspot_name in self.app.ebird_hotspots:
-                location_info = self.app.ebird_hotspots[converted_hotspot_name]
+            elif converted_hotspot_name in self.app.ebird_other_hotspots:
+                location_info = self.app.ebird_other_hotspots[converted_hotspot_name]
             else:
                 return
 
             self.location_assign[point_name]["lat"] = location_info["lat"]
             self.location_assign[point_name]["lng"] = location_info["lng"]
+
+        self.location_assign[point_name]["converted_hotspot"] = converted_hotspot_name
 
 
 class BirdreportFilterScreen(Screen):

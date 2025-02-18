@@ -5,7 +5,6 @@ import asyncio
 import subprocess
 import time
 import os
-import logging
 import platform
 import uuid
 import sys
