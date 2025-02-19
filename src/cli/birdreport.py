@@ -199,10 +199,10 @@ class BirdreportToEbirdLocationAssignScreen(Screen):
 
     @work
     async def on_mount(self) -> None:
-        latest_update_date = self.app.ebird_cn_hotspots["latest_update_date"]
+        last_update_date = self.app.ebird_hotspots_update_date
         is_update = await self.app.push_screen_wait(
             ConfirmScreen(
-                f"是否更新eBird的地点信息？\n这可能有助于地点分配的准确性\n最后更新时间：{latest_update_date}\n（需要拥有eBird API Token）"
+                f"是否更新eBird的地点信息？\n这可能有助于地点分配的准确性\n最后更新时间：{last_update_date}\n（需要拥有eBird API Token）"
             )
         )
         if is_update:

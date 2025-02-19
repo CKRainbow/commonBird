@@ -33,6 +33,7 @@ class CommonBirdApp(App):
 
         self.ebird_cn_hotspots = None
         self.ebird_other_hotspots = None
+        self.ebird_hotspots_update_date = None
         self.ch4_to_eb_taxon_map = None
         self.ebird_taxon_info = None
 
@@ -48,12 +49,16 @@ class CommonBirdApp(App):
             with open(
                 database_path / "ebird_cn_hotspots.json", "r", encoding="utf-8"
             ) as f:
-                self.ebird_cn_hotspots: Dict = json.load(f)
+                data = json.load(f)
+                self.ebird_cn_hotspots: Dict = data["data"]
+                self.ebird_hotspots_update_date = data["last_update_date"]
         if (database_path / "ebird_other_hotspots.json").exists():
             with open(
                 database_path / "ebird_other_hotspots.json", "r", encoding="utf-8"
             ) as f:
-                self.ebird_other_hotspots: Dict = json.load(f)
+                data = json.load(f)
+                self.ebird_other_hotspots: Dict = data["data"]
+                self.ebird_hotspots_update_date = data["last_update_date"]
 
         # all exists or all not exists
         assert all(
@@ -217,7 +222,9 @@ class CommonBirdApp(App):
                         )
 
                         if is_update:
-                            download_url = DOWNLOAD_URL.get(f"{platform.system().lower()}_{platform.machine().lower()}")
+                            download_url = DOWNLOAD_URL.get(
+                                f"{platform.system().lower()}_{platform.machine().lower()}"
+                            )
                             if download_url:
                                 webbrowser.open(download_url)
                             else:
