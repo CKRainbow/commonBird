@@ -50,6 +50,7 @@ jobs:
     - name: Build
       run: |
         bash ./build_linux.sh ${{ needs.get-tag.outputs.tag }} "${{ secrets.CONTENT_RETRIEVE_TOKEN }}"
+        python test.py
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4.3.1
       with: 
@@ -80,6 +81,7 @@ jobs:
       run: |
         bash ./build_mac.sh ${{ needs.get-tag.outputs.tag }} "${{ secrets.CONTENT_RETRIEVE_TOKEN }}"
         mv commonBird_mac.tar.gz commonBird_mac_x64.tar.gz
+        python test.py
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4.3.1
       with: 
@@ -109,6 +111,7 @@ jobs:
     - name: Build
       run: |
         ./build_win.ps1 ${{ needs.get-tag.outputs.tag }} "${{ secrets.CONTENT_RETRIEVE_TOKEN }}"
+        python test.py
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4.3.1
       with: 
@@ -139,6 +142,7 @@ jobs:
       run: |
         bash ./build_mac.sh ${{ needs.get-tag.outputs.tag }} "${{ secrets.CONTENT_RETRIEVE_TOKEN }}"
         mv commonBird_mac.tar.gz commonBird_mac_arm64.tar.gz
+        python test.py
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4.3.1
       with: 
