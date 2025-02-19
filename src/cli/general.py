@@ -1,4 +1,6 @@
-from typing import Optional, Awaitable
+import os
+from typing import Optional, Awaitable, Type, TYPE_CHECKING
+from itertools import count
 
 from dotenv import load_dotenv, set_key
 from textual import on, work
@@ -14,6 +16,9 @@ from textual.widgets import (
 )
 
 from src import env_path
+
+if TYPE_CHECKING:
+    from src.cli.app import CommonBirdApp
 
 EBIRD_RECORD_HEADER = [
     "Common Name",  # Required or Species
@@ -96,6 +101,10 @@ class MessageScreen(ModalScreen):
 
 
 class DomainScreen(Screen):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.app: CommonBirdApp
+
     def store_token(self, token_name, token) -> None:
         set_key(
             dotenv_path=env_path,
@@ -103,6 +112,38 @@ class DomainScreen(Screen):
             value_to_set=token,
         )
         load_dotenv(env_path)
+
+    async def check_token(
+        self,
+        token_name: str,
+        change_token_hint: str,
+        cls: Type,
+        attr,
+        force_change: bool = False,
+    ):
+        token = os.getenv(token_name)
+        for i in count(0):
+            if i == 0:
+                text = change_token_hint
+            else:
+                text = "先前输入的token无效，请重新输入。"
+            try:
+                print(token, i)
+                if not force_change and not token:
+                    raise Exception
+                elif force_change and i == 0:
+                    raise Exception
+                self.store_token(token_name, token)
+                if attr is None or attr.token != token:
+                    attr = await cls.create(token)
+                break
+            except Exception as e:
+                print(e)
+                token_result = await self.app.push_screen_wait(
+                    TokenInputScreen(token_name, text),
+                )
+                token = token_result["token"]
+        return attr
 
 
 class DisplayScreen(ModalScreen):
@@ -116,7 +157,7 @@ class DisplayScreen(ModalScreen):
     def __init__(self, widget: Widget, function: Optional[Awaitable] = None, **kwargs):
         super().__init__(**kwargs)
         self.widget = widget
-        
+
         if function:
             self.function = function
             self.block = True
@@ -139,10 +180,9 @@ class DisplayScreen(ModalScreen):
             return
         self.dismiss()
         event.stop()
-        
+
     @work
     async def on_mount(self) -> None:
         if self.function:
             await self.function()
         self.dismiss()
-

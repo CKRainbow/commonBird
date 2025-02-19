@@ -14405,23 +14405,13 @@
     "lat": 34.2448853,
     "lng": 117.3181753
   },
-  "大湖池 (Lake Dahuchi)": {
-    "locId": "L10379016",
-    "locName": "大湖池 (Lake Dahuchi)",
-    "countryCode": "CN",
-    "subnational1Code": "CN-36",
-    "lat": 29.1286794,
-    "lng": 115.9641446,
-    "latestObsDt": "2025-02-05 10:15",
-    "numSpeciesAllTime": 171
-  },
-  "大湖池--八字墙观鸟平台 (Lake Dahuchi--Baziqiang Viewing Platform)": {
+  "大湖池--八字墙观鸟点 (Lake Dahuchi--Baziqiang Viewing Point)": {
     "locId": "L28490473",
-    "locName": "大湖池--八字墙观鸟平台 (Lake Dahuchi--Baziqiang Viewing Platform)",
+    "locName": "大湖池--八字墙观鸟点 (Lake Dahuchi--Baziqiang Viewing Point)",
     "countryCode": "CN",
     "subnational1Code": "CN-36",
-    "lat": 29.1365023,
-    "lng": 115.978694,
+    "lat": 29.1395269,
+    "lng": 115.9736622,
     "latestObsDt": "2025-02-15 08:38",
     "numSpeciesAllTime": 95
   },
@@ -14440,10 +14430,26 @@
     "locName": "大湖池--水上公路东平台 (Lake Dahuchi--Water-Drive Viewing Platform East)",
     "countryCode": "CN",
     "subnational1Code": "CN-36",
-    "lat": 29.1034284,
-    "lng": 115.9677881,
+    "lat": 29.1064227,
+    "lng": 115.9628623,
     "latestObsDt": "2025-02-05 11:30",
     "numSpeciesAllTime": 120
+  },
+  "大湖池--水上公路西平台 (Lake Dahuchi--Water-Drive Viewing Platform West)": {
+    "locId": "L40373665",
+    "locName": "大湖池--水上公路西平台 (Lake Dahuchi--Water-Drive Viewing Platform West)",
+    "countryCode": "CN",
+    "subnational1Code": "CN-36",
+    "lat": 29.092204,
+    "lng": 115.940564
+  },
+  "大湖池--狮子山观鸟点 (Lake Dahuchi--Lion Hill Viewing Point)": {
+    "locId": "L40374215",
+    "locName": "大湖池--狮子山观鸟点 (Lake Dahuchi--Lion Hill Viewing Point)",
+    "countryCode": "CN",
+    "subnational1Code": "CN-36",
+    "lat": 29.123146,
+    "lng": 115.960142
   },
   "大湖沙滩 (Dahu Beach)": {
     "locId": "L39820049",
@@ -17638,8 +17644,8 @@
     "locName": "将军峡风景区 (Jiangjunxia Scenic Area)",
     "countryCode": "CN",
     "subnational1Code": "CN-36",
-    "lat": 29.1903957,
-    "lng": 115.4824943,
+    "lat": 29.185548,
+    "lng": 115.4826473,
     "latestObsDt": "2025-02-16 13:00",
     "numSpeciesAllTime": 80
   },
@@ -19570,14 +19576,12 @@
     "lng": 111.7024095
   },
   "常湖池 (Lake Changhuchi)": {
-    "locId": "L28283781",
+    "locId": "L40375768",
     "locName": "常湖池 (Lake Changhuchi)",
     "countryCode": "CN",
     "subnational1Code": "CN-36",
-    "lat": 29.1322095,
-    "lng": 115.9902832,
-    "latestObsDt": "2025-01-02 14:00",
-    "numSpeciesAllTime": 78
+    "lat": 29.138195,
+    "lng": 115.981827
   },
   "常青公园 (Evergreen Park)": {
     "locId": "L34914597",
@@ -24152,14 +24156,12 @@
     "numSpeciesAllTime": 139
   },
   "朱市湖 (Zhushi Lake)": {
-    "locId": "L28200317",
+    "locId": "L40375288",
     "locName": "朱市湖 (Zhushi Lake)",
     "countryCode": "CN",
     "subnational1Code": "CN-36",
-    "lat": 29.1763331,
-    "lng": 115.973585,
-    "latestObsDt": "2025-02-15 07:27",
-    "numSpeciesAllTime": 88
+    "lat": 29.17558,
+    "lng": 115.978221
   },
   "朱村农田 (Zhucun Farmland)": {
     "locId": "L39992007",

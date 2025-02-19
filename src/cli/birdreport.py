@@ -199,18 +199,6 @@ class BirdreportToEbirdLocationAssignScreen(Screen):
 
     @work
     async def on_mount(self) -> None:
-        await self.app.push_screen_wait(
-            MessageScreen(
-                "注意！由于eBird记录上传的逻辑，在该软件中分配的地点"
-                + "\n最终只会生成一个与热点同名且坐标一样的个人地点，"
-                + "\n报告并没有真正的存在热点里，请酌情使用。"
-                + "\n若希望将此类报告分配到热点，请尝试在个人主页的地点界面"
-                + "\n将自动生成的个人地点合并至相应热点。"
-                + "\n若拥有魔法，可以不做修改，并在修复地点时"
-                + "\n选择“在地图上寻找”并继续，在地区热点中直接选择。",
-            )
-        )
-
         vertical_scroll = VerticalScroll(id="location_assign_scroll")
         await self.mount(vertical_scroll)
         await vertical_scroll.mount(
@@ -651,7 +639,7 @@ class BirdreportToEbirdScreen(Screen):
 
 class BirdreportScreen(DomainScreen):
     def __init__(self, **kwargs):
-        super().__init__(kwargs)
+        super().__init__(**kwargs)
         self.app: CommonBirdApp
 
         self.change_token_hint = (
@@ -687,28 +675,13 @@ class BirdreportScreen(DomainScreen):
     @work
     async def on_button_pressed(self, event: Button.Pressed) -> None:
         if event.button.id == "change_token":
-            token = os.getenv(self.token_name)
-            for i in count(0):
-                if i == 0:
-                    text = self.change_token_hint
-                else:
-                    text = "先前输入的token无效，请重新输入。"
-                try:
-                    if i == 0:
-                        raise Exception
-                    self.store_token(self.token_name, token)
-                    token = os.getenv(self.token_name)
-                    if (
-                        self.app.birdreport is None
-                        or self.app.birdreport.token != token
-                    ):
-                        self.app.birdreport = await Birdreport.create(token)
-                    break
-                except Exception:
-                    token_result = await self.app.push_screen_wait(
-                        TokenInputScreen(self.token_name, text),
-                    )
-                    token = token_result["token"]
+            self.app.birdreport = await self.check_token(
+                self.token_name,
+                self.change_token_hint,
+                Birdreport,
+                self.app.birdreport,
+                force_change=True,
+            )
         elif event.button.id == "retrieve_report":
             self.app.push_screen(
                 BirdreportSearchReportScreen(self.app.birdreport),
@@ -731,24 +704,12 @@ class BirdreportScreen(DomainScreen):
     async def on_mount(self) -> None:
         self.title = "中国观鸟记录中心"
         self.sub_title = "可能会对记录中心服务器带来压力，酌情使用"
-        token = os.getenv(self.token_name)
-        for i in count(0):
-            if i == 0:
-                text = self.change_token_hint
-            else:
-                text = "先前输入的token无效，请重新输入。"
-            try:
-                if not token:
-                    raise Exception
-                self.store_token(self.token_name, token)
-                token = os.getenv(self.token_name)
-                if self.app.birdreport is None or self.app.birdreport.token != token:
-                    self.app.birdreport = await Birdreport.create(token)
-                break
-            except Exception:
-                token_result = await self.app.push_screen_wait(
-                    TokenInputScreen(self.token_name, text),
-                )
-                token = token_result["token"]
+
+        self.app.birdreport = await self.check_token(
+            self.token_name,
+            self.change_token_hint,
+            Birdreport,
+            self.app.birdreport,
+        )
 
         await self.mount(self.composition)
