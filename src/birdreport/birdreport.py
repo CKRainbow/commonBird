@@ -414,8 +414,8 @@ class Birdreport:
             # and assign a psudo-point_name
             for checklist in handy_checklists.values():
                 first_record = checklist["obs"][0]
-                checklist["city_name"] = first_record["city_name"]
-                checklist["district_name"] = first_record["district_name"]
+                checklist["city_name"] = first_record["city_name"] if "city_name" in first_record else ""
+                checklist["district_name"] = first_record["district_name"] if "district_name" in first_record else ""
                 checklist["latitude"] = first_record["latitude"]
                 checklist["longitude"] = first_record["longitude"]
                 checklist["point_name"] = f"随手记地点-{checklist['start_time']}"
