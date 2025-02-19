@@ -4,10 +4,9 @@ import asyncio
 import csv
 import time
 import pytz
-from typing import List, Dict, Optional, TYPE_CHECKING
+from typing import Dict, Optional, TYPE_CHECKING
 from datetime import datetime
 from pathlib import Path
-from itertools import count
 
 from textual import on, work
 from textual.app import ComposeResult
@@ -31,7 +30,8 @@ from src import application_path
 from src.birdreport.birdreport import Birdreport
 from src.utils.location import EBIRD_REGION_CODE_TO_NAME, NAME_TO_EBIRD_REGION_CODE
 from src.utils.taxon import convert_taxon_z4_ebird
-from src.cli.general import ConfirmScreen, MessageScreen, DomainScreen, TokenInputScreen
+from src.cli.general import ConfirmScreen, MessageScreen, DomainScreen, DisplayScreen
+from src.cli.ebird import EbirdScreen
 
 if TYPE_CHECKING:
     from src.cli.app import CommonBirdApp
@@ -199,6 +199,20 @@ class BirdreportToEbirdLocationAssignScreen(Screen):
 
     @work
     async def on_mount(self) -> None:
+        latest_update_date = self.app.ebird_cn_hotspots["latest_update_date"]
+        is_update = await self.app.push_screen_wait(
+            ConfirmScreen(
+                f"是否更新eBird的地点信息？\n这可能有助于地点分配的准确性\n最后更新时间：{latest_update_date}\n（需要拥有eBird API Token）"
+            )
+        )
+        if is_update:
+            if self.app.ebird is None:
+                await self.app.push_screen_wait(EbirdScreen(temporary=True))
+            await self.app.push_screen_wait(
+                DisplayScreen(LoadingIndicator(), self.app.ebird.update_cn_hotspots)
+            )
+            self.app.reload_hotspot_info()
+
         vertical_scroll = VerticalScroll(id="location_assign_scroll")
         await self.mount(vertical_scroll)
         await vertical_scroll.mount(
@@ -711,5 +725,8 @@ class BirdreportScreen(DomainScreen):
             Birdreport,
             self.app.birdreport,
         )
+
+        if self.temporary:
+            self.dismiss()
 
         await self.mount(self.composition)

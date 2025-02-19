@@ -101,9 +101,11 @@ class MessageScreen(ModalScreen):
 
 
 class DomainScreen(Screen):
-    def __init__(self, **kwargs):
+    def __init__(self, temporary: bool = False, **kwargs):
         super().__init__(**kwargs)
         self.app: CommonBirdApp
+
+        self.temporary = temporary
 
     def store_token(self, token_name, token) -> None:
         set_key(
@@ -128,7 +130,6 @@ class DomainScreen(Screen):
             else:
                 text = "先前输入的token无效，请重新输入。"
             try:
-                print(token, i)
                 if not force_change and not token:
                     raise Exception
                 elif force_change and i == 0:

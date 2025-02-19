@@ -247,3 +247,15 @@ class CommonBirdApp(App):
 
         with open(cache_path / "location_assign.json", "w", encoding="utf-8") as f:
             json.dump(self.location_assign, f, ensure_ascii=False, indent=4)
+
+    def reload_hotspot_info(self) -> None:
+        if (database_path / "ebird_cn_hotspots.json").exists():
+            with open(
+                database_path / "ebird_cn_hotspots.json", "r", encoding="utf-8"
+            ) as f:
+                self.ebird_cn_hotspots: Dict = json.load(f)
+        if (database_path / "ebird_other_hotspots.json").exists():
+            with open(
+                database_path / "ebird_other_hotspots.json", "r", encoding="utf-8"
+            ) as f:
+                self.ebird_other_hotspots: Dict = json.load(f)

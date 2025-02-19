@@ -1,13 +1,10 @@
-import os
-from itertools import count
 from typing import TYPE_CHECKING
 
 from textual import on, work
-from textual.app import ComposeResult
 from textual.containers import VerticalScroll
 from textual.widgets import Button, LoadingIndicator
 
-from src.cli.general import DomainScreen, TokenInputScreen, DisplayScreen
+from src.cli.general import DomainScreen, DisplayScreen
 from src.ebird.ebird import EBird
 
 if TYPE_CHECKING:
@@ -36,12 +33,22 @@ class EbirdScreen(DomainScreen):
             classes="option_container",
         )
 
+    def store_token(self, token_name: str, token: str) -> None:
+        # the token must be 32 characters and consists of only number and letters
+        if len(token) != 12 or not token.isalnum():
+            raise ValueError(
+                "token must be 12 characters and consists of only number and letters"
+            )
+
+        super().store_token(token_name, token)
+
     @on(Button.Pressed, "#update_hotspot")
     @work
     async def on_update_hotspot_pressed(self, event: Button.Pressed) -> None:
         await self.app.push_screen_wait(
             DisplayScreen(LoadingIndicator(), self.app.ebird.update_cn_hotspots)
         )
+        self.app.reload_hotspot_info()
 
     @work
     async def on_button_pressed(self, event: Button.Pressed) -> None:
@@ -61,4 +68,8 @@ class EbirdScreen(DomainScreen):
         self.app.ebird = await self.check_token(
             self.token_name, self.change_token_hint, EBird, self.app.ebird
         )
+
+        if self.temporary:
+            self.dismiss()
+
         await self.mount(self.composition)

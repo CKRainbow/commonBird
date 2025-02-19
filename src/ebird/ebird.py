@@ -1,6 +1,7 @@
 import json
 import os
 import asyncio
+import datetime
 from typing import Dict
 from enum import Enum
 
@@ -60,7 +61,11 @@ class EBird:
     async def update_cn_hotspots(self):
         res = await self.get_hotspots("CN")
         res = {hotspot["locName"]: hotspot for hotspot in res}
+        res["latest_update_date"] = datetime.datetime.now().strftime("%Y-%m-%d")
         old_cn_hotspots = database_path / "ebird_cn_hotspots.json"
+        old_cn_hotspots_bak = old_cn_hotspots.with_suffix(".json.bak")
+        if old_cn_hotspots_bak.exists():
+            os.remove(old_cn_hotspots_bak)
         os.rename(old_cn_hotspots, old_cn_hotspots.with_suffix(".json.bak"))
         with open(old_cn_hotspots, "w", encoding="utf-8") as f:
             json.dump(res, f, ensure_ascii=False, indent=2)
@@ -69,7 +74,11 @@ class EBird:
         mo_res = await self.get_hotspots("MO")
         res = tw_res + hk_res + mo_res
         res = {hotspot["locName"]: hotspot for hotspot in res}
+        res["latest_update_date"] = datetime.datetime.now().strftime("%Y-%m-%d")
         old_other_hotspots = database_path / "ebird_other_hotspots.json"
+        old_other_hotspots_bak = old_other_hotspots.with_suffix(".json.bak")
+        if old_other_hotspots_bak.exists():
+            os.remove(old_other_hotspots_bak)
         os.rename(old_other_hotspots, old_other_hotspots.with_suffix(".json.bak"))
         with open(old_other_hotspots, "w", encoding="utf-8") as f:
             json.dump(res, f, ensure_ascii=False, indent=2)
