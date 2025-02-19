@@ -217,7 +217,7 @@ class CommonBirdApp(App):
                         )
 
                         if is_update:
-                            download_url = DOWNLOAD_URL.get(platform.system().lower())
+                            download_url = DOWNLOAD_URL.get(f"{platform.system().lower()}_{platform.machine().lower()}")
                             if download_url:
                                 webbrowser.open(download_url)
                             else:

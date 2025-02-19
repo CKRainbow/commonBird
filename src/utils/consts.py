@@ -7,9 +7,10 @@ class BirdreportTaxonVersion(Enum):
 
 
 DOWNLOAD_URL = {
-    "darwin": "https://gh-proxy.com/github.com/CKRainbow/commonBird/releases/latest/download/commonBird_mac_x64.tar.gz",
-    "linux": "https://gh-proxy.com/github.com/CKRainbow/commonBird/releases/latest/download/commonBird_linux_x64.tar.gz",
-    "windows": "https://gh-proxy.com/github.com/CKRainbow/commonBird/releases/latest/download/commonBird_win_x64.zip",
+    "darwin_x86_64": "https://gh-proxy.com/github.com/CKRainbow/commonBird/releases/latest/download/commonBird_mac_x64.tar.gz",
+    "darwin_arm64": "https://gh-proxy.com/github.com/CKRainbow/commonBird/releases/latest/download/commonBird_mac_arm64.tar.gz",
+    "linux_x86_64": "https://gh-proxy.com/github.com/CKRainbow/commonBird/releases/latest/download/commonBird_linux_x64.tar.gz",
+    "windows_amd64": "https://gh-proxy.com/github.com/CKRainbow/commonBird/releases/latest/download/commonBird_win_x64.zip",
 }
 
 ###### consts added in building process
