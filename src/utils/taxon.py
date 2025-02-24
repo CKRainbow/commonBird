@@ -133,7 +133,7 @@ def preview_taxon_map(map_file: Path, output_path: Path):
 def convert_taxon_z4_ebird(report, taxon_map):
     obs = report["obs"]
     prov = report["province_name"]
-    city = report["city_name"]
+    city = report["city_name"] if "city_name" in report else ""
     _, month, _ = report["start_time"].split(" ")[0].split("-")
 
     for taxon in obs:

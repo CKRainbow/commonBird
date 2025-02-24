@@ -562,7 +562,7 @@ class BirdreportToEbirdScreen(Screen):
             start_time = time.strftime("%m/%d/%Y %H:%M", start_time)
             observation_date, start_time = start_time.split(" ")
             region_code = get_report_eb_region_code(
-                report["province_name"], report["city_name"]
+                report["province_name"], report["city_name"] if "city_name" in report else ""
             )
             if region_code.endswith("-"):
                 state = region_code
