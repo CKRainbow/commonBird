@@ -1,5 +1,5 @@
 {
-  "last_update_date": "2025-02-19",
+  "last_update_date": "2025-02-24",
   "data": {
     "#11觀音重要濕地": {
       "locId": "L8139532",
@@ -726,8 +726,8 @@
       "subnational1Code": "TW-TAO",
       "lat": 24.9178928,
       "lng": 121.1370317,
-      "latestObsDt": "2024-12-30 12:30",
-      "numSpeciesAllTime": 15
+      "latestObsDt": "2025-02-20 18:15",
+      "numSpeciesAllTime": 16
     },
     "#29觀音重要濕地": {
       "locId": "L8139539",
@@ -1091,7 +1091,7 @@
       "lat": 24.0205287,
       "lng": 121.1320567,
       "latestObsDt": "2025-02-16 11:15",
-      "numSpeciesAllTime": 163
+      "numSpeciesAllTime": 154
     },
     "南投--仁愛霧社南側(加油站以南)民宿區(Nantou--Ren'ai Wushe Southern Hotel Area)": {
       "locId": "L5672289",
@@ -1330,7 +1330,7 @@
       "subnational1Code": "TW-NAN",
       "lat": 23.9075763,
       "lng": 120.6719209,
-      "latestObsDt": "2023-08-23 17:15",
+      "latestObsDt": "2025-02-19 09:38",
       "numSpeciesAllTime": 34
     },
     "南投--台14甲櫻櫻峰-翠峰(Nantou--HWY 14A between Yingyingfeng & Cuifeng)": {
@@ -1470,7 +1470,7 @@
       "subnational1Code": "TW-NAN",
       "lat": 23.998776,
       "lng": 120.984769,
-      "latestObsDt": "2025-02-08 11:03",
+      "latestObsDt": "2025-02-21 16:43",
       "numSpeciesAllTime": 133
     },
     "南投--埔里市區(Nantou--Puli Downtown)": {
@@ -1480,8 +1480,8 @@
       "subnational1Code": "TW-NAN",
       "lat": 23.96511,
       "lng": 120.96734,
-      "latestObsDt": "2024-08-11 14:34",
-      "numSpeciesAllTime": 60
+      "latestObsDt": "2025-02-06 15:30",
+      "numSpeciesAllTime": 61
     },
     "南投--埔里桃米生態村(Nantou--Puli Taumi Eco Village)": {
       "locId": "L9661042",
@@ -1550,8 +1550,8 @@
       "subnational1Code": "TW-NAN",
       "lat": 23.9615489,
       "lng": 120.9980321,
-      "latestObsDt": "2024-09-15 18:21",
-      "numSpeciesAllTime": 105
+      "latestObsDt": "2025-02-22 09:21",
+      "numSpeciesAllTime": 106
     },
     "南投--奧萬大森林遊樂區(Nantou--Aowanda Forest Recreation Area)": {
       "locId": "L2467680",
@@ -1620,7 +1620,7 @@
       "subnational1Code": "TW-NAN",
       "lat": 23.860087,
       "lng": 120.9203489,
-      "latestObsDt": "2025-02-13 10:43",
+      "latestObsDt": "2025-02-20 12:35",
       "numSpeciesAllTime": 140
     },
     "南投--日月潭向山遊客中心(Nantou--Sun Moon Lake Xiangshan Visitor Center)": {
@@ -1630,7 +1630,7 @@
       "subnational1Code": "TW-NAN",
       "lat": 23.8520076,
       "lng": 120.9024596,
-      "latestObsDt": "2025-01-30 10:58",
+      "latestObsDt": "2025-02-20 09:34",
       "numSpeciesAllTime": 95
     },
     "南投--日月潭大竹湖(Nantou--Sun Moon Lake Dazuhu)": {
@@ -1660,8 +1660,8 @@
       "subnational1Code": "TW-NAN",
       "lat": 23.8556666,
       "lng": 120.9113139,
-      "latestObsDt": "2024-12-02 14:28",
-      "numSpeciesAllTime": 24
+      "latestObsDt": "2025-02-23 11:12",
+      "numSpeciesAllTime": 25
     },
     "南投--日月潭朝霧碼頭(Nantou--Sun Moon Lake Zhaowu Pier)": {
       "locId": "L31242183",
@@ -1730,8 +1730,8 @@
       "subnational1Code": "TW-NAN",
       "lat": 23.6200965,
       "lng": 120.8019777,
-      "latestObsDt": "2025-02-17 09:54",
-      "numSpeciesAllTime": 73
+      "latestObsDt": "2025-02-21 09:45",
+      "numSpeciesAllTime": 74
     },
     "南投--杉林溪林溪民宿(Nantou--Shanlinxi Linxi Hotel)": {
       "locId": "L27101952",
@@ -1750,7 +1750,7 @@
       "subnational1Code": "TW-NAN",
       "lat": 23.6369482,
       "lng": 120.7935204,
-      "latestObsDt": "2025-02-11 10:55",
+      "latestObsDt": "2025-02-21 07:45",
       "numSpeciesAllTime": 135
     },
     "南投--杉林溪羊彎巷(Nantou--Shanlinxi Yangwan Ln.)": {
@@ -1790,7 +1790,7 @@
       "subnational1Code": "TW-NAN",
       "lat": 24.0864069,
       "lng": 121.1755685,
-      "latestObsDt": "2025-02-01 14:35",
+      "latestObsDt": "2025-02-22 16:08",
       "numSpeciesAllTime": 151
     },
     "南投--水社大山登山步道(Nantou--Mt. Shuishedashan Hiking Trail)": {
@@ -1830,7 +1830,7 @@
       "subnational1Code": "TW-NAN",
       "lat": 23.8106163,
       "lng": 120.8507305,
-      "latestObsDt": "2025-01-21 08:48",
+      "latestObsDt": "2025-02-19 08:05",
       "numSpeciesAllTime": 70
     },
     "南投--水里新城路92巷(Nantou--Shuili Xincheng Rd. Ln. 92)": {
@@ -1870,7 +1870,7 @@
       "subnational1Code": "TW-NAN",
       "lat": 24.0586547,
       "lng": 121.1637819,
-      "latestObsDt": "2025-02-15 13:48",
+      "latestObsDt": "2025-02-22 08:34",
       "numSpeciesAllTime": 113
     },
     "南投--清境農場便利商店區(Nantou--Qingjing Farm Convenient Store Area)‎": {
@@ -1890,7 +1890,7 @@
       "subnational1Code": "TW-NAN",
       "lat": 24.0428158,
       "lng": 121.1563575,
-      "latestObsDt": "2025-02-01 16:31",
+      "latestObsDt": "2025-02-20 13:58",
       "numSpeciesAllTime": 100
     },
     "南投--清境農場松崗(Nantou--Qingjing Farm Songgang)‎": {
@@ -1930,7 +1930,7 @@
       "subnational1Code": "TW-NAN",
       "lat": 23.665886,
       "lng": 120.787504,
-      "latestObsDt": "2025-02-12 07:32",
+      "latestObsDt": "2025-02-22 09:29",
       "numSpeciesAllTime": 62
     },
     "南投--溪頭妖怪村(Nantou--Xitou Monster Village)": {
@@ -1970,7 +1970,7 @@
       "subnational1Code": "TW-NAN",
       "lat": 23.6718019,
       "lng": 120.7967216,
-      "latestObsDt": "2025-02-11 07:14",
+      "latestObsDt": "2025-02-18 10:09",
       "numSpeciesAllTime": 164
     },
     "南投--溪頭青楓小森林(Nantou--Xitou Maple Glade)": {
@@ -2170,8 +2170,8 @@
       "subnational1Code": "TW-NAN",
       "lat": 23.9614854,
       "lng": 121.0009944,
-      "latestObsDt": "2025-01-09 13:17",
-      "numSpeciesAllTime": 53
+      "latestObsDt": "2024-08-09 09:21",
+      "numSpeciesAllTime": 52
     },
     "南投--車埕車站(Nantou--TRA Checheng Station)": {
       "locId": "L6818480",
@@ -2280,8 +2280,8 @@
       "subnational1Code": "TW-NAN",
       "lat": 23.8315171,
       "lng": 120.8068501,
-      "latestObsDt": "2024-12-31 08:01",
-      "numSpeciesAllTime": 55
+      "latestObsDt": "2025-02-22 16:45",
+      "numSpeciesAllTime": 56
     },
     "南投--集集清水溪(公館橋-林尾橋)(Nantou--Jiji Qingshui Creek (between Gongguan Bridge & Linwei Bridge))": {
       "locId": "L4028439",
@@ -2310,7 +2310,7 @@
       "subnational1Code": "TW-NAN",
       "lat": 23.8279088,
       "lng": 120.7769333,
-      "latestObsDt": "2025-02-18 18:19",
+      "latestObsDt": "2025-02-22 06:18",
       "numSpeciesAllTime": 77
     },
     "南投--集集濁水溪北岸(集集大橋-集鹿大橋)(Nantou--Jiji Zhuoshui River North Shore (between Jiji Bridge & Jilu Bridge))": {
@@ -2330,7 +2330,7 @@
       "subnational1Code": "TW-NAN",
       "lat": 23.82747,
       "lng": 120.8009677,
-      "latestObsDt": "2025-02-18 09:02",
+      "latestObsDt": "2025-02-20 20:11",
       "numSpeciesAllTime": 129
     },
     "南投--集集特生中心新建園區(Nantou--Jiji TESRI New Construction Plant)": {
@@ -2390,7 +2390,7 @@
       "subnational1Code": "TW-NAN",
       "lat": 23.8370742,
       "lng": 120.8967226,
-      "latestObsDt": "2024-10-15 10:47",
+      "latestObsDt": "2025-02-19 12:55",
       "numSpeciesAllTime": 62
     },
     "南投--鳳凰山天文台(Nantou--Fenghuangshan Observatory)": {
@@ -2420,7 +2420,7 @@
       "subnational1Code": "TW-NAN",
       "lat": 23.4822921,
       "lng": 120.8551066,
-      "latestObsDt": "2024-11-13 08:53",
+      "latestObsDt": "2025-02-21 16:25",
       "numSpeciesAllTime": 51
     },
     "南投--鹿谷內湖國小(Nantou--Lugu Neihu Elementary School)": {
@@ -2520,7 +2520,7 @@
       "subnational1Code": "TW-NAN",
       "lat": 24.1031366,
       "lng": 121.1894095,
-      "latestObsDt": "2025-01-21 06:37",
+      "latestObsDt": "2025-02-20 11:26",
       "numSpeciesAllTime": 105
     },
     "南投瑞岩溪野生動物重要棲息環境--水管路3-5K(Ruiyan River Major Wildlife Habitat--Shuiguan Trail 3-5K)": {
@@ -2530,7 +2530,7 @@
       "subnational1Code": "TW-NAN",
       "lat": 24.1096855,
       "lng": 121.196753,
-      "latestObsDt": "2025-02-12 09:55",
+      "latestObsDt": "2025-02-21 06:32",
       "numSpeciesAllTime": 99
     },
     "南方四島NP--二塭嶼(South Penghu Marine NP--Erwen Islet)": {
@@ -2730,7 +2730,7 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.1902369,
       "lng": 121.0150024,
-      "latestObsDt": "2025-02-17 14:30",
+      "latestObsDt": "2025-02-22 10:54",
       "numSpeciesAllTime": 127
     },
     "台中--八仙山森林遊樂區收費處(Taichung--Baxianshan Forest Recreation Area Ticket Station)": {
@@ -2740,7 +2740,7 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.1972917,
       "lng": 121.0039193,
-      "latestObsDt": "2025-01-20 14:14",
+      "latestObsDt": "2025-02-19 14:00",
       "numSpeciesAllTime": 95
     },
     "台中--南屯重劃區滯洪池(Taichung--Nantun Redevelopment Area Detention Pond)": {
@@ -2780,7 +2780,7 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.1435033,
       "lng": 120.6842673,
-      "latestObsDt": "2025-02-04 16:58",
+      "latestObsDt": "2025-02-21 16:33",
       "numSpeciesAllTime": 47
     },
     "台中--台中區農業改良場(Taichung--Taichung District Agricultural Research & Extension Station)": {
@@ -2830,7 +2830,7 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.2077413,
       "lng": 120.5972105,
-      "latestObsDt": "2025-02-17 11:30",
+      "latestObsDt": "2025-02-22 15:45",
       "numSpeciesAllTime": 192
     },
     "台中--台中都會公園北側停車場(Taichung--Taichung Metropolitan Park Northern Parking Lot)": {
@@ -2860,7 +2860,7 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.2044526,
       "lng": 120.5999637,
-      "latestObsDt": "2025-02-11 08:16",
+      "latestObsDt": "2025-02-19 12:05",
       "numSpeciesAllTime": 54
     },
     "台中--台鐵新烏日車站(Taichung--TRA Xinwuri Station)": {
@@ -2900,8 +2900,8 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.300944,
       "lng": 120.6555891,
-      "latestObsDt": "2025-02-05 08:10",
-      "numSpeciesAllTime": 116
+      "latestObsDt": "2025-02-23 10:34",
+      "numSpeciesAllTime": 117
     },
     "台中--和平勝光(Taichung--Heping Shengguang)": {
       "locId": "L8727604",
@@ -2990,7 +2990,7 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.1213752,
       "lng": 120.6755304,
-      "latestObsDt": "2025-02-18 17:02",
+      "latestObsDt": "2025-02-20 17:16",
       "numSpeciesAllTime": 85
     },
     "台中--國立美術館(Taichung--National Taiwan Museum of Fine Arts)": {
@@ -3000,7 +3000,7 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.1405679,
       "lng": 120.6635204,
-      "latestObsDt": "2025-02-15 15:45",
+      "latestObsDt": "2025-02-21 10:18",
       "numSpeciesAllTime": 39
     },
     "台中--坪林森林公園(Taichung--Pinglin Forest Park)": {
@@ -3020,8 +3020,8 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.2884135,
       "lng": 120.9087156,
-      "latestObsDt": "2025-02-17 07:21",
-      "numSpeciesAllTime": 67
+      "latestObsDt": "2025-02-22 15:45",
+      "numSpeciesAllTime": 68
     },
     "台中--外埔忘憂谷(Taichung--Waipu Wangyou Valley)": {
       "locId": "L3868234",
@@ -3040,7 +3040,7 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.0983325,
       "lng": 120.6882879,
-      "latestObsDt": "2025-02-17 09:05",
+      "latestObsDt": "2025-02-21 17:37",
       "numSpeciesAllTime": 17
     },
     "台中--大占山瞭望台(Taichung--Dazhanshan Watchtower)": {
@@ -3090,7 +3090,7 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.172828,
       "lng": 120.7843599,
-      "latestObsDt": "2025-01-12 10:16",
+      "latestObsDt": "2025-02-23 09:59",
       "numSpeciesAllTime": 75
     },
     "台中--大坑橫坑巷(Taichung--Dakeng Hengkeng Ln.)": {
@@ -3120,7 +3120,7 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.1098789,
       "lng": 120.7189643,
-      "latestObsDt": "2024-09-05 06:20",
+      "latestObsDt": "2025-02-23 10:45",
       "numSpeciesAllTime": 74
     },
     "台中--大安溫寮庄(Taichung--Da'an Wenliao Village)": {
@@ -3150,7 +3150,7 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.2289295,
       "lng": 120.6039995,
-      "latestObsDt": "2025-02-16 10:30",
+      "latestObsDt": "2025-02-22 09:13",
       "numSpeciesAllTime": 88
     },
     "台中--大肚環保公園(Taichung--Dadu Environmental Park)": {
@@ -3190,7 +3190,7 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.1827026,
       "lng": 120.7426389,
-      "latestObsDt": "2025-02-15 15:42",
+      "latestObsDt": "2025-02-22 09:13",
       "numSpeciesAllTime": 110
     },
     "台中--太平南國巷(Taichung--Taiping Nanguo Ln.)": {
@@ -3220,8 +3220,8 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.084975,
       "lng": 120.7401906,
-      "latestObsDt": "2025-02-07 18:09",
-      "numSpeciesAllTime": 30
+      "latestObsDt": "2025-02-23 11:10",
+      "numSpeciesAllTime": 33
     },
     "台中--太平竹村路1.2-2.4K(Taichung--Taiping Zhucun Rd. 1.2-2.4K)": {
       "locId": "L18545349",
@@ -3370,7 +3370,7 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.1120796,
       "lng": 120.6159246,
-      "latestObsDt": "2025-02-11 10:07",
+      "latestObsDt": "2025-02-22 07:35",
       "numSpeciesAllTime": 56
     },
     "台中--新田登山步道5號步道(Taichung--Xintian Hiking Trail Trail No. 5)": {
@@ -3420,7 +3420,7 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.1062017,
       "lng": 120.6363685,
-      "latestObsDt": "2025-02-12 15:13",
+      "latestObsDt": "2025-02-21 15:09",
       "numSpeciesAllTime": 23
     },
     "台中--月眉觀光糖廠(Taichung--Yuemei Tourism Sugar Factory)": {
@@ -3510,7 +3510,7 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.2442193,
       "lng": 120.8344549,
-      "latestObsDt": "2025-02-18 11:45",
+      "latestObsDt": "2025-02-22 10:58",
       "numSpeciesAllTime": 115
     },
     "台中--東勢軟埤坑(Taichung--Dongshi Ruanpikeng)": {
@@ -3530,7 +3530,7 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.1795688,
       "lng": 120.6037765,
-      "latestObsDt": "2025-01-30 09:54",
+      "latestObsDt": "2025-02-20 13:03",
       "numSpeciesAllTime": 97
     },
     "台中--東湖公園(Taichung--Donghu Park)": {
@@ -3540,7 +3540,7 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.0848075,
       "lng": 120.6944322,
-      "latestObsDt": "2025-02-14 17:24",
+      "latestObsDt": "2025-02-23 13:01",
       "numSpeciesAllTime": 24
     },
     "台中--松茂林道(Taichung--Songmao Forest-Road)": {
@@ -3570,8 +3570,8 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.2929205,
       "lng": 120.5196485,
-      "latestObsDt": "2025-02-12 09:04",
-      "numSpeciesAllTime": 166
+      "latestObsDt": "2025-02-22 12:06",
+      "numSpeciesAllTime": 167
     },
     "台中--梨山(Taichung--Lishan)": {
       "locId": "L2972375",
@@ -3710,8 +3710,8 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.2842762,
       "lng": 120.7727158,
-      "latestObsDt": "2025-01-19 07:46",
-      "numSpeciesAllTime": 143
+      "latestObsDt": "2025-02-21 06:22",
+      "numSpeciesAllTime": 144
     },
     "台中--福壽山農場(Taichung--Fushoushan Farm)": {
       "locId": "L4844277",
@@ -3750,7 +3750,7 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.1673356,
       "lng": 120.6387824,
-      "latestObsDt": "2025-02-15 16:23",
+      "latestObsDt": "2025-02-21 16:55",
       "numSpeciesAllTime": 33
     },
     "台中--立法院民主議政園區(Taichung--Democratic Assembly Affairs Park)": {
@@ -3760,8 +3760,8 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.0541972,
       "lng": 120.6982855,
-      "latestObsDt": "2025-02-18 08:46",
-      "numSpeciesAllTime": 34
+      "latestObsDt": "2025-02-19 12:42",
+      "numSpeciesAllTime": 35
     },
     "台中--筏子溪(水掘頭段)(Taichung--Fazi River (Shuijuetou Section))": {
       "locId": "L17471929",
@@ -3800,7 +3800,7 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.1460821,
       "lng": 120.6647623,
-      "latestObsDt": "2025-01-25 11:52",
+      "latestObsDt": "2025-02-22 08:21",
       "numSpeciesAllTime": 32
     },
     "台中--草湖溪塗城段(Taichung--Caohu River Tucheng Section)": {
@@ -3810,8 +3810,8 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.0836072,
       "lng": 120.7171404,
-      "latestObsDt": "2025-01-12 10:58",
-      "numSpeciesAllTime": 75
+      "latestObsDt": "2025-02-23 12:10",
+      "numSpeciesAllTime": 76
     },
     "台中--衛道高級中學(Taichung--St. Viator Catholic High School)": {
       "locId": "L5405212",
@@ -3920,7 +3920,7 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.0627943,
       "lng": 120.6935796,
-      "latestObsDt": "2025-02-10 08:49",
+      "latestObsDt": "2025-02-22 13:13",
       "numSpeciesAllTime": 64
     },
     "台中--霧峰乾溪(峰堤路-四德路)(Taichung--Wufengqian River (between Fengti Rd. & Side Rd.))": {
@@ -3940,8 +3940,8 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.0517094,
       "lng": 120.7023306,
-      "latestObsDt": "2025-02-18 18:17",
-      "numSpeciesAllTime": 71
+      "latestObsDt": "2025-02-21 12:58",
+      "numSpeciesAllTime": 72
     },
     "台中--霧峰北峰橋(Taichung--Wufeng Beifeng Bridge)": {
       "locId": "L21522815",
@@ -4000,7 +4000,7 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.0501106,
       "lng": 120.7813025,
-      "latestObsDt": "2025-02-15 07:05",
+      "latestObsDt": "2025-02-23 07:36",
       "numSpeciesAllTime": 122
     },
     "台中--頭汴坑溪立中段(Taichung--Toubiankeng River Lizhong Section)": {
@@ -4010,7 +4010,7 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.1001782,
       "lng": 120.6980335,
-      "latestObsDt": "2025-02-18 08:23",
+      "latestObsDt": "2025-02-23 10:28",
       "numSpeciesAllTime": 48
     },
     "台中--香川部落(Taichung--Xiangchuan Village)": {
@@ -4030,7 +4030,7 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.3199069,
       "lng": 120.5570385,
-      "latestObsDt": "2025-01-20 07:47",
+      "latestObsDt": "2025-02-19 10:17",
       "numSpeciesAllTime": 158
     },
     "台中--高鐵新市鎮生態公園(Taichung--High Speed Rail New Town Eco Park)": {
@@ -4060,8 +4060,8 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.1241332,
       "lng": 120.637103,
-      "latestObsDt": "2025-02-18 11:39",
-      "numSpeciesAllTime": 75
+      "latestObsDt": "2025-02-22 14:31",
+      "numSpeciesAllTime": 79
     },
     "台中--黃竹坑永安福德宮(Taichung--Huangzhukeng Yong'an Fude Temple)": {
       "locId": "L18545628",
@@ -4080,7 +4080,7 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.1568648,
       "lng": 120.6656246,
-      "latestObsDt": "2025-02-10 16:02",
+      "latestObsDt": "2025-02-23 13:15",
       "numSpeciesAllTime": 62
     },
     "台中大雪山IBA--15K警察局(Dasyueshan IBA--15K Police Station)": {
@@ -4140,8 +4140,8 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.2587128,
       "lng": 120.9920544,
-      "latestObsDt": "2025-02-05 11:24",
-      "numSpeciesAllTime": 23
+      "latestObsDt": "2025-02-19 12:00",
+      "numSpeciesAllTime": 25
     },
     "台中大雪山IBA--大雪山230林道(Dasyueshan IBA--Dasyueshan 230 Forest-Road)": {
       "locId": "L4642766",
@@ -4190,7 +4190,7 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.2486967,
       "lng": 120.9194409,
-      "latestObsDt": "2025-02-09 13:27",
+      "latestObsDt": "2025-02-19 16:15",
       "numSpeciesAllTime": 114
     },
     "台中大雪山IBA--大雪山林道15-35K(標示在27K附近)(Dasyueshan IBA--Dasyueshan Forest-Road 15-35K)": {
@@ -4200,7 +4200,7 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.2343705,
       "lng": 120.9526885,
-      "latestObsDt": "2025-02-11 14:13",
+      "latestObsDt": "2025-02-22 14:35",
       "numSpeciesAllTime": 137
     },
     "台中大雪山IBA--大雪山林道19K(Dasyueshan IBA--Dasyueshan Forest-Road 19K)": {
@@ -4220,7 +4220,7 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.2451542,
       "lng": 120.9300697,
-      "latestObsDt": "2025-02-18 15:15",
+      "latestObsDt": "2025-02-23 13:50",
       "numSpeciesAllTime": 103
     },
     "台中大雪山IBA--大雪山林道22K(Dasyueshan IBA--Dasyueshan Forest-Road 22K)": {
@@ -4230,7 +4230,7 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.24352,
       "lng": 120.9344433,
-      "latestObsDt": "2025-02-16 10:09",
+      "latestObsDt": "2025-02-21 13:28",
       "numSpeciesAllTime": 68
     },
     "台中大雪山IBA--大雪山林道23-35K(標示在29K附近)(Dasyueshan IBA--Dasyueshan Forest-Road 23-35K)": {
@@ -4250,7 +4250,7 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.2464709,
       "lng": 120.9355546,
-      "latestObsDt": "2025-02-18 16:29",
+      "latestObsDt": "2025-02-23 13:10",
       "numSpeciesAllTime": 131
     },
     "台中大雪山IBA--大雪山林道23K(Dasyueshan IBA--Dasyueshan Forest-Road 23K)": {
@@ -4260,7 +4260,7 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.2477056,
       "lng": 120.934284,
-      "latestObsDt": "2025-02-14 09:38",
+      "latestObsDt": "2025-02-19 10:01",
       "numSpeciesAllTime": 114
     },
     "台中大雪山IBA--大雪山林道31-32.5K(Dasyueshan IBA--Dasyueshan Forest-Road 31-32.5K)": {
@@ -4270,7 +4270,7 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.2281803,
       "lng": 120.9778619,
-      "latestObsDt": "2025-02-10 15:13",
+      "latestObsDt": "2025-02-18 08:56",
       "numSpeciesAllTime": 101
     },
     "台中大雪山IBA--大雪山林道35-43K(Dasyueshan IBA--Dasyueshan Forest-Road 35-43K)": {
@@ -4360,7 +4360,7 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.2460188,
       "lng": 120.9561696,
-      "latestObsDt": "2025-02-07 08:18",
+      "latestObsDt": "2025-02-21 09:30",
       "numSpeciesAllTime": 194
     },
     "台中大雪山IBA--富山巷(14K)(Dasyueshan IBA--Fushan Lane (14K))": {
@@ -4370,8 +4370,8 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.2323219,
       "lng": 120.9015316,
-      "latestObsDt": "2025-02-17 11:27",
-      "numSpeciesAllTime": 105
+      "latestObsDt": "2025-02-19 07:04",
+      "numSpeciesAllTime": 106
     },
     "台中大雪山IBA--小雪山天池(Dasyueshan IBA--Siaosyueshan Tianchi)": {
       "locId": "L25874798",
@@ -4380,7 +4380,7 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.2827532,
       "lng": 121.0275149,
-      "latestObsDt": "2025-02-18 06:27",
+      "latestObsDt": "2025-02-23 12:24",
       "numSpeciesAllTime": 78
     },
     "台中大雪山IBA--小雪山神木林道(Dasyueshan IBA--Siaosyueshan Shenmu Trail)": {
@@ -4400,7 +4400,7 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.2792643,
       "lng": 121.0259056,
-      "latestObsDt": "2025-02-18 10:17",
+      "latestObsDt": "2025-02-23 09:32",
       "numSpeciesAllTime": 130
     },
     "台中大雪山IBA--恩光靈修營地(4K)(Dasyueshan IBA--Enguang Spiritual Camp (4K))": {
@@ -4410,7 +4410,7 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.2424277,
       "lng": 120.8628956,
-      "latestObsDt": "2025-02-14 07:24",
+      "latestObsDt": "2025-02-19 12:15",
       "numSpeciesAllTime": 83
     },
     "台中大雪山IBA--收費站(35K)(Dasyueshan IBA--Ticket Booth (35K))": {
@@ -4420,7 +4420,7 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.2441848,
       "lng": 120.9752089,
-      "latestObsDt": "2025-02-18 20:12",
+      "latestObsDt": "2025-02-23 11:20",
       "numSpeciesAllTime": 134
     },
     "台中大雪山IBA--林道旁瀑布(41.5K)(Dasyueshan IBA--Waterfall next to Forest-Road 41.5K)": {
@@ -4430,7 +4430,7 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.2644738,
       "lng": 121.0055369,
-      "latestObsDt": "2025-02-18 14:38",
+      "latestObsDt": "2025-02-19 12:24",
       "numSpeciesAllTime": 75
     },
     "台中大雪山IBA--橫嶺山步道(Dasyueshan IBA--Henglingshan Trail)": {
@@ -4450,7 +4450,7 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.2392182,
       "lng": 120.9095398,
-      "latestObsDt": "2025-02-18 13:00",
+      "latestObsDt": "2025-02-23 06:59",
       "numSpeciesAllTime": 158
     },
     "台中大雪山IBA--環站森林浴步道(小神木)(Dasyueshan IBA--Surrounding Hiking Trail (Xiao Shenmu))": {
@@ -4460,7 +4460,7 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.2577541,
       "lng": 121.0065508,
-      "latestObsDt": "2025-01-22 15:06",
+      "latestObsDt": "2025-02-22 20:46",
       "numSpeciesAllTime": 80
     },
     "台中大雪山IBA--雪山橋32.7K(Dasyueshan IBA--Syueshan Bridge 32.7K)": {
@@ -4470,7 +4470,7 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.2315547,
       "lng": 120.9784077,
-      "latestObsDt": "2025-02-18 15:38",
+      "latestObsDt": "2025-02-19 09:25",
       "numSpeciesAllTime": 45
     },
     "台中大雪山IBA--鞍馬山莊(43K)(Dasyueshan IBA--Anmashan Lodge (43K))": {
@@ -4480,7 +4480,7 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.2551921,
       "lng": 121.0080309,
-      "latestObsDt": "2025-02-18 13:00",
+      "latestObsDt": "2025-02-22 17:31",
       "numSpeciesAllTime": 133
     },
     "台中大雪山IBA-47.2K觀景處(Dasyueshan IBA--47.2K Lookout)": {
@@ -4490,7 +4490,7 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.2701368,
       "lng": 121.0279451,
-      "latestObsDt": "2025-02-14 14:32",
+      "latestObsDt": "2025-02-19 14:22",
       "numSpeciesAllTime": 37
     },
     "台中烏石坑IBA--烏石坑研究中心(Wushikeng IBA--Wushikeng Research Center)": {
@@ -4530,7 +4530,7 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.3104351,
       "lng": 120.5460069,
-      "latestObsDt": "2025-02-17 08:30",
+      "latestObsDt": "2025-02-20 09:29",
       "numSpeciesAllTime": 259
     },
     "台北---百齡高中/臺北表演藝術中心(Taipei--Bailing Senior High School/Performing Arts Center)": {
@@ -4540,8 +4540,8 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.0858753,
       "lng": 121.5241966,
-      "latestObsDt": "2025-02-18 16:15",
-      "numSpeciesAllTime": 23
+      "latestObsDt": "2025-02-21 16:02",
+      "numSpeciesAllTime": 24
     },
     "台北--一江公園(Taipei--Yijiang Park)": {
       "locId": "L14200147",
@@ -4770,7 +4770,7 @@
       "subnational1Code": "TW-TPQ",
       "lat": 25.0604468,
       "lng": 121.492034,
-      "latestObsDt": "2025-02-12 18:45",
+      "latestObsDt": "2025-02-20 20:41",
       "numSpeciesAllTime": 30
     },
     "台北--三重六張公園(Taipei--Sanchong Liuzhang Park)": {
@@ -4780,7 +4780,7 @@
       "subnational1Code": "TW-TPQ",
       "lat": 25.0701092,
       "lng": 121.4935083,
-      "latestObsDt": "2025-02-09 09:07",
+      "latestObsDt": "2025-02-23 10:47",
       "numSpeciesAllTime": 31
     },
     "台北--三重綜合運動公園(Taipei--Sanchong Zonghe Sports Park)": {
@@ -5000,7 +5000,7 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.035372,
       "lng": 121.5211058,
-      "latestObsDt": "2025-02-18 08:20",
+      "latestObsDt": "2025-02-22 12:08",
       "numSpeciesAllTime": 95
     },
     "台北--中研公園(Taipei--Academia Park)": {
@@ -5070,7 +5070,7 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.0415737,
       "lng": 121.5150547,
-      "latestObsDt": "2025-02-17 10:50",
+      "latestObsDt": "2025-02-20 12:42",
       "numSpeciesAllTime": 79
     },
     "台北--二重疏洪親水公園(Taipei--Erchong Floodway Park)": {
@@ -5190,7 +5190,7 @@
       "subnational1Code": "TW-TPQ",
       "lat": 25.1003657,
       "lng": 121.4570117,
-      "latestObsDt": "2025-02-11 15:27",
+      "latestObsDt": "2025-02-19 08:49",
       "numSpeciesAllTime": 192
     },
     "台北--五股疏洪圳邊公園(Taipei--Wugu Floodway Zunbian Park)": {
@@ -5210,7 +5210,7 @@
       "subnational1Code": "TW-TPQ",
       "lat": 25.0981621,
       "lng": 121.4565933,
-      "latestObsDt": "2025-02-18 11:39",
+      "latestObsDt": "2025-02-22 11:18",
       "numSpeciesAllTime": 110
     },
     "台北--五股第一公墓(Taipei--Wugu Cemetery No.1)": {
@@ -5550,7 +5550,7 @@
       "subnational1Code": "TW-TPQ",
       "lat": 25.1667169,
       "lng": 121.4097473,
-      "latestObsDt": "2025-02-15 15:19",
+      "latestObsDt": "2025-02-22 15:02",
       "numSpeciesAllTime": 151
     },
     "台北--八里十三行文化公園(Taipei--Bali Shihsanhang Cultural Park)": {
@@ -5680,8 +5680,8 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.1164518,
       "lng": 121.4855182,
-      "latestObsDt": "2025-02-09 15:22",
-      "numSpeciesAllTime": 118
+      "latestObsDt": "2025-02-22 11:42",
+      "numSpeciesAllTime": 121
     },
     "台北--北投吉利公園(Taipei--Beitou Jili Park)": {
       "locId": "L5625170",
@@ -5730,8 +5730,8 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.1280927,
       "lng": 121.477654,
-      "latestObsDt": "2025-02-18 12:49",
-      "numSpeciesAllTime": 181
+      "latestObsDt": "2025-02-23 11:56",
+      "numSpeciesAllTime": 183
     },
     "台北--北投忠義小徑(Taipei--Beitou Zhongyi Trail)[台北鳥會例行路線(WBST Birdwatching Route)]": {
       "locId": "L5569845",
@@ -5740,8 +5740,8 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.131111,
       "lng": 121.4749704,
-      "latestObsDt": "2025-02-16 07:07",
-      "numSpeciesAllTime": 140
+      "latestObsDt": "2025-02-22 07:03",
+      "numSpeciesAllTime": 141
     },
     "台北--北投楓丹白露(Taipei--Beitou Fengdan Bailu)[台北鳥會例行路線(WBST Birdwatching Route)]": {
       "locId": "L5569789",
@@ -5810,7 +5810,7 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.136558,
       "lng": 121.5061551,
-      "latestObsDt": "2025-01-30 09:41",
+      "latestObsDt": "2025-02-19 11:38",
       "numSpeciesAllTime": 51
     },
     "台北--北投珠海路(Taipei--Beitou Zhuhai Road)": {
@@ -5880,8 +5880,8 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.1777208,
       "lng": 121.5365716,
-      "latestObsDt": "2024-10-26 07:40",
-      "numSpeciesAllTime": 40
+      "latestObsDt": "2025-02-19 14:16",
+      "numSpeciesAllTime": 42
     },
     "台北--北投貴子坑大排(Taipei--Beitou Guizikeng Drainage Canal)": {
       "locId": "L3290632",
@@ -5890,7 +5890,7 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.1293557,
       "lng": 121.4884579,
-      "latestObsDt": "2025-02-16 16:11",
+      "latestObsDt": "2025-02-22 14:28",
       "numSpeciesAllTime": 221
     },
     "台北--北投運動中心及鄰近公園(Taipei--Beitou Sports Center & Adjacent Parks)": {
@@ -5950,7 +5950,7 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.0431763,
       "lng": 121.5920314,
-      "latestObsDt": "2025-02-17 10:46",
+      "latestObsDt": "2025-02-21 15:34",
       "numSpeciesAllTime": 125
     },
     "台北--南港公園→新庄仔埤(Taipei--Nangang Park to Sinjhuangzihpi)[台北鳥會例行路線(WBST Birdwatching Route)]": {
@@ -6030,7 +6030,7 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.0323423,
       "lng": 121.5931106,
-      "latestObsDt": "2025-02-16 09:35",
+      "latestObsDt": "2025-02-19 07:32",
       "numSpeciesAllTime": 55
     },
     "台北--南港左岸河濱公園(Taipei--Nangang Left Bank Riverside Park)": {
@@ -6180,8 +6180,8 @@
       "subnational1Code": "TW-TPE",
       "lat": 24.99502,
       "lng": 121.5727269,
-      "latestObsDt": "2025-02-18 16:30",
-      "numSpeciesAllTime": 96
+      "latestObsDt": "2025-02-20 14:03",
+      "numSpeciesAllTime": 97
     },
     "台北--台北動物園蟲蟲探索谷步道(Taipei--Taipei Zoo Insect Valley Trail)": {
       "locId": "L4078686",
@@ -6220,8 +6220,8 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.0367766,
       "lng": 121.5628946,
-      "latestObsDt": "2025-02-04 12:38",
-      "numSpeciesAllTime": 52
+      "latestObsDt": "2025-02-22 12:39",
+      "numSpeciesAllTime": 54
     },
     "台北--台北市立大學(Taipei--University of Taipei)": {
       "locId": "L5432428",
@@ -6250,7 +6250,7 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.0319891,
       "lng": 121.509347,
-      "latestObsDt": "2025-02-18 15:28",
+      "latestObsDt": "2025-02-22 15:57",
       "numSpeciesAllTime": 198
     },
     "台北--台北流行音樂中心(Taipei--Taipei Music Center)": {
@@ -6410,7 +6410,7 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.0215066,
       "lng": 121.5520017,
-      "latestObsDt": "2025-02-09 14:50",
+      "latestObsDt": "2025-02-22 07:50",
       "numSpeciesAllTime": 33
     },
     "台北--四分尾山(Taipei--Mt. Sifenwei)": {
@@ -6440,7 +6440,7 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.0530872,
       "lng": 121.5345902,
-      "latestObsDt": "2025-02-18 21:38",
+      "latestObsDt": "2025-02-22 10:32",
       "numSpeciesAllTime": 23
     },
     "台北--四維公園(Taipei--Siwei Park)": {
@@ -6460,7 +6460,7 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.0480178,
       "lng": 121.6107098,
-      "latestObsDt": "2025-02-15 11:42",
+      "latestObsDt": "2025-02-19 10:13",
       "numSpeciesAllTime": 85
     },
     "台北--國父紀念館(Taipei--National Dr. Sun Yat-Sen Memorial Hall)": {
@@ -6470,7 +6470,7 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.0393448,
       "lng": 121.5602459,
-      "latestObsDt": "2025-02-17 10:58",
+      "latestObsDt": "2025-02-23 10:43",
       "numSpeciesAllTime": 62
     },
     "台北--國立台北教育大學(Taipei--National Taipei University of Education)": {
@@ -6490,8 +6490,8 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.0338093,
       "lng": 121.5161403,
-      "latestObsDt": "2024-11-30 15:49",
-      "numSpeciesAllTime": 23
+      "latestObsDt": "2025-02-22 11:23",
+      "numSpeciesAllTime": 24
     },
     "台北--國立台灣師範大學公館校區(Taipei--National Taiwan Normal University Gongguan Campus)": {
       "locId": "L3970123",
@@ -6510,7 +6510,7 @@
       "subnational1Code": "TW-TPE",
       "lat": 24.9868906,
       "lng": 121.5758924,
-      "latestObsDt": "2025-02-18 06:14",
+      "latestObsDt": "2025-02-21 06:12",
       "numSpeciesAllTime": 106
     },
     "台北--國立政治大學指南校區(Taipei--NCCU Zhinan Campus)": {
@@ -6560,7 +6560,7 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.0155554,
       "lng": 121.5401924,
-      "latestObsDt": "2025-02-17 16:48",
+      "latestObsDt": "2025-02-20 13:57",
       "numSpeciesAllTime": 158
     },
     "台北--國立臺灣大學校城中校區(Taipei--National Taiwan University Downtown Campus)": {
@@ -6570,7 +6570,7 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.0405201,
       "lng": 121.5201668,
-      "latestObsDt": "2024-11-24 10:51",
+      "latestObsDt": "2025-02-22 08:38",
       "numSpeciesAllTime": 23
     },
     "台北--國立臺灣大學校總區(Taipei--National Taiwan University Main Campus)": {
@@ -6580,7 +6580,7 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.0173093,
       "lng": 121.5398866,
-      "latestObsDt": "2025-02-18 10:05",
+      "latestObsDt": "2025-02-23 13:29",
       "numSpeciesAllTime": 170
     },
     "台北--國立臺灣大學水源校區(Taipei--NTU Shuiyuan Campus)": {
@@ -6600,7 +6600,7 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.0203135,
       "lng": 121.537714,
-      "latestObsDt": "2025-02-17 08:27",
+      "latestObsDt": "2025-02-22 10:17",
       "numSpeciesAllTime": 52
     },
     "台北--國立臺灣大學黑森林(Taipei--NTU Black Forest)": {
@@ -6670,7 +6670,7 @@
       "subnational1Code": "TW-TPQ",
       "lat": 24.977417,
       "lng": 121.4334701,
-      "latestObsDt": "2024-06-12 05:24",
+      "latestObsDt": "2025-02-22 10:18",
       "numSpeciesAllTime": 66
     },
     "台北--土城城林人工濕地(Taipei--Tucheng Chengling Wetland)": {
@@ -6860,8 +6860,8 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.0568664,
       "lng": 121.6229171,
-      "latestObsDt": "2025-02-17 09:35",
-      "numSpeciesAllTime": 90
+      "latestObsDt": "2025-02-20 09:23",
+      "numSpeciesAllTime": 91
     },
     "台北--塔城公園(Taipei--Tacheng Park)": {
       "locId": "L13170423",
@@ -6960,7 +6960,7 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.1073967,
       "lng": 121.5699542,
-      "latestObsDt": "2024-05-05 08:36",
+      "latestObsDt": "2025-02-20 09:46",
       "numSpeciesAllTime": 38
     },
     "台北--大佳河濱公園(Taipei--Dajia Riverside Park)": {
@@ -7030,7 +7030,7 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.0299282,
       "lng": 121.5361476,
-      "latestObsDt": "2025-02-18 16:46",
+      "latestObsDt": "2025-02-23 10:50",
       "numSpeciesAllTime": 160
     },
     "台北--大安社會創新實驗中心(Taipei--Da'an Social Innovation Lab)": {
@@ -7340,7 +7340,7 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.0164479,
       "lng": 121.5572732,
-      "latestObsDt": "2025-02-16 22:11",
+      "latestObsDt": "2025-02-20 18:40",
       "numSpeciesAllTime": 78
     },
     "台北--寧安公園(Taipei--Ning'an Park)": {
@@ -7400,7 +7400,7 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.0276686,
       "lng": 121.6250757,
-      "latestObsDt": "2025-02-15 18:10",
+      "latestObsDt": "2025-02-19 08:36",
       "numSpeciesAllTime": 63
     },
     "台北--市立忠孝國中(Taipei--Municipal Zhongxiao Junior High School)": {
@@ -7560,8 +7560,8 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.0530972,
       "lng": 121.5397055,
-      "latestObsDt": "2025-02-10 14:27",
-      "numSpeciesAllTime": 17
+      "latestObsDt": "2025-02-21 09:29",
+      "numSpeciesAllTime": 20
     },
     "台北--德安公園(Taipei--De'an Park)": {
       "locId": "L18065570",
@@ -7600,7 +7600,7 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.1034592,
       "lng": 121.5258247,
-      "latestObsDt": "2024-12-14 08:35",
+      "latestObsDt": "2025-02-20 17:16",
       "numSpeciesAllTime": 31
     },
     "台北--思源橋(Taipei--Siyuan Bridge)": {
@@ -7650,8 +7650,8 @@
       "subnational1Code": "TW-TPE",
       "lat": 24.981252,
       "lng": 121.584695,
-      "latestObsDt": "2025-02-01 11:37",
-      "numSpeciesAllTime": 27
+      "latestObsDt": "2025-02-22 10:07",
+      "numSpeciesAllTime": 30
     },
     "台北--振興公園(Taipei--Zhenxing Park)": {
       "locId": "L23054188",
@@ -7710,8 +7710,8 @@
       "subnational1Code": "TW-TPE",
       "lat": 24.9846842,
       "lng": 121.5797728,
-      "latestObsDt": "2025-02-17 15:36",
-      "numSpeciesAllTime": 47
+      "latestObsDt": "2025-02-23 12:20",
+      "numSpeciesAllTime": 58
     },
     "台北--政治大學自強1舍(Taipei--NCCU Ziqiang Residential Hall 1)": {
       "locId": "L4426750",
@@ -7810,7 +7810,7 @@
       "subnational1Code": "TW-TPE",
       "lat": 24.9955897,
       "lng": 121.5437785,
-      "latestObsDt": "2023-04-22 10:18",
+      "latestObsDt": "2025-02-15 10:00",
       "numSpeciesAllTime": 33
     },
     "台北--文山森林公園(Taipei--Wenshan Forest Park)": {
@@ -7890,7 +7890,7 @@
       "subnational1Code": "TW-TPQ",
       "lat": 25.0554866,
       "lng": 121.4799503,
-      "latestObsDt": "2025-02-15 12:01",
+      "latestObsDt": "2025-02-22 15:24",
       "numSpeciesAllTime": 108
     },
     "台北--新北高工體育場(Taipei--New Taipei Industrial Vocational High School Stadium)": {
@@ -7930,8 +7930,8 @@
       "subnational1Code": "TW-TPQ",
       "lat": 24.93882,
       "lng": 121.50261,
-      "latestObsDt": "2025-02-16 08:25",
-      "numSpeciesAllTime": 125
+      "latestObsDt": "2025-02-23 12:17",
+      "numSpeciesAllTime": 126
     },
     "台北--新店仙山(Taipei--Xindian Xianshan)": {
       "locId": "L30400319",
@@ -7970,8 +7970,8 @@
       "subnational1Code": "TW-TPQ",
       "lat": 24.8874331,
       "lng": 121.5692139,
-      "latestObsDt": "2025-02-12 08:02",
-      "numSpeciesAllTime": 181
+      "latestObsDt": "2025-02-22 07:23",
+      "numSpeciesAllTime": 182
     },
     "台北--新店四崁水(Taipei--Xindian Sikanshui)[台北鳥會例行路線(WBST Birdwatching Route)]": {
       "locId": "L5569910",
@@ -7980,7 +7980,7 @@
       "subnational1Code": "TW-TPQ",
       "lat": 24.9029629,
       "lng": 121.5581589,
-      "latestObsDt": "2025-02-18 09:43",
+      "latestObsDt": "2025-02-22 07:33",
       "numSpeciesAllTime": 140
     },
     "台北--新店大粗坑(Taipei--Xindian Dacukeng)": {
@@ -8090,7 +8090,7 @@
       "subnational1Code": "TW-TPQ",
       "lat": 24.9654393,
       "lng": 121.5543826,
-      "latestObsDt": "2025-02-12 06:35",
+      "latestObsDt": "2025-02-22 09:03",
       "numSpeciesAllTime": 61
     },
     "台北--新店溪(中安&福和橋之間)(Taipei--Xindian River (Between Zhong'an Bridge & Fuhe Bridge))": {
@@ -8100,7 +8100,7 @@
       "subnational1Code": "TW-TPQ",
       "lat": 24.98243,
       "lng": 121.51976,
-      "latestObsDt": "2024-11-22 07:16",
+      "latestObsDt": "2025-02-23 09:13",
       "numSpeciesAllTime": 46
     },
     "台北--新店溪河濱公園(Taipei--Xindian River Park)": {
@@ -8110,8 +8110,8 @@
       "subnational1Code": "TW-TPQ",
       "lat": 24.9987225,
       "lng": 121.5301234,
-      "latestObsDt": "2025-02-06 17:58",
-      "numSpeciesAllTime": 52
+      "latestObsDt": "2025-02-19 19:08",
+      "numSpeciesAllTime": 53
     },
     "台北--新店溪福和濕地(Taipei--Xindian River Fuhe Wetland)": {
       "locId": "L2275828",
@@ -8150,8 +8150,8 @@
       "subnational1Code": "TW-TPQ",
       "lat": 24.9691553,
       "lng": 121.5400314,
-      "latestObsDt": "2024-10-02 12:05",
-      "numSpeciesAllTime": 33
+      "latestObsDt": "2025-02-21 14:20",
+      "numSpeciesAllTime": 34
     },
     "台北--新店直潭(Taipei--Xindian Zhitan)": {
       "locId": "L3930204",
@@ -8340,7 +8340,7 @@
       "subnational1Code": "TW-TPQ",
       "lat": 25.0310545,
       "lng": 121.4095757,
-      "latestObsDt": "2024-09-01 08:44",
+      "latestObsDt": "2025-02-19 16:48",
       "numSpeciesAllTime": 66
     },
     "台北--新莊頭前運動公園(Taipei--Xinzhuang Touqian Sports Park)": {
@@ -8540,7 +8540,7 @@
       "subnational1Code": "TW-TPE",
       "lat": 24.9823334,
       "lng": 121.5699649,
-      "latestObsDt": "2025-02-15 16:18",
+      "latestObsDt": "2025-02-21 14:54",
       "numSpeciesAllTime": 114
     },
     "台北--朱厝崙公園(Taipei--Zhucuolun Park)": {
@@ -8580,7 +8580,7 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.095017,
       "lng": 121.545549,
-      "latestObsDt": "2025-01-11 08:48",
+      "latestObsDt": "2025-02-22 09:06",
       "numSpeciesAllTime": 62
     },
     "台北--東園國小&萬大國小(Taipei--Dongyuan Elementary School & Wanda Elementary School)": {
@@ -8600,7 +8600,7 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.0547626,
       "lng": 121.6035981,
-      "latestObsDt": "2025-02-18 08:40",
+      "latestObsDt": "2025-02-21 13:16",
       "numSpeciesAllTime": 27
     },
     "台北--東華公園/奇岩山西峰(Taipei--Donghua Park/Qiyanshan West Peak)": {
@@ -8640,7 +8640,7 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.0429705,
       "lng": 121.5626043,
-      "latestObsDt": "2025-02-15 16:18",
+      "latestObsDt": "2025-02-22 12:34",
       "numSpeciesAllTime": 58
     },
     "台北--松山機場(Taipei--Songshan Airport)": {
@@ -8650,7 +8650,7 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.0695845,
       "lng": 121.5524769,
-      "latestObsDt": "2025-02-11 19:05",
+      "latestObsDt": "2025-02-22 15:28",
       "numSpeciesAllTime": 134
     },
     "台北--松山民生國小(Taipei--Songshan Mingshen Elementary School)": {
@@ -8720,7 +8720,7 @@
       "subnational1Code": "TW-TPQ",
       "lat": 25.0004768,
       "lng": 121.4561866,
-      "latestObsDt": "2025-02-15 14:48",
+      "latestObsDt": "2025-02-22 20:30",
       "numSpeciesAllTime": 44
     },
     "台北--板橋放送所 (Taipei—Banqiao Broadcasting Station)": {
@@ -8910,7 +8910,7 @@
       "subnational1Code": "TW-TPQ",
       "lat": 24.945931,
       "lng": 121.382693,
-      "latestObsDt": "2025-02-14 17:46",
+      "latestObsDt": "2025-02-19 17:08",
       "numSpeciesAllTime": 23
     },
     "台北--樹林原住民主題部落公園(Taipei--Shulin Aboriginal Tribal Theme Park)": {
@@ -9020,7 +9020,7 @@
       "subnational1Code": "TW-TPQ",
       "lat": 24.9735514,
       "lng": 121.4232481,
-      "latestObsDt": "2025-02-16 08:23",
+      "latestObsDt": "2025-02-22 14:20",
       "numSpeciesAllTime": 170
     },
     "台北--橘咖啡/内厝溪櫻木花廊(Taipei--Orange Café/Neicuo Creek Cherry Blossom Avenue)": {
@@ -9120,7 +9120,7 @@
       "subnational1Code": "TW-TPQ",
       "lat": 24.9959331,
       "lng": 121.5171388,
-      "latestObsDt": "2025-02-18 07:58",
+      "latestObsDt": "2025-02-23 12:34",
       "numSpeciesAllTime": 40
     },
     "台北--永和綠寶石河濱公園(Taipei--Younghe Lubaoshi Riverside Park)": {
@@ -9230,7 +9230,7 @@
       "subnational1Code": "TW-TPQ",
       "lat": 25.057107,
       "lng": 121.6551264,
-      "latestObsDt": "2025-01-23 13:48",
+      "latestObsDt": "2025-02-22 12:21",
       "numSpeciesAllTime": 33
     },
     "台北--汐止康誥坑溪(Taipei--Xizhi Kanggaokeng River)": {
@@ -9370,7 +9370,7 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.0246142,
       "lng": 121.531679,
-      "latestObsDt": "2025-02-15 07:21",
+      "latestObsDt": "2025-02-20 06:12",
       "numSpeciesAllTime": 44
     },
     "台北--浮洲親民公園(Taipei--Fuzhou Qinmin Park)": {
@@ -9420,8 +9420,8 @@
       "subnational1Code": "TW-TPQ",
       "lat": 25.1853791,
       "lng": 121.4409399,
-      "latestObsDt": "2025-02-14 15:39",
-      "numSpeciesAllTime": 77
+      "latestObsDt": "2025-02-20 16:47",
+      "numSpeciesAllTime": 78
     },
     "台北--淡水大屯橋(Taipei--Tamsui Datun Bridge)": {
       "locId": "L30275435",
@@ -9910,8 +9910,8 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.0420974,
       "lng": 121.5851206,
-      "latestObsDt": "2025-02-17 08:20",
-      "numSpeciesAllTime": 43
+      "latestObsDt": "2025-02-19 08:04",
+      "numSpeciesAllTime": 44
     },
     "台北--玉泉公園(Taipei--Yuquan Park)": {
       "locId": "L11013172",
@@ -9980,7 +9980,7 @@
       "subnational1Code": "TW-TPQ",
       "lat": 25.0193121,
       "lng": 121.923236,
-      "latestObsDt": "2025-02-18 13:51",
+      "latestObsDt": "2025-02-23 12:49",
       "numSpeciesAllTime": 366
     },
     "台北--番仔溝→貴子坑大排(Taipei--Fanzaigou to Guizikeng Drainage Canal)[台北鳥會例行路線(WBST Birdwatching Route)]": {
@@ -9990,7 +9990,7 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.1333398,
       "lng": 121.4942947,
-      "latestObsDt": "2025-02-18 09:57",
+      "latestObsDt": "2025-02-22 14:06",
       "numSpeciesAllTime": 183
     },
     "台北--百齡左岸河濱公園(Taipei--Baling Left Bank Riverside Park)": {
@@ -10140,8 +10140,8 @@
       "subnational1Code": "TW-TPQ",
       "lat": 25.2958807,
       "lng": 121.5688917,
-      "latestObsDt": "2025-02-17 14:48",
-      "numSpeciesAllTime": 53
+      "latestObsDt": "2025-02-20 09:28",
+      "numSpeciesAllTime": 55
     },
     "台北--石門麟山鼻(Taipei--Shimen Linshanbi)": {
       "locId": "L5375679",
@@ -10220,7 +10220,7 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.1135025,
       "lng": 121.4901853,
-      "latestObsDt": "2025-02-14 10:12",
+      "latestObsDt": "2025-02-22 14:03",
       "numSpeciesAllTime": 157
     },
     "台北--社正公園(Taipei--Shezheng Park)": {
@@ -10460,7 +10460,7 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.0973693,
       "lng": 121.5179086,
-      "latestObsDt": "2025-02-17 10:05",
+      "latestObsDt": "2025-02-22 10:21",
       "numSpeciesAllTime": 72
     },
     "台北--翡翠水庫(Taipei-- Feicui Reservoir)": {
@@ -10620,7 +10620,7 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.1033665,
       "lng": 121.5314913,
-      "latestObsDt": "2025-02-07 07:30",
+      "latestObsDt": "2025-02-22 16:00",
       "numSpeciesAllTime": 106
     },
     "台北--花博公園圓山園區(Taipei--EXPO Yuanshan Park)": {
@@ -10660,7 +10660,7 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.1355439,
       "lng": 121.5474719,
-      "latestObsDt": "2025-02-07 16:11",
+      "latestObsDt": "2025-02-22 14:06",
       "numSpeciesAllTime": 61
     },
     "台北--草里漁港(Taipei--Caoli Harbor)": {
@@ -10690,7 +10690,7 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.0441398,
       "lng": 121.5293884,
-      "latestObsDt": "2025-02-09 14:17",
+      "latestObsDt": "2025-02-23 11:44",
       "numSpeciesAllTime": 43
     },
     "台北--華聲公園(Taipei--Huasheng Park)": {
@@ -10840,7 +10840,7 @@
       "subnational1Code": "TW-TPQ",
       "lat": 25.0996435,
       "lng": 121.463964,
-      "latestObsDt": "2025-02-18 13:26",
+      "latestObsDt": "2025-02-22 16:00",
       "numSpeciesAllTime": 170
     },
     "台北--蘆洲線形公園(Taipei--Luzhou Linear Park)": {
@@ -10870,8 +10870,8 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.0225904,
       "lng": 121.5492793,
-      "latestObsDt": "2025-02-09 15:31",
-      "numSpeciesAllTime": 26
+      "latestObsDt": "2025-02-23 11:44",
+      "numSpeciesAllTime": 27
     },
     "台北--虎山峰觀景台(Taipei--Mt. Hushan Overlook)": {
       "locId": "L13501281",
@@ -11090,7 +11090,7 @@
       "subnational1Code": "TW-TPE",
       "lat": 24.983597,
       "lng": 121.5907103,
-      "latestObsDt": "2025-01-05 11:07",
+      "latestObsDt": "2025-02-22 13:16",
       "numSpeciesAllTime": 46
     },
     "台北--貢寮→雙溪(Taipei--Gongliao to Shuangxi)[台北鳥會例行路線(WBST Birdwatching Route)]": {
@@ -11100,7 +11100,7 @@
       "subnational1Code": "TW-TPQ",
       "lat": 25.0240628,
       "lng": 121.9007607,
-      "latestObsDt": "2025-02-16 11:16",
+      "latestObsDt": "2025-02-19 06:29",
       "numSpeciesAllTime": 136
     },
     "台北--貢寮四角窟觀景台(Taipei--Gongliao Sijiaoku Observatory)": {
@@ -11120,7 +11120,7 @@
       "subnational1Code": "TW-TPQ",
       "lat": 25.0159652,
       "lng": 121.9184268,
-      "latestObsDt": "2025-02-18 15:08",
+      "latestObsDt": "2025-02-23 09:15",
       "numSpeciesAllTime": 268
     },
     "台北--貢寮忠聖宮(Taipei--Gongliao Zhongsheng Temple)": {
@@ -11250,7 +11250,7 @@
       "subnational1Code": "TW-TPQ",
       "lat": 25.0360621,
       "lng": 121.4327645,
-      "latestObsDt": "2025-01-06 11:11",
+      "latestObsDt": "2025-02-21 15:53",
       "numSpeciesAllTime": 42
     },
     "台北--辛亥一號公園(Taipei--Xinhai No.1 Park)": {
@@ -11260,7 +11260,7 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.0226808,
       "lng": 121.5327898,
-      "latestObsDt": "2025-02-16 07:52",
+      "latestObsDt": "2025-02-22 08:48",
       "numSpeciesAllTime": 37
     },
     "台北--農安公園(Taipei--Nong'an Park)": {
@@ -11350,7 +11350,7 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.047735,
       "lng": 121.5200704,
-      "latestObsDt": "2025-02-12 07:06",
+      "latestObsDt": "2025-02-23 14:04",
       "numSpeciesAllTime": 18
     },
     "台北--遠東香榭大道(Taipei--Far East Champs Elysées)": {
@@ -11410,7 +11410,7 @@
       "subnational1Code": "TW-TPQ",
       "lat": 25.2122382,
       "lng": 121.6983715,
-      "latestObsDt": "2025-02-04 14:30",
+      "latestObsDt": "2025-02-20 13:57",
       "numSpeciesAllTime": 363
     },
     "台北--野柳漁港(Taipei--Yeliu Harbor)": {
@@ -11420,7 +11420,7 @@
       "subnational1Code": "TW-TPQ",
       "lat": 25.2060373,
       "lng": 121.6876448,
-      "latestObsDt": "2025-02-16 10:00",
+      "latestObsDt": "2025-02-17 10:00",
       "numSpeciesAllTime": 63
     },
     "台北--金字碑古道(Taipei--Jinzibei Ancient Trail)": {
@@ -11670,8 +11670,8 @@
       "subnational1Code": "TW-TPQ",
       "lat": 25.0205468,
       "lng": 121.8759947,
-      "latestObsDt": "2025-01-30 08:00",
-      "numSpeciesAllTime": 113
+      "latestObsDt": "2025-02-16 07:52",
+      "numSpeciesAllTime": 114
     },
     "台北--雙溪上林國小(Taipei--Shuangxi Shanglin Elementary School)": {
       "locId": "L10286424",
@@ -11830,7 +11830,7 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.0528415,
       "lng": 121.6070176,
-      "latestObsDt": "2025-01-04 14:54",
+      "latestObsDt": "2025-02-22 16:40",
       "numSpeciesAllTime": 25
     },
     "台北--鵬程公園(Taipei--Pengcheng Park)": {
@@ -11960,7 +11960,7 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.0219799,
       "lng": 121.5062785,
-      "latestObsDt": "2025-02-16 12:27",
+      "latestObsDt": "2025-02-21 13:24",
       "numSpeciesAllTime": 75
     },
     "台北—溪洲河濱公園（Taipei—Xizhou Riverside Park）": {
@@ -11990,7 +11990,7 @@
       "subnational1Code": "TW-TPQ",
       "lat": 25.1672977,
       "lng": 121.4168127,
-      "latestObsDt": "2025-02-16 07:30",
+      "latestObsDt": "2025-02-23 07:50",
       "numSpeciesAllTime": 222
     },
     "台北挖仔尾自然保留區IBA--水筆仔公園(Waziwei Nature Reserve IBA--Shuibizi Park)": {
@@ -12040,7 +12040,7 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.0170177,
       "lng": 121.5227365,
-      "latestObsDt": "2025-01-12 09:17",
+      "latestObsDt": "2025-02-21 17:05",
       "numSpeciesAllTime": 103
     },
     "台北華江IBA--江子翠河濱公園(Huajiang IBA--Jiangzicui Riverside Park)": {
@@ -12080,7 +12080,7 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.0385785,
       "lng": 121.4910784,
-      "latestObsDt": "2025-02-15 10:40",
+      "latestObsDt": "2025-02-23 08:18",
       "numSpeciesAllTime": 261
     },
     "台北華江IBA--萬板大橋-華江橋(Huajiang IBA--between Wanban Bridge & Huajiang Bridge)": {
@@ -12130,7 +12130,7 @@
       "subnational1Code": "TW-TPQ",
       "lat": 25.2291343,
       "lng": 121.6373527,
-      "latestObsDt": "2025-02-01 15:38",
+      "latestObsDt": "2025-02-20 09:58",
       "numSpeciesAllTime": 314
     },
     "台北金山--六股(Jinshan--Liugu)": {
@@ -12160,7 +12160,7 @@
       "subnational1Code": "TW-TPQ",
       "lat": 25.2331803,
       "lng": 121.6327456,
-      "latestObsDt": "2025-02-05 09:18",
+      "latestObsDt": "2025-02-20 09:07",
       "numSpeciesAllTime": 268
     },
     "台北金山--清水濕地7-11(Jinshan--7-Eleven next to Qingshui Wetland)": {
@@ -12260,7 +12260,7 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.1182626,
       "lng": 121.470058,
-      "latestObsDt": "2025-02-18 09:56",
+      "latestObsDt": "2025-02-23 08:32",
       "numSpeciesAllTime": 249
     },
     "台北關渡IBA--自然公園東南區(Guandu IBA--Nature Park Southeast Area)": {
@@ -12290,7 +12290,7 @@
       "subnational1Code": "TW-TPE",
       "lat": 25.1155348,
       "lng": 121.4712596,
-      "latestObsDt": "2025-02-17 10:00",
+      "latestObsDt": "2025-02-22 11:14",
       "numSpeciesAllTime": 202
     },
     "台北關渡IBA--關渡宮(Guandu IBA--Guandu Temple)": {
@@ -12410,7 +12410,7 @@
       "subnational1Code": "TW-TNN",
       "lat": 23.173118,
       "lng": 120.114862,
-      "latestObsDt": "2025-02-09 16:16",
+      "latestObsDt": "2025-02-22 08:29",
       "numSpeciesAllTime": 109
     },
     "台南--七股頂山12": {
@@ -12490,7 +12490,7 @@
       "subnational1Code": "TW-TNN",
       "lat": 23.1824077,
       "lng": 120.1112569,
-      "latestObsDt": "2025-02-13 15:13",
+      "latestObsDt": "2025-02-22 10:48",
       "numSpeciesAllTime": 81
     },
     "台南--七股鹽田23": {
@@ -12540,8 +12540,8 @@
       "subnational1Code": "TW-TNN",
       "lat": 23.1654389,
       "lng": 120.107756,
-      "latestObsDt": "2019-04-20 08:40",
-      "numSpeciesAllTime": 42
+      "latestObsDt": "2025-02-22 08:18",
+      "numSpeciesAllTime": 48
     },
     "台南--七股鹽田28": {
       "locId": "L5260769",
@@ -12580,7 +12580,7 @@
       "subnational1Code": "TW-TNN",
       "lat": 23.0021642,
       "lng": 120.2114963,
-      "latestObsDt": "2025-02-16 17:06",
+      "latestObsDt": "2025-02-22 10:48",
       "numSpeciesAllTime": 64
     },
     "台南--五妃廟(Tainan--Wufei Temple)": {
@@ -12590,8 +12590,8 @@
       "subnational1Code": "TW-TNN",
       "lat": 22.9820169,
       "lng": 120.2050705,
-      "latestObsDt": "2025-01-22 08:23",
-      "numSpeciesAllTime": 28
+      "latestObsDt": "2025-02-17 19:57",
+      "numSpeciesAllTime": 30
     },
     "台南--仁德車站(Tainan--TRA Rende Station)": {
       "locId": "L15554701",
@@ -12610,7 +12610,7 @@
       "subnational1Code": "TW-TNN",
       "lat": 23.1601295,
       "lng": 120.1761384,
-      "latestObsDt": "2025-02-18 06:35",
+      "latestObsDt": "2025-02-19 06:27",
       "numSpeciesAllTime": 23
     },
     "台南--健康綠洲公園(Tainan---Jiankang Luzhou Park)": {
@@ -12730,7 +12730,7 @@
       "subnational1Code": "TW-TNN",
       "lat": 23.024316,
       "lng": 120.2377748,
-      "latestObsDt": "2025-02-11 14:06",
+      "latestObsDt": "2025-02-23 06:34",
       "numSpeciesAllTime": 30
     },
     "台南--台南市立文化中心(Tainan--Tainan Municipal Culture Center)": {
@@ -12750,8 +12750,8 @@
       "subnational1Code": "TW-TNN",
       "lat": 23.1551584,
       "lng": 120.1058865,
-      "latestObsDt": "2024-06-10 14:54",
-      "numSpeciesAllTime": 23
+      "latestObsDt": "2025-02-19 15:18",
+      "numSpeciesAllTime": 41
     },
     "台南--台糖新吉農場(Tainan--TSC Xinji Farm)": {
       "locId": "L9379795",
@@ -12778,8 +12778,8 @@
       "subnational1Code": "TW-TNN",
       "lat": 22.9765017,
       "lng": 120.2050554,
-      "latestObsDt": "2025-02-09 12:55",
-      "numSpeciesAllTime": 42
+      "latestObsDt": "2025-02-23 12:26",
+      "numSpeciesAllTime": 44
     },
     "台南--善化台糖糖廠(Tainan--Shanhua TSC Sugar Factory)": {
       "locId": "L18085778",
@@ -12898,7 +12898,7 @@
       "subnational1Code": "TW-TNN",
       "lat": 23.0588912,
       "lng": 120.2352033,
-      "latestObsDt": "2025-02-18 12:26",
+      "latestObsDt": "2025-02-21 12:13",
       "numSpeciesAllTime": 97
     },
     "台南--大凍山步道(Tainan--Dadongshan Trail)": {
@@ -12928,8 +12928,8 @@
       "subnational1Code": "TW-TNN",
       "lat": 23.1901867,
       "lng": 120.3168952,
-      "latestObsDt": "2025-01-03 13:03",
-      "numSpeciesAllTime": 27
+      "latestObsDt": "2025-02-21 14:22",
+      "numSpeciesAllTime": 28
     },
     "台南--天鵝湖公園(Tainan--Swan Lake Park)": {
       "locId": "L19541745",
@@ -13018,7 +13018,7 @@
       "subnational1Code": "TW-TNN",
       "lat": 23.0015181,
       "lng": 120.1606035,
-      "latestObsDt": "2025-02-02 15:44",
+      "latestObsDt": "2025-02-22 15:25",
       "numSpeciesAllTime": 48
     },
     "台南--安平國平重劃區(Tainan--Anping Guoping Rezoning Area)": {
@@ -13028,7 +13028,7 @@
       "subnational1Code": "TW-TNN",
       "lat": 22.9825432,
       "lng": 120.1715526,
-      "latestObsDt": "2025-02-16 16:00",
+      "latestObsDt": "2025-02-20 12:10",
       "numSpeciesAllTime": 68
     },
     "台南--安平小砲台(Tainan--Anping Mini Fort)": {
@@ -13038,8 +13038,8 @@
       "subnational1Code": "TW-TNN",
       "lat": 22.999254,
       "lng": 120.1584598,
-      "latestObsDt": "2025-02-14 07:44",
-      "numSpeciesAllTime": 54
+      "latestObsDt": "2025-02-21 15:15",
+      "numSpeciesAllTime": 56
     },
     "台南--安平樹屋&德記洋行(Tainan--Anping Tree House & Former Tait & Co. Merchant House)": {
       "locId": "L10119612",
@@ -13048,8 +13048,8 @@
       "subnational1Code": "TW-TNN",
       "lat": 23.0044805,
       "lng": 120.1598167,
-      "latestObsDt": "2025-01-04 10:27",
-      "numSpeciesAllTime": 85
+      "latestObsDt": "2025-02-23 08:04",
+      "numSpeciesAllTime": 87
     },
     "台南--安平港 (Tainan--Anping Harbor)": {
       "locId": "L35279276",
@@ -13088,8 +13088,8 @@
       "subnational1Code": "TW-TNN",
       "lat": 23.0468156,
       "lng": 120.1050067,
-      "latestObsDt": "2025-02-17 15:33",
-      "numSpeciesAllTime": 152
+      "latestObsDt": "2025-02-22 07:24",
+      "numSpeciesAllTime": 153
     },
     "台南--官田區農會食農教育體驗田(Tainan--Guantian District Farmers Association Food Farming Education Experience Field)": {
       "locId": "L33083829",
@@ -13118,7 +13118,7 @@
       "subnational1Code": "TW-TNN",
       "lat": 23.1829571,
       "lng": 120.3120859,
-      "latestObsDt": "2025-02-18 15:57",
+      "latestObsDt": "2025-02-21 11:45",
       "numSpeciesAllTime": 171
     },
     "台南--寮廍里農田(Tainan--Liaobu Village Farmland)": {
@@ -13226,7 +13226,7 @@
       "subnational1Code": "TW-TNN",
       "lat": 23.2110724,
       "lng": 120.0870786,
-      "latestObsDt": "2025-02-15 13:01",
+      "latestObsDt": "2025-02-22 15:34",
       "numSpeciesAllTime": 106
     },
     "台南--將軍萬聖宮47-5": {
@@ -13256,8 +13256,8 @@
       "subnational1Code": "TW-TNN",
       "lat": 23.1885549,
       "lng": 120.0957263,
-      "latestObsDt": "2024-12-06 14:19",
-      "numSpeciesAllTime": 65
+      "latestObsDt": "2025-02-21 08:59",
+      "numSpeciesAllTime": 68
     },
     "台南--將軍頂山11": {
       "locId": "L5239807",
@@ -13286,8 +13286,8 @@
       "subnational1Code": "TW-TNN",
       "lat": 23.1877462,
       "lng": 120.1107359,
-      "latestObsDt": "2024-12-08 11:08",
-      "numSpeciesAllTime": 49
+      "latestObsDt": "2025-02-21 14:14",
+      "numSpeciesAllTime": 57
     },
     "台南--將軍馬沙溝43-1": {
       "locId": "L5260864",
@@ -13296,7 +13296,7 @@
       "subnational1Code": "TW-TNN",
       "lat": 23.2067591,
       "lng": 120.0990629,
-      "latestObsDt": "2025-02-17 11:43",
+      "latestObsDt": "2025-02-21 12:51",
       "numSpeciesAllTime": 127
     },
     "台南--將軍馬沙溝43-2": {
@@ -13306,7 +13306,7 @@
       "subnational1Code": "TW-TNN",
       "lat": 23.2055203,
       "lng": 120.1029598,
-      "latestObsDt": "2025-02-17 17:05",
+      "latestObsDt": "2025-02-22 11:48",
       "numSpeciesAllTime": 133
     },
     "台南--將軍馬沙溝44": {
@@ -13396,7 +13396,7 @@
       "subnational1Code": "TW-TNN",
       "lat": 22.9727227,
       "lng": 120.2226429,
-      "latestObsDt": "2025-02-16 09:51",
+      "latestObsDt": "2025-02-22 09:58",
       "numSpeciesAllTime": 69
     },
     "台南--市立體育公園(Tainan--City Sports Park)": {
@@ -13446,8 +13446,8 @@
       "subnational1Code": "TW-TNN",
       "lat": 23.0266226,
       "lng": 120.3530078,
-      "latestObsDt": "2025-01-14 07:33",
-      "numSpeciesAllTime": 73
+      "latestObsDt": "2025-02-22 09:03",
+      "numSpeciesAllTime": 74
     },
     "台南--新化大坑里那拔寮(Tainan--Xinhua Dakeng Nabaliao)": {
       "locId": "L4373725",
@@ -13686,7 +13686,7 @@
       "subnational1Code": "TW-TNN",
       "lat": 22.9259864,
       "lng": 120.3093159,
-      "latestObsDt": "2025-02-11 23:46",
+      "latestObsDt": "2025-02-22 17:09",
       "numSpeciesAllTime": 118
     },
     "台南--歸仁台糖港墘農場(Tainan--Guiren TSC Gangqian Farm)": {
@@ -13716,7 +13716,7 @@
       "subnational1Code": "TW-TNN",
       "lat": 22.9861665,
       "lng": 120.1932671,
-      "latestObsDt": "2025-01-25 14:36",
+      "latestObsDt": "2025-02-23 07:28",
       "numSpeciesAllTime": 28
     },
     "台南--永康公園(Tainan--Yongkang Park)": {
@@ -13776,7 +13776,7 @@
       "subnational1Code": "TW-TNN",
       "lat": 23.1973318,
       "lng": 120.3720903,
-      "latestObsDt": "2025-02-16 14:31",
+      "latestObsDt": "2025-02-22 11:01",
       "numSpeciesAllTime": 130
     },
     "台南--白河台灣萬里長城(Tainan--Baihe Great Wall of Taiwan)": {
@@ -13826,7 +13826,7 @@
       "subnational1Code": "TW-TNN",
       "lat": 23.197695,
       "lng": 120.2973014,
-      "latestObsDt": "2025-02-02 17:16",
+      "latestObsDt": "2025-02-21 15:00",
       "numSpeciesAllTime": 88
     },
     "台南--虎山林場(Tainan--Hushan Forest Area)": {
@@ -13867,7 +13867,7 @@
       "lat": 23.1069962,
       "lng": 120.1774464,
       "latestObsDt": "2025-01-28 11:35",
-      "numSpeciesAllTime": 92
+      "numSpeciesAllTime": 93
     },
     "台南--西港溪埔寮(Tainan--Xigang Xipuliao)": {
       "locId": "L24687046",
@@ -14036,8 +14036,8 @@
       "subnational1Code": "TW-TNN",
       "lat": 23.1864232,
       "lng": 120.2698151,
-      "latestObsDt": "2024-12-28 10:27",
-      "numSpeciesAllTime": 55
+      "latestObsDt": "2025-02-22 09:46",
+      "numSpeciesAllTime": 56
     },
     "台南--黃金海岸(Tainan--Gold Coast)": {
       "locId": "L10735170",
@@ -14094,8 +14094,8 @@
       "subnational1Code": "TW-TNN",
       "lat": 23.0653132,
       "lng": 120.0474398,
-      "latestObsDt": "2025-02-15 10:30",
-      "numSpeciesAllTime": 184
+      "latestObsDt": "2025-02-22 10:50",
+      "numSpeciesAllTime": 185
     },
     "台南七股IBA--七股苗圃(Qigu IBA--Qigu Nursery)": {
       "locId": "L16356018",
@@ -14114,7 +14114,7 @@
       "subnational1Code": "TW-TNN",
       "lat": 23.0866812,
       "lng": 120.077462,
-      "latestObsDt": "2025-02-18 12:50",
+      "latestObsDt": "2025-02-22 17:30",
       "numSpeciesAllTime": 115
     },
     "台南七股IBA--三股(Qigu IBA--Sangu)": {
@@ -14134,7 +14134,7 @@
       "subnational1Code": "TW-TNN",
       "lat": 23.0773234,
       "lng": 120.0609756,
-      "latestObsDt": "2025-02-17 16:24",
+      "latestObsDt": "2025-02-23 12:12",
       "numSpeciesAllTime": 317
     },
     "台南七股IBA--北堤(Qigu IBA--North Seawall)": {
@@ -14164,7 +14164,7 @@
       "subnational1Code": "TW-TNN",
       "lat": 23.1006992,
       "lng": 120.0358486,
-      "latestObsDt": "2025-01-30 16:36",
+      "latestObsDt": "2025-02-20 16:07",
       "numSpeciesAllTime": 202
     },
     "台南七股IBA--尖仔尾防風林(Qigu IBA--Jianzaiwei Coastal Forest)": {
@@ -14214,7 +14214,7 @@
       "subnational1Code": "TW-TNN",
       "lat": 23.0715735,
       "lng": 120.0656533,
-      "latestObsDt": "2025-02-02 08:42",
+      "latestObsDt": "2025-02-22 09:05",
       "numSpeciesAllTime": 181
     },
     "台南七股IBA--頂頭額防風林(Qigu IBA--Dingtouer Coastal Forest)": {
@@ -14264,7 +14264,7 @@
       "subnational1Code": "TW-TNN",
       "lat": 23.0791889,
       "lng": 120.0530899,
-      "latestObsDt": "2025-02-16 16:43",
+      "latestObsDt": "2025-02-22 10:52",
       "numSpeciesAllTime": 88
     },
     "台南北門IBA--三寮灣(Beimen IBA--Shanliaowan)": {
@@ -14434,7 +14434,7 @@
       "subnational1Code": "TW-TNN",
       "lat": 23.0226,
       "lng": 120.1666,
-      "latestObsDt": "2025-02-15 10:31",
+      "latestObsDt": "2025-02-22 06:44",
       "numSpeciesAllTime": 214
     },
     "台南四草IBA--台17沿線魚塭(Sicao IBA--Fish Farms along Provincial HWY No.17)": {
@@ -14454,7 +14454,7 @@
       "subnational1Code": "TW-TNN",
       "lat": 23.0028711,
       "lng": 120.1362598,
-      "latestObsDt": "2025-02-15 16:00",
+      "latestObsDt": "2025-02-22 08:46",
       "numSpeciesAllTime": 128
     },
     "台南四草IBA--城西保安林區(Sicao IBA--Chengxi Costal Forest)": {
@@ -14465,7 +14465,7 @@
       "lat": 23.0344197,
       "lng": 120.0872422,
       "latestObsDt": "2025-02-18 11:26",
-      "numSpeciesAllTime": 130
+      "numSpeciesAllTime": 133
     },
     "台南四草IBA--大眾廟(Sicao IBA--Dazhong Temple)": {
       "locId": "L3409337",
@@ -14474,7 +14474,7 @@
       "subnational1Code": "TW-TNN",
       "lat": 23.0197477,
       "lng": 120.1351413,
-      "latestObsDt": "2025-02-18 12:56",
+      "latestObsDt": "2025-02-19 10:16",
       "numSpeciesAllTime": 116
     },
     "台南四草IBA--海西里濕地(Sicao IBA--Haixi Village Wetlands)": {
@@ -14504,7 +14504,7 @@
       "subnational1Code": "TW-TNN",
       "lat": 23.0261092,
       "lng": 120.1439081,
-      "latestObsDt": "2025-02-18 13:44",
+      "latestObsDt": "2025-02-19 12:28",
       "numSpeciesAllTime": 129
     },
     "台南市四草野生動物保護區A1(Tainan City Sicao Wildlife Refuge A1)": {
@@ -14514,7 +14514,7 @@
       "subnational1Code": "TW-TNN",
       "lat": 23.0491175,
       "lng": 120.1437378,
-      "latestObsDt": "2025-02-17 15:15",
+      "latestObsDt": "2025-02-22 07:02",
       "numSpeciesAllTime": 83
     },
     "台南青鯤鯓IBA--七股氣象雷達站(Qingkunshen IBA--Qigu Weather Radar Station)": {
@@ -14544,7 +14544,7 @@
       "subnational1Code": "TW-TNN",
       "lat": 23.202907,
       "lng": 120.104833,
-      "latestObsDt": "2025-02-15 13:35",
+      "latestObsDt": "2025-02-22 15:14",
       "numSpeciesAllTime": 162
     },
     "台南青鯤鯓IBA--青山漁港安檢所(Qingkunshen IBA--Qingshan Fishing Port Security Inspection Office)": {
@@ -14884,8 +14884,8 @@
       "subnational1Code": "TW-TTT",
       "lat": 22.758869,
       "lng": 121.1650908,
-      "latestObsDt": "2025-02-15 09:34",
-      "numSpeciesAllTime": 104
+      "latestObsDt": "2025-02-22 08:06",
+      "numSpeciesAllTime": 106
     },
     "台東--台東森林公園鷺鷥湖(Taitung--Taitung Forest Park Egret Lake)": {
       "locId": "L23148519",
@@ -15014,7 +15014,7 @@
       "subnational1Code": "TW-TTT",
       "lat": 22.7352127,
       "lng": 121.0681044,
-      "latestObsDt": "2025-02-18 06:51",
+      "latestObsDt": "2025-02-22 12:34",
       "numSpeciesAllTime": 103
     },
     "台東--國立臺東女子高級中學(Taitung--National Taitung Girls' Senior High School)": {
@@ -15084,7 +15084,7 @@
       "subnational1Code": "TW-TTT",
       "lat": 22.7501872,
       "lng": 121.139414,
-      "latestObsDt": "2025-01-20 15:35",
+      "latestObsDt": "2025-02-22 15:23",
       "numSpeciesAllTime": 84
     },
     "台東--太平溪口(Taitung--Taiping River Mouth)": {
@@ -15094,7 +15094,7 @@
       "subnational1Code": "TW-TTT",
       "lat": 22.7392784,
       "lng": 121.1476189,
-      "latestObsDt": "2025-02-16 17:19",
+      "latestObsDt": "2025-02-22 10:53",
       "numSpeciesAllTime": 162
     },
     "台東--太麻里溪口(Taitung--Taimali River Mouth)": {
@@ -15294,7 +15294,7 @@
       "subnational1Code": "TW-TTT",
       "lat": 22.9294448,
       "lng": 121.1550915,
-      "latestObsDt": "2024-12-27 13:59",
+      "latestObsDt": "2025-02-23 12:39",
       "numSpeciesAllTime": 123
     },
     "台東--東河市區(Taitung--Donghe downtown)": {
@@ -15384,7 +15384,7 @@
       "subnational1Code": "TW-TTT",
       "lat": 22.7947777,
       "lng": 121.1981678,
-      "latestObsDt": "2025-02-04 09:53",
+      "latestObsDt": "2025-02-22 14:59",
       "numSpeciesAllTime": 52
     },
     "台東--栗松溫泉(Taitung--Lisong Hot Spring)": {
@@ -15454,7 +15454,7 @@
       "subnational1Code": "TW-TTT",
       "lat": 23.118021,
       "lng": 121.224552,
-      "latestObsDt": "2025-02-18 08:31",
+      "latestObsDt": "2025-02-19 17:31",
       "numSpeciesAllTime": 158
     },
     "台東--池上振興(Taitung--Chishang Zhenxing)": {
@@ -15844,7 +15844,7 @@
       "subnational1Code": "TW-TTT",
       "lat": 22.95522,
       "lng": 121.159477,
-      "latestObsDt": "2025-01-30 12:17",
+      "latestObsDt": "2025-02-20 10:44",
       "numSpeciesAllTime": 29
     },
     "台東--鹿野高台(Taitung--Luye Tableland)": {
@@ -15874,7 +15874,7 @@
       "subnational1Code": "TW-TTT",
       "lat": 22.6936017,
       "lng": 121.0718522,
-      "latestObsDt": "2025-02-12 15:37",
+      "latestObsDt": "2025-02-19 15:18",
       "numSpeciesAllTime": 140
     },
     "台東知本濕地IBA--全區(Zhiben Wetland IBA--All Area)": {
@@ -15894,7 +15894,7 @@
       "subnational1Code": "TW-TTT",
       "lat": 22.6867297,
       "lng": 121.066694,
-      "latestObsDt": "2025-02-13 15:36",
+      "latestObsDt": "2025-02-21 15:28",
       "numSpeciesAllTime": 107
     },
     "台東綠島--全區(Green Island)": {
@@ -16234,7 +16234,7 @@
       "subnational1Code": "TW-CYQ",
       "lat": 23.4352695,
       "lng": 120.5827215,
-      "latestObsDt": "2024-11-29 10:55",
+      "latestObsDt": "2025-02-21 18:06",
       "numSpeciesAllTime": 97
     },
     "嘉義--中埔社口MAPS繫放站(Chiayi--Zhongpu Shekou MAPS Banding Site)": {
@@ -16274,7 +16274,7 @@
       "subnational1Code": "TW-CYI",
       "lat": 23.4813926,
       "lng": 120.4477732,
-      "latestObsDt": "2025-02-11 08:05",
+      "latestObsDt": "2025-02-19 07:30",
       "numSpeciesAllTime": 31
     },
     "嘉義--二尖山(Chiayi--Mt. Erjian)": {
@@ -16284,8 +16284,8 @@
       "subnational1Code": "TW-CYQ",
       "lat": 23.5842324,
       "lng": 120.6193881,
-      "latestObsDt": "2024-01-21 13:00",
-      "numSpeciesAllTime": 55
+      "latestObsDt": "2025-02-01 14:04",
+      "numSpeciesAllTime": 56
     },
     "嘉義--亞洲無人機 AI 創新應用研發中心(Chiayi-- Asia’s UAV AI Innovative Application R&D Center)": {
       "locId": "L38867877",
@@ -16324,8 +16324,8 @@
       "subnational1Code": "TW-CYQ",
       "lat": 23.4594277,
       "lng": 120.5119407,
-      "latestObsDt": "2025-01-21 09:03",
-      "numSpeciesAllTime": 95
+      "latestObsDt": "2025-02-21 12:30",
+      "numSpeciesAllTime": 96
     },
     "嘉義--八掌溪口河床(Chiayi--Bazhang River Estuary Riverbank)": {
       "locId": "L3455117",
@@ -16334,7 +16334,7 @@
       "subnational1Code": "TW-CYQ",
       "lat": 23.3176661,
       "lng": 120.149231,
-      "latestObsDt": "2025-02-09 15:50",
+      "latestObsDt": "2025-02-22 14:22",
       "numSpeciesAllTime": 119
     },
     "嘉義--八掌溪河口北岸(Chiayi--Bazhang River Estuary North Bank)": {
@@ -16354,7 +16354,7 @@
       "subnational1Code": "TW-CYI",
       "lat": 23.4610416,
       "lng": 120.4644036,
-      "latestObsDt": "2025-02-09 14:17",
+      "latestObsDt": "2025-02-23 11:00",
       "numSpeciesAllTime": 65
     },
     "嘉義--八掌溪親水公園(Chiayi--Bazhang Riverside Park)": {
@@ -16384,7 +16384,7 @@
       "subnational1Code": "TW-CYI",
       "lat": 23.4604434,
       "lng": 120.4667787,
-      "latestObsDt": "2025-02-16 16:45",
+      "latestObsDt": "2025-02-21 16:56",
       "numSpeciesAllTime": 94
     },
     "嘉義--公館農場(Chiayi--Gongguan Farmland)": {
@@ -16454,8 +16454,8 @@
       "subnational1Code": "TW-CYQ",
       "lat": 23.4616899,
       "lng": 120.5970698,
-      "latestObsDt": "2025-02-08 15:09",
-      "numSpeciesAllTime": 39
+      "latestObsDt": "2025-02-19 11:32",
+      "numSpeciesAllTime": 41
     },
     "嘉義--半天岩紫雲寺祈福步道(Chiayi--Bantianyan Ziyun Temple Qifu Trail)": {
       "locId": "L21524307",
@@ -16504,7 +16504,7 @@
       "subnational1Code": "TW-CYI",
       "lat": 23.4833882,
       "lng": 120.4645622,
-      "latestObsDt": "2025-01-11 15:30",
+      "latestObsDt": "2025-02-23 12:47",
       "numSpeciesAllTime": 44
     },
     "嘉義--嘉義基督教醫院(Chiayi--Chiayi Christian Hospital)": {
@@ -16534,7 +16534,7 @@
       "subnational1Code": "TW-CYI",
       "lat": 23.4674783,
       "lng": 120.485666,
-      "latestObsDt": "2025-02-18 18:03",
+      "latestObsDt": "2025-02-20 10:08",
       "numSpeciesAllTime": 67
     },
     "嘉義--嘉義大學沁心池(Chiayi--NCYU Qinxin Pond)": {
@@ -16544,7 +16544,7 @@
       "subnational1Code": "TW-CYI",
       "lat": 23.46711,
       "lng": 120.48305,
-      "latestObsDt": "2024-12-26 10:35",
+      "latestObsDt": "2025-02-20 18:27",
       "numSpeciesAllTime": 55
     },
     "嘉義--嘉義大學生物資源學系(Chiayi--NCYU Biological Resources Department)": {
@@ -16554,7 +16554,7 @@
       "subnational1Code": "TW-CYI",
       "lat": 23.47149,
       "lng": 120.48425,
-      "latestObsDt": "2025-02-18 09:42",
+      "latestObsDt": "2025-02-20 13:07",
       "numSpeciesAllTime": 89
     },
     "嘉義--嘉義大學蘭潭校區(Chiayi--NCYU Lantan Campus)": {
@@ -16564,7 +16564,7 @@
       "subnational1Code": "TW-CYI",
       "lat": 23.4715748,
       "lng": 120.4864662,
-      "latestObsDt": "2025-02-18 10:58",
+      "latestObsDt": "2025-02-22 18:20",
       "numSpeciesAllTime": 117
     },
     "嘉義--嘉義大學蘭潭校區校門口(Chiayi--NCYU Lantan Campus Gate)": {
@@ -16614,7 +16614,7 @@
       "subnational1Code": "TW-CYI",
       "lat": 23.47834,
       "lng": 120.44996,
-      "latestObsDt": "2025-01-28 21:41",
+      "latestObsDt": "2025-02-22 18:12",
       "numSpeciesAllTime": 17
     },
     "嘉義--嘉義市立體育場(Chiayi--City Stadium)": {
@@ -16684,8 +16684,8 @@
       "subnational1Code": "TW-CYQ",
       "lat": 23.5642035,
       "lng": 120.4728743,
-      "latestObsDt": "2025-02-05 10:57",
-      "numSpeciesAllTime": 64
+      "latestObsDt": "2025-02-22 15:44",
+      "numSpeciesAllTime": 65
     },
     "嘉義--大凍山步道(Chiayi--Dadongshan Trail)": {
       "locId": "L17953076",
@@ -16964,8 +16964,8 @@
       "subnational1Code": "TW-CYQ",
       "lat": 23.3784039,
       "lng": 120.152291,
-      "latestObsDt": "2024-09-17 10:32",
-      "numSpeciesAllTime": 21
+      "latestObsDt": "2025-02-22 06:32",
+      "numSpeciesAllTime": 31
     },
     "嘉義--布袋前五區鹽田(Chaiyi--Budai Former Salt Pan Zone Five)": {
       "locId": "L10685887",
@@ -17224,8 +17224,8 @@
       "subnational1Code": "TW-CYQ",
       "lat": 23.4942691,
       "lng": 120.6997967,
-      "latestObsDt": "2024-12-01 08:47",
-      "numSpeciesAllTime": 35
+      "latestObsDt": "2025-02-21 20:31",
+      "numSpeciesAllTime": 36
     },
     "嘉義--林試所植物園(Chiayi--TFRI Botanical Garden)": {
       "locId": "L1874482",
@@ -17234,7 +17234,7 @@
       "subnational1Code": "TW-CYI",
       "lat": 23.4830268,
       "lng": 120.4682571,
-      "latestObsDt": "2025-02-09 08:42",
+      "latestObsDt": "2025-02-23 12:34",
       "numSpeciesAllTime": 55
     },
     "嘉義--梅山公園(Chiayi--Meishan Park)": {
@@ -17354,8 +17354,8 @@
       "subnational1Code": "TW-CYI",
       "lat": 23.4857309,
       "lng": 120.4548606,
-      "latestObsDt": "2025-01-10 15:16",
-      "numSpeciesAllTime": 8
+      "latestObsDt": "2025-02-22 13:04",
+      "numSpeciesAllTime": 9
     },
     "嘉義--民族國小(Chiayi--Minzu Elementary School)": {
       "locId": "L4313978",
@@ -17502,7 +17502,7 @@
       "subnational1Code": "TW-CYQ",
       "lat": 23.431749,
       "lng": 120.6641601,
-      "latestObsDt": "2024-11-23 12:05",
+      "latestObsDt": "2025-02-19 12:32",
       "numSpeciesAllTime": 64
     },
     "嘉義--番路隙頂二延平步道(Chiayi--Fanlu Xiding Eryanping Trail)": {
@@ -17642,7 +17642,7 @@
       "subnational1Code": "TW-CYQ",
       "lat": 23.504936,
       "lng": 120.6974342,
-      "latestObsDt": "2025-02-11 12:22",
+      "latestObsDt": "2025-02-22 05:47",
       "numSpeciesAllTime": 85
     },
     "嘉義--竹崎文峰遊客中心(Chiayi--Zhuqi Wenfeng Visitor Center)": {
@@ -17912,8 +17912,8 @@
       "subnational1Code": "TW-CYQ",
       "lat": 23.4795595,
       "lng": 120.2994817,
-      "latestObsDt": "2024-11-09 16:29",
-      "numSpeciesAllTime": 43
+      "latestObsDt": "2025-02-21 11:32",
+      "numSpeciesAllTime": 46
     },
     "嘉義--蘭潭步道(Chiayi--Lantan Trail)": {
       "locId": "L4439101",
@@ -17922,8 +17922,8 @@
       "subnational1Code": "TW-CYI",
       "lat": 23.4795014,
       "lng": 120.4882018,
-      "latestObsDt": "2025-02-17 15:50",
-      "numSpeciesAllTime": 72
+      "latestObsDt": "2025-02-22 06:10",
+      "numSpeciesAllTime": 74
     },
     "嘉義--蘭潭水庫公園(Chiayi--Lantan Reservoir Park)": {
       "locId": "L7371119",
@@ -18072,7 +18072,7 @@
       "subnational1Code": "TW-CYQ",
       "lat": 23.5143616,
       "lng": 120.8134161,
-      "latestObsDt": "2025-02-13 09:32",
+      "latestObsDt": "2025-02-20 07:08",
       "numSpeciesAllTime": 98
     },
     "嘉義--阿里山森林遊樂區祝山觀日步道(Chiayi--Alishan FRA Zhushan Sunrise Trail)": {
@@ -18092,7 +18092,7 @@
       "subnational1Code": "TW-CYQ",
       "lat": 23.5113691,
       "lng": 120.8035947,
-      "latestObsDt": "2025-02-18 13:42",
+      "latestObsDt": "2025-02-22 09:50",
       "numSpeciesAllTime": 128
     },
     "嘉義--阿里山森林遊樂區青年活動中心(Chiayi--Alishan FRA Youth Activity Center)": {
@@ -18102,7 +18102,7 @@
       "subnational1Code": "TW-CYQ",
       "lat": 23.5084484,
       "lng": 120.7907537,
-      "latestObsDt": "2025-02-09 09:12",
+      "latestObsDt": "2025-02-21 13:20",
       "numSpeciesAllTime": 110
     },
     "嘉義--阿里山森林鐵路(Chiayi--Alishan Forest Railway)": {
@@ -18192,7 +18192,7 @@
       "subnational1Code": "TW-CYQ",
       "lat": 23.4738507,
       "lng": 120.7158272,
-      "latestObsDt": "2025-02-16 14:21",
+      "latestObsDt": "2025-02-21 11:07",
       "numSpeciesAllTime": 91
     },
     "嘉義--阿里山里佳(Chiayi--Alishan Lijia)": {
@@ -18222,7 +18222,7 @@
       "subnational1Code": "TW-CYQ",
       "lat": 23.4299531,
       "lng": 120.6602043,
-      "latestObsDt": "2024-07-16 18:21",
+      "latestObsDt": "2025-02-19 08:55",
       "numSpeciesAllTime": 29
     },
     "嘉義--香湖公園/埤子頭植物園(Chiayi--Xianghu Park/Beizitou Botanical Garden)": {
@@ -18242,7 +18242,7 @@
       "subnational1Code": "TW-CYQ",
       "lat": 23.4603122,
       "lng": 120.3247547,
-      "latestObsDt": "2025-02-16 14:31",
+      "latestObsDt": "2025-02-22 20:50",
       "numSpeciesAllTime": 49
     },
     "嘉義--鹿寮庄南側(Chiayi--Southern Luliao)": {
@@ -18282,7 +18282,7 @@
       "subnational1Code": "TW-CYQ",
       "lat": 23.3855219,
       "lng": 120.1559683,
-      "latestObsDt": "2025-01-08 16:20",
+      "latestObsDt": "2025-02-21 08:24",
       "numSpeciesAllTime": 102
     },
     "嘉義布袋濕地IBA--中心區(Budai Wetland IBA--Central Area)": {
@@ -18302,7 +18302,7 @@
       "subnational1Code": "TW-CYQ",
       "lat": 23.3584163,
       "lng": 120.167681,
-      "latestObsDt": "2025-01-18 10:56",
+      "latestObsDt": "2025-02-20 12:46",
       "numSpeciesAllTime": 184
     },
     "嘉義布袋濕地IBA--八區鹽田(Budai Wetland IBA--Salt Pan Zone Eight)": {
@@ -18332,8 +18332,8 @@
       "subnational1Code": "TW-CYQ",
       "lat": 23.3377146,
       "lng": 120.1383841,
-      "latestObsDt": "2023-07-01 15:24",
-      "numSpeciesAllTime": 60
+      "latestObsDt": "2025-02-21 10:45",
+      "numSpeciesAllTime": 61
     },
     "嘉義布袋濕地IBA--布袋加油站(Budai Wetland IBA--Budai Gas Station)": {
       "locId": "L2601249",
@@ -18342,7 +18342,7 @@
       "subnational1Code": "TW-CYQ",
       "lat": 23.3726589,
       "lng": 120.1723945,
-      "latestObsDt": "2025-02-03 10:13",
+      "latestObsDt": "2025-02-21 09:12",
       "numSpeciesAllTime": 90
     },
     "嘉義布袋濕地IBA--布袋國中(Budai Wetland IBA--Budai Junior High School)": {
@@ -18362,7 +18362,7 @@
       "subnational1Code": "TW-CYQ",
       "lat": 23.3340742,
       "lng": 120.1689076,
-      "latestObsDt": "2025-02-10 11:48",
+      "latestObsDt": "2025-02-21 10:17",
       "numSpeciesAllTime": 125
     },
     "嘉義布袋濕地IBA--新塭國小北側濕地(Budai Wetland IBA--Wetland in North of Xinwen Elementary School)": {
@@ -18382,7 +18382,7 @@
       "subnational1Code": "TW-CYQ",
       "lat": 23.326891,
       "lng": 120.1706868,
-      "latestObsDt": "2025-02-13 12:30",
+      "latestObsDt": "2025-02-19 14:32",
       "numSpeciesAllTime": 155
     },
     "嘉義布袋濕地IBA--新塭滯洪池南池(Budai Wetland IBA--Xinwen Detention Ponds South Pond)": {
@@ -18402,7 +18402,7 @@
       "subnational1Code": "TW-CYQ",
       "lat": 23.3426929,
       "lng": 120.1729256,
-      "latestObsDt": "2025-02-01 16:34",
+      "latestObsDt": "2025-02-19 13:58",
       "numSpeciesAllTime": 119
     },
     "嘉義布袋濕地IBA--新岑橋(Budai Wetland IBA--Xincen Bridge)": {
@@ -18412,7 +18412,7 @@
       "subnational1Code": "TW-CYQ",
       "lat": 23.3401648,
       "lng": 120.1741219,
-      "latestObsDt": "2024-09-27 12:37",
+      "latestObsDt": "2025-02-21 10:13",
       "numSpeciesAllTime": 67
     },
     "嘉義布袋濕地IBA--新民里(Budai Wetland IBA--Xinmin Village)": {
@@ -18432,7 +18432,7 @@
       "subnational1Code": "TW-CYQ",
       "lat": 23.3644437,
       "lng": 120.1739777,
-      "latestObsDt": "2025-02-09 12:03",
+      "latestObsDt": "2025-02-22 15:00",
       "numSpeciesAllTime": 156
     },
     "嘉義布袋濕地IBA--東南區(Budai Wetland IBA--Southeast Area)": {
@@ -18482,7 +18482,7 @@
       "subnational1Code": "TW-CYQ",
       "lat": 23.3724889,
       "lng": 120.1628137,
-      "latestObsDt": "2025-02-17 10:52",
+      "latestObsDt": "2025-02-21 08:44",
       "numSpeciesAllTime": 102
     },
     "嘉義朴子溪口IBA--布袋三區鹽田(Puzi River Estuary IBA--Budai Salt Pan Zone 3)": {
@@ -18632,7 +18632,7 @@
       "subnational1Code": "TW-CYQ",
       "lat": 23.494828,
       "lng": 120.153938,
-      "latestObsDt": "2025-02-16 12:53",
+      "latestObsDt": "2025-02-21 16:46",
       "numSpeciesAllTime": 73
     },
     "嘉義鰲鼓濕地IBA--南堤(Aogu Wetland IBA--South Area)": {
@@ -18642,7 +18642,7 @@
       "subnational1Code": "TW-CYQ",
       "lat": 23.4920204,
       "lng": 120.1409168,
-      "latestObsDt": "2025-01-20 16:00",
+      "latestObsDt": "2025-02-22 10:30",
       "numSpeciesAllTime": 161
     },
     "嘉義鰲鼓濕地IBA--四號賞鳥亭(Aogu Wetland IBA--Pavilion #4)": {
@@ -18652,7 +18652,7 @@
       "subnational1Code": "TW-CYQ",
       "lat": 23.4955052,
       "lng": 120.1207644,
-      "latestObsDt": "2025-01-04 16:13",
+      "latestObsDt": "2025-02-21 15:36",
       "numSpeciesAllTime": 118
     },
     "嘉義鰲鼓濕地IBA--森林園區大門(Aogu Wetland IBA--Forest Park Gate)": {
@@ -18692,7 +18692,7 @@
       "subnational1Code": "TW-CYQ",
       "lat": 23.513,
       "lng": 120.1473,
-      "latestObsDt": "2025-02-15 12:28",
+      "latestObsDt": "2025-02-21 14:30",
       "numSpeciesAllTime": 142
     },
     "嘉義鰲鼓濕地IBA--鰲鼓濕地生態展示館(Aogu Wetland IBA--Aogu Wetland Ecology Exhibition Center)": {
@@ -18822,7 +18822,7 @@
       "subnational1Code": "TW-KEE",
       "lat": 25.1618302,
       "lng": 121.7644837,
-      "latestObsDt": "2025-02-04 10:50",
+      "latestObsDt": "2025-02-17 10:50",
       "numSpeciesAllTime": 102
     },
     "基隆--和平島東堤(Keelung--Hepingdao Eastern Embankment)": {
@@ -18912,8 +18912,8 @@
       "subnational1Code": "TW-KEE",
       "lat": 25.1569774,
       "lng": 121.7058456,
-      "latestObsDt": "2025-01-30 07:55",
-      "numSpeciesAllTime": 65
+      "latestObsDt": "2025-02-20 09:43",
+      "numSpeciesAllTime": 66
     },
     "基隆--新山水庫南岸 (Keelung--South Bank of Xinshan Reservoir)": {
       "locId": "L29065785",
@@ -18952,7 +18952,7 @@
       "subnational1Code": "TW-KEE",
       "lat": 25.1006724,
       "lng": 121.735128,
-      "latestObsDt": "2025-02-16 08:21",
+      "latestObsDt": "2025-02-19 10:14",
       "numSpeciesAllTime": 78
     },
     "基隆--暖暖運動公園 (Keelung--Nuannuan Sports Park)": {
@@ -18972,8 +18972,8 @@
       "subnational1Code": "TW-KEE",
       "lat": 25.0734668,
       "lng": 121.7550588,
-      "latestObsDt": "2025-02-12 09:23",
-      "numSpeciesAllTime": 27
+      "latestObsDt": "2025-02-20 08:50",
+      "numSpeciesAllTime": 29
     },
     "基隆--暖東苗圃 (Keelung--Nuandong Nursery)": {
       "locId": "L8801181",
@@ -19012,7 +19012,7 @@
       "subnational1Code": "TW-KEE",
       "lat": 25.1445285,
       "lng": 121.7807093,
-      "latestObsDt": "2025-02-10 09:09",
+      "latestObsDt": "2025-02-17 12:44",
       "numSpeciesAllTime": 45
     },
     "基隆--正濱漁港(Keelung--Zhengbin Fishing Harbor)": {
@@ -19062,7 +19062,7 @@
       "subnational1Code": "TW-KEE",
       "lat": 25.1310222,
       "lng": 121.741348,
-      "latestObsDt": "2025-02-18 14:49",
+      "latestObsDt": "2025-02-22 09:51",
       "numSpeciesAllTime": 54
     },
     "基隆--海門天險 (Keelung--Haimen Tiansian Fortress)": {
@@ -19672,7 +19672,7 @@
       "subnational1Code": "TW-CHA",
       "lat": 24.1644444,
       "lng": 120.4647222,
-      "latestObsDt": "2024-12-29 14:30",
+      "latestObsDt": "2025-02-20 10:38",
       "numSpeciesAllTime": 114
     },
     "大雪山IBA--鳶嘴稍來山步道(Dasyueshan IBA--Mt. Yuanzui & Shaolai Trail)": {
@@ -19973,7 +19973,7 @@
       "lat": 24.180763,
       "lng": 121.3102645,
       "latestObsDt": "2025-02-04 09:50",
-      "numSpeciesAllTime": 68
+      "numSpeciesAllTime": 73
     },
     "太魯閣NP--天祥(Taroko NP--Tianxiang)": {
       "locId": "L2944305",
@@ -20102,7 +20102,7 @@
       "subnational1Code": "TW-NAN",
       "lat": 24.1618562,
       "lng": 121.2869489,
-      "latestObsDt": "2025-01-07 12:36",
+      "latestObsDt": "2025-02-20 09:49",
       "numSpeciesAllTime": 82
     },
     "太魯閣NP--屏風山(Taroko NP--Mt. Pingfeng)": {
@@ -20140,8 +20140,8 @@
       "subnational1Code": "TW-HUA",
       "lat": 24.178694,
       "lng": 121.3111475,
-      "latestObsDt": "2023-09-19 09:50",
-      "numSpeciesAllTime": 23
+      "latestObsDt": "2025-02-22 06:42",
+      "numSpeciesAllTime": 26
     },
     "太魯閣NP--屏風山步道(屏風山南峰-屏風山)(Taroko NP--Mt. Pingfeng Trail (between Mt. Pingfeng South Peak & Mt. Pingfeng))": {
       "locId": "L11936498",
@@ -20160,8 +20160,8 @@
       "subnational1Code": "TW-HUA",
       "lat": 24.1552306,
       "lng": 121.3320637,
-      "latestObsDt": "2020-07-19 12:49",
-      "numSpeciesAllTime": 4
+      "latestObsDt": "2025-02-23 14:05",
+      "numSpeciesAllTime": 10
     },
     "太魯閣NP--屏風山步道(鐵線橋-紅豆坡)(Taroko NP--Mt. Pingfeng Trail (between Tiexian Bridge & Hongdoupo))": {
       "locId": "L20580967",
@@ -20300,7 +20300,7 @@
       "subnational1Code": "TW-HUA",
       "lat": 24.1617531,
       "lng": 121.3249196,
-      "latestObsDt": "2023-09-30 08:59",
+      "latestObsDt": "2025-02-23 08:27",
       "numSpeciesAllTime": 17
     },
     "太魯閣NP--松雪樓(Taroko NP--Songxue Lodge)": {
@@ -20320,7 +20320,7 @@
       "subnational1Code": "TW-NAN",
       "lat": 24.1372153,
       "lng": 121.2757158,
-      "latestObsDt": "2025-02-17 10:23",
+      "latestObsDt": "2025-02-20 11:44",
       "numSpeciesAllTime": 62
     },
     "太魯閣NP--洛韶(Taroko NP--Luoshao)": {
@@ -20360,7 +20360,7 @@
       "subnational1Code": "TW-HUA",
       "lat": 24.13967,
       "lng": 121.28732,
-      "latestObsDt": "2024-11-24 08:46",
+      "latestObsDt": "2025-02-20 08:05",
       "numSpeciesAllTime": 37
     },
     "太魯閣NP--燕子口(Taroko NP--Swallow Grotto)": {
@@ -20400,7 +20400,7 @@
       "subnational1Code": "TW-NAN",
       "lat": 24.1461319,
       "lng": 121.2841675,
-      "latestObsDt": "2024-12-17 13:01",
+      "latestObsDt": "2025-02-20 09:41",
       "numSpeciesAllTime": 41
     },
     "太魯閣NP--砂卡礑步道(Taroko NP--Shakadang Trail)": {
@@ -20460,7 +20460,7 @@
       "subnational1Code": "TW-HUA",
       "lat": 24.2063786,
       "lng": 121.4825672,
-      "latestObsDt": "2025-02-03 08:27",
+      "latestObsDt": "2025-02-19 07:57",
       "numSpeciesAllTime": 104
     },
     "太魯閣NP--迴頭彎(Taroko NP--Huitouwan)": {
@@ -20720,7 +20720,7 @@
       "subnational1Code": "TW-ILA",
       "lat": 24.6663564,
       "lng": 121.788638,
-      "latestObsDt": "2025-02-14 16:45",
+      "latestObsDt": "2025-02-18 10:30",
       "numSpeciesAllTime": 89
     },
     "宜蘭--冬山河(零工圍橋-十三份橋)(Yilan--Dongshan River (between Linggongwei Bridge & Shisanfen Bridge))": {
@@ -20820,8 +20820,8 @@
       "subnational1Code": "TW-ILA",
       "lat": 24.4837306,
       "lng": 122.0264169,
-      "latestObsDt": "2025-02-05 11:42",
-      "numSpeciesAllTime": 99
+      "latestObsDt": "2025-02-15 11:42",
+      "numSpeciesAllTime": 100
     },
     "宜蘭--南澳北溪(含碧候&金岳)(Yilan--Nan'ao North River (including Bihou & Jinyue))": {
       "locId": "L4947568",
@@ -20860,7 +20860,7 @@
       "subnational1Code": "TW-ILA",
       "lat": 24.4678977,
       "lng": 121.7935994,
-      "latestObsDt": "2025-02-17 13:35",
+      "latestObsDt": "2025-02-21 07:33",
       "numSpeciesAllTime": 141
     },
     "宜蘭--南澳朝陽(Yilan--Nan'ao Chaoyang)": {
@@ -20870,7 +20870,7 @@
       "subnational1Code": "TW-ILA",
       "lat": 24.4594553,
       "lng": 121.8118572,
-      "latestObsDt": "2025-02-16 15:31",
+      "latestObsDt": "2025-02-21 15:10",
       "numSpeciesAllTime": 203
     },
     "宜蘭--南澳溪出海口(Yilan--Nan'ao River Mouth)": {
@@ -20890,7 +20890,7 @@
       "subnational1Code": "TW-ILA",
       "lat": 24.4488295,
       "lng": 121.8033171,
-      "latestObsDt": "2025-02-16 08:04",
+      "latestObsDt": "2025-02-21 09:45",
       "numSpeciesAllTime": 245
     },
     "宜蘭--南澳溪口北岸(Yilan--Nan'ao River Mouth North Bank)": {
@@ -20900,7 +20900,7 @@
       "subnational1Code": "TW-ILA",
       "lat": 24.4510026,
       "lng": 121.8076649,
-      "latestObsDt": "2025-02-18 13:43",
+      "latestObsDt": "2025-02-21 12:36",
       "numSpeciesAllTime": 252
     },
     "宜蘭--南澳溪口南岸(Yilan--Nan'ao River Mouth South Bank)": {
@@ -20910,7 +20910,7 @@
       "subnational1Code": "TW-ILA",
       "lat": 24.4431646,
       "lng": 121.8019009,
-      "latestObsDt": "2025-02-16 12:35",
+      "latestObsDt": "2025-02-21 10:00",
       "numSpeciesAllTime": 241
     },
     "宜蘭--南澳澳花瀑布(Yilan--Nan'ao Aohua Waterfall)": {
@@ -20931,7 +20931,7 @@
       "lat": 24.4679006,
       "lng": 121.7884769,
       "latestObsDt": "2024-12-28 16:55",
-      "numSpeciesAllTime": 106
+      "numSpeciesAllTime": 107
     },
     "宜蘭--南澳神秘湖(Yilan--Nan'ao Shenmi Lake)": {
       "locId": "L11581044",
@@ -21450,7 +21450,7 @@
       "subnational1Code": "TW-ILA",
       "lat": 24.94242,
       "lng": 121.90344,
-      "latestObsDt": "2025-02-17 13:52",
+      "latestObsDt": "2025-02-20 09:20",
       "numSpeciesAllTime": 119
     },
     "宜蘭--大礁溪(Yilan--Dajiaoxi)": {
@@ -21550,7 +21550,7 @@
       "subnational1Code": "TW-ILA",
       "lat": 24.5092702,
       "lng": 121.6101491,
-      "latestObsDt": "2025-02-18 13:30",
+      "latestObsDt": "2025-02-19 06:50",
       "numSpeciesAllTime": 64
     },
     "宜蘭--太平山國家森林遊樂區平元林道(Yilan--Taipingshan NFRA Pingyuan Forest-Road)": {
@@ -21580,7 +21580,7 @@
       "subnational1Code": "TW-ILA",
       "lat": 24.5149821,
       "lng": 121.6056383,
-      "latestObsDt": "2024-11-30 08:02",
+      "latestObsDt": "2025-02-19 10:30",
       "numSpeciesAllTime": 100
     },
     "宜蘭--太平山國家森林遊樂區翠峰湖環湖步道西口觀湖平台(Yilan--Taipingshan NFRA Cuifeng Lake Trail West Entrance Viewing Platform)": {
@@ -21700,7 +21700,7 @@
       "subnational1Code": "TW-ILA",
       "lat": 24.7274596,
       "lng": 121.7619306,
-      "latestObsDt": "2025-02-16 10:40",
+      "latestObsDt": "2025-02-23 09:52",
       "numSpeciesAllTime": 100
     },
     "宜蘭--宜蘭運動公園(含周邊水田)(Yilan--Yilan Sport Park (including nearby Paddyfields))": {
@@ -22000,7 +22000,7 @@
       "subnational1Code": "TW-ILA",
       "lat": 24.614892,
       "lng": 121.8561137,
-      "latestObsDt": "2025-02-17 14:56",
+      "latestObsDt": "2025-02-23 11:45",
       "numSpeciesAllTime": 225
     },
     "宜蘭--石城漁港(Yilan--Shicheng Harbor)": {
@@ -22250,7 +22250,7 @@
       "subnational1Code": "TW-ILA",
       "lat": 24.8681208,
       "lng": 121.8336298,
-      "latestObsDt": "2025-01-11 10:22",
+      "latestObsDt": "2025-02-20 16:00",
       "numSpeciesAllTime": 98
     },
     "宜蘭--蘭陽平原全區(歷史記錄用)(Yilan--Lanyang Plain(Historical Reports Only))": {
@@ -22320,7 +22320,7 @@
       "subnational1Code": "TW-ILA",
       "lat": 24.6392743,
       "lng": 121.8430191,
-      "latestObsDt": "2025-02-17 12:59",
+      "latestObsDt": "2025-02-21 17:00",
       "numSpeciesAllTime": 267
     },
     "宜蘭--頭城中崙路(Yilan--Toucheng Zhonglun Road)": {
@@ -22330,7 +22330,7 @@
       "subnational1Code": "TW-ILA",
       "lat": 24.8349857,
       "lng": 121.7997285,
-      "latestObsDt": "2024-12-26 08:41",
+      "latestObsDt": "2025-02-21 10:33",
       "numSpeciesAllTime": 83
     },
     "宜蘭--頭城北觀休閒農場(Yilan--Toucheng Beiguan Resort)": {
@@ -22428,7 +22428,7 @@
       "subnational1Code": "TW-ILA",
       "lat": 24.6599371,
       "lng": 121.8184608,
-      "latestObsDt": "2025-02-17 08:46",
+      "latestObsDt": "2025-02-17 09:54",
       "numSpeciesAllTime": 252
     },
     "宜蘭利澤簡IBA--冬山伯朗大道(Lizejian IBA--Dongshan Mr. Brown Avenue)": {
@@ -22448,7 +22448,7 @@
       "subnational1Code": "TW-ILA",
       "lat": 24.6707239,
       "lng": 121.8090915,
-      "latestObsDt": "2025-02-12 14:47",
+      "latestObsDt": "2025-02-18 16:22",
       "numSpeciesAllTime": 51
     },
     "宜蘭竹安IBA--下埔(Zhu'an IBA--Xiapu)": {
@@ -22458,7 +22458,7 @@
       "subnational1Code": "TW-ILA",
       "lat": 24.8370696,
       "lng": 121.8140138,
-      "latestObsDt": "2025-02-17 09:14",
+      "latestObsDt": "2025-02-20 12:05",
       "numSpeciesAllTime": 265
     },
     "宜蘭竹安IBA--全區(建議分區紀錄)(Zhu'an IBA)(Recommended to use Specific Hotspot)": {
@@ -22478,7 +22478,7 @@
       "subnational1Code": "TW-ILA",
       "lat": 24.8042363,
       "lng": 121.8025564,
-      "latestObsDt": "2025-01-18 15:33",
+      "latestObsDt": "2025-02-19 13:51",
       "numSpeciesAllTime": 247
     },
     "宜蘭竹安IBA--大塭路(Zhu'an IBA--Dawen Road)": {
@@ -22488,7 +22488,7 @@
       "subnational1Code": "TW-ILA",
       "lat": 24.8168831,
       "lng": 121.7954712,
-      "latestObsDt": "2025-02-08 10:01",
+      "latestObsDt": "2025-02-20 11:50",
       "numSpeciesAllTime": 132
     },
     "宜蘭竹安IBA--大竹圍(Zhu'an IBA--Dazhuwei)": {
@@ -22508,7 +22508,7 @@
       "subnational1Code": "TW-ILA",
       "lat": 24.8158377,
       "lng": 121.8081072,
-      "latestObsDt": "2025-02-15 12:07",
+      "latestObsDt": "2025-02-19 09:12",
       "numSpeciesAllTime": 136
     },
     "宜蘭竹安IBA--洲仔尾(Zhu'an IBA--Zhouzaiwei)": {
@@ -22528,7 +22528,7 @@
       "subnational1Code": "TW-ILA",
       "lat": 24.8230874,
       "lng": 121.8084384,
-      "latestObsDt": "2025-02-17 17:08",
+      "latestObsDt": "2025-02-23 10:06",
       "numSpeciesAllTime": 234
     },
     "宜蘭竹安IBA--竹安溪口(Zhu'an IBA--Zhu'an River Mouth)": {
@@ -22558,7 +22558,7 @@
       "subnational1Code": "TW-ILA",
       "lat": 24.823311,
       "lng": 121.7943907,
-      "latestObsDt": "2025-02-17 10:22",
+      "latestObsDt": "2025-02-21 10:52",
       "numSpeciesAllTime": 221
     },
     "宜蘭竹安IBA--頂埔(Zhu'an IBA--Dingpu)": {
@@ -22578,7 +22578,7 @@
       "subnational1Code": "TW-ILA",
       "lat": 24.7113576,
       "lng": 121.8272523,
-      "latestObsDt": "2025-02-11 15:50",
+      "latestObsDt": "2025-02-22 17:18",
       "numSpeciesAllTime": 338
     },
     "宜蘭蘭陽溪口IBA--北岸(Lanyang River Estuary IBA--North Shore)": {
@@ -22588,7 +22588,7 @@
       "subnational1Code": "TW-ILA",
       "lat": 24.7150047,
       "lng": 121.8292594,
-      "latestObsDt": "2025-02-13 13:05",
+      "latestObsDt": "2025-02-20 13:00",
       "numSpeciesAllTime": 249
     },
     "宜蘭蘭陽溪口IBA--北岸東港防風林(Lanyang River Estuary IBA---Donggang Coastal Forest)": {
@@ -22648,7 +22648,7 @@
       "subnational1Code": "TW-ILA",
       "lat": 24.7211099,
       "lng": 121.8077428,
-      "latestObsDt": "2025-02-17 14:11",
+      "latestObsDt": "2025-02-22 16:57",
       "numSpeciesAllTime": 234
     },
     "宜蘭蘭陽溪口IBA--美福大排(Lanyang River Estuary IBA--Meifu Ditch)": {
@@ -22728,8 +22728,8 @@
       "subnational1Code": "TW-PIF",
       "lat": 22.4903341,
       "lng": 120.6051287,
-      "latestObsDt": "2020-10-04 07:53",
-      "numSpeciesAllTime": 29
+      "latestObsDt": "2025-02-20 16:12",
+      "numSpeciesAllTime": 34
     },
     "屏東--僑德國小(Pingtung--Qiaode Primary School)": {
       "locId": "L35286202",
@@ -22758,8 +22758,8 @@
       "subnational1Code": "TW-PIF",
       "lat": 22.6597398,
       "lng": 120.5587453,
-      "latestObsDt": "2025-02-16 16:31",
-      "numSpeciesAllTime": 98
+      "latestObsDt": "2025-02-23 12:01",
+      "numSpeciesAllTime": 99
     },
     "屏東--北大武山(Pingtung--Mt. North Dawu)": {
       "locId": "L8608185",
@@ -22898,7 +22898,7 @@
       "subnational1Code": "TW-PIF",
       "lat": 22.4437954,
       "lng": 120.4909873,
-      "latestObsDt": "2025-02-04 11:09",
+      "latestObsDt": "2025-02-22 09:04",
       "numSpeciesAllTime": 128
     },
     "屏東--大鵬灣大潭濕地公園(Pingtung--Dapeng Bay Datan Wetland Park)": {
@@ -22988,7 +22988,7 @@
       "subnational1Code": "TW-PIF",
       "lat": 22.711075,
       "lng": 120.5081964,
-      "latestObsDt": "2025-02-16 15:12",
+      "latestObsDt": "2025-02-23 10:22",
       "numSpeciesAllTime": 122
     },
     "屏東--屏東科技大學(Pingtung--Pingtung University of Science and Technology)": {
@@ -22998,7 +22998,7 @@
       "subnational1Code": "TW-PIF",
       "lat": 22.6445117,
       "lng": 120.6114721,
-      "latestObsDt": "2025-02-17 12:37",
+      "latestObsDt": "2025-02-21 11:18",
       "numSpeciesAllTime": 185
     },
     "屏東--屏東科技大學牧場(Pingtung--NPUST Ranch)": {
@@ -23178,8 +23178,8 @@
       "subnational1Code": "TW-PIF",
       "lat": 22.5640859,
       "lng": 120.5385905,
-      "latestObsDt": "2025-02-18 06:13",
-      "numSpeciesAllTime": 93
+      "latestObsDt": "2025-02-21 07:14",
+      "numSpeciesAllTime": 94
     },
     "屏東--東港溪老埤段(Pingtung--Donggang River Laopi Section)": {
       "locId": "L5119091",
@@ -23188,8 +23188,8 @@
       "subnational1Code": "TW-PIF",
       "lat": 22.6267662,
       "lng": 120.5964635,
-      "latestObsDt": "2025-02-18 16:28",
-      "numSpeciesAllTime": 146
+      "latestObsDt": "2025-02-19 15:08",
+      "numSpeciesAllTime": 147
     },
     "屏東--東港船頭/東新路農田濕地(Pingtung--Donggang Chuantou/Dongshin Wetland)": {
       "locId": "L3937765",
@@ -23238,7 +23238,7 @@
       "subnational1Code": "TW-PIF",
       "lat": 22.5396596,
       "lng": 120.5876487,
-      "latestObsDt": "2025-02-18 14:36",
+      "latestObsDt": "2025-02-22 16:09",
       "numSpeciesAllTime": 117
     },
     "屏東--林邊光采濕地(Pingtung--Linbian Guangcai Wetland)": {
@@ -23258,7 +23258,7 @@
       "subnational1Code": "TW-PIF",
       "lat": 22.4315695,
       "lng": 120.4893491,
-      "latestObsDt": "2025-02-04 10:19",
+      "latestObsDt": "2025-02-23 13:47",
       "numSpeciesAllTime": 150
     },
     "屏東--林邊溪口(Pingtung--Linbian River Mouth)": {
@@ -23268,7 +23268,7 @@
       "subnational1Code": "TW-PIF",
       "lat": 22.4279088,
       "lng": 120.521661,
-      "latestObsDt": "2025-01-19 10:44",
+      "latestObsDt": "2025-02-22 09:56",
       "numSpeciesAllTime": 109
     },
     "屏東--林邊濕地(Pingtung--Linbian Wetland)": {
@@ -23458,7 +23458,7 @@
       "subnational1Code": "TW-PIF",
       "lat": 22.702306,
       "lng": 120.6473869,
-      "latestObsDt": "2025-01-08 15:33",
+      "latestObsDt": "2025-02-21 09:52",
       "numSpeciesAllTime": 114
     },
     "屏東--瑪家鄉全區(Pingtung--Majia Township)": {
@@ -23508,7 +23508,7 @@
       "subnational1Code": "TW-PIF",
       "lat": 22.6996386,
       "lng": 120.6442487,
-      "latestObsDt": "2024-12-21 11:15",
+      "latestObsDt": "2025-02-21 09:36",
       "numSpeciesAllTime": 82
     },
     "屏東--萬丹萬新吊橋(Pingtung--Wandan Wanxin Suspension Bridge)": {
@@ -23628,7 +23628,7 @@
       "subnational1Code": "TW-PIF",
       "lat": 22.2173143,
       "lng": 120.7994333,
-      "latestObsDt": "2025-02-04 14:00",
+      "latestObsDt": "2025-02-23 11:05",
       "numSpeciesAllTime": 87
     },
     "屏東--霧台阿禮(Pingtung--Wutai Ali)": {
@@ -23658,7 +23658,7 @@
       "subnational1Code": "TW-PIF",
       "lat": 21.9900889,
       "lng": 120.7399607,
-      "latestObsDt": "2025-02-16 06:56",
+      "latestObsDt": "2025-02-22 14:54",
       "numSpeciesAllTime": 208
     },
     "屏東--龍鑾潭東側魚塭(Pingtung--Longluan Lake Eastern Fish Ponds)": {
@@ -23918,8 +23918,8 @@
       "subnational1Code": "TW-CHA",
       "lat": 23.8410181,
       "lng": 120.4977036,
-      "latestObsDt": "2025-01-31 16:45",
-      "numSpeciesAllTime": 75
+      "latestObsDt": "2025-02-23 10:47",
+      "numSpeciesAllTime": 77
     },
     "彰化--王功全區(Changhua--Wanggong)": {
       "locId": "L4969105",
@@ -23938,7 +23938,7 @@
       "subnational1Code": "TW-CHA",
       "lat": 23.9512117,
       "lng": 120.321917,
-      "latestObsDt": "2025-02-18 13:52",
+      "latestObsDt": "2025-02-19 16:31",
       "numSpeciesAllTime": 148
     },
     "彰化--王功海堤(Changhua--Wanggong Seawall)": {
@@ -23978,7 +23978,7 @@
       "subnational1Code": "TW-CHA",
       "lat": 23.8977933,
       "lng": 120.6192862,
-      "latestObsDt": "2025-01-17 11:28",
+      "latestObsDt": "2025-02-21 14:43",
       "numSpeciesAllTime": 53
     },
     "彰化--社頭草仔埤巷(Changhua--Shetou Ln. Caozaipi)": {
@@ -23988,8 +23988,8 @@
       "subnational1Code": "TW-CHA",
       "lat": 23.9063504,
       "lng": 120.5809643,
-      "latestObsDt": "2025-01-30 08:41",
-      "numSpeciesAllTime": 88
+      "latestObsDt": "2025-02-23 08:10",
+      "numSpeciesAllTime": 89
     },
     "彰化--福寶海堤(Changhua--Fubao Seawall)": {
       "locId": "L2277515",
@@ -24008,7 +24008,7 @@
       "subnational1Code": "TW-CHA",
       "lat": 24.0485411,
       "lng": 120.3956535,
-      "latestObsDt": "2025-02-11 15:20",
+      "latestObsDt": "2025-02-20 08:48",
       "numSpeciesAllTime": 163
     },
     "彰化--芬園文德國小賞鷹平台(Changhua--Wende Elementary School Raptor-watching Platform)": {
@@ -24068,7 +24068,7 @@
       "subnational1Code": "TW-CHA",
       "lat": 23.9225664,
       "lng": 120.3116333,
-      "latestObsDt": "2024-12-29 08:39",
+      "latestObsDt": "2025-02-20 13:40",
       "numSpeciesAllTime": 109
     },
     "彰化--芳苑普天宮(Changhua--Fangyuan Putian Temple)": {
@@ -24189,7 +24189,7 @@
       "lat": 23.8609171,
       "lng": 120.2592932,
       "latestObsDt": "2024-12-29 08:39",
-      "numSpeciesAllTime": 68
+      "numSpeciesAllTime": 69
     },
     "彰化大城濕地IBA--調查樣點#2(Dacheng Wetland IBA--Sampling Point #2)": {
       "locId": "L3797990",
@@ -24278,7 +24278,7 @@
       "subnational1Code": "TW-CHA",
       "lat": 24.0119141,
       "lng": 120.3552105,
-      "latestObsDt": "2025-02-15 12:50",
+      "latestObsDt": "2025-02-19 09:55",
       "numSpeciesAllTime": 122
     },
     "彰化漢寶濕地IBA--漢寶海堤(Hanbao Wetland IBA--Hanbao Seawall)": {
@@ -24308,7 +24308,7 @@
       "subnational1Code": "TW-CHA",
       "lat": 24.001071,
       "lng": 120.355674,
-      "latestObsDt": "2025-02-15 13:00",
+      "latestObsDt": "2025-02-19 14:28",
       "numSpeciesAllTime": 78
     },
     "彰化漢寶濕地IBA--漢寶退潮外灘地(Hanbao Wetland IBA--Mudflat on Low Tide)": {
@@ -24488,7 +24488,7 @@
       "subnational1Code": "TW-HSZ",
       "lat": 24.7917215,
       "lng": 120.9854794,
-      "latestObsDt": "2025-02-01 14:51",
+      "latestObsDt": "2025-02-22 15:46",
       "numSpeciesAllTime": 53
     },
     "新竹--南寮漁港(Hsinchu--Nanliao Harbor)": {
@@ -24538,7 +24538,7 @@
       "subnational1Code": "TW-HSQ",
       "lat": 24.8572716,
       "lng": 121.0092905,
-      "latestObsDt": "2024-12-22 14:15",
+      "latestObsDt": "2025-02-21 20:08",
       "numSpeciesAllTime": 19
     },
     "新竹--國3關西服務區(Hsinchu--Formosa FWY Guanxi Service Area)": {
@@ -24558,7 +24558,7 @@
       "subnational1Code": "TW-HSZ",
       "lat": 24.788593,
       "lng": 120.9995438,
-      "latestObsDt": "2025-02-14 11:16",
+      "latestObsDt": "2025-02-21 16:51",
       "numSpeciesAllTime": 61
     },
     "新竹--國立陽明交通大學西區滯洪池(Hsinchu--National Yang Ming Chiao Tung University Western District Detention Pond)": {
@@ -24808,7 +24808,7 @@
       "subnational1Code": "TW-HSQ",
       "lat": 24.7723143,
       "lng": 121.0468177,
-      "latestObsDt": "2025-02-13 12:28",
+      "latestObsDt": "2025-02-21 08:48",
       "numSpeciesAllTime": 36
     },
     "新竹--建功國小(Hsinchu--Jian Gong Primary School)": {
@@ -24858,7 +24858,7 @@
       "subnational1Code": "TW-HSZ",
       "lat": 24.7795528,
       "lng": 121.0126935,
-      "latestObsDt": "2025-02-10 18:49",
+      "latestObsDt": "2025-02-22 16:28",
       "numSpeciesAllTime": 39
     },
     "新竹--新豐光復圳10-1號池": {
@@ -25108,7 +25108,7 @@
       "subnational1Code": "TW-HSQ",
       "lat": 24.8885634,
       "lng": 121.0619936,
-      "latestObsDt": "2024-12-10 15:28",
+      "latestObsDt": "2025-02-22 18:16",
       "numSpeciesAllTime": 47
     },
     "新竹--湳雅公園(Hsinchu--Nanya Park)": {
@@ -25118,8 +25118,8 @@
       "subnational1Code": "TW-HSZ",
       "lat": 24.818764,
       "lng": 120.968692,
-      "latestObsDt": "2024-04-20 00:17",
-      "numSpeciesAllTime": 5
+      "latestObsDt": "2025-02-22 15:00",
+      "numSpeciesAllTime": 22
     },
     "新竹--溪埔子人工濕地(Hsinchu--Xipuzi Artificial Wetland)": {
       "locId": "L4894485",
@@ -25128,7 +25128,7 @@
       "subnational1Code": "TW-HSZ",
       "lat": 24.8268197,
       "lng": 120.9722453,
-      "latestObsDt": "2025-02-18 17:17",
+      "latestObsDt": "2025-02-20 17:46",
       "numSpeciesAllTime": 56
     },
     "新竹--獅潭仙山古道(Hsinchu--Shitan Xianshan Historic Trail)": {
@@ -25168,7 +25168,7 @@
       "subnational1Code": "TW-HSQ",
       "lat": 24.8367952,
       "lng": 120.975473,
-      "latestObsDt": "2025-02-15 14:14",
+      "latestObsDt": "2025-02-23 14:08",
       "numSpeciesAllTime": 105
     },
     "新竹--竹北豆子埔溪(安溪寮橋-光明十一路)(Hsinchu--Zhubei Douzipu River (between Anxiliao Bridge & Guangming 11th Rd.))": {
@@ -25398,7 +25398,7 @@
       "subnational1Code": "TW-HSZ",
       "lat": 24.8394814,
       "lng": 120.9218217,
-      "latestObsDt": "2025-02-16 10:14",
+      "latestObsDt": "2025-02-23 12:19",
       "numSpeciesAllTime": 172
     },
     "新竹濱海IBA--天府路(Hsinchu Coast IBA--Tianfu Road)": {
@@ -25438,7 +25438,7 @@
       "subnational1Code": "TW-HSZ",
       "lat": 24.8249477,
       "lng": 120.9196016,
-      "latestObsDt": "2025-02-16 14:31",
+      "latestObsDt": "2025-02-22 11:35",
       "numSpeciesAllTime": 321
     },
     "新竹濱海IBA--港南濱海風景區(Hsinchu Coast IBA--Gangnan Coastal Scenic Area)": {
@@ -25448,8 +25448,8 @@
       "subnational1Code": "TW-HSZ",
       "lat": 24.8228273,
       "lng": 120.9103346,
-      "latestObsDt": "2025-02-16 07:38",
-      "numSpeciesAllTime": 129
+      "latestObsDt": "2025-02-22 11:06",
+      "numSpeciesAllTime": 130
     },
     "新竹濱海IBA--港南金城湖(Hsinchu Coast IBA--Gangnan Jincheng Lake)": {
       "locId": "L1966013",
@@ -25458,7 +25458,7 @@
       "subnational1Code": "TW-HSZ",
       "lat": 24.8110443,
       "lng": 120.910635,
-      "latestObsDt": "2025-02-18 15:07",
+      "latestObsDt": "2025-02-23 09:46",
       "numSpeciesAllTime": 268
     },
     "新竹濱海IBA--美山大庄(Hsinchu Coast IBA--Meishan Dazhuang)": {
@@ -25528,7 +25528,7 @@
       "subnational1Code": "TW-TAO",
       "lat": 24.9806725,
       "lng": 121.291807,
-      "latestObsDt": "2025-02-17 07:54",
+      "latestObsDt": "2025-02-20 10:07",
       "numSpeciesAllTime": 62
     },
     "桃園--中壢17B池": {
@@ -25538,7 +25538,7 @@
       "subnational1Code": "TW-TAO",
       "lat": 24.9787919,
       "lng": 121.2233779,
-      "latestObsDt": "2025-02-06 09:21",
+      "latestObsDt": "2025-02-19 15:30",
       "numSpeciesAllTime": 27
     },
     "桃園--中壢光明公園(Taoyuan--Zhongli Guangming Park)": {
@@ -26008,7 +26008,7 @@
       "subnational1Code": "TW-TAO",
       "lat": 24.9638254,
       "lng": 121.2192392,
-      "latestObsDt": "2025-02-01 14:14",
+      "latestObsDt": "2025-02-22 17:43",
       "numSpeciesAllTime": 44
     },
     "桃園--中壢豫章湖": {
@@ -26178,8 +26178,8 @@
       "subnational1Code": "TW-TAO",
       "lat": 24.9718591,
       "lng": 121.1996806,
-      "latestObsDt": "2024-12-15 12:47",
-      "numSpeciesAllTime": 24
+      "latestObsDt": "2025-02-21 21:10",
+      "numSpeciesAllTime": 26
     },
     "桃園--中壢青埔大埤": {
       "locId": "L6782901",
@@ -26328,7 +26328,7 @@
       "subnational1Code": "TW-TAO",
       "lat": 24.9544332,
       "lng": 121.3014149,
-      "latestObsDt": "2025-02-16 08:59",
+      "latestObsDt": "2025-02-23 11:10",
       "numSpeciesAllTime": 88
     },
     "桃園--八德玉山公園(Taoyuan--Bade Yushan Park)": {
@@ -26348,7 +26348,7 @@
       "subnational1Code": "TW-TAO",
       "lat": 24.97793,
       "lng": 121.277721,
-      "latestObsDt": "2025-01-21 07:27",
+      "latestObsDt": "2025-02-19 07:38",
       "numSpeciesAllTime": 47
     },
     "桃園--劉明埤(Taoyuan--Liuming Pond)": {
@@ -26438,7 +26438,7 @@
       "subnational1Code": "TW-TAO",
       "lat": 25.001504,
       "lng": 121.3194852,
-      "latestObsDt": "2025-02-11 07:52",
+      "latestObsDt": "2025-02-21 18:15",
       "numSpeciesAllTime": 62
     },
     "桃園--南崁溪(長安橋-長興橋)(Taoyuan--Nankan River (between Chang'an Bridge & Changxing Bridge))": {
@@ -26508,8 +26508,8 @@
       "subnational1Code": "TW-TAO",
       "lat": 25.0310847,
       "lng": 121.3876421,
-      "latestObsDt": "2024-05-25 14:33",
-      "numSpeciesAllTime": 24
+      "latestObsDt": "2025-02-20 16:01",
+      "numSpeciesAllTime": 27
     },
     "桃園--塔曼山登山步道(Taoyuan--Mt. Tamen Hiking Trail)": {
       "locId": "L20541717",
@@ -26948,7 +26948,7 @@
       "subnational1Code": "TW-TAO",
       "lat": 25.0522462,
       "lng": 121.1727029,
-      "latestObsDt": "2025-02-16 09:49",
+      "latestObsDt": "2025-02-20 12:43",
       "numSpeciesAllTime": 69
     },
     "桃園--大園桃園大圳8-32號池": {
@@ -26988,7 +26988,7 @@
       "subnational1Code": "TW-TAO",
       "lat": 25.1040861,
       "lng": 121.2245286,
-      "latestObsDt": "2025-02-06 15:15",
+      "latestObsDt": "2025-02-22 11:32",
       "numSpeciesAllTime": 105
     },
     "桃園--大園沙崙魚池(Taoyuan--Dayuan Shalun Fish Pond)": {
@@ -26998,7 +26998,7 @@
       "subnational1Code": "TW-TAO",
       "lat": 25.0899131,
       "lng": 121.2233377,
-      "latestObsDt": "2025-02-16 12:17",
+      "latestObsDt": "2025-02-22 15:49",
       "numSpeciesAllTime": 87
     },
     "桃園--大園海湖埤(Taoyuan--Dayuan Haihu Pond)": {
@@ -27238,8 +27238,8 @@
       "subnational1Code": "TW-TAO",
       "lat": 24.8849561,
       "lng": 121.259424,
-      "latestObsDt": "2025-02-15 12:09",
-      "numSpeciesAllTime": 16
+      "latestObsDt": "2025-02-23 12:38",
+      "numSpeciesAllTime": 20
     },
     "桃園--大溪沉澱池(Taoyuan--Daxi Sedimentation Ponds)": {
       "locId": "L3999797",
@@ -28198,7 +28198,7 @@
       "subnational1Code": "TW-TAO",
       "lat": 24.8969764,
       "lng": 121.2976348,
-      "latestObsDt": "2024-10-18 08:14",
+      "latestObsDt": "2025-02-22 08:20",
       "numSpeciesAllTime": 74
     },
     "桃園--東眼山森林遊樂區(Taoyuan--Dongyanshan Forest Recreation Area)": {
@@ -28208,7 +28208,7 @@
       "subnational1Code": "TW-TAO",
       "lat": 24.831104,
       "lng": 121.4085227,
-      "latestObsDt": "2025-02-15 14:58",
+      "latestObsDt": "2025-02-22 15:03",
       "numSpeciesAllTime": 102
     },
     "桃園--林口長庚醫院長庚湖(Taoyuan--Lake of Linkou Chang Gung Memorial Hospital)": {
@@ -28218,8 +28218,8 @@
       "subnational1Code": "TW-TAO",
       "lat": 25.0618583,
       "lng": 121.3655269,
-      "latestObsDt": "2024-08-18 08:52",
-      "numSpeciesAllTime": 36
+      "latestObsDt": "2025-02-21 17:00",
+      "numSpeciesAllTime": 37
     },
     "桃園--桃園國際棒球場(Taoyuan--Taoyuan International Baseball Stadium)": {
       "locId": "L6466864",
@@ -28538,8 +28538,8 @@
       "subnational1Code": "TW-TAO",
       "lat": 24.816206,
       "lng": 121.259981,
-      "latestObsDt": "2024-11-23 10:18",
-      "numSpeciesAllTime": 31
+      "latestObsDt": "2025-02-22 11:42",
+      "numSpeciesAllTime": 32
     },
     "桃園--瑞興濕地公園(Taoyuan--Ruixing Wetland Park)": {
       "locId": "L31076410",
@@ -28578,7 +28578,7 @@
       "subnational1Code": "TW-TAO",
       "lat": 24.8124766,
       "lng": 121.2572608,
-      "latestObsDt": "2025-02-16 14:38",
+      "latestObsDt": "2025-02-22 20:25",
       "numSpeciesAllTime": 50
     },
     "桃園--石門水庫槭林公園(Taoyuan--Shimen Reservoir Maple Park)": {
@@ -28818,7 +28818,7 @@
       "subnational1Code": "TW-TAO",
       "lat": 25.0204917,
       "lng": 121.269114,
-      "latestObsDt": "2024-12-22 13:21",
+      "latestObsDt": "2025-02-22 10:03",
       "numSpeciesAllTime": 43
     },
     "桃園--蘆竹桃園大圳2-16號池": {
@@ -28918,8 +28918,8 @@
       "subnational1Code": "TW-TAO",
       "lat": 24.9975937,
       "lng": 121.2763672,
-      "latestObsDt": "2024-12-25 12:58",
-      "numSpeciesAllTime": 43
+      "latestObsDt": "2025-02-20 07:41",
+      "numSpeciesAllTime": 45
     },
     "桃園--蘆竹長興休閒埤塘公園": {
       "locId": "L6708725",
@@ -28948,8 +28948,8 @@
       "subnational1Code": "TW-TAO",
       "lat": 24.9542885,
       "lng": 121.0306867,
-      "latestObsDt": "2025-02-17 12:44",
-      "numSpeciesAllTime": 50
+      "latestObsDt": "2025-02-20 12:38",
+      "numSpeciesAllTime": 51
     },
     "桃園--觀音7號埤": {
       "locId": "L6685977",
@@ -29218,7 +29218,7 @@
       "subnational1Code": "TW-TAO",
       "lat": 25.01642,
       "lng": 121.083833,
-      "latestObsDt": "2025-01-30 14:37",
+      "latestObsDt": "2025-02-22 14:16",
       "numSpeciesAllTime": 60
     },
     "桃園--觀音桃園大圳8-20號池": {
@@ -29478,8 +29478,8 @@
       "subnational1Code": "TW-TAO",
       "lat": 25.0336022,
       "lng": 121.3883788,
-      "latestObsDt": "2024-05-23 06:30",
-      "numSpeciesAllTime": 56
+      "latestObsDt": "2025-02-21 16:00",
+      "numSpeciesAllTime": 57
     },
     "桃園--陸軍化生放核訓練中心(Taoyuan--Chemical, Biological, Radiological and Nuclear Training Center)": {
       "locId": "L27983726",
@@ -29518,7 +29518,7 @@
       "subnational1Code": "TW-TAO",
       "lat": 25.013665,
       "lng": 121.215475,
-      "latestObsDt": "2025-01-21 09:58",
+      "latestObsDt": "2025-02-21 22:05",
       "numSpeciesAllTime": 32
     },
     "桃園--龍岡大操場(Taoyuan--Longgang Playground)": {
@@ -30178,8 +30178,8 @@
       "subnational1Code": "TW-TAO",
       "lat": 25.0882583,
       "lng": 121.1989738,
-      "latestObsDt": "2025-02-12 08:26",
-      "numSpeciesAllTime": 209
+      "latestObsDt": "2025-02-20 08:44",
+      "numSpeciesAllTime": 210
     },
     "桃園大坪頂與許厝港IBA--埔心溪口(Dapingding and Xucuogang IBA--Puxin River Estuary)": {
       "locId": "L2727018",
@@ -30198,7 +30198,7 @@
       "subnational1Code": "TW-TAO",
       "lat": 25.08236,
       "lng": 121.19792,
-      "latestObsDt": "2025-02-18 08:38",
+      "latestObsDt": "2025-02-22 15:24",
       "numSpeciesAllTime": 207
     },
     "桃園大坪頂與許厝港IBA--大坪頂(Dapingding and Xucuogang IBA--Dapingding)": {
@@ -30218,7 +30218,7 @@
       "subnational1Code": "TW-TAO",
       "lat": 25.0861382,
       "lng": 121.2001929,
-      "latestObsDt": "2025-02-16 15:00",
+      "latestObsDt": "2025-02-22 15:04",
       "numSpeciesAllTime": 178
     },
     "桃園大坪頂與許厝港IBA--新街-埔心溪口間潮間帶(Dapingding and Xucuogang IBA--Intertidal Area between Xinjie & Puxin River)": {
@@ -30248,7 +30248,7 @@
       "subnational1Code": "TW-TAO",
       "lat": 25.0868038,
       "lng": 121.1748433,
-      "latestObsDt": "2025-02-06 13:42",
+      "latestObsDt": "2025-02-22 14:30",
       "numSpeciesAllTime": 240
     },
     "桃園大坪頂與許厝港IBA--許厝港復育區(Dapingding and Xucuogang IBA--Xucuogang Conservation Area)": {
@@ -30268,8 +30268,8 @@
       "subnational1Code": "TW-TAO",
       "lat": 25.085322,
       "lng": 121.177589,
-      "latestObsDt": "2025-02-03 07:58",
-      "numSpeciesAllTime": 87
+      "latestObsDt": "2025-02-22 14:54",
+      "numSpeciesAllTime": 88
     },
     "桃園市--台塑樂活圈(Taoyuan City--Formosa Plastics Group Formosa Lohas)": {
       "locId": "L28251844",
@@ -30348,7 +30348,7 @@
       "subnational1Code": "TW-PEN",
       "lat": 23.5582242,
       "lng": 119.6102571,
-      "latestObsDt": "2025-01-21 08:48",
+      "latestObsDt": "2025-02-20 10:26",
       "numSpeciesAllTime": 122
     },
     "澎湖--姑婆嶼(Penghu--Koba Island)": {
@@ -31614,7 +31614,7 @@
       "subnational1Code": "TW-NAN",
       "lat": 23.4780038,
       "lng": 120.891123,
-      "latestObsDt": "2025-02-10 16:57",
+      "latestObsDt": "2025-02-23 13:44",
       "numSpeciesAllTime": 85
     },
     "玉山NP--塔塔加招待所(Yushan NP--Tataka Boarding House)": {
@@ -31644,7 +31644,7 @@
       "subnational1Code": "TW-NAN",
       "lat": 23.4873108,
       "lng": 120.8902127,
-      "latestObsDt": "2025-02-10 15:06",
+      "latestObsDt": "2025-02-23 09:06",
       "numSpeciesAllTime": 130
     },
     "玉山NP--塔塔加鞍部(Yushan NP--Tataka Saddle)": {
@@ -31654,7 +31654,7 @@
       "subnational1Code": "TW-NAN",
       "lat": 23.4757807,
       "lng": 120.8999276,
-      "latestObsDt": "2024-11-24 10:00",
+      "latestObsDt": "2025-02-23 10:42",
       "numSpeciesAllTime": 81
     },
     "玉山NP--大分山屋(Yushan NP--Dafen Cabin)": {
@@ -32004,7 +32004,7 @@
       "subnational1Code": "TW-NAN",
       "lat": 23.53358,
       "lng": 120.90875,
-      "latestObsDt": "2025-02-16 16:31",
+      "latestObsDt": "2025-02-19 08:42",
       "numSpeciesAllTime": 78
     },
     "玉山NP--觀峰觀景台(Yushan NP--Guanfeng Lookout)": {
@@ -32094,8 +32094,8 @@
       "subnational1Code": "TW-NAN",
       "lat": 23.4757226,
       "lng": 120.8938926,
-      "latestObsDt": "2024-10-17 06:08",
-      "numSpeciesAllTime": 63
+      "latestObsDt": "2025-02-23 12:32",
+      "numSpeciesAllTime": 64
     },
     "玉山NP--麟趾山登山口(Yushan NP--Mt. Linzhi Hiking Gate)": {
       "locId": "L4020124",
@@ -32404,8 +32404,8 @@
       "subnational1Code": "TW-HUA",
       "lat": 24.0063536,
       "lng": 121.5984132,
-      "latestObsDt": "2024-02-18 14:10",
-      "numSpeciesAllTime": 94
+      "latestObsDt": "2025-02-19 06:36",
+      "numSpeciesAllTime": 95
     },
     "花蓮--卓溪太平東西溪(豐坪溪)合流口(Hualien--Zhuoxi Taiping East & West Rivers (Fengping River) Confluence)": {
       "locId": "L19832551",
@@ -32474,7 +32474,7 @@
       "subnational1Code": "TW-HUA",
       "lat": 23.8988932,
       "lng": 121.5458835,
-      "latestObsDt": "2025-02-18 16:16",
+      "latestObsDt": "2025-02-22 15:47",
       "numSpeciesAllTime": 147
     },
     "花蓮--壽豐牛山(Hualien--Shoufeng Niushan)": {
@@ -32534,7 +32534,7 @@
       "subnational1Code": "TW-HUA",
       "lat": 23.6157813,
       "lng": 121.4149708,
-      "latestObsDt": "2025-02-09 11:27",
+      "latestObsDt": "2025-02-23 10:24",
       "numSpeciesAllTime": 145
     },
     "花蓮--安通步道(Hualien--Antong Trail)": {
@@ -32724,7 +32724,7 @@
       "subnational1Code": "TW-HUA",
       "lat": 23.4192931,
       "lng": 121.3501096,
-      "latestObsDt": "2025-02-11 11:20",
+      "latestObsDt": "2025-02-20 08:26",
       "numSpeciesAllTime": 205
     },
     "花蓮--玉里三民/大禹全區(Hualien--Yuli Sanmin/Dayu)": {
@@ -32734,7 +32734,7 @@
       "subnational1Code": "TW-HUA",
       "lat": 23.3939424,
       "lng": 121.3397026,
-      "latestObsDt": "2025-01-10 07:37",
+      "latestObsDt": "2025-02-20 13:46",
       "numSpeciesAllTime": 83
     },
     "花蓮--玉里三民車站(Hualien--Yuli TRA Sanming Station)": {
@@ -32874,8 +32874,8 @@
       "subnational1Code": "TW-HUA",
       "lat": 23.889021,
       "lng": 121.5024778,
-      "latestObsDt": "2025-02-05 13:55",
-      "numSpeciesAllTime": 113
+      "latestObsDt": "2025-02-21 07:08",
+      "numSpeciesAllTime": 115
     },
     "花蓮--石梯坪(Hualien--Shitiping)": {
       "locId": "L4362750",
@@ -32884,8 +32884,8 @@
       "subnational1Code": "TW-HUA",
       "lat": 23.4885765,
       "lng": 121.5134132,
-      "latestObsDt": "2024-12-25 10:07",
-      "numSpeciesAllTime": 93
+      "latestObsDt": "2025-02-19 14:21",
+      "numSpeciesAllTime": 94
     },
     "花蓮--石梯坪海域(Hualien--Shitiping Sea Area)": {
       "locId": "L4356923",
@@ -33024,7 +33024,7 @@
       "subnational1Code": "TW-HUA",
       "lat": 23.9849195,
       "lng": 121.6099459,
-      "latestObsDt": "2025-01-14 14:13",
+      "latestObsDt": "2025-02-18 14:18",
       "numSpeciesAllTime": 91
     },
     "花蓮--美崙溪(新生橋)(Hualien--Meilun River (Xinsheng Bridge))": {
@@ -33274,7 +33274,7 @@
       "subnational1Code": "TW-MIA",
       "lat": 24.3671172,
       "lng": 120.7297284,
-      "latestObsDt": "2024-12-09 08:33",
+      "latestObsDt": "2025-02-22 12:56",
       "numSpeciesAllTime": 43
     },
     "苗栗--三義龍騰斷橋(Miaoli--Sanyi Longteng Bridge)": {
@@ -33374,7 +33374,7 @@
       "subnational1Code": "TW-MIA",
       "lat": 24.4488491,
       "lng": 120.8799644,
-      "latestObsDt": "2024-12-24 13:04",
+      "latestObsDt": "2025-02-22 11:03",
       "numSpeciesAllTime": 68
     },
     "苗栗--後龍溪下游(國3-新港大橋)(Miaoli--Houlong River Downstream (between Formosa FWY & Xingang Bridge))": {
@@ -33455,7 +33455,7 @@
       "lat": 24.4714669,
       "lng": 120.9870243,
       "latestObsDt": "2025-02-18 08:53",
-      "numSpeciesAllTime": 60
+      "numSpeciesAllTime": 61
     },
     "苗栗--火炎山生態教育館(Miaoli--Huoyanshan Nature Center)": {
       "locId": "L9939705",
@@ -33674,7 +33674,7 @@
       "subnational1Code": "TW-MIA",
       "lat": 24.518608,
       "lng": 120.725247,
-      "latestObsDt": "2025-02-18 09:10",
+      "latestObsDt": "2025-02-23 12:33",
       "numSpeciesAllTime": 75
     },
     "苗栗--通霄魚塭區(Miaoli--Tongxiao Fish Ponds)": {
@@ -33744,7 +33744,7 @@
       "subnational1Code": "TW-MIA",
       "lat": 24.4662558,
       "lng": 120.9664948,
-      "latestObsDt": "2025-01-09 07:00",
+      "latestObsDt": "2025-02-19 07:40",
       "numSpeciesAllTime": 55
     },
     "苗栗--高鐵苗栗站(Miaoli--THSR Miaoli Station)": {
@@ -33944,7 +33944,7 @@
       "subnational1Code": "TW-KIN",
       "lat": 24.4395702,
       "lng": 118.4257722,
-      "latestObsDt": "2025-02-12 13:51",
+      "latestObsDt": "2025-02-23 09:30",
       "numSpeciesAllTime": 155
     },
     "金門--小西門農地(Kinmen--Xiaoximen Farmland)": {
@@ -34014,7 +34014,7 @@
       "subnational1Code": "TW-KIN",
       "lat": 24.4472009,
       "lng": 118.4733465,
-      "latestObsDt": "2025-02-10 14:08",
+      "latestObsDt": "2025-02-20 14:33",
       "numSpeciesAllTime": 89
     },
     "金門--慈湖三角堡(Kinmen--Lake Ci Triangle Fort)": {
@@ -34054,7 +34054,7 @@
       "subnational1Code": "TW-KIN",
       "lat": 24.4631831,
       "lng": 118.3009482,
-      "latestObsDt": "2025-02-11 10:37",
+      "latestObsDt": "2025-02-23 07:28",
       "numSpeciesAllTime": 186
     },
     "金門--慈湖烏沙頭(Kinmen--Lake Ci Wusatou)": {
@@ -34084,7 +34084,7 @@
       "subnational1Code": "TW-KIN",
       "lat": 24.4761716,
       "lng": 118.3099866,
-      "latestObsDt": "2025-02-13 17:51",
+      "latestObsDt": "2025-02-21 10:40",
       "numSpeciesAllTime": 212
     },
     "金門--慈湖魚塭賞鳥區(Kinmen--Lake Ci Fishponds Birding Area)": {
@@ -34094,7 +34094,7 @@
       "subnational1Code": "TW-KIN",
       "lat": 24.4707091,
       "lng": 118.3123469,
-      "latestObsDt": "2025-02-18 06:46",
+      "latestObsDt": "2025-02-23 06:52",
       "numSpeciesAllTime": 233
     },
     "金門--斗門溪步道(Kinmen--Doumen Creek Trail)": {
@@ -34144,7 +34144,7 @@
       "subnational1Code": "TW-KIN",
       "lat": 24.4304236,
       "lng": 118.40996,
-      "latestObsDt": "2025-02-18 13:03",
+      "latestObsDt": "2025-02-23 13:41",
       "numSpeciesAllTime": 98
     },
     "金門--歐厝村(Kinmen--Oucuo Village)": {
@@ -34174,7 +34174,7 @@
       "subnational1Code": "TW-KIN",
       "lat": 24.4727207,
       "lng": 118.3235264,
-      "latestObsDt": "2025-02-18 07:09",
+      "latestObsDt": "2025-02-21 08:30",
       "numSpeciesAllTime": 200
     },
     "金門--浯江溪口(Kinmen--Wujiang River Estuary)": {
@@ -34184,7 +34184,7 @@
       "subnational1Code": "TW-KIN",
       "lat": 24.4282589,
       "lng": 118.3092141,
-      "latestObsDt": "2025-02-15 21:57",
+      "latestObsDt": "2025-02-21 12:37",
       "numSpeciesAllTime": 199
     },
     "金門--湖下海堤(Kinmen--Huxia Breakwater)": {
@@ -34224,7 +34224,7 @@
       "subnational1Code": "TW-KIN",
       "lat": 24.4280538,
       "lng": 118.2419068,
-      "latestObsDt": "2025-02-18 10:13",
+      "latestObsDt": "2025-02-20 08:56",
       "numSpeciesAllTime": 110
     },
     "金門--烈嶼清遠湖(Kinmen--Lieyu Qingyuan Lake)": {
@@ -34234,7 +34234,7 @@
       "subnational1Code": "TW-KIN",
       "lat": 24.4146215,
       "lng": 118.2231045,
-      "latestObsDt": "2025-01-07 11:21",
+      "latestObsDt": "2025-02-20 10:27",
       "numSpeciesAllTime": 130
     },
     "金門--烈嶼烈女廟(Kinmen--Lieyu Chaste Maiden Temple)": {
@@ -34254,7 +34254,7 @@
       "subnational1Code": "TW-KIN",
       "lat": 24.4246855,
       "lng": 118.2500044,
-      "latestObsDt": "2025-02-16 07:31",
+      "latestObsDt": "2025-02-20 08:04",
       "numSpeciesAllTime": 116
     },
     "金門--烈嶼菱湖水庫(Kinmen--Lieyu Linghu Reservoir)": {
@@ -34264,7 +34264,7 @@
       "subnational1Code": "TW-KIN",
       "lat": 24.447549,
       "lng": 118.244347,
-      "latestObsDt": "2025-02-06 13:03",
+      "latestObsDt": "2025-02-20 07:37",
       "numSpeciesAllTime": 117
     },
     "金門--烈嶼蓮湖水庫 (Kinmen--Lieyu Lienhu Reservoir)": {
@@ -34284,8 +34284,8 @@
       "subnational1Code": "TW-KIN",
       "lat": 24.4359875,
       "lng": 118.2306898,
-      "latestObsDt": "2025-02-18 11:35",
-      "numSpeciesAllTime": 173
+      "latestObsDt": "2025-02-20 09:24",
+      "numSpeciesAllTime": 174
     },
     "金門--烈嶼貴山海灘(Kinmen--Lieyu Guishan Beach)": {
       "locId": "L3986044",
@@ -34304,7 +34304,7 @@
       "subnational1Code": "TW-KIN",
       "lat": 24.4208641,
       "lng": 118.2288659,
-      "latestObsDt": "2025-02-18 10:54",
+      "latestObsDt": "2025-02-20 09:53",
       "numSpeciesAllTime": 228
     },
     "金門--烈嶼陽山公園(Kinmen--Lieyu Yangshan Park)": {
@@ -34334,7 +34334,7 @@
       "subnational1Code": "TW-KIN",
       "lat": 24.449616,
       "lng": 118.37138,
-      "latestObsDt": "2025-02-17 07:50",
+      "latestObsDt": "2025-02-20 17:19",
       "numSpeciesAllTime": 132
     },
     "金門--瓊林海岸(Kinmen--Qionglin Seashore)": {
@@ -34344,7 +34344,7 @@
       "subnational1Code": "TW-KIN",
       "lat": 24.4609222,
       "lng": 118.3707976,
-      "latestObsDt": "2025-02-17 13:29",
+      "latestObsDt": "2025-02-19 13:32",
       "numSpeciesAllTime": 109
     },
     "金門--田浦水庫(Kinmen--Tianpu Reservoir)": {
@@ -34444,7 +34444,7 @@
       "subnational1Code": "TW-KIN",
       "lat": 24.5083148,
       "lng": 118.4085095,
-      "latestObsDt": "2025-02-17 14:32",
+      "latestObsDt": "2025-02-19 14:41",
       "numSpeciesAllTime": 130
     },
     "金門--西園鹽場(Kinmen--Xiyuan Saltern)": {
@@ -34464,7 +34464,7 @@
       "subnational1Code": "TW-KIN",
       "lat": 24.4476819,
       "lng": 118.4503037,
-      "latestObsDt": "2025-02-09 13:23",
+      "latestObsDt": "2025-02-20 14:46",
       "numSpeciesAllTime": 166
     },
     "金門--金城中正國小(Kinmen--Jincheng Zhongzheng Elementary School)": {
@@ -34684,7 +34684,7 @@
       "subnational1Code": "TW-KIN",
       "lat": 24.5192138,
       "lng": 118.410446,
-      "latestObsDt": "2025-02-09 11:52",
+      "latestObsDt": "2025-02-19 16:10",
       "numSpeciesAllTime": 133
     },
     "金門--金沙富康農莊(Kinmen--Jinsha Fukang Farm)": {
@@ -34694,7 +34694,7 @@
       "subnational1Code": "TW-KIN",
       "lat": 24.4879398,
       "lng": 118.4038679,
-      "latestObsDt": "2025-02-14 07:26",
+      "latestObsDt": "2025-02-22 07:22",
       "numSpeciesAllTime": 113
     },
     "金門--金沙山后民俗文化村(Kinmen--Jinsha Shanhou Folk Culture Village)": {
@@ -34754,7 +34754,7 @@
       "subnational1Code": "TW-KIN",
       "lat": 24.4793709,
       "lng": 118.38305,
-      "latestObsDt": "2025-02-17 13:48",
+      "latestObsDt": "2025-02-22 06:50",
       "numSpeciesAllTime": 162
     },
     "金門--金沙溪(Kinmen--Jinsha River)": {
@@ -34764,7 +34764,7 @@
       "subnational1Code": "TW-KIN",
       "lat": 24.4964239,
       "lng": 118.3972469,
-      "latestObsDt": "2025-01-24 16:33",
+      "latestObsDt": "2025-02-19 14:30",
       "numSpeciesAllTime": 139
     },
     "金門--金沙狗嶼灣(Kinmen--Jinsha Gouyu Bay)": {
@@ -34854,7 +34854,7 @@
       "subnational1Code": "TW-KIN",
       "lat": 24.410943,
       "lng": 118.438342,
-      "latestObsDt": "2025-02-10 13:07",
+      "latestObsDt": "2025-02-20 13:31",
       "numSpeciesAllTime": 98
     },
     "金門--金湖成功沙灘(Kinmen--Jinhu Chenggong Beach)": {
@@ -34904,8 +34904,8 @@
       "subnational1Code": "TW-KIN",
       "lat": 24.4327132,
       "lng": 118.4601045,
-      "latestObsDt": "2025-02-12 14:08",
-      "numSpeciesAllTime": 136
+      "latestObsDt": "2025-02-20 14:07",
+      "numSpeciesAllTime": 137
     },
     "金門--金湖溪邊村(Kinmen--Jinhu Xibian Village)": {
       "locId": "L3533743",
@@ -34974,7 +34974,7 @@
       "subnational1Code": "TW-KIN",
       "lat": 24.454654,
       "lng": 118.3974132,
-      "latestObsDt": "2025-02-07 06:57",
+      "latestObsDt": "2025-02-22 13:14",
       "numSpeciesAllTime": 191
     },
     "金門--金門高中(Kinmen--National Kinmen Senior High School)": {
@@ -35354,8 +35354,8 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.3979892,
       "lng": 121.3078956,
-      "latestObsDt": "2025-02-17 15:40",
-      "numSpeciesAllTime": 46
+      "latestObsDt": "2025-02-23 07:40",
+      "numSpeciesAllTime": 49
     },
     "雪霸NP--武陵桃山瀑布步道(Sheipa NP--Wuling Taoshan Waterfall Hiking Trail)": {
       "locId": "L6827919",
@@ -35364,7 +35364,7 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.4059264,
       "lng": 121.3045335,
-      "latestObsDt": "2025-02-03 12:13",
+      "latestObsDt": "2025-02-22 08:30",
       "numSpeciesAllTime": 84
     },
     "雪霸NP--武陵農場全區(Sheipa NP--Wuling Farm)": {
@@ -35404,7 +35404,7 @@
       "subnational1Code": "TW-TXG",
       "lat": 24.3829499,
       "lng": 121.3032836,
-      "latestObsDt": "2025-02-08 07:04",
+      "latestObsDt": "2025-02-22 10:20",
       "numSpeciesAllTime": 104
     },
     "雪霸NP--翠池(Sheipa NP--Pond Cuichi)": {
@@ -35534,7 +35534,7 @@
       "subnational1Code": "TW-YUN",
       "lat": 23.6452761,
       "lng": 120.3005786,
-      "latestObsDt": "2025-02-11 10:50",
+      "latestObsDt": "2025-02-22 16:03",
       "numSpeciesAllTime": 67
     },
     "雲林--北港府番(Yunlin--Beigang Fufan)": {
@@ -35604,7 +35604,7 @@
       "subnational1Code": "TW-YUN",
       "lat": 23.543945,
       "lng": 120.1778572,
-      "latestObsDt": "2025-02-16 16:16",
+      "latestObsDt": "2025-02-22 11:01",
       "numSpeciesAllTime": 130
     },
     "雲林--口湖成龍濕地(Yunlin--Kouhu Chenglong Wetlands)": {
@@ -35644,7 +35644,7 @@
       "subnational1Code": "TW-YUN",
       "lat": 23.5521856,
       "lng": 120.1516342,
-      "latestObsDt": "2025-02-17 09:33",
+      "latestObsDt": "2025-02-18 14:15",
       "numSpeciesAllTime": 117
     },
     "雲林--口湖過港農地(Yunlin--Kouhu Guogang Farmland)": {
@@ -35744,7 +35744,7 @@
       "subnational1Code": "TW-YUN",
       "lat": 23.6463249,
       "lng": 120.5614931,
-      "latestObsDt": "2025-02-04 12:09",
+      "latestObsDt": "2025-02-19 18:17",
       "numSpeciesAllTime": 30
     },
     "雲林--古坑慈心大自然莊園(Yunlin--Gukeng Cixin Organic Farm)": {
@@ -35854,8 +35854,8 @@
       "subnational1Code": "TW-YUN",
       "lat": 23.60757,
       "lng": 120.71441,
-      "latestObsDt": "2025-01-07 15:07",
-      "numSpeciesAllTime": 71
+      "latestObsDt": "2025-02-23 10:51",
+      "numSpeciesAllTime": 72
     },
     "雲林--古坑石壁好望角(Yunlin--Gukeng Shibi Cape of Good Hope)": {
       "locId": "L5219243",
@@ -36025,7 +36025,7 @@
       "lat": 23.726993,
       "lng": 120.173159,
       "latestObsDt": "2025-01-01 13:28",
-      "numSpeciesAllTime": 37
+      "numSpeciesAllTime": 43
     },
     "雲林--台西海埔地堤外潮間帶(Yunlin--Taixi Tidal Area out of Reclained Area)": {
       "locId": "L26759589",
@@ -36324,8 +36324,8 @@
       "subnational1Code": "TW-YUN",
       "lat": 23.7115584,
       "lng": 120.5414128,
-      "latestObsDt": "2025-01-07 15:14",
-      "numSpeciesAllTime": 19
+      "latestObsDt": "2025-02-21 07:00",
+      "numSpeciesAllTime": 23
     },
     "雲林--斗六雲林溪水岸親水公園(Yunlin--Douliu Yunlin River Shui'an Riverside Park)": {
       "locId": "L17172259",
@@ -36334,7 +36334,7 @@
       "subnational1Code": "TW-YUN",
       "lat": 23.702249,
       "lng": 120.541762,
-      "latestObsDt": "2025-02-14 21:04",
+      "latestObsDt": "2025-02-19 23:11",
       "numSpeciesAllTime": 53
     },
     "雲林--新山寮滯洪池(Yunlin--Xinshanliao Detention Basin)": {
@@ -36544,7 +36544,7 @@
       "subnational1Code": "TW-YUN",
       "lat": 23.7285495,
       "lng": 120.4810451,
-      "latestObsDt": "2024-12-14 22:57",
+      "latestObsDt": "2025-02-20 00:38",
       "numSpeciesAllTime": 79
     },
     "雲林--虎尾科技大學(Yunlin--National Formosa University)": {
@@ -36944,7 +36944,7 @@
       "subnational1Code": "TW-LIE",
       "lat": 26.150877,
       "lng": 119.9343109,
-      "latestObsDt": "2025-01-28 14:00",
+      "latestObsDt": "2025-01-30 15:00",
       "numSpeciesAllTime": 218
     },
     "馬祖--南竿八八坑道(Matsu--Nangan Baba Tunnel)": {
@@ -37872,8 +37872,8 @@
       "subnational1Code": "TW-KHH",
       "lat": 22.6569081,
       "lng": 120.4286957,
-      "latestObsDt": "2025-02-15 10:58",
-      "numSpeciesAllTime": 147
+      "latestObsDt": "2025-02-22 09:11",
+      "numSpeciesAllTime": 148
     },
     "高屏溪IBA--高屏大橋攔沙壩(Kaoping River IBA--Kaoping Bridge Check Dam)": {
       "locId": "L5638786",
@@ -37902,8 +37902,8 @@
       "subnational1Code": "TW-PIF",
       "lat": 22.4778408,
       "lng": 120.4310689,
-      "latestObsDt": "2025-01-24 09:30",
-      "numSpeciesAllTime": 106
+      "latestObsDt": "2025-02-23 08:48",
+      "numSpeciesAllTime": 110
     },
     "高屏溪IBA--高屏溪口林園側(Kaoping River IBA--River Estuary Linyuan Side)": {
       "locId": "L4258610",
@@ -37922,8 +37922,8 @@
       "subnational1Code": "TW-KHH",
       "lat": 22.6255262,
       "lng": 120.2868619,
-      "latestObsDt": "2025-01-14 11:14",
-      "numSpeciesAllTime": 27
+      "latestObsDt": "2025-02-21 15:47",
+      "numSpeciesAllTime": 28
     },
     "高雄--三民親子公園(Kaohsiung--Sanmin Parent-Child Park)": {
       "locId": "L37319715",
@@ -37942,8 +37942,8 @@
       "subnational1Code": "TW-KHH",
       "lat": 22.6250468,
       "lng": 120.2996235,
-      "latestObsDt": "2025-02-11 13:30",
-      "numSpeciesAllTime": 69
+      "latestObsDt": "2025-02-16 14:55",
+      "numSpeciesAllTime": 70
     },
     "高雄--中寮山新南巷(Kaohsiung--Zhongliaoshan Xinnan Lane)": {
       "locId": "L5643767",
@@ -38042,7 +38042,7 @@
       "subnational1Code": "TW-KHH",
       "lat": 22.7571747,
       "lng": 120.4402981,
-      "latestObsDt": "2025-01-25 13:09",
+      "latestObsDt": "2025-02-01 12:00",
       "numSpeciesAllTime": 71
     },
     "高雄--保安公園(Kaohsiung--Baoan Park)": {
@@ -38072,7 +38072,7 @@
       "subnational1Code": "TW-KHH",
       "lat": 22.8923592,
       "lng": 120.6227231,
-      "latestObsDt": "2025-02-17 10:10",
+      "latestObsDt": "2025-02-21 14:42",
       "numSpeciesAllTime": 115
     },
     "高雄--典寶溪滯洪池B池(Kaohsiung-- Dianbao Creek Flood Detention Pond B)": {
@@ -38330,7 +38330,7 @@
       "subnational1Code": "TW-KHH",
       "lat": 22.5556704,
       "lng": 120.3914043,
-      "latestObsDt": "2025-02-05 12:35",
+      "latestObsDt": "2025-02-22 07:01",
       "numSpeciesAllTime": 51
     },
     "高雄--大寮中正稻田(Kaohsiung--Daliao Zhongzheng Rice Paddies)": {
@@ -38380,7 +38380,7 @@
       "subnational1Code": "TW-KHH",
       "lat": 22.6281997,
       "lng": 120.3647324,
-      "latestObsDt": "2025-02-18 11:46",
+      "latestObsDt": "2025-02-22 19:45",
       "numSpeciesAllTime": 57
     },
     "高雄--大社蜈潭巷豆仔湖橋(Kaohsiung--Dashe Wutan Ln. Douzaihu Bridge)": {
@@ -38580,7 +38580,7 @@
       "subnational1Code": "TW-KHH",
       "lat": 22.6142915,
       "lng": 120.26436,
-      "latestObsDt": "2025-02-08 15:08",
+      "latestObsDt": "2025-02-21 16:04",
       "numSpeciesAllTime": 117
     },
     "高雄--旗津海岸公園(Kaohsiung--Qijin Coastal Park)": {
@@ -38610,7 +38610,7 @@
       "subnational1Code": "TW-KHH",
       "lat": 22.5540466,
       "lng": 120.3146014,
-      "latestObsDt": "2025-02-07 09:40",
+      "latestObsDt": "2025-02-21 12:20",
       "numSpeciesAllTime": 245
     },
     "高雄--旗美高中(Kaohsiung--National Chi Mei Senior High School)": {
@@ -38620,8 +38620,8 @@
       "subnational1Code": "TW-KHH",
       "lat": 22.884073,
       "lng": 120.494528,
-      "latestObsDt": "2025-02-14 14:37",
-      "numSpeciesAllTime": 91
+      "latestObsDt": "2025-02-21 14:16",
+      "numSpeciesAllTime": 92
     },
     "高雄--本和里滯洪池公園(Kaohsiung--Benhe Flood Detention Pond Park)": {
       "locId": "L19024738",
@@ -38650,7 +38650,7 @@
       "subnational1Code": "TW-KHH",
       "lat": 22.491598,
       "lng": 120.3859681,
-      "latestObsDt": "2025-02-07 17:35",
+      "latestObsDt": "2025-02-22 08:31",
       "numSpeciesAllTime": 43
     },
     "高雄--柴山滯洪池公園(Kaohsiung--Chaishan Retention Basin Park)": {
@@ -38830,7 +38830,7 @@
       "subnational1Code": "TW-KHH",
       "lat": 22.6609776,
       "lng": 120.3526879,
-      "latestObsDt": "2025-02-07 15:11",
+      "latestObsDt": "2025-02-21 16:17",
       "numSpeciesAllTime": 142
     },
     "高雄--澄清湖棒球場(Kaohsiung--Chengqing Lake Baseball Stadium)": {
@@ -39000,8 +39000,8 @@
       "subnational1Code": "TW-KHH",
       "lat": 22.8788759,
       "lng": 120.5708958,
-      "latestObsDt": "2024-05-15 15:33",
-      "numSpeciesAllTime": 69
+      "latestObsDt": "2025-02-20 11:27",
+      "numSpeciesAllTime": 71
     },
     "高雄--自來水公園(Kaohsiung--Water Tower Park)": {
       "locId": "L9240716",
@@ -39100,7 +39100,7 @@
       "subnational1Code": "TW-KHH",
       "lat": 22.6211613,
       "lng": 120.3390992,
-      "latestObsDt": "2025-02-17 11:29",
+      "latestObsDt": "2025-02-22 13:02",
       "numSpeciesAllTime": 136
     },
     "高雄--西子灣(高雄港北口)(Kaohsiung--Xiziwan (Kaohsiung Port North Entrance))": {
@@ -39160,7 +39160,7 @@
       "subnational1Code": "TW-KHH",
       "lat": 22.8170897,
       "lng": 120.3453755,
-      "latestObsDt": "2025-02-08 14:02",
+      "latestObsDt": "2025-02-20 13:42",
       "numSpeciesAllTime": 69
     },
     "高雄--頂庄養生公園(Kaohsiung--Dingzhuang Health Park)": {
@@ -39180,7 +39180,7 @@
       "subnational1Code": "TW-KHH",
       "lat": 22.7493684,
       "lng": 120.3723747,
-      "latestObsDt": "2025-02-13 07:13",
+      "latestObsDt": "2025-02-20 17:38",
       "numSpeciesAllTime": 68
     },
     "高雄--駁二碼頭(Kaohsiung--Pier No.2 Art Center)": {
@@ -39190,8 +39190,8 @@
       "subnational1Code": "TW-KHH",
       "lat": 22.619765,
       "lng": 120.2817804,
-      "latestObsDt": "2025-01-18 11:48",
-      "numSpeciesAllTime": 42
+      "latestObsDt": "2025-02-22 20:34",
+      "numSpeciesAllTime": 43
     },
     "高雄--高屏溪斜張橋段(Kaohsiung--Xiezhang Bridge Section of Gaoping River )": {
       "locId": "L27915623",
@@ -39210,7 +39210,7 @@
       "subnational1Code": "TW-KHH",
       "lat": 22.6874588,
       "lng": 120.3073955,
-      "latestObsDt": "2025-02-16 13:49",
+      "latestObsDt": "2025-02-22 14:25",
       "numSpeciesAllTime": 36
     },
     "高雄--高雄公園(Kaohsiung--Kaohsiung Park)": {
@@ -39280,8 +39280,8 @@
       "subnational1Code": "TW-KHH",
       "lat": 22.6592831,
       "lng": 120.2864227,
-      "latestObsDt": "2025-02-16 10:11",
-      "numSpeciesAllTime": 111
+      "latestObsDt": "2025-02-23 07:06",
+      "numSpeciesAllTime": 113
     },
     "高雄--高雄師範大學燕巢校區(Kaohsiung--NKNU Yanchao Campus)": {
       "locId": "L4694391",
@@ -39300,7 +39300,7 @@
       "subnational1Code": "TW-KHH",
       "lat": 22.7330049,
       "lng": 120.3106892,
-      "latestObsDt": "2025-02-12 09:20",
+      "latestObsDt": "2025-02-21 12:30",
       "numSpeciesAllTime": 134
     },
     "高雄--高雄醫學大學暨附設醫院(Kaohsiung--Kaohsiung Medical University & Hospital)": {
@@ -39330,7 +39330,7 @@
       "subnational1Code": "TW-KHH",
       "lat": 22.6383294,
       "lng": 120.2974431,
-      "latestObsDt": "2025-02-18 10:39",
+      "latestObsDt": "2025-02-21 10:35",
       "numSpeciesAllTime": 62
     },
     "高雄--鳥松尖山嶺(坔埔山)(Kaohsiung--Niaosong Jianshanling (Lanpushan))": {
@@ -39350,7 +39350,7 @@
       "subnational1Code": "TW-KHH",
       "lat": 22.6527768,
       "lng": 120.3506327,
-      "latestObsDt": "2025-02-17 13:38",
+      "latestObsDt": "2025-02-23 09:11",
       "numSpeciesAllTime": 123
     },
     "高雄--鳳山中崙橋(Kaohsiung--Fengshan Zhonglun Bridge)": {
@@ -39360,8 +39360,8 @@
       "subnational1Code": "TW-KHH",
       "lat": 22.5983865,
       "lng": 120.3550831,
-      "latestObsDt": "2025-02-17 12:56",
-      "numSpeciesAllTime": 52
+      "latestObsDt": "2025-02-22 07:53",
+      "numSpeciesAllTime": 54
     },
     "高雄--鳳山公28公園(Kaohsiung--Fengshan No.28 Park)": {
       "locId": "L12251943",
@@ -39470,7 +39470,7 @@
       "subnational1Code": "TW-KHH",
       "lat": 22.6158463,
       "lng": 120.376296,
-      "latestObsDt": "2025-02-18 15:33",
+      "latestObsDt": "2025-02-23 08:04",
       "numSpeciesAllTime": 135
     },
     "高雄--鳳鼻頭漁港(Kaohsiung--Fengbitou Fishing Harbor)": {
@@ -39500,7 +39500,7 @@
       "subnational1Code": "TW-KHH",
       "lat": 22.6956745,
       "lng": 120.3070736,
-      "latestObsDt": "2025-02-08 15:19",
+      "latestObsDt": "2025-02-23 10:04",
       "numSpeciesAllTime": 119
     },
     "高雄壽山NNP--半屏山瞭望台(Shoushan NNP--Banpingshan Lookout)": {
@@ -39590,7 +39590,7 @@
       "subnational1Code": "TW-KHH",
       "lat": 22.6535616,
       "lng": 120.2635682,
-      "latestObsDt": "2025-02-16 15:13",
+      "latestObsDt": "2025-02-23 08:37",
       "numSpeciesAllTime": 95
     },
     "高雄永安IBA--永安濕地全區(Yung'an IBA--Yung'an Wetland All Area)": {
@@ -39610,7 +39610,7 @@
       "subnational1Code": "TW-KHH",
       "lat": 22.834024,
       "lng": 120.2124238,
-      "latestObsDt": "2025-02-16 10:47",
+      "latestObsDt": "2025-02-22 17:13",
       "numSpeciesAllTime": 71
     },
     "高雄永安IBA--永安濕地鹽田區(Yung'an IBA--Yung'an Wetland Salt Pan Area)": {
@@ -39700,7 +39700,7 @@
       "subnational1Code": "TW-KHH",
       "lat": 22.8849011,
       "lng": 120.1981886,
-      "latestObsDt": "2025-02-18 09:24",
+      "latestObsDt": "2025-02-22 16:01",
       "numSpeciesAllTime": 168
     },
     "高雄茄萣濕地IBA--全區(Qieding Wetland IBA)": {
@@ -39710,7 +39710,7 @@
       "subnational1Code": "TW-KHH",
       "lat": 22.884271,
       "lng": 120.1949242,
-      "latestObsDt": "2025-02-04 14:29",
+      "latestObsDt": "2025-02-21 12:21",
       "numSpeciesAllTime": 173
     },
     "高雄茄萣濕地IBA--大山(Qieding Wetland IBA--Dashan)": {
@@ -39720,7 +39720,7 @@
       "subnational1Code": "TW-KHH",
       "lat": 22.884813,
       "lng": 120.189827,
-      "latestObsDt": "2025-02-09 08:09",
+      "latestObsDt": "2025-02-22 16:43",
       "numSpeciesAllTime": 97
     },
     "高雄鳳山水庫IBA--全區(Fengshan Reservoir IBA)": {
@@ -39768,7 +39768,7 @@
       "subnational1Code": "TW-KHH",
       "lat": 22.9331131,
       "lng": 120.5920945,
-      "latestObsDt": "2025-02-11 18:40",
+      "latestObsDt": "2025-02-21 18:06",
       "numSpeciesAllTime": 111
     },
     "魚釣島(釣魚臺)(Uotsurijima (Diaoyutai Island))": {
@@ -39806,7 +39806,7 @@
       "subnational1Code": "HK-",
       "lat": 22.2465618,
       "lng": 114.1552663,
-      "latestObsDt": "2025-02-18 09:27",
+      "latestObsDt": "2025-02-23 08:18",
       "numSpeciesAllTime": 63
     },
     "Aberdeen Marina": {
@@ -39816,7 +39816,7 @@
       "subnational1Code": "HK-",
       "lat": 22.2446453,
       "lng": 114.1645896,
-      "latestObsDt": "2025-02-18 16:11",
+      "latestObsDt": "2025-02-20 11:04",
       "numSpeciesAllTime": 46
     },
     "Ap Lei Chau Wind Tower Park": {
@@ -39866,7 +39866,7 @@
       "subnational1Code": "HK-",
       "lat": 22.2075903,
       "lng": 114.2598295,
-      "latestObsDt": "2025-01-31 11:30",
+      "latestObsDt": "2025-02-23 10:04",
       "numSpeciesAllTime": 151
     },
     "Centeral-DB ferry": {
@@ -39916,7 +39916,7 @@
       "subnational1Code": "HK-",
       "lat": 22.2820354,
       "lng": 114.1578305,
-      "latestObsDt": "2024-10-30 07:44",
+      "latestObsDt": "2025-02-19 16:23",
       "numSpeciesAllTime": 17
     },
     "Central ferry piers": {
@@ -39946,8 +39946,8 @@
       "subnational1Code": "HK-",
       "lat": 22.2665019,
       "lng": 114.2384155,
-      "latestObsDt": "2025-01-12 16:10",
-      "numSpeciesAllTime": 57
+      "latestObsDt": "2025-02-21 10:30",
+      "numSpeciesAllTime": 58
     },
     "Chater Garden": {
       "locId": "L9258084",
@@ -40006,7 +40006,7 @@
       "subnational1Code": "HK-",
       "lat": 22.4143611,
       "lng": 114.2100906,
-      "latestObsDt": "2025-02-17 16:13",
+      "latestObsDt": "2025-02-19 13:25",
       "numSpeciesAllTime": 123
     },
     "Chuen Lung": {
@@ -40046,7 +40046,7 @@
       "subnational1Code": "HK-",
       "lat": 22.2587755,
       "lng": 114.1301072,
-      "latestObsDt": "2025-02-17 16:00",
+      "latestObsDt": "2025-02-20 13:00",
       "numSpeciesAllTime": 54
     },
     "Fa Sum Hang": {
@@ -40196,7 +40196,7 @@
       "subnational1Code": "HK-",
       "lat": 22.27773,
       "lng": 114.16219,
-      "latestObsDt": "2025-02-17 10:00",
+      "latestObsDt": "2025-02-22 15:29",
       "numSpeciesAllTime": 114
     },
     "Hong Kong Wetland Park": {
@@ -40257,7 +40257,7 @@
       "lat": 22.4722123,
       "lng": 114.0068436,
       "latestObsDt": "2024-12-20 14:52",
-      "numSpeciesAllTime": 63
+      "numSpeciesAllTime": 64
     },
     "Hong Kong Zoological and Botanical gardens": {
       "locId": "L2027973",
@@ -40316,7 +40316,7 @@
       "subnational1Code": "HK-",
       "lat": 22.4334832,
       "lng": 114.1178441,
-      "latestObsDt": "2025-02-14 11:52",
+      "latestObsDt": "2025-02-22 12:55",
       "numSpeciesAllTime": 203
     },
     "Kai Kung Leng": {
@@ -40356,7 +40356,7 @@
       "subnational1Code": "HK-",
       "lat": 22.3489964,
       "lng": 114.1475137,
-      "latestObsDt": "2025-02-16 16:15",
+      "latestObsDt": "2025-02-22 13:51",
       "numSpeciesAllTime": 83
     },
     "Kam Sheung Road Station": {
@@ -40387,7 +40387,7 @@
       "lat": 22.4169398,
       "lng": 114.1069007,
       "latestObsDt": "2024-12-10 13:51",
-      "numSpeciesAllTime": 138
+      "numSpeciesAllTime": 139
     },
     "Kap Lung Forest Trail, Tai Lam": {
       "locId": "L3936306",
@@ -40396,7 +40396,7 @@
       "subnational1Code": "HK-",
       "lat": 22.4161937,
       "lng": 114.1026814,
-      "latestObsDt": "2025-02-15 14:30",
+      "latestObsDt": "2025-02-20 15:03",
       "numSpeciesAllTime": 164
     },
     "Kei Ling Ha": {
@@ -40436,7 +40436,7 @@
       "subnational1Code": "HK-",
       "lat": 22.3003965,
       "lng": 114.1701699,
-      "latestObsDt": "2025-02-18 12:00",
+      "latestObsDt": "2025-02-23 14:02",
       "numSpeciesAllTime": 170
     },
     "Kowloon Reservoir": {
@@ -40446,8 +40446,8 @@
       "subnational1Code": "HK-",
       "lat": 22.3544815,
       "lng": 114.1552556,
-      "latestObsDt": "2025-01-17 07:00",
-      "numSpeciesAllTime": 35
+      "latestObsDt": "2025-02-20 12:56",
+      "numSpeciesAllTime": 40
     },
     "Kowloon Tsai Park": {
       "locId": "L18933771",
@@ -40456,8 +40456,8 @@
       "subnational1Code": "HK-",
       "lat": 22.33138,
       "lng": 114.1833664,
-      "latestObsDt": "2025-01-28 15:10",
-      "numSpeciesAllTime": 48
+      "latestObsDt": "2025-02-22 16:30",
+      "numSpeciesAllTime": 50
     },
     "Kowloon Tsai park": {
       "locId": "L7809821",
@@ -40466,7 +40466,7 @@
       "subnational1Code": "HK-",
       "lat": 22.3297039,
       "lng": 114.1846389,
-      "latestObsDt": "2025-02-18 16:30",
+      "latestObsDt": "2025-02-22 11:30",
       "numSpeciesAllTime": 104
     },
     "Kowloon Walled City Park": {
@@ -40496,7 +40496,7 @@
       "subnational1Code": "HK-",
       "lat": 22.3349525,
       "lng": 114.1381109,
-      "latestObsDt": "2025-02-15 15:56",
+      "latestObsDt": "2025-02-22 16:01",
       "numSpeciesAllTime": 175
     },
     "Lai Chi Wo": {
@@ -40526,7 +40526,7 @@
       "subnational1Code": "HK-",
       "lat": 22.4493393,
       "lng": 114.1343665,
-      "latestObsDt": "2025-01-28 09:15",
+      "latestObsDt": "2025-02-21 07:30",
       "numSpeciesAllTime": 256
     },
     "Lamma Island": {
@@ -40556,8 +40556,8 @@
       "subnational1Code": "HK-",
       "lat": 22.2623252,
       "lng": 113.911652,
-      "latestObsDt": "2024-10-24 15:28",
-      "numSpeciesAllTime": 62
+      "latestObsDt": "2025-02-19 11:55",
+      "numSpeciesAllTime": 64
     },
     "Lantau Peak": {
       "locId": "L6075586",
@@ -40606,8 +40606,8 @@
       "subnational1Code": "HK-",
       "lat": 22.2888399,
       "lng": 113.9011431,
-      "latestObsDt": "2025-02-16 09:42",
-      "numSpeciesAllTime": 101
+      "latestObsDt": "2025-02-23 07:10",
+      "numSpeciesAllTime": 104
     },
     "Lantau--Olympic Trail (Pak Mong to Mui Wo)": {
       "locId": "L5150415",
@@ -40626,7 +40626,7 @@
       "subnational1Code": "HK-",
       "lat": 22.2402461,
       "lng": 113.9933252,
-      "latestObsDt": "2025-02-18 08:27",
+      "latestObsDt": "2025-02-21 09:05",
       "numSpeciesAllTime": 123
     },
     "Lantau--southwest coast": {
@@ -40676,7 +40676,7 @@
       "subnational1Code": "HK-",
       "lat": 22.374092,
       "lng": 114.2650491,
-      "latestObsDt": "2025-02-17 09:39",
+      "latestObsDt": "2025-02-22 12:30",
       "numSpeciesAllTime": 163
     },
     "Lok Wah Street playground": {
@@ -40696,7 +40696,7 @@
       "subnational1Code": "HK-",
       "lat": 22.5088303,
       "lng": 114.113338,
-      "latestObsDt": "2025-02-18 08:47",
+      "latestObsDt": "2025-02-23 07:33",
       "numSpeciesAllTime": 337
     },
     "Luk Keng": {
@@ -40716,8 +40716,8 @@
       "subnational1Code": "HK-",
       "lat": 22.4452985,
       "lng": 114.137354,
-      "latestObsDt": "2025-02-13 07:33",
-      "numSpeciesAllTime": 164
+      "latestObsDt": "2025-02-23 08:18",
+      "numSpeciesAllTime": 165
     },
     "Lung Fu Shan CP": {
       "locId": "L5114081",
@@ -40726,7 +40726,7 @@
       "subnational1Code": "HK-",
       "lat": 22.2771038,
       "lng": 114.1346669,
-      "latestObsDt": "2025-02-13 07:30",
+      "latestObsDt": "2025-02-21 16:36",
       "numSpeciesAllTime": 121
     },
     "Lung Fu Shan Environmental Center/Hatton Rd": {
@@ -40736,7 +40736,7 @@
       "subnational1Code": "HK-",
       "lat": 22.2795263,
       "lng": 114.1382396,
-      "latestObsDt": "2025-02-10 12:46",
+      "latestObsDt": "2025-02-21 14:45",
       "numSpeciesAllTime": 91
     },
     "Lung Kwu Chau": {
@@ -40757,7 +40757,7 @@
       "lat": 22.392936,
       "lng": 113.9178801,
       "latestObsDt": "2024-11-04 08:13",
-      "numSpeciesAllTime": 164
+      "numSpeciesAllTime": 165
     },
     "Lut Chau": {
       "locId": "L17089733",
@@ -40826,7 +40826,7 @@
       "subnational1Code": "HK-",
       "lat": 22.4951121,
       "lng": 114.0338802,
-      "latestObsDt": "2025-02-16 10:21",
+      "latestObsDt": "2025-02-22 15:40",
       "numSpeciesAllTime": 325
     },
     "Mai Po Nature Reserve--mudflat hide": {
@@ -40856,8 +40856,8 @@
       "subnational1Code": "HK-",
       "lat": 22.4950328,
       "lng": 114.0563035,
-      "latestObsDt": "2025-02-15 08:28",
-      "numSpeciesAllTime": 241
+      "latestObsDt": "2025-02-22 13:57",
+      "numSpeciesAllTime": 242
     },
     "Mirs Bay (Tung Ping Chau ferry)": {
       "locId": "L3588901",
@@ -40916,8 +40916,8 @@
       "subnational1Code": "HK-",
       "lat": 22.2658206,
       "lng": 113.996104,
-      "latestObsDt": "2025-02-18 13:09",
-      "numSpeciesAllTime": 164
+      "latestObsDt": "2025-02-22 17:05",
+      "numSpeciesAllTime": 165
     },
     "Nai Chung-Che Ha coast": {
       "locId": "L14670810",
@@ -40946,8 +40946,8 @@
       "subnational1Code": "HK-",
       "lat": 22.4597397,
       "lng": 114.0368414,
-      "latestObsDt": "2025-02-18 12:07",
-      "numSpeciesAllTime": 236
+      "latestObsDt": "2025-02-22 14:56",
+      "numSpeciesAllTime": 235
     },
     "Nam Shan Campsite": {
       "locId": "L16776882",
@@ -40966,7 +40966,7 @@
       "subnational1Code": "HK-",
       "lat": 22.3389819,
       "lng": 114.2049741,
-      "latestObsDt": "2025-02-17 10:16",
+      "latestObsDt": "2025-02-18 13:19",
       "numSpeciesAllTime": 50
     },
     "Ng Tung Chai": {
@@ -40996,8 +40996,8 @@
       "subnational1Code": "HK-",
       "lat": 22.2553666,
       "lng": 113.9051304,
-      "latestObsDt": "2025-02-10 10:52",
-      "numSpeciesAllTime": 160
+      "latestObsDt": "2025-02-23 09:50",
+      "numSpeciesAllTime": 161
     },
     "North District Park": {
       "locId": "L17258336",
@@ -41006,7 +41006,7 @@
       "subnational1Code": "HK-",
       "lat": 22.4990244,
       "lng": 114.1335266,
-      "latestObsDt": "2025-02-14 14:49",
+      "latestObsDt": "2025-02-19 14:18",
       "numSpeciesAllTime": 36
     },
     "Old Kai Tak Airport": {
@@ -41206,7 +41206,7 @@
       "subnational1Code": "HK-",
       "lat": 22.1637466,
       "lng": 114.2550316,
-      "latestObsDt": "2025-02-18 11:07",
+      "latestObsDt": "2025-02-23 09:07",
       "numSpeciesAllTime": 374
     },
     "Po Toi ferry": {
@@ -41246,7 +41246,7 @@
       "subnational1Code": "HK-",
       "lat": 22.2404203,
       "lng": 113.9769423,
-      "latestObsDt": "2025-02-18 10:47",
+      "latestObsDt": "2025-02-21 10:09",
       "numSpeciesAllTime": 265
     },
     "Repulse Bay": {
@@ -41306,7 +41306,7 @@
       "subnational1Code": "HK-",
       "lat": 22.5028039,
       "lng": 114.0724182,
-      "latestObsDt": "2025-02-18 16:03",
+      "latestObsDt": "2025-02-22 10:35",
       "numSpeciesAllTime": 304
     },
     "Sha Lo Tung": {
@@ -41366,7 +41366,7 @@
       "subnational1Code": "HK-",
       "lat": 22.4690498,
       "lng": 114.0293037,
-      "latestObsDt": "2025-01-18 16:00",
+      "latestObsDt": "2025-02-22 15:15",
       "numSpeciesAllTime": 84
     },
     "Shek Kip Mei Hill": {
@@ -41396,8 +41396,8 @@
       "subnational1Code": "HK-",
       "lat": 22.4325699,
       "lng": 114.079392,
-      "latestObsDt": "2025-02-15 16:30",
-      "numSpeciesAllTime": 184
+      "latestObsDt": "2025-02-22 19:00",
+      "numSpeciesAllTime": 185
     },
     "Shek Lei Pui Reservoir": {
       "locId": "L13931920",
@@ -41436,8 +41436,8 @@
       "subnational1Code": "HK-",
       "lat": 22.3844444,
       "lng": 114.1443229,
-      "latestObsDt": "2025-02-18 09:16",
-      "numSpeciesAllTime": 188
+      "latestObsDt": "2025-02-23 07:55",
+      "numSpeciesAllTime": 189
     },
     "Shing Mun Valley Park": {
       "locId": "L3689049",
@@ -41466,7 +41466,7 @@
       "subnational1Code": "HK-",
       "lat": 22.2199459,
       "lng": 113.9180629,
-      "latestObsDt": "2025-02-16 13:26",
+      "latestObsDt": "2025-02-23 08:43",
       "numSpeciesAllTime": 235
     },
     "Silvermine Bay Beach": {
@@ -41496,7 +41496,7 @@
       "subnational1Code": "HK-",
       "lat": 22.2050364,
       "lng": 114.0366399,
-      "latestObsDt": "2025-02-13 09:55",
+      "latestObsDt": "2025-02-19 10:14",
       "numSpeciesAllTime": 126
     },
     "Southern Waters pelagic": {
@@ -41526,8 +41526,8 @@
       "subnational1Code": "HK-",
       "lat": 22.2173193,
       "lng": 114.2083982,
-      "latestObsDt": "2024-11-10 08:05",
-      "numSpeciesAllTime": 74
+      "latestObsDt": "2025-02-22 10:19",
+      "numSpeciesAllTime": 75
     },
     "Sun Yat Sen Memorial Park": {
       "locId": "L8591022",
@@ -41586,8 +41586,8 @@
       "subnational1Code": "HK-",
       "lat": 22.4216319,
       "lng": 114.0938117,
-      "latestObsDt": "2025-02-18 12:18",
-      "numSpeciesAllTime": 142
+      "latestObsDt": "2025-02-22 10:50",
+      "numSpeciesAllTime": 143
     },
     "Tai Mei Tuk Catchment": {
       "locId": "L14001344",
@@ -41606,7 +41606,7 @@
       "subnational1Code": "HK-",
       "lat": 22.4157893,
       "lng": 114.133358,
-      "latestObsDt": "2025-01-29 12:23",
+      "latestObsDt": "2025-02-21 08:54",
       "numSpeciesAllTime": 186
     },
     "Tai O": {
@@ -41626,7 +41626,7 @@
       "subnational1Code": "HK-",
       "lat": 22.4273374,
       "lng": 114.1800453,
-      "latestObsDt": "2025-02-15 13:50",
+      "latestObsDt": "2025-02-22 12:00",
       "numSpeciesAllTime": 148
     },
     "Tai Po Kau Park": {
@@ -41636,7 +41636,7 @@
       "subnational1Code": "HK-",
       "lat": 22.4329697,
       "lng": 114.1891249,
-      "latestObsDt": "2025-02-15 09:15",
+      "latestObsDt": "2025-02-23 11:01",
       "numSpeciesAllTime": 123
     },
     "Tai Po Waterfront Park": {
@@ -41666,7 +41666,7 @@
       "subnational1Code": "HK-",
       "lat": 22.274602,
       "lng": 114.2098546,
-      "latestObsDt": "2025-02-18 07:53",
+      "latestObsDt": "2025-02-21 09:19",
       "numSpeciesAllTime": 110
     },
     "Tai Tam Country Park": {
@@ -41736,8 +41736,8 @@
       "subnational1Code": "HK-",
       "lat": 22.4684687,
       "lng": 114.3593938,
-      "latestObsDt": "2024-07-01 12:14",
-      "numSpeciesAllTime": 71
+      "latestObsDt": "2025-02-21 09:51",
+      "numSpeciesAllTime": 75
     },
     "Tate's Cairn": {
       "locId": "L5132167",
@@ -41766,7 +41766,7 @@
       "subnational1Code": "HK-",
       "lat": 22.2538231,
       "lng": 113.9050886,
-      "latestObsDt": "2025-01-03 13:23",
+      "latestObsDt": "2025-02-19 16:30",
       "numSpeciesAllTime": 97
     },
     "Tin Shui Wai Park": {
@@ -41776,8 +41776,8 @@
       "subnational1Code": "HK-",
       "lat": 22.4565543,
       "lng": 114.0024066,
-      "latestObsDt": "2025-02-10 08:22",
-      "numSpeciesAllTime": 74
+      "latestObsDt": "2025-02-19 11:24",
+      "numSpeciesAllTime": 75
     },
     "Tse Uk Tsuen": {
       "locId": "L16866445",
@@ -41826,7 +41826,7 @@
       "subnational1Code": "HK-",
       "lat": 22.3558111,
       "lng": 114.1053343,
-      "latestObsDt": "2024-12-22 17:30",
+      "latestObsDt": "2025-02-22 11:07",
       "numSpeciesAllTime": 86
     },
     "Tsiu Hang": {
@@ -41866,8 +41866,8 @@
       "subnational1Code": "HK-",
       "lat": 22.3918857,
       "lng": 113.9737505,
-      "latestObsDt": "2025-01-25 10:38",
-      "numSpeciesAllTime": 86
+      "latestObsDt": "2025-02-21 06:30",
+      "numSpeciesAllTime": 81
     },
     "Tung Chung Canal and River": {
       "locId": "L8822723",
@@ -41926,7 +41926,7 @@
       "subnational1Code": "HK-",
       "lat": 22.2824649,
       "lng": 114.1878605,
-      "latestObsDt": "2025-02-18 16:35",
+      "latestObsDt": "2025-02-21 16:09",
       "numSpeciesAllTime": 110
     },
     "Victoria Peak": {
@@ -41936,7 +41936,7 @@
       "subnational1Code": "HK-",
       "lat": 22.272239,
       "lng": 114.1474342,
-      "latestObsDt": "2025-02-18 08:00",
+      "latestObsDt": "2025-02-20 09:50",
       "numSpeciesAllTime": 136
     },
     "Victoria Peak Garden": {
@@ -42026,8 +42026,8 @@
       "subnational1Code": "HK-",
       "lat": 22.5058964,
       "lng": 114.2436075,
-      "latestObsDt": "2025-02-16 09:12",
-      "numSpeciesAllTime": 109
+      "latestObsDt": "2025-02-23 08:30",
+      "numSpeciesAllTime": 110
     },
     "Yan Yee Road valley": {
       "locId": "L11521937",
@@ -42046,7 +42046,7 @@
       "subnational1Code": "HK-",
       "lat": 22.2278431,
       "lng": 113.8482801,
-      "latestObsDt": "2025-02-08 07:00",
+      "latestObsDt": "2025-02-22 06:40",
       "numSpeciesAllTime": 190
     },
     "Yuen Long Park": {
@@ -42096,7 +42096,7 @@
       "subnational1Code": "HK-",
       "lat": 22.4108673,
       "lng": 113.9847305,
-      "latestObsDt": "2025-02-18 15:23",
+      "latestObsDt": "2025-02-20 10:12",
       "numSpeciesAllTime": 66
     },
     "沙岭 Sha Ling": {
@@ -42146,7 +42146,7 @@
       "subnational1Code": "MO-",
       "lat": 22.141121,
       "lng": 113.554673,
-      "latestObsDt": "2025-02-09 16:42",
+      "latestObsDt": "2025-02-22 15:00",
       "numSpeciesAllTime": 122
     },
     "Guia Hill 松山": {
@@ -42166,8 +42166,8 @@
       "subnational1Code": "MO-",
       "lat": 22.1971323,
       "lng": 113.5421854,
-      "latestObsDt": "2025-02-06 10:44",
-      "numSpeciesAllTime": 33
+      "latestObsDt": "2025-02-22 12:12",
+      "numSpeciesAllTime": 35
     },
     "Parque Municipal Mong-Ha 望廈山市政公園": {
       "locId": "L8858365",
@@ -42196,7 +42196,7 @@
       "subnational1Code": "MO-",
       "lat": 22.1528919,
       "lng": 113.5597882,
-      "latestObsDt": "2025-02-16 17:35",
+      "latestObsDt": "2025-02-22 11:30",
       "numSpeciesAllTime": 167
     },
     "Rede De Trilhos Do Nordeste De Coloane 東北步行徑系統": {

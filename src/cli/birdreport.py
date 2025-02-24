@@ -248,7 +248,7 @@ class BirdreportToEbirdLocationAssignScreen(Screen):
         await vertical_scroll.mount(*horizonal_groups)
 
     @on(Button.Pressed, "#confirm")
-    def on_button_confirm_presses(self, event: Button.Pressed) -> None:
+    def on_button_confirm_pressed(self, event: Button.Pressed) -> None:
         for info in self.location_assign.values():
             if info.get("converted_hotspot") is not None:
                 for report in info["reports"]:
@@ -261,7 +261,7 @@ class BirdreportToEbirdLocationAssignScreen(Screen):
 
     @on(Button.Pressed, ".converted_hotspot")
     @work
-    async def on_button_converted_hotspot_presses(self, event: Button.Pressed) -> None:
+    async def on_button_converted_hotspot_pressed(self, event: Button.Pressed) -> None:
         point_name = event.button.name
 
         birdreport_point_info = self.location_assign[point_name]
@@ -352,7 +352,7 @@ class BirdreportFilterScreen(Screen):
         )
 
     @on(Button.Pressed, "#search")
-    def on_button_search_presses(self, event: Button.Pressed) -> None:
+    def on_button_search_pressed(self, event: Button.Pressed) -> None:
         def process_date(date):
             if date == "":
                 return ""
@@ -404,12 +404,12 @@ class BirdreportFilterScreen(Screen):
         selection_list.add_options(selectible_reports)
 
     @on(Button.Pressed, "#select_all")
-    def on_button_select_all_presses(self, event: Button.Pressed) -> None:
+    def on_button_select_all_pressed(self, event: Button.Pressed) -> None:
         selection_list = self.query_one(SelectionList)
         selection_list.select_all()
 
     @on(Button.Pressed, "#confirm")
-    def on_button_confirm_presses(self, event: Button.Pressed) -> None:
+    def on_button_confirm_pressed(self, event: Button.Pressed) -> None:
         selection_list = self.query_one(SelectionList)
         new_list = list(
             filter(

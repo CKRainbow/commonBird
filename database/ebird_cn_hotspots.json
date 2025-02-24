@@ -1,5 +1,5 @@
 {
-  "last_update_date": "2025-02-19",
+  "last_update_date": "2025-02-24",
   "data": {
     "203高地": {
       "locId": "L38396480",
@@ -169,7 +169,7 @@
       "lat": 25.2717189,
       "lng": 110.3120393,
       "latestObsDt": "2025-01-27 13:30",
-      "numSpeciesAllTime": 12
+      "numSpeciesAllTime": 14
     },
     "七星峰森林公园 (Qixingfeng Forest Park)": {
       "locId": "L25824042",
@@ -218,8 +218,8 @@
       "subnational1Code": "CN-35",
       "lat": 24.5586349,
       "lng": 118.2842936,
-      "latestObsDt": "2025-01-12 09:31",
-      "numSpeciesAllTime": 122
+      "latestObsDt": "2025-02-23 12:22",
+      "numSpeciesAllTime": 124
     },
     "七格--猪头角坝 (Qige--Zhutoujiao Embankment)": {
       "locId": "L15911007",
@@ -317,7 +317,7 @@
       "lat": 39.5906175,
       "lng": 119.2724775,
       "latestObsDt": "2024-10-20 10:58",
-      "numSpeciesAllTime": 59
+      "numSpeciesAllTime": 66
     },
     "万丰公园 (Wanfeng Park)": {
       "locId": "L11383271",
@@ -407,7 +407,7 @@
       "lat": 27.7899986,
       "lng": 120.6456936,
       "latestObsDt": "2025-01-29 14:43",
-      "numSpeciesAllTime": 26
+      "numSpeciesAllTime": 30
     },
     "万柳塘公园 (Wanliutang Park)": {
       "locId": "L38650400",
@@ -622,8 +622,8 @@
       "subnational1Code": "CN-35",
       "lat": 26.4333333,
       "lng": 117.5666666,
-      "latestObsDt": "2025-01-10 08:57",
-      "numSpeciesAllTime": 123
+      "latestObsDt": "2025-02-01 09:00",
+      "numSpeciesAllTime": 129
     },
     "三星堆博物馆及鸭子河 (Sanxingdui Museum & Duck River)": {
       "locId": "L9217376",
@@ -812,7 +812,7 @@
       "subnational1Code": "CN-46",
       "lat": 19.2649181,
       "lng": 109.6633353,
-      "latestObsDt": "2025-02-17 07:08",
+      "latestObsDt": "2025-02-22 07:15",
       "numSpeciesAllTime": 94
     },
     "上中坝湿地公园 (Shangzhongba Wetland Park)": {
@@ -1006,8 +1006,8 @@
       "subnational1Code": "CN-31",
       "lat": 31.2778907,
       "lng": 121.1755085,
-      "latestObsDt": "2024-10-02 09:30",
-      "numSpeciesAllTime": 33
+      "latestObsDt": "2025-02-22 14:40",
+      "numSpeciesAllTime": 35
     },
     "上海浦东国际机场 (Shanghai Pudong International Airport)": {
       "locId": "L6124266",
@@ -1076,8 +1076,8 @@
       "subnational1Code": "CN-31",
       "lat": 31.1770465,
       "lng": 121.5938726,
-      "latestObsDt": "2025-02-17 07:15",
-      "numSpeciesAllTime": 58
+      "latestObsDt": "2025-02-22 07:36",
+      "numSpeciesAllTime": 60
     },
     "上海薰衣草公园 (Shanghai Lavender Park)": {
       "locId": "L26329405",
@@ -1146,8 +1146,8 @@
       "subnational1Code": "CN-44",
       "lat": 23.0756455,
       "lng": 113.3068555,
-      "latestObsDt": "2001-07-30 14:00",
-      "numSpeciesAllTime": 1
+      "latestObsDt": "2025-02-20 14:39",
+      "numSpeciesAllTime": 20
     },
     "上游水库 (Shangyou Reservoir)": {
       "locId": "L9746044",
@@ -1206,7 +1206,7 @@
       "subnational1Code": "CN-44",
       "lat": 22.7966824,
       "lng": 114.6567166,
-      "latestObsDt": "2025-02-15 08:30",
+      "latestObsDt": "2025-02-22 16:00",
       "numSpeciesAllTime": 91
     },
     "上马台水库 (Shangmatai Reservoir)": {
@@ -1386,7 +1386,7 @@
       "subnational1Code": "CN-31",
       "lat": 31.214967,
       "lng": 121.5496015,
-      "latestObsDt": "2025-02-18 15:14",
+      "latestObsDt": "2025-02-23 08:36",
       "numSpeciesAllTime": 224
     },
     "世纪城天鹅湖 (Swan Lake at Century City)": {
@@ -2082,8 +2082,8 @@
       "subnational1Code": "CN-42",
       "lat": 30.5640865,
       "lng": 114.3736377,
-      "latestObsDt": "2025-01-30 14:23",
-      "numSpeciesAllTime": 18
+      "latestObsDt": "2025-02-20 10:59",
+      "numSpeciesAllTime": 23
     },
     "东湖大门山公园 (Donghu Damenshan Park)": {
       "locId": "L39654577",
@@ -2118,8 +2118,8 @@
       "subnational1Code": "CN-42",
       "lat": 30.5688981,
       "lng": 114.3937615,
-      "latestObsDt": "2025-02-06 14:15",
-      "numSpeciesAllTime": 114
+      "latestObsDt": "2025-02-20 13:49",
+      "numSpeciesAllTime": 116
     },
     "东湖落雁景区 (East Lake Luoyan Scenic Area)": {
       "locId": "L21662706",
@@ -2146,7 +2146,7 @@
       "subnational1Code": "CN-31",
       "lat": 31.517616,
       "lng": 121.9393413,
-      "latestObsDt": "2025-01-30 13:56",
+      "latestObsDt": "2025-01-31 08:43",
       "numSpeciesAllTime": 196
     },
     "东澳岛--庙湾 (Dong'ao Island--Miaowan)": {
@@ -2251,7 +2251,9 @@
       "countryCode": "CN",
       "subnational1Code": "CN-37",
       "lat": 37.4184989,
-      "lng": 118.6238889
+      "lng": 118.6238889,
+      "latestObsDt": "2024-12-27 13:30",
+      "numSpeciesAllTime": 9
     },
     "东藕塘 (East Lotus Pond)": {
       "locId": "L15161283",
@@ -2318,8 +2320,8 @@
       "subnational1Code": "CN-11",
       "lat": 40.0202267,
       "lng": 116.6476135,
-      "latestObsDt": "2024-08-13 09:15",
-      "numSpeciesAllTime": 133
+      "latestObsDt": "2025-02-22 15:37",
+      "numSpeciesAllTime": 134
     },
     "东部新城生态走廊 (Eastern New City Ecological Corridor)": {
       "locId": "L28231912",
@@ -2398,7 +2400,7 @@
       "subnational1Code": "CN-21",
       "lat": 41.8388527,
       "lng": 123.5904122,
-      "latestObsDt": "2025-02-03 10:15",
+      "latestObsDt": "2025-02-21 12:00",
       "numSpeciesAllTime": 114
     },
     "东风水库 (Dongfeng Reservoir)": {
@@ -2636,7 +2638,7 @@
       "subnational1Code": "CN-32",
       "lat": 31.6062026,
       "lng": 120.7367693,
-      "latestObsDt": "2025-02-18 15:38",
+      "latestObsDt": "2025-02-20 07:32",
       "numSpeciesAllTime": 100
     },
     "中国最北点 (Northernmost Point of China)": {
@@ -2782,7 +2784,7 @@
       "subnational1Code": "CN-31",
       "lat": 31.221888,
       "lng": 121.420066,
-      "latestObsDt": "2025-02-15 07:20",
+      "latestObsDt": "2025-02-22 14:23",
       "numSpeciesAllTime": 78
     },
     "中山大学 (Sun Yat-sen University)": {
@@ -2810,7 +2812,7 @@
       "subnational1Code": "CN-44",
       "lat": 22.8039589,
       "lng": 113.9495112,
-      "latestObsDt": "2025-02-15 22:30",
+      "latestObsDt": "2025-02-22 13:06",
       "numSpeciesAllTime": 77
     },
     "中山大学深圳校区二期 (Sun Yat-sen University - Shenzhen Campus Area II [research farm])": {
@@ -3016,8 +3018,8 @@
       "subnational1Code": "CN-53",
       "lat": 21.9167456,
       "lng": 101.2717556,
-      "latestObsDt": "2025-02-13 07:31",
-      "numSpeciesAllTime": 125
+      "latestObsDt": "2025-02-19 18:26",
+      "numSpeciesAllTime": 126
     },
     "中科院西双版纳热带植物园--绿石林景区 (Xishuangbanna Tropical Botanical Garden--Green Stone Forest)": {
       "locId": "L4690619",
@@ -3364,8 +3366,8 @@
       "subnational1Code": "CN-33",
       "lat": 29.3644274,
       "lng": 120.0839337,
-      "latestObsDt": "2025-02-04 14:32",
-      "numSpeciesAllTime": 40
+      "latestObsDt": "2025-02-22 08:01",
+      "numSpeciesAllTime": 52
     },
     "乌云河大桥 (Wuyun River Bridge)": {
       "locId": "L32520993",
@@ -3512,7 +3514,7 @@
       "subnational1Code": "CN-15",
       "lat": 49.6253756,
       "lng": 121.4976692,
-      "latestObsDt": "2025-02-17 11:06",
+      "latestObsDt": "2025-02-18 16:00",
       "numSpeciesAllTime": 217
     },
     "乌尔禾以南干旱地带 (Arid Country S of Orku)": {
@@ -3632,8 +3634,8 @@
       "subnational1Code": "CN-33",
       "lat": 28.8730459,
       "lng": 118.9088536,
-      "latestObsDt": "2024-08-24 06:16",
-      "numSpeciesAllTime": 35
+      "latestObsDt": "2025-02-19 07:10",
+      "numSpeciesAllTime": 51
     },
     "乌石港 (Black Stone Port)": {
       "locId": "L15148833",
@@ -3752,6 +3754,14 @@
       "lng": 121.1064888,
       "latestObsDt": "2024-04-24 00:00",
       "numSpeciesAllTime": 14
+    },
+    "乐化水库 (Lehua Reservoir)": {
+      "locId": "L40457601",
+      "locName": "乐化水库 (Lehua Reservoir)",
+      "countryCode": "CN",
+      "subnational1Code": "CN-36",
+      "lat": 28.8216607,
+      "lng": 115.8552487
     },
     "乐城公园 (Lecheng Park)": {
       "locId": "L40083994",
@@ -3916,7 +3926,7 @@
       "subnational1Code": "CN-34",
       "lat": 30.4877938,
       "lng": 117.8269617,
-      "latestObsDt": "2025-01-12 10:44",
+      "latestObsDt": "2025-02-23 11:58",
       "numSpeciesAllTime": 43
     },
     "九姑山公园 (Jiugushan Park)": {
@@ -4158,8 +4168,8 @@
       "subnational1Code": "CN-36",
       "lat": 29.7058795,
       "lng": 115.7441682,
-      "latestObsDt": "2025-02-14 12:36",
-      "numSpeciesAllTime": 129
+      "latestObsDt": "2025-02-19 08:17",
+      "numSpeciesAllTime": 130
     },
     "九江南湖公园 (Nanhu Park, Jiujiang)": {
       "locId": "L38552591",
@@ -4266,8 +4276,8 @@
       "subnational1Code": "CN-33",
       "lat": 30.5924528,
       "lng": 121.1006358,
-      "latestObsDt": "2025-02-16 08:23",
-      "numSpeciesAllTime": 251
+      "latestObsDt": "2025-02-21 15:50",
+      "numSpeciesAllTime": 252
     },
     "九龙山国家级自然保护区 (Jiulong Mountain NNR)": {
       "locId": "L10841071",
@@ -4562,7 +4572,7 @@
       "subnational1Code": "CN-31",
       "lat": 31.2298843,
       "lng": 121.6372365,
-      "latestObsDt": "2025-02-17 12:09",
+      "latestObsDt": "2025-02-22 12:18",
       "numSpeciesAllTime": 64
     },
     "云居山 (Yunju Mountain)": {
@@ -4761,7 +4771,7 @@
       "lat": 31.0058629,
       "lng": 103.1801605,
       "latestObsDt": "2024-10-26 15:00",
-      "numSpeciesAllTime": 224
+      "numSpeciesAllTime": 229
     },
     "五丰岛 (Wufeng Island)": {
       "locId": "L13362883",
@@ -4838,7 +4848,7 @@
       "subnational1Code": "CN-33",
       "lat": 30.2603197,
       "lng": 120.0249061,
-      "latestObsDt": "2025-02-15 17:00",
+      "latestObsDt": "2025-02-22 09:30",
       "numSpeciesAllTime": 162
     },
     "五彩山 (Wucaishan)": {
@@ -4864,9 +4874,9 @@
       "locName": "五星农场 (Five-Star Farm)",
       "countryCode": "CN",
       "subnational1Code": "CN-36",
-      "lat": 28.7725322,
-      "lng": 116.3111621,
-      "latestObsDt": "2025-02-16 06:30",
+      "lat": 28.7574714,
+      "lng": 116.3154888,
+      "latestObsDt": "2025-02-21 15:56",
       "numSpeciesAllTime": 169
     },
     "五泉山公园 (Wu Quan Shan Park)": {
@@ -5024,8 +5034,8 @@
       "subnational1Code": "CN-37",
       "lat": 36.665981,
       "lng": 117.0146408,
-      "latestObsDt": "2025-02-11 08:00",
-      "numSpeciesAllTime": 16
+      "latestObsDt": "2025-02-20 11:30",
+      "numSpeciesAllTime": 17
     },
     "井下农场 (Jingxia Farm)": {
       "locId": "L21357740",
@@ -5720,7 +5730,7 @@
       "subnational1Code": "CN-33",
       "lat": 30.2575136,
       "lng": 119.9171877,
-      "latestObsDt": "2025-02-18 07:55",
+      "latestObsDt": "2025-02-23 11:17",
       "numSpeciesAllTime": 316
     },
     "佛图关公园 (Fotuguan Park)": {
@@ -5872,8 +5882,8 @@
       "subnational1Code": "CN-13",
       "lat": 38.8748804,
       "lng": 115.5520822,
-      "latestObsDt": "2025-01-31 08:17",
-      "numSpeciesAllTime": 26
+      "latestObsDt": "2025-02-22 14:15",
+      "numSpeciesAllTime": 29
     },
     "保定植物园 (Baoding Botanical Garden)": {
       "locId": "L38113746",
@@ -6014,8 +6024,8 @@
       "subnational1Code": "CN-11",
       "lat": 39.975919,
       "lng": 116.4196684,
-      "latestObsDt": "2024-12-28 08:30",
-      "numSpeciesAllTime": 6
+      "latestObsDt": "2025-02-19 15:30",
+      "numSpeciesAllTime": 16
     },
     "元大都遗址公园--中段 (Yuan Dadu Relics Park--Central)": {
       "locId": "L5557935",
@@ -6024,7 +6034,7 @@
       "subnational1Code": "CN-11",
       "lat": 39.97591,
       "lng": 116.3982575,
-      "latestObsDt": "2025-02-17 12:00",
+      "latestObsDt": "2025-02-21 09:00",
       "numSpeciesAllTime": 60
     },
     "元大都遗址公园--西段 (Yuan Dadu Relics Park--West)": {
@@ -6034,8 +6044,8 @@
       "subnational1Code": "CN-11",
       "lat": 39.9753057,
       "lng": 116.3698914,
-      "latestObsDt": "2025-02-14 09:00",
-      "numSpeciesAllTime": 34
+      "latestObsDt": "2025-02-22 16:14",
+      "numSpeciesAllTime": 35
     },
     "元宝山公园 (Yuanbaoshan Park)": {
       "locId": "L38341025",
@@ -6108,7 +6118,7 @@
       "subnational1Code": "CN-44",
       "lat": 22.7787505,
       "lng": 113.96122,
-      "latestObsDt": "2025-02-16 06:55",
+      "latestObsDt": "2025-02-21 14:35",
       "numSpeciesAllTime": 144
     },
     "光明虹桥公园 (Guangming Hongqiao Park)": {
@@ -6511,7 +6521,9 @@
       "countryCode": "CN",
       "subnational1Code": "CN-64",
       "lat": 35.3949468,
-      "lng": 106.3412386
+      "lng": 106.3412386,
+      "latestObsDt": "2020-09-29 13:30",
+      "numSpeciesAllTime": 3
     },
     "六郎庄桥 (Liulangzhuang Bridge)": {
       "locId": "L39194467",
@@ -6894,7 +6906,7 @@
       "subnational1Code": "CN-33",
       "lat": 30.1622502,
       "lng": 120.187211,
-      "latestObsDt": "2025-02-17 07:20",
+      "latestObsDt": "2025-02-23 10:35",
       "numSpeciesAllTime": 50
     },
     "冬给措纳湖 (Donggi Cona Lake)": {
@@ -7362,7 +7374,7 @@
       "subnational1Code": "CN-32",
       "lat": 31.270154,
       "lng": 120.7612595,
-      "latestObsDt": "2025-02-12 12:59",
+      "latestObsDt": "2025-02-20 10:09",
       "numSpeciesAllTime": 49
     },
     "别斯库都克村 (Beskuduk Village)": {
@@ -7400,8 +7412,8 @@
       "subnational1Code": "CN-35",
       "lat": 25.5316386,
       "lng": 119.4033361,
-      "latestObsDt": "2024-12-01 10:52",
-      "numSpeciesAllTime": 41
+      "latestObsDt": "2025-02-01 10:08",
+      "numSpeciesAllTime": 44
     },
     "前哨农场战斗连": {
       "locId": "L40003558",
@@ -7492,8 +7504,8 @@
       "subnational1Code": "CN-53",
       "lat": 26.4818125,
       "lng": 99.933093,
-      "latestObsDt": "2025-02-15 07:58",
-      "numSpeciesAllTime": 150
+      "latestObsDt": "2025-02-19 14:22",
+      "numSpeciesAllTime": 154
     },
     "剑英公园 (Jianying Park)": {
       "locId": "L39816373",
@@ -7623,7 +7635,7 @@
       "lat": 27.8151103,
       "lng": 91.7520417,
       "latestObsDt": "2025-02-03 09:00",
-      "numSpeciesAllTime": 91
+      "numSpeciesAllTime": 97
     },
     "包公园 (Baogong Park)": {
       "locId": "L38671364",
@@ -7692,7 +7704,7 @@
       "subnational1Code": "CN-11",
       "lat": 39.919716,
       "lng": 116.423703,
-      "latestObsDt": "2025-02-17 17:00",
+      "latestObsDt": "2025-02-19 16:50",
       "numSpeciesAllTime": 54
     },
     "北京冬奥公园 (Beijing Winter Olympics Park)": {
@@ -7712,7 +7724,7 @@
       "subnational1Code": "CN-11",
       "lat": 39.9408424,
       "lng": 116.3336412,
-      "latestObsDt": "2025-02-12 10:28",
+      "latestObsDt": "2025-02-23 09:00",
       "numSpeciesAllTime": 107
     },
     "北京四中 (Beijing No.4 High School)": {
@@ -7732,7 +7744,7 @@
       "subnational1Code": "CN-11",
       "lat": 39.9938357,
       "lng": 116.3103473,
-      "latestObsDt": "2025-02-17 12:19",
+      "latestObsDt": "2025-02-23 11:43",
       "numSpeciesAllTime": 189
     },
     "北京大学医学部 (Peking University Health Science Center)": {
@@ -7752,7 +7764,7 @@
       "subnational1Code": "CN-11",
       "lat": 40.1760534,
       "lng": 116.1637688,
-      "latestObsDt": "2025-02-13 15:11",
+      "latestObsDt": "2025-02-21 12:55",
       "numSpeciesAllTime": 22
     },
     "北京大学昌平校区 (Peking University - Changping Campus)": {
@@ -7772,7 +7784,7 @@
       "subnational1Code": "CN-11",
       "lat": 39.8743062,
       "lng": 116.4803343,
-      "latestObsDt": "2024-12-03 15:35",
+      "latestObsDt": "2025-02-20 13:28",
       "numSpeciesAllTime": 46
     },
     "北京师范大学 (Beijing Normal University)": {
@@ -7820,7 +7832,7 @@
       "subnational1Code": "CN-11",
       "lat": 39.9991057,
       "lng": 116.2092448,
-      "latestObsDt": "2025-02-17 07:09",
+      "latestObsDt": "2025-02-20 12:30",
       "numSpeciesAllTime": 210
     },
     "北京植物园--樱桃沟 (Beijing Botanical Garden--Cherry Valley)": {
@@ -7830,8 +7842,8 @@
       "subnational1Code": "CN-11",
       "lat": 40.0107597,
       "lng": 116.2019189,
-      "latestObsDt": "2025-02-11 14:28",
-      "numSpeciesAllTime": 41
+      "latestObsDt": "2025-02-22 11:13",
+      "numSpeciesAllTime": 42
     },
     "北京温榆河公园 (Beijing Wenyuhe Park)": {
       "locId": "L15384898",
@@ -7880,8 +7892,8 @@
       "subnational1Code": "CN-31",
       "lat": 31.5933223,
       "lng": 121.8447603,
-      "latestObsDt": "2025-02-01 12:38",
-      "numSpeciesAllTime": 176
+      "latestObsDt": "2025-02-22 13:00",
+      "numSpeciesAllTime": 177
     },
     "北六滧 (Beiliuyao)": {
       "locId": "L19509390",
@@ -7910,8 +7922,8 @@
       "subnational1Code": "CN-11",
       "lat": 39.9860922,
       "lng": 116.2566324,
-      "latestObsDt": "2024-12-26 07:30",
-      "numSpeciesAllTime": 37
+      "latestObsDt": "2025-02-14 13:24",
+      "numSpeciesAllTime": 38
     },
     "北坡北 (Beipo North)": {
       "locId": "L19032344",
@@ -8045,7 +8057,9 @@
       "countryCode": "CN",
       "subnational1Code": "CN-44",
       "lat": 21.6282779,
-      "lng": 111.7698383
+      "lng": 111.7698383,
+      "latestObsDt": "2025-02-16 07:37",
+      "numSpeciesAllTime": 17
     },
     "北小河公园 (Beixiaohe Park)": {
       "locId": "L38450977",
@@ -8144,7 +8158,7 @@
       "subnational1Code": "CN-11",
       "lat": 39.9509735,
       "lng": 116.3872459,
-      "latestObsDt": "2025-02-18 08:30",
+      "latestObsDt": "2025-02-20 15:00",
       "numSpeciesAllTime": 12
     },
     "北戴河 (Beidaihe [General Area])": {
@@ -8165,7 +8179,7 @@
       "lat": 39.821147,
       "lng": 119.522042,
       "latestObsDt": "2024-10-18 07:30",
-      "numSpeciesAllTime": 146
+      "numSpeciesAllTime": 150
     },
     "北戴河--湿地水塘 (Beidaihe--Wetland Reserve and Reservoir)": {
       "locId": "L2543788",
@@ -8185,7 +8199,7 @@
       "lat": 39.8390767,
       "lng": 119.5166557,
       "latestObsDt": "2024-10-21 13:28",
-      "numSpeciesAllTime": 275
+      "numSpeciesAllTime": 272
     },
     "北戴河--金山农田 (Beidaihe--Jin Shan Field)": {
       "locId": "L2543777",
@@ -8234,8 +8248,8 @@
       "subnational1Code": "CN-23",
       "lat": 53.4613247,
       "lng": 122.3555601,
-      "latestObsDt": "2025-01-23 12:00",
-      "numSpeciesAllTime": 19
+      "latestObsDt": "2025-02-22 08:50",
+      "numSpeciesAllTime": 20
     },
     "北极阁公园 (Beijige Park)": {
       "locId": "L37875132",
@@ -8316,7 +8330,7 @@
       "subnational1Code": "CN-53",
       "lat": 25.1200548,
       "lng": 98.558473,
-      "latestObsDt": "2025-02-13 08:00",
+      "latestObsDt": "2025-02-21 10:03",
       "numSpeciesAllTime": 153
     },
     "北海银滩 (Beihai Silver Beach)": {
@@ -8366,8 +8380,8 @@
       "subnational1Code": "CN-33",
       "lat": 30.3420051,
       "lng": 119.9314999,
-      "latestObsDt": "2025-02-17 11:23",
-      "numSpeciesAllTime": 310
+      "latestObsDt": "2025-02-18 06:45",
+      "numSpeciesAllTime": 311
     },
     "北灵山 (North Lingshan)": {
       "locId": "L38320184",
@@ -8384,8 +8398,8 @@
       "subnational1Code": "CN-32",
       "lat": 31.067889,
       "lng": 120.5696548,
-      "latestObsDt": "2025-01-18 07:34",
-      "numSpeciesAllTime": 66
+      "latestObsDt": "2025-02-22 08:53",
+      "numSpeciesAllTime": 69
     },
     "北疆海岸 (Beijiang Coast)": {
       "locId": "L37994300",
@@ -8498,7 +8512,7 @@
       "subnational1Code": "CN-21",
       "lat": 41.8551374,
       "lng": 123.4275056,
-      "latestObsDt": "2024-12-10 11:22",
+      "latestObsDt": "2025-02-21 07:00",
       "numSpeciesAllTime": 59
     },
     "北麂列岛 (Beiji Islands)": {
@@ -8546,7 +8560,7 @@
       "subnational1Code": "CN-11",
       "lat": 40.2605578,
       "lng": 116.2608433,
-      "latestObsDt": "2025-02-10 13:00",
+      "latestObsDt": "2025-02-22 08:00",
       "numSpeciesAllTime": 230
     },
     "十三陵水库--七孔桥花海 (Ming Tombs Reservoir--Flower Sea)": {
@@ -8590,7 +8604,7 @@
       "subnational1Code": "CN-34",
       "lat": 31.7224669,
       "lng": 117.4031178,
-      "latestObsDt": "2025-02-04 13:15",
+      "latestObsDt": "2025-02-23 13:20",
       "numSpeciesAllTime": 170
     },
     "十六潭公园 (Shiliutan Park)": {
@@ -8636,7 +8650,7 @@
       "subnational1Code": "CN-32",
       "lat": 31.3054419,
       "lng": 120.7290285,
-      "latestObsDt": "2025-02-15 10:32",
+      "latestObsDt": "2025-02-22 15:01",
       "numSpeciesAllTime": 38
     },
     "十里荷塘--镜湖湿地 (Shilihetang--Jinghu Wetlands)": {
@@ -8794,8 +8808,8 @@
       "subnational1Code": "CN-51",
       "lat": 30.7078248,
       "lng": 104.0815593,
-      "latestObsDt": "2024-12-29 10:15",
-      "numSpeciesAllTime": 18
+      "latestObsDt": "2025-02-19 15:38",
+      "numSpeciesAllTime": 34
     },
     "升金湖 (Shengjin Lake)": {
       "locId": "L5765754",
@@ -8910,8 +8924,8 @@
       "subnational1Code": "CN-42",
       "lat": 30.5184013,
       "lng": 114.3602416,
-      "latestObsDt": "2024-12-24 15:48",
-      "numSpeciesAllTime": 79
+      "latestObsDt": "2025-02-21 10:26",
+      "numSpeciesAllTime": 82
     },
     "华中科技大学 (Huazhong University of Science and Technology)": {
       "locId": "L5420922",
@@ -8950,7 +8964,7 @@
       "subnational1Code": "CN-44",
       "lat": 22.5302811,
       "lng": 113.9840856,
-      "latestObsDt": "2025-02-16 15:05",
+      "latestObsDt": "2025-02-20 15:56",
       "numSpeciesAllTime": 128
     },
     "华侨城生态湿地公园 (OCT Eco-Wetland Park)": {
@@ -9186,7 +9200,7 @@
       "subnational1Code": "CN-32",
       "lat": 32.0527169,
       "lng": 118.834219,
-      "latestObsDt": "2025-02-01 12:03",
+      "latestObsDt": "2025-02-22 14:00",
       "numSpeciesAllTime": 168
     },
     "南京中山植物园南园 (Nanjing Botanical Garden South)": {
@@ -9282,8 +9296,8 @@
       "subnational1Code": "CN-53",
       "lat": 24.0996038,
       "lng": 97.8498602,
-      "latestObsDt": "2025-02-11 12:39",
-      "numSpeciesAllTime": 287
+      "latestObsDt": "2025-02-23 11:21",
+      "numSpeciesAllTime": 298
     },
     "南伊沟 (Nanyi Valley)": {
       "locId": "L8762695",
@@ -9781,7 +9795,7 @@
       "lat": 30.9186715,
       "lng": 121.9772217,
       "latestObsDt": "2025-02-16 10:30",
-      "numSpeciesAllTime": 419
+      "numSpeciesAllTime": 420
     },
     "南汇嘴观海公园 (Nanhuizui Sea-viewing Park)": {
       "locId": "L17656426",
@@ -9790,8 +9804,8 @@
       "subnational1Code": "CN-31",
       "lat": 30.8826818,
       "lng": 121.9730653,
-      "latestObsDt": "2025-02-16 15:54",
-      "numSpeciesAllTime": 257
+      "latestObsDt": "2025-02-22 12:53",
+      "numSpeciesAllTime": 259
     },
     "南汇新城城市公园 (Nanhui New City Park)": {
       "locId": "L29531268",
@@ -9868,7 +9882,7 @@
       "subnational1Code": "CN-11",
       "lat": 39.777136,
       "lng": 116.4605969,
-      "latestObsDt": "2025-02-18 08:05",
+      "latestObsDt": "2025-02-22 12:31",
       "numSpeciesAllTime": 206
     },
     "南温泉公园 (Nanwenquan Park)": {
@@ -10020,7 +10034,7 @@
       "subnational1Code": "CN-12",
       "lat": 39.0772176,
       "lng": 117.1531062,
-      "latestObsDt": "2025-01-29 12:01",
+      "latestObsDt": "2025-02-21 16:38",
       "numSpeciesAllTime": 92
     },
     "南艳湖 (Nanyan Lake)": {
@@ -10058,8 +10072,8 @@
       "subnational1Code": "CN-53",
       "lat": 21.6330065,
       "lng": 101.4487508,
-      "latestObsDt": "2025-02-17 07:41",
-      "numSpeciesAllTime": 249
+      "latestObsDt": "2025-02-22 08:00",
+      "numSpeciesAllTime": 250
     },
     "南辛圩 (Nanxinwei)": {
       "locId": "L28581687",
@@ -10123,7 +10137,7 @@
       "lat": 27.4581994,
       "lng": 121.0790693,
       "latestObsDt": "2024-12-24 00:00",
-      "numSpeciesAllTime": 236
+      "numSpeciesAllTime": 237
     },
     "南龛山 (Nankan Hill)": {
       "locId": "L38175274",
@@ -10251,7 +10265,17 @@
       "lat": 31.0346967,
       "lng": 103.1803322,
       "latestObsDt": "2025-01-02 09:56",
-      "numSpeciesAllTime": 310
+      "numSpeciesAllTime": 311
+    },
+    "卧龙山 (Wolong Hill)": {
+      "locId": "L40457590",
+      "locName": "卧龙山 (Wolong Hill)",
+      "countryCode": "CN",
+      "subnational1Code": "CN-36",
+      "lat": 28.6422776,
+      "lng": 115.8167578,
+      "latestObsDt": "2025-02-22 08:46",
+      "numSpeciesAllTime": 22
     },
     "卧龙山公园 (Wolongshan Park)": {
       "locId": "L38060593",
@@ -11074,8 +11098,8 @@
       "subnational1Code": "CN-63",
       "lat": 37.0206,
       "lng": 101.5929,
-      "latestObsDt": "2025-02-16 12:55",
-      "numSpeciesAllTime": 147
+      "latestObsDt": "2025-02-21 12:56",
+      "numSpeciesAllTime": 148
     },
     "吉木乃草原石城 (Grassland Stone Town, Jeminay)": {
       "locId": "L24982469",
@@ -11320,7 +11344,7 @@
       "subnational1Code": "CN-31",
       "lat": 31.1825256,
       "lng": 121.4708278,
-      "latestObsDt": "2025-02-15 15:00",
+      "latestObsDt": "2025-02-20 16:24",
       "numSpeciesAllTime": 141
     },
     "后环湿地公园 (Houhuan Wetland Park)": {
@@ -11474,7 +11498,7 @@
       "subnational1Code": "CN-31",
       "lat": 31.3975133,
       "lng": 121.5069222,
-      "latestObsDt": "2025-02-17 10:30",
+      "latestObsDt": "2025-02-22 13:56",
       "numSpeciesAllTime": 157
     },
     "吴王山森林公园 (Wuwangshan Forest Park)": {
@@ -11493,7 +11517,7 @@
       "lat": 18.4532318,
       "lng": 109.6528244,
       "latestObsDt": "2025-02-11 14:30",
-      "numSpeciesAllTime": 50
+      "numSpeciesAllTime": 51
     },
     "呈贡营盘山 (Yingpan Hill, Chenggong)": {
       "locId": "L38127057",
@@ -11684,8 +11708,8 @@
       "subnational1Code": "CN-53",
       "lat": 25.0093969,
       "lng": 98.4607285,
-      "latestObsDt": "2025-01-20 14:41",
-      "numSpeciesAllTime": 109
+      "latestObsDt": "2025-02-20 07:52",
+      "numSpeciesAllTime": 111
     },
     "和顺古镇--镇外湿地 (Heshun Old Town--Outskirt Wetlands)": {
       "locId": "L10487581",
@@ -12350,8 +12374,8 @@
       "subnational1Code": "CN-31",
       "lat": 31.3571798,
       "lng": 121.201022,
-      "latestObsDt": "2025-02-16 15:45",
-      "numSpeciesAllTime": 88
+      "latestObsDt": "2025-02-19 15:20",
+      "numSpeciesAllTime": 89
     },
     "嘉善--柳州公园 (Jiashan--Liuzhou Park)": {
       "locId": "L29649398",
@@ -12770,7 +12794,7 @@
       "subnational1Code": "CN-43",
       "lat": 29.1243687,
       "lng": 110.5005638,
-      "latestObsDt": "2025-01-12 17:36",
+      "latestObsDt": "2025-01-12 17:33",
       "numSpeciesAllTime": 18
     },
     "团城山公园 (Tuanchengshan Park)": {
@@ -12928,7 +12952,7 @@
       "subnational1Code": "CN-11",
       "lat": 40.007867,
       "lng": 116.3006421,
-      "latestObsDt": "2025-01-29 15:08",
+      "latestObsDt": "2025-02-22 09:44",
       "numSpeciesAllTime": 250
     },
     "圆明园--绮春园 (Old Summer Palace--Qichun Yuan)": {
@@ -13024,7 +13048,7 @@
       "subnational1Code": "CN-36",
       "lat": 29.0952277,
       "lng": 115.9142158,
-      "latestObsDt": "2025-02-05 07:40",
+      "latestObsDt": "2025-02-22 15:02",
       "numSpeciesAllTime": 125
     },
     "圭峰寺 (Guifeng Temple)": {
@@ -13042,8 +13066,8 @@
       "subnational1Code": "CN-44",
       "lat": 22.5546207,
       "lng": 113.0273448,
-      "latestObsDt": "2024-12-21 08:38",
-      "numSpeciesAllTime": 51
+      "latestObsDt": "2025-02-22 16:14",
+      "numSpeciesAllTime": 53
     },
     "地坛公园 (Temple of Earth)": {
       "locId": "L3352512",
@@ -13184,7 +13208,7 @@
       "subnational1Code": "CN-11",
       "lat": 39.8732482,
       "lng": 116.7214109,
-      "latestObsDt": "2025-01-18 00:00",
+      "latestObsDt": "2025-02-22 09:40",
       "numSpeciesAllTime": 85
     },
     "培隆沙滩 (Peilong Beach)": {
@@ -13334,8 +13358,8 @@
       "subnational1Code": "CN-35",
       "lat": 25.951441,
       "lng": 119.360333,
-      "latestObsDt": "2025-01-19 16:24",
-      "numSpeciesAllTime": 135
+      "latestObsDt": "2025-02-20 13:32",
+      "numSpeciesAllTime": 138
     },
     "塔里木胡杨林公园 (Tarim Poplar Forest Park)": {
       "locId": "L25878030",
@@ -13976,7 +14000,7 @@
       "subnational1Code": "CN-31",
       "lat": 31.2770837,
       "lng": 121.4433861,
-      "latestObsDt": "2025-01-16 09:00",
+      "latestObsDt": "2025-02-22 15:21",
       "numSpeciesAllTime": 75
     },
     "大宁水库及其东部永定河废弃河道 (Daning Reservoir & Adjacent Riverbed)": {
@@ -13986,8 +14010,8 @@
       "subnational1Code": "CN-11",
       "lat": 39.8290142,
       "lng": 116.217075,
-      "latestObsDt": "2025-02-17 13:00",
-      "numSpeciesAllTime": 274
+      "latestObsDt": "2025-02-22 13:36",
+      "numSpeciesAllTime": 275
     },
     "大宗高尔夫俱乐部 (Dazong Golf Course)": {
       "locId": "L32348798",
@@ -14160,8 +14184,8 @@
       "subnational1Code": "CN-37",
       "lat": 36.6750622,
       "lng": 117.0237065,
-      "latestObsDt": "2025-02-11 10:00",
-      "numSpeciesAllTime": 51
+      "latestObsDt": "2025-02-20 13:58",
+      "numSpeciesAllTime": 52
     },
     "大村水库 (Dacun Reservoir)": {
       "locId": "L13757323",
@@ -14218,7 +14242,7 @@
       "subnational1Code": "CN-44",
       "lat": 22.557198,
       "lng": 113.9586655,
-      "latestObsDt": "2025-01-05 11:00",
+      "latestObsDt": "2025-02-22 17:50",
       "numSpeciesAllTime": 49
     },
     "大沙河湿地 (Dashahe Wetlands)": {
@@ -14259,7 +14283,7 @@
       "lat": 36.1719114,
       "lng": 120.1299007,
       "latestObsDt": "2025-02-08 11:15",
-      "numSpeciesAllTime": 16
+      "numSpeciesAllTime": 15
     },
     "大沽河生态湿地 (Dagu River Eco-Wetlands)": {
       "locId": "L39711710",
@@ -14422,7 +14446,7 @@
       "subnational1Code": "CN-36",
       "lat": 29.1395269,
       "lng": 115.9736622,
-      "latestObsDt": "2025-02-15 08:38",
+      "latestObsDt": "2025-02-23 10:54",
       "numSpeciesAllTime": 95
     },
     "大湖池--南堤 (Lake Dahuchi--South Shore)": {
@@ -14433,7 +14457,7 @@
       "lat": 29.079971,
       "lng": 115.946998,
       "latestObsDt": "2025-02-18 15:00",
-      "numSpeciesAllTime": 95
+      "numSpeciesAllTime": 97
     },
     "大湖池--水上公路东平台 (Lake Dahuchi--Water-Drive Viewing Platform East)": {
       "locId": "L28490365",
@@ -14442,7 +14466,7 @@
       "subnational1Code": "CN-36",
       "lat": 29.1064227,
       "lng": 115.9628623,
-      "latestObsDt": "2025-02-05 11:30",
+      "latestObsDt": "2025-02-22 14:12",
       "numSpeciesAllTime": 120
     },
     "大湖池--水上公路西平台 (Lake Dahuchi--Water-Drive Viewing Platform West)": {
@@ -14452,8 +14476,8 @@
       "subnational1Code": "CN-36",
       "lat": 29.092204,
       "lng": 115.940564,
-      "latestObsDt": "2025-02-18 11:00",
-      "numSpeciesAllTime": 13
+      "latestObsDt": "2025-02-23 13:37",
+      "numSpeciesAllTime": 20
     },
     "大湖池--狮子山观鸟点 (Lake Dahuchi--Lion Hill Viewing Point)": {
       "locId": "L40374215",
@@ -14462,7 +14486,7 @@
       "subnational1Code": "CN-36",
       "lat": 29.123146,
       "lng": 115.960142,
-      "latestObsDt": "2025-02-18 11:40",
+      "latestObsDt": "2025-02-23 11:19",
       "numSpeciesAllTime": 172
     },
     "大湖沙滩 (Dahu Beach)": {
@@ -14613,7 +14637,7 @@
       "lat": 24.7397044,
       "lng": 98.0262577,
       "latestObsDt": "2025-02-10 16:32",
-      "numSpeciesAllTime": 76
+      "numSpeciesAllTime": 78
     },
     "大盘山国家级自然保护区 (Dapanshan NNR)": {
       "locId": "L18111618",
@@ -14804,7 +14828,7 @@
       "subnational1Code": "CN-34",
       "lat": 31.839189,
       "lng": 117.1743796,
-      "latestObsDt": "2025-02-12 13:30",
+      "latestObsDt": "2025-02-23 08:00",
       "numSpeciesAllTime": 132
     },
     "大西坑水库 (Daxikeng Reservoir)": {
@@ -14908,7 +14932,7 @@
       "subnational1Code": "CN-11",
       "lat": 39.8662135,
       "lng": 116.7478563,
-      "latestObsDt": "2025-02-06 12:07",
+      "latestObsDt": "2025-02-22 11:20",
       "numSpeciesAllTime": 225
     },
     "大运自然公园西区 (Dayun Nature Park West)": {
@@ -15258,7 +15282,7 @@
       "subnational1Code": "CN-11",
       "lat": 39.8810351,
       "lng": 116.4119645,
-      "latestObsDt": "2025-02-16 11:30",
+      "latestObsDt": "2025-02-20 06:47",
       "numSpeciesAllTime": 210
     },
     "天坛公园--科普园苗圃 (Temple of Heaven--The Arboretum)": {
@@ -15269,7 +15293,7 @@
       "lat": 39.8856979,
       "lng": 116.4069128,
       "latestObsDt": "2025-02-04 15:40",
-      "numSpeciesAllTime": 88
+      "numSpeciesAllTime": 112
     },
     "天堂寨 [安徽] (Tiantangzhai [Anhui])": {
       "locId": "L29902693",
@@ -15326,8 +15350,8 @@
       "subnational1Code": "CN-43",
       "lat": 29.3875864,
       "lng": 110.4836275,
-      "latestObsDt": "2025-01-11 10:40",
-      "numSpeciesAllTime": 5
+      "latestObsDt": "2025-01-11 11:21",
+      "numSpeciesAllTime": 7
     },
     "天子岗水库 (Tianzigang Reservoir)": {
       "locId": "L17404689",
@@ -15464,8 +15488,8 @@
       "subnational1Code": "CN-44",
       "lat": 23.1288963,
       "lng": 113.3662977,
-      "latestObsDt": "2025-02-09 15:10",
-      "numSpeciesAllTime": 61
+      "latestObsDt": "2025-02-22 14:40",
+      "numSpeciesAllTime": 62
     },
     "天津临港湿地公园 (Tianjin Lingang Wetland Park)": {
       "locId": "L32227896",
@@ -15544,8 +15568,8 @@
       "subnational1Code": "CN-12",
       "lat": 39.0871487,
       "lng": 117.1613854,
-      "latestObsDt": "2025-02-12 16:01",
-      "numSpeciesAllTime": 130
+      "latestObsDt": "2025-02-21 14:53",
+      "numSpeciesAllTime": 131
     },
     "天津滨海国际机场 (Tianjin Binhai International Airport)": {
       "locId": "L32227970",
@@ -15595,7 +15619,7 @@
       "lat": 29.4366868,
       "lng": 107.7962623,
       "latestObsDt": "2025-01-17 15:16",
-      "numSpeciesAllTime": 17
+      "numSpeciesAllTime": 18
     },
     "天目溪流域 (Tianmu River and its environs)": {
       "locId": "L7058876",
@@ -15604,8 +15628,8 @@
       "subnational1Code": "CN-33",
       "lat": 30.0503759,
       "lng": 119.3699458,
-      "latestObsDt": "2025-01-18 15:29",
-      "numSpeciesAllTime": 103
+      "latestObsDt": "2025-02-20 07:37",
+      "numSpeciesAllTime": 110
     },
     "天福国家湿地公园 (Tianfu National Wetland Park)": {
       "locId": "L21996964",
@@ -15614,8 +15638,8 @@
       "subnational1Code": "CN-32",
       "lat": 31.3333211,
       "lng": 121.1003596,
-      "latestObsDt": "2024-12-14 13:00",
-      "numSpeciesAllTime": 68
+      "latestObsDt": "2025-02-21 15:05",
+      "numSpeciesAllTime": 71
     },
     "天童国家森林公园 (Tiantong National Forest Park)": {
       "locId": "L10848394",
@@ -15634,7 +15658,7 @@
       "subnational1Code": "CN-35",
       "lat": 24.5914976,
       "lng": 117.9290914,
-      "latestObsDt": "2025-01-30 10:30",
+      "latestObsDt": "2025-02-22 07:52",
       "numSpeciesAllTime": 164
     },
     "天竺岩 (Tianzhu Rock)": {
@@ -15960,7 +15984,7 @@
       "subnational1Code": "CN-32",
       "lat": 31.4557743,
       "lng": 120.3934375,
-      "latestObsDt": "2025-02-16 11:33",
+      "latestObsDt": "2025-02-23 06:42",
       "numSpeciesAllTime": 174
     },
     "太湖鼋头渚风景区 (Taihu Yuantouzhu Scenic Area)": {
@@ -16073,7 +16097,7 @@
       "lat": 22.6063698,
       "lng": 101.0978281,
       "latestObsDt": "2024-12-28 13:00",
-      "numSpeciesAllTime": 39
+      "numSpeciesAllTime": 38
     },
     "太阳湾海滨游乐场 (Sun Bay Coastal Resort)": {
       "locId": "L9360531",
@@ -16327,7 +16351,7 @@
       "lat": 40.0225917,
       "lng": 116.3919748,
       "latestObsDt": "2025-02-09 12:48",
-      "numSpeciesAllTime": 243
+      "numSpeciesAllTime": 244
     },
     "奥林匹克森林公园北园 (Olympic Forest Park North)": {
       "locId": "L13741681",
@@ -16346,7 +16370,7 @@
       "subnational1Code": "CN-11",
       "lat": 40.0173836,
       "lng": 116.3938028,
-      "latestObsDt": "2025-02-16 09:00",
+      "latestObsDt": "2025-02-23 09:53",
       "numSpeciesAllTime": 261
     },
     "奥林匹克森林公园南园--叠水花台 (Olympic Forest Park South--Dieshui Huatai)": {
@@ -16357,7 +16381,7 @@
       "lat": 40.0180208,
       "lng": 116.3833096,
       "latestObsDt": "2025-02-17 15:32",
-      "numSpeciesAllTime": 105
+      "numSpeciesAllTime": 106
     },
     "奥林匹克森林公园南园--奥海西侧 (Olympic Forest Park South--Aohai West)": {
       "locId": "L23854208",
@@ -16386,8 +16410,8 @@
       "subnational1Code": "CN-53",
       "lat": 27.825,
       "lng": 99.6751,
-      "latestObsDt": "2024-01-09 14:00",
-      "numSpeciesAllTime": 38
+      "latestObsDt": "2025-02-21 16:36",
+      "numSpeciesAllTime": 42
     },
     "好溪社后段 (Haoxi River - Shehou Section)": {
       "locId": "L10864517",
@@ -16464,7 +16488,7 @@
       "subnational1Code": "CN-53",
       "lat": 24.053479,
       "lng": 97.8967366,
-      "latestObsDt": "2024-05-07 09:29",
+      "latestObsDt": "2025-02-20 10:18",
       "numSpeciesAllTime": 180
     },
     "姑婆山风景区 (Guposhan Scenic Area)": {
@@ -16768,7 +16792,7 @@
       "subnational1Code": "CN-41",
       "lat": 34.8804111,
       "lng": 112.5422744,
-      "latestObsDt": "2025-02-18 12:35",
+      "latestObsDt": "2025-02-23 11:07",
       "numSpeciesAllTime": 150
     },
     "孟良崮国家森林公园 (Menglianggu National Forest Park)": {
@@ -17176,7 +17200,7 @@
       "subnational1Code": "CN-62",
       "lat": 35.6107149,
       "lng": 104.5984207,
-      "latestObsDt": "2025-02-16 09:00",
+      "latestObsDt": "2025-02-21 13:55",
       "numSpeciesAllTime": 97
     },
     "宛水公园 (Wanshui Park)": {
@@ -17238,8 +17262,8 @@
       "subnational1Code": "CN-53",
       "lat": 24.9166345,
       "lng": 102.7165031,
-      "latestObsDt": "2024-12-21 11:06",
-      "numSpeciesAllTime": 37
+      "latestObsDt": "2025-01-30 08:00",
+      "numSpeciesAllTime": 48
     },
     "宝华公园 (Baohua Park)": {
       "locId": "L25622582",
@@ -17526,8 +17550,8 @@
       "subnational1Code": "CN-36",
       "lat": 29.5146464,
       "lng": 117.8889579,
-      "latestObsDt": "2025-02-14 09:21",
-      "numSpeciesAllTime": 112
+      "latestObsDt": "2025-02-19 08:00",
+      "numSpeciesAllTime": 114
     },
     "察汗河森林公园 (Chahanhe Forest Park)": {
       "locId": "L6000793",
@@ -17536,8 +17560,8 @@
       "subnational1Code": "CN-63",
       "lat": 37.2678853,
       "lng": 101.5072597,
-      "latestObsDt": "2024-10-17 09:30",
-      "numSpeciesAllTime": 71
+      "latestObsDt": "2025-02-22 15:06",
+      "numSpeciesAllTime": 87
     },
     "寥廓公园 (Liaokuo Park)": {
       "locId": "L38108972",
@@ -17584,8 +17608,8 @@
       "subnational1Code": "CN-33",
       "lat": 29.9933806,
       "lng": 120.1178777,
-      "latestObsDt": "2025-02-16 14:30",
-      "numSpeciesAllTime": 150
+      "latestObsDt": "2025-02-18 19:40",
+      "numSpeciesAllTime": 151
     },
     "寺沟 (Sigou Ridge)": {
       "locId": "L3076229",
@@ -17662,8 +17686,8 @@
       "subnational1Code": "CN-36",
       "lat": 29.185548,
       "lng": 115.4826473,
-      "latestObsDt": "2025-02-16 13:00",
-      "numSpeciesAllTime": 80
+      "latestObsDt": "2025-02-19 13:54",
+      "numSpeciesAllTime": 83
     },
     "将军泡子 (Jiangjun Paozi)": {
       "locId": "L38025886",
@@ -17831,7 +17855,9 @@
       "countryCode": "CN",
       "subnational1Code": "CN-37",
       "lat": 36.7026622,
-      "lng": 121.1899846
+      "lng": 121.1899846,
+      "latestObsDt": "2024-09-07 08:26",
+      "numSpeciesAllTime": 21
     },
     "小岛河码头 (Xiaodaohe Port)": {
       "locId": "L39460114",
@@ -18219,7 +18245,9 @@
       "countryCode": "CN",
       "subnational1Code": "CN-44",
       "lat": 22.1875002,
-      "lng": 113.3089202
+      "lng": 113.3089202,
+      "latestObsDt": "2025-02-20 13:26",
+      "numSpeciesAllTime": 20
     },
     "尖峰岭国家级自然保护区 (Jianfengling NNR)": {
       "locId": "L3440438",
@@ -18228,7 +18256,7 @@
       "subnational1Code": "CN-46",
       "lat": 18.7161353,
       "lng": 108.8878607,
-      "latestObsDt": "2025-02-17 13:48",
+      "latestObsDt": "2025-02-20 19:30",
       "numSpeciesAllTime": 221
     },
     "尖峰岭自然保护区--分界岭至天池公路 (Jianfengling NNR--The Ridge to Tianchi Lake)": {
@@ -18248,7 +18276,7 @@
       "subnational1Code": "CN-46",
       "lat": 18.685319,
       "lng": 108.866304,
-      "latestObsDt": "2025-02-17 07:27",
+      "latestObsDt": "2025-02-19 13:23",
       "numSpeciesAllTime": 111
     },
     "尖峰岭自然保护区--天池 [西岸] (Jianfengling NNR--Tianchi Lake West)": {
@@ -18278,8 +18306,8 @@
       "subnational1Code": "CN-46",
       "lat": 18.7396135,
       "lng": 108.858026,
-      "latestObsDt": "2025-02-11 13:50",
-      "numSpeciesAllTime": 42
+      "latestObsDt": "2025-02-20 10:08",
+      "numSpeciesAllTime": 46
     },
     "尖峰岭自然保护区--雨林谷 (Jianfengling NNR--Rainforest Valley)": {
       "locId": "L22534019",
@@ -18298,8 +18326,8 @@
       "subnational1Code": "CN-46",
       "lat": 18.743592,
       "lng": 108.8429506,
-      "latestObsDt": "2025-02-16 13:34",
-      "numSpeciesAllTime": 130
+      "latestObsDt": "2025-02-20 08:18",
+      "numSpeciesAllTime": 134
     },
     "尖峰镇 (Jianfeng Town)": {
       "locId": "L28618802",
@@ -18624,7 +18652,7 @@
       "subnational1Code": "CN-63",
       "lat": 37.6866963,
       "lng": 101.4513143,
-      "latestObsDt": "2024-12-18 13:50",
+      "latestObsDt": "2025-02-23 09:18",
       "numSpeciesAllTime": 105
     },
     "岗党 (Gangdang)": {
@@ -18786,7 +18814,7 @@
       "subnational1Code": "CN-43",
       "lat": 28.1824262,
       "lng": 112.9321197,
-      "latestObsDt": "2025-02-13 16:00",
+      "latestObsDt": "2025-02-20 16:00",
       "numSpeciesAllTime": 124
     },
     "岸上草原  (Anshang Grassland)": {
@@ -19060,7 +19088,7 @@
       "subnational1Code": "CN-31",
       "lat": 31.4951401,
       "lng": 121.9647217,
-      "latestObsDt": "2025-02-18 06:38",
+      "latestObsDt": "2025-02-22 09:01",
       "numSpeciesAllTime": 329
     },
     "崇明东滩鸟类国家级自然保护区--外围区域 (Chongming Dongtan NNR--Outskirts)": {
@@ -19090,8 +19118,8 @@
       "subnational1Code": "CN-31",
       "lat": 31.6789939,
       "lng": 121.6255217,
-      "latestObsDt": "2025-01-19 09:52",
-      "numSpeciesAllTime": 115
+      "latestObsDt": "2025-02-22 09:09",
+      "numSpeciesAllTime": 117
     },
     "崇明新村麋鹿极小种群恢复与野放项目基地 (Chongming Research Base of Père David's Deer)": {
       "locId": "L23069292",
@@ -19148,8 +19176,8 @@
       "subnational1Code": "CN-46",
       "lat": 18.342471,
       "lng": 109.136328,
-      "latestObsDt": "2024-11-12 11:30",
-      "numSpeciesAllTime": 70
+      "latestObsDt": "2025-02-23 09:05",
+      "numSpeciesAllTime": 71
     },
     "崛围山 (Juewei Mountain)": {
       "locId": "L11915985",
@@ -19403,7 +19431,7 @@
       "lat": 33.5844503,
       "lng": 103.1787872,
       "latestObsDt": "2025-01-20 08:05",
-      "numSpeciesAllTime": 227
+      "numSpeciesAllTime": 226
     },
     "巴西林场--低海拔 (Baxi Forest--lower track)": {
       "locId": "L4644356",
@@ -19600,8 +19628,8 @@
       "subnational1Code": "CN-36",
       "lat": 29.138195,
       "lng": 115.981827,
-      "latestObsDt": "2025-02-18 14:28",
-      "numSpeciesAllTime": 78
+      "latestObsDt": "2025-02-23 09:17",
+      "numSpeciesAllTime": 81
     },
     "常青公园 (Evergreen Park)": {
       "locId": "L34914597",
@@ -19862,7 +19890,7 @@
       "subnational1Code": "CN-13",
       "lat": 40.1558213,
       "lng": 115.685425,
-      "latestObsDt": "2023-06-30 11:59",
+      "latestObsDt": "2025-02-22 14:30",
       "numSpeciesAllTime": 34
     },
     "广东树木公园 (Guangdong Shumu Park)": {
@@ -20014,7 +20042,7 @@
       "subnational1Code": "CN-44",
       "lat": 23.148288,
       "lng": 113.2708098,
-      "latestObsDt": "2025-01-27 12:48",
+      "latestObsDt": "2025-02-20 01:15",
       "numSpeciesAllTime": 55
     },
     "广西大学 (Guangxi University)": {
@@ -20292,8 +20320,8 @@
       "subnational1Code": "CN-36",
       "lat": 28.9125817,
       "lng": 116.4835388,
-      "latestObsDt": "2025-02-15 15:17",
-      "numSpeciesAllTime": 113
+      "latestObsDt": "2025-02-21 11:35",
+      "numSpeciesAllTime": 116
     },
     "康巴诺尔国家湿地公园 (Kangba Nur National Wetland Park)": {
       "locId": "L38320132",
@@ -20471,7 +20499,7 @@
       "lat": 23.6767708,
       "lng": 102.5508963,
       "latestObsDt": "2025-02-08 17:33",
-      "numSpeciesAllTime": 75
+      "numSpeciesAllTime": 80
     },
     "弄岗国家级自然保护区 (Nonggang NNR)": {
       "locId": "L10490454",
@@ -20480,8 +20508,8 @@
       "subnational1Code": "CN-45",
       "lat": 22.4632323,
       "lng": 106.9575932,
-      "latestObsDt": "2025-02-17 19:59",
-      "numSpeciesAllTime": 258
+      "latestObsDt": "2025-02-21 15:23",
+      "numSpeciesAllTime": 260
     },
     "弄莫湖公园 (Nongmo Lake Park)": {
       "locId": "L6864920",
@@ -20490,8 +20518,8 @@
       "subnational1Code": "CN-53",
       "lat": 24.0015604,
       "lng": 97.8400111,
-      "latestObsDt": "2025-02-09 17:15",
-      "numSpeciesAllTime": 114
+      "latestObsDt": "2025-02-22 14:48",
+      "numSpeciesAllTime": 116
     },
     "弓杠岭 (Gonggangling Pass)": {
       "locId": "L4641186",
@@ -20548,7 +20576,7 @@
       "subnational1Code": "CN-61",
       "lat": 33.3069723,
       "lng": 107.6233561,
-      "latestObsDt": "2025-01-12 12:26",
+      "latestObsDt": "2025-02-22 15:33",
       "numSpeciesAllTime": 175
     },
     "张家港沿江围垦区 (Zhangjiagang Reclamation Area)": {
@@ -20840,8 +20868,8 @@
       "subnational1Code": "CN-45",
       "lat": 23.306926,
       "lng": 105.802998,
-      "latestObsDt": "2025-02-12 07:39",
-      "numSpeciesAllTime": 183
+      "latestObsDt": "2025-02-23 07:51",
+      "numSpeciesAllTime": 185
     },
     "德尔贡村 (Dergong Village)": {
       "locId": "L36142580",
@@ -20851,7 +20879,7 @@
       "lat": 29.1902063,
       "lng": 95.1455855,
       "latestObsDt": "2025-01-30 13:29",
-      "numSpeciesAllTime": 52
+      "numSpeciesAllTime": 53
     },
     "德州人民公园 (People's Park, Dezhou)": {
       "locId": "L38786383",
@@ -20978,8 +21006,8 @@
       "subnational1Code": "CN-11",
       "lat": 39.7047605,
       "lng": 116.3150926,
-      "latestObsDt": "2025-02-15 13:59",
-      "numSpeciesAllTime": 88
+      "latestObsDt": "2025-02-20 06:40",
+      "numSpeciesAllTime": 90
     },
     "念湖 (Nian Lake)": {
       "locId": "L29579189",
@@ -21196,8 +21224,8 @@
       "subnational1Code": "CN-53",
       "lat": 25.6370276,
       "lng": 100.1771125,
-      "latestObsDt": "2025-02-04 08:18",
-      "numSpeciesAllTime": 102
+      "latestObsDt": "2025-02-19 08:26",
+      "numSpeciesAllTime": 105
     },
     "慈朗湖湿地公园 (Cilanghu Wetland Park)": {
       "locId": "L38226639",
@@ -21372,8 +21400,8 @@
       "subnational1Code": "CN-51",
       "lat": 30.7649032,
       "lng": 104.1285038,
-      "latestObsDt": "2025-02-10 10:43",
-      "numSpeciesAllTime": 130
+      "latestObsDt": "2025-02-19 09:49",
+      "numSpeciesAllTime": 131
     },
     "戒台寺 (Jietai Temple)": {
       "locId": "L38212163",
@@ -21424,8 +21452,8 @@
       "subnational1Code": "CN-53",
       "lat": 24.394927,
       "lng": 97.835655,
-      "latestObsDt": "2025-02-09 08:10",
-      "numSpeciesAllTime": 309
+      "latestObsDt": "2025-02-19 16:34",
+      "numSpeciesAllTime": 310
     },
     "户瓦村 (Huwa Village)": {
       "locId": "L8245145",
@@ -21611,7 +21639,7 @@
       "lat": 40.9901531,
       "lng": 117.9422147,
       "latestObsDt": "2024-09-16 16:05",
-      "numSpeciesAllTime": 34
+      "numSpeciesAllTime": 42
     },
     "折多山观景台 (Zheduoshan Viewing Point)": {
       "locId": "L35699218",
@@ -22060,7 +22088,7 @@
       "subnational1Code": "CN-44",
       "lat": 21.6189532,
       "lng": 111.7857921,
-      "latestObsDt": "2025-01-07 10:57",
+      "latestObsDt": "2025-02-16 12:50",
       "numSpeciesAllTime": 155
     },
     "敦煌公园 (Dunhuang Urban Park)": {
@@ -22296,7 +22324,7 @@
       "subnational1Code": "CN-32",
       "lat": 31.2727346,
       "lng": 120.7510747,
-      "latestObsDt": "2025-02-12 12:45",
+      "latestObsDt": "2025-02-20 10:01",
       "numSpeciesAllTime": 58
     },
     "新垱 (Xindang)": {
@@ -22316,8 +22344,8 @@
       "subnational1Code": "CN-32",
       "lat": 31.562529,
       "lng": 120.366269,
-      "latestObsDt": "2025-02-11 08:47",
-      "numSpeciesAllTime": 24
+      "latestObsDt": "2025-02-22 10:50",
+      "numSpeciesAllTime": 25
     },
     "新塘水库及周边农田 (Xintang Reservoir & Farmland)": {
       "locId": "L22285014",
@@ -22586,8 +22614,8 @@
       "subnational1Code": "CN-34",
       "lat": 31.7266973,
       "lng": 117.3268313,
-      "latestObsDt": "2025-02-04 16:48",
-      "numSpeciesAllTime": 60
+      "latestObsDt": "2025-02-22 12:57",
+      "numSpeciesAllTime": 61
     },
     "方山 (Fangshan Mountain)": {
       "locId": "L9587188",
@@ -22616,8 +22644,8 @@
       "subnational1Code": "CN-35",
       "lat": 26.0419942,
       "lng": 119.1939425,
-      "latestObsDt": "2024-03-23 16:03",
-      "numSpeciesAllTime": 15
+      "latestObsDt": "2025-02-19 10:59",
+      "numSpeciesAllTime": 16
     },
     "旗峰公园 (Qifeng Park)": {
       "locId": "L39980314",
@@ -22692,7 +22720,7 @@
       "subnational1Code": "CN-11",
       "lat": 39.9155379,
       "lng": 116.4438558,
-      "latestObsDt": "2025-02-18 13:54",
+      "latestObsDt": "2025-02-19 13:30",
       "numSpeciesAllTime": 62
     },
     "日月山口 (Sun-Moon Mountain Pass [3500m])": {
@@ -22722,8 +22750,8 @@
       "subnational1Code": "CN-37",
       "lat": 35.4331977,
       "lng": 119.5582093,
-      "latestObsDt": "2025-01-11 15:19",
-      "numSpeciesAllTime": 139
+      "latestObsDt": "2025-02-19 12:00",
+      "numSpeciesAllTime": 140
     },
     "日照南店河 (Nandian River, Rizhao)": {
       "locId": "L29582475",
@@ -22944,8 +22972,8 @@
       "subnational1Code": "CN-32",
       "lat": 31.4172045,
       "lng": 120.8929272,
-      "latestObsDt": "2025-02-17 07:34",
-      "numSpeciesAllTime": 102
+      "latestObsDt": "2025-02-23 10:24",
+      "numSpeciesAllTime": 103
     },
     "昆山阳澄东湖湿地公园 (Kunshan Yangcheng East Lake Wetland Park)": {
       "locId": "L39908169",
@@ -22984,7 +23012,7 @@
       "subnational1Code": "CN-53",
       "lat": 25.1415551,
       "lng": 102.742424,
-      "latestObsDt": "2025-02-04 08:16",
+      "latestObsDt": "2025-02-22 11:30",
       "numSpeciesAllTime": 151
     },
     "昆明池七夕公园 (Kunmingchi Qixi Park)": {
@@ -23098,8 +23126,8 @@
       "subnational1Code": "CN-32",
       "lat": 32.0529784,
       "lng": 118.83974,
-      "latestObsDt": "2025-02-18 09:23",
-      "numSpeciesAllTime": 73
+      "latestObsDt": "2025-02-22 09:48",
+      "numSpeciesAllTime": 74
     },
     "明显陵 (The Xianling Tomb)": {
       "locId": "L39581727",
@@ -23198,7 +23226,7 @@
       "subnational1Code": "CN-31",
       "lat": 31.1390138,
       "lng": 121.6663737,
-      "latestObsDt": "2025-02-16 15:44",
+      "latestObsDt": "2025-02-23 14:12",
       "numSpeciesAllTime": 88
     },
     "星星竹海 (Xingxing Zhuhai)": {
@@ -23215,7 +23243,9 @@
       "countryCode": "CN",
       "subnational1Code": "CN-52",
       "lat": 26.4644519,
-      "lng": 106.5151898
+      "lng": 106.5151898,
+      "latestObsDt": "2024-07-17 08:30",
+      "numSpeciesAllTime": 5
     },
     "星洲公园 (Xingzhou Park)": {
       "locId": "L28551406",
@@ -23355,7 +23385,7 @@
       "lat": 23.095804,
       "lng": 113.2807091,
       "latestObsDt": "2025-02-15 14:40",
-      "numSpeciesAllTime": 56
+      "numSpeciesAllTime": 57
     },
     "晓起村 (Xiaoqi Village)": {
       "locId": "L5243249",
@@ -23414,8 +23444,8 @@
       "subnational1Code": "CN-53",
       "lat": 22.833951,
       "lng": 101.000655,
-      "latestObsDt": "2025-02-18 09:40",
-      "numSpeciesAllTime": 133
+      "latestObsDt": "2025-02-22 08:33",
+      "numSpeciesAllTime": 135
     },
     "普者黑 (Puzhehei)": {
       "locId": "L14029654",
@@ -23445,7 +23475,7 @@
       "lat": 27.8179489,
       "lng": 99.8876953,
       "latestObsDt": "2025-02-13 14:00",
-      "numSpeciesAllTime": 124
+      "numSpeciesAllTime": 127
     },
     "普陀山 (Mount Putuo)": {
       "locId": "L7629300",
@@ -23535,7 +23565,7 @@
       "lat": 22.0097938,
       "lng": 100.8079383,
       "latestObsDt": "2025-01-31 17:21",
-      "numSpeciesAllTime": 58
+      "numSpeciesAllTime": 70
     },
     "景熙丰生态湿地公园 (Jing Xi Feng Wetland Park)": {
       "locId": "L6087388",
@@ -23696,7 +23726,7 @@
       "subnational1Code": "CN-53",
       "lat": 21.9928744,
       "lng": 100.8065987,
-      "latestObsDt": "2025-02-08 14:24",
+      "latestObsDt": "2025-02-20 10:44",
       "numSpeciesAllTime": 48
     },
     "曼安 (Man An Village)": {
@@ -23792,8 +23822,8 @@
       "subnational1Code": "CN-33",
       "lat": 28.6008664,
       "lng": 121.5617326,
-      "latestObsDt": "2025-02-09 00:00",
-      "numSpeciesAllTime": 169
+      "latestObsDt": "2025-02-22 09:21",
+      "numSpeciesAllTime": 170
     },
     "月牙岛湿地公园 (Yueyadao Wetland Park)": {
       "locId": "L39867377",
@@ -23878,8 +23908,8 @@
       "subnational1Code": "CN-53",
       "lat": 21.6253817,
       "lng": 101.587495,
-      "latestObsDt": "2025-02-04 17:03",
-      "numSpeciesAllTime": 203
+      "latestObsDt": "2025-02-22 10:00",
+      "numSpeciesAllTime": 205
     },
     "望天鹅自然风景区 (Wangtian'e Nature Scenic Area)": {
       "locId": "L7931894",
@@ -23950,7 +23980,7 @@
       "subnational1Code": "CN-11",
       "lat": 39.9395667,
       "lng": 116.4792716,
-      "latestObsDt": "2025-02-16 17:59",
+      "latestObsDt": "2025-02-22 17:20",
       "numSpeciesAllTime": 154
     },
     "朝阳凤凰山公园 (Fenghuang Mountain, Chaoyang)": {
@@ -24182,8 +24212,8 @@
       "subnational1Code": "CN-36",
       "lat": 29.17558,
       "lng": 115.978221,
-      "latestObsDt": "2025-02-18 13:35",
-      "numSpeciesAllTime": 89
+      "latestObsDt": "2025-02-23 07:45",
+      "numSpeciesAllTime": 90
     },
     "朱村农田 (Zhucun Farmland)": {
       "locId": "L39992007",
@@ -24192,8 +24222,8 @@
       "subnational1Code": "CN-44",
       "lat": 23.287,
       "lng": 113.716,
-      "latestObsDt": "2025-02-14 10:47",
-      "numSpeciesAllTime": 58
+      "latestObsDt": "2025-02-21 15:36",
+      "numSpeciesAllTime": 62
     },
     "朱湖国家湿地公园 (Zhuhu Wetland Park)": {
       "locId": "L39574694",
@@ -24364,7 +24394,7 @@
       "subnational1Code": "CN-53",
       "lat": 25.0155128,
       "lng": 98.4813707,
-      "latestObsDt": "2025-02-17 08:23",
+      "latestObsDt": "2025-02-19 08:00",
       "numSpeciesAllTime": 292
     },
     "来古冰川 (Laigu Glacier)": {
@@ -24542,7 +24572,7 @@
       "subnational1Code": "CN-33",
       "lat": 30.2522831,
       "lng": 120.1196685,
-      "latestObsDt": "2025-02-18 11:49",
+      "latestObsDt": "2025-02-23 08:02",
       "numSpeciesAllTime": 234
     },
     "杭州沿江湿地公园 (Hangzhou Riverside Wetland Park)": {
@@ -25700,8 +25730,8 @@
       "subnational1Code": "CN-53",
       "lat": 22.745417,
       "lng": 100.978551,
-      "latestObsDt": "2025-02-13 12:46",
-      "numSpeciesAllTime": 137
+      "latestObsDt": "2025-02-19 08:35",
+      "numSpeciesAllTime": 138
     },
     "梅子箐水库 (Meiziqing Reservoir)": {
       "locId": "L37792519",
@@ -25800,7 +25830,7 @@
       "subnational1Code": "CN-12",
       "lat": 39.0474593,
       "lng": 117.2100054,
-      "latestObsDt": "2025-01-26 09:43",
+      "latestObsDt": "2025-02-19 09:41",
       "numSpeciesAllTime": 118
     },
     "梅江公园二期 (Meijiang Park Area II)": {
@@ -26026,7 +26056,7 @@
       "subnational1Code": "CN-52",
       "lat": 27.9074205,
       "lng": 108.6967623,
-      "latestObsDt": "2023-03-17 08:24",
+      "latestObsDt": "2025-02-13 07:50",
       "numSpeciesAllTime": 151
     },
     "棋盘山公园 (Qipan Hill Park)": {
@@ -26499,7 +26529,7 @@
       "lat": 39.359177,
       "lng": 117.02179,
       "latestObsDt": "2025-02-08 08:00",
-      "numSpeciesAllTime": 133
+      "numSpeciesAllTime": 136
     },
     "武清龙凤河 (Longfeng River, Wuqing)": {
       "locId": "L32490255",
@@ -26640,7 +26670,7 @@
       "subnational1Code": "CN-13",
       "lat": 38.078656,
       "lng": 114.44899,
-      "latestObsDt": "2025-02-13 12:54",
+      "latestObsDt": "2025-02-22 12:43",
       "numSpeciesAllTime": 47
     },
     "水云天碧沙岛 (Shuiyuntian Bishadao)": {
@@ -26666,8 +26696,8 @@
       "subnational1Code": "CN-32",
       "lat": 31.2388439,
       "lng": 120.8011026,
-      "latestObsDt": "2025-02-18 07:05",
-      "numSpeciesAllTime": 208
+      "latestObsDt": "2025-02-21 11:00",
+      "numSpeciesAllTime": 209
     },
     "水关长城 (Shuiguan Great Wall)": {
       "locId": "L20856835",
@@ -26786,7 +26816,7 @@
       "subnational1Code": "CN-12",
       "lat": 39.1118149,
       "lng": 117.1217251,
-      "latestObsDt": "2025-01-30 10:30",
+      "latestObsDt": "2025-02-23 09:31",
       "numSpeciesAllTime": 165
     },
     "水西柯海国家湿地公园 (Shuixi Kehai Wetland Park)": {
@@ -27198,8 +27228,8 @@
       "subnational1Code": "CN-33",
       "lat": 28.6645031,
       "lng": 121.3303147,
-      "latestObsDt": "2023-09-24 00:00",
-      "numSpeciesAllTime": 1
+      "latestObsDt": "2025-02-22 13:33",
+      "numSpeciesAllTime": 7
     },
     "江安河生态公园 (Jiang'an River Eco-Park)": {
       "locId": "L29180891",
@@ -27344,7 +27374,7 @@
       "subnational1Code": "CN-33",
       "lat": 30.2069104,
       "lng": 120.1419434,
-      "latestObsDt": "2025-02-17 16:00",
+      "latestObsDt": "2025-02-23 10:17",
       "numSpeciesAllTime": 219
     },
     "江海湿地 (Jianghai Wetlands)": {
@@ -28030,7 +28060,7 @@
       "subnational1Code": "CN-11",
       "lat": 40.1312977,
       "lng": 116.3079643,
-      "latestObsDt": "2025-02-16 11:30",
+      "latestObsDt": "2025-02-22 14:32",
       "numSpeciesAllTime": 339
     },
     "沙河水库--北岸 (Shahe Reservoir--North Shore)": {
@@ -28060,7 +28090,7 @@
       "subnational1Code": "CN-11",
       "lat": 40.132575,
       "lng": 116.2998359,
-      "latestObsDt": "2025-02-15 11:06",
+      "latestObsDt": "2025-02-23 11:03",
       "numSpeciesAllTime": 271
     },
     "沙河源公园 (Shaheyuan Park)": {
@@ -28110,8 +28140,8 @@
       "subnational1Code": "CN-42",
       "lat": 30.568288,
       "lng": 114.3378933,
-      "latestObsDt": "2025-02-12 08:16",
-      "numSpeciesAllTime": 79
+      "latestObsDt": "2025-02-18 16:24",
+      "numSpeciesAllTime": 81
     },
     "沙湖山 (Shahushan)": {
       "locId": "L7177298",
@@ -28328,7 +28358,7 @@
       "subnational1Code": "CN-11",
       "lat": 40.070847,
       "lng": 115.726671,
-      "latestObsDt": "2025-01-12 13:30",
+      "latestObsDt": "2025-02-22 09:30",
       "numSpeciesAllTime": 146
     },
     "沿海观鸟平台 (Coastal Birding Platform)": {
@@ -28774,7 +28804,7 @@
       "subnational1Code": "CN-43",
       "lat": 28.125756,
       "lng": 112.927154,
-      "latestObsDt": "2025-02-12 10:46",
+      "latestObsDt": "2025-02-16 14:00",
       "numSpeciesAllTime": 122
     },
     "洗马湖湿地公园 (Ximahu Wetland Park)": {
@@ -28959,7 +28989,7 @@
       "lat": 24.443939,
       "lng": 97.5642291,
       "latestObsDt": "2025-02-11 08:22",
-      "numSpeciesAllTime": 396
+      "numSpeciesAllTime": 397
     },
     "洪崩河--12号塘 (Hongbenghe--Hide 12)": {
       "locId": "L10458229",
@@ -28968,8 +28998,8 @@
       "subnational1Code": "CN-53",
       "lat": 24.450896,
       "lng": 97.622565,
-      "latestObsDt": "2024-12-26 08:54",
-      "numSpeciesAllTime": 111
+      "latestObsDt": "2025-02-19 11:55",
+      "numSpeciesAllTime": 112
     },
     "洪崩河--3号塘 (Hongbenghe--Hide 3)": {
       "locId": "L39237329",
@@ -28978,8 +29008,8 @@
       "subnational1Code": "CN-53",
       "lat": 24.449496,
       "lng": 97.62381,
-      "latestObsDt": "2025-02-10 13:56",
-      "numSpeciesAllTime": 79
+      "latestObsDt": "2025-02-20 00:30",
+      "numSpeciesAllTime": 83
     },
     "洪崩河--5号塘 (Hongbenghe--Hide 5)": {
       "locId": "L30549791",
@@ -28988,7 +29018,7 @@
       "subnational1Code": "CN-53",
       "lat": 24.446007,
       "lng": 97.605417,
-      "latestObsDt": "2025-01-17 15:05",
+      "latestObsDt": "2025-02-22 14:11",
       "numSpeciesAllTime": 135
     },
     "洪崩河--7号塘 (Hongbenghe--Hide 7)": {
@@ -28998,7 +29028,7 @@
       "subnational1Code": "CN-53",
       "lat": 24.449905,
       "lng": 97.594132,
-      "latestObsDt": "2025-01-18 16:00",
+      "latestObsDt": "2025-01-22 13:20",
       "numSpeciesAllTime": 166
     },
     "洪崩河--包其崩山 [洪崩河村上坡] (Hongbenghe--Baoqi Bum [Above Hongbenghe Village])": {
@@ -29018,8 +29048,8 @@
       "subnational1Code": "CN-53",
       "lat": 24.437688,
       "lng": 97.533368,
-      "latestObsDt": "2025-02-07 12:55",
-      "numSpeciesAllTime": 232
+      "latestObsDt": "2025-02-22 17:10",
+      "numSpeciesAllTime": 233
     },
     "洪河国家级自然保护区 (Honghe NNR)": {
       "locId": "L5875457",
@@ -29098,7 +29128,7 @@
       "subnational1Code": "CN-53",
       "lat": 25.6136156,
       "lng": 100.2309316,
-      "latestObsDt": "2025-01-24 14:30",
+      "latestObsDt": "2025-02-23 09:08",
       "numSpeciesAllTime": 183
     },
     "洱海玉白菜湿地公园 (Erhai Yubaicai Wetland Park)": {
@@ -29526,7 +29556,7 @@
       "subnational1Code": "CN-51",
       "lat": 30.6565812,
       "lng": 104.0299702,
-      "latestObsDt": "2025-02-03 10:21",
+      "latestObsDt": "2025-02-19 14:28",
       "numSpeciesAllTime": 204
     },
     "浦东牡丹园 (Pudong Mudan Garden)": {
@@ -29544,8 +29574,8 @@
       "subnational1Code": "CN-31",
       "lat": 31.2552748,
       "lng": 121.6469393,
-      "latestObsDt": "2025-02-16 14:30",
-      "numSpeciesAllTime": 120
+      "latestObsDt": "2025-02-23 09:24",
+      "numSpeciesAllTime": 121
     },
     "浦兴文化公园 (Puxing Culture Park)": {
       "locId": "L40003363",
@@ -29592,8 +29622,8 @@
       "subnational1Code": "CN-33",
       "lat": 30.1492958,
       "lng": 120.1415074,
-      "latestObsDt": "2025-02-16 07:41",
-      "numSpeciesAllTime": 156
+      "latestObsDt": "2025-02-23 08:55",
+      "numSpeciesAllTime": 157
     },
     "浩门林场 (Haomen Forest)": {
       "locId": "L15497829",
@@ -29912,8 +29942,8 @@
       "subnational1Code": "CN-12",
       "lat": 39.0759109,
       "lng": 117.3092038,
-      "latestObsDt": "2024-08-20 16:35",
-      "numSpeciesAllTime": 55
+      "latestObsDt": "2025-02-22 08:30",
+      "numSpeciesAllTime": 59
     },
     "海泊河公园 (Haibohe Park)": {
       "locId": "L39712492",
@@ -29921,7 +29951,9 @@
       "countryCode": "CN",
       "subnational1Code": "CN-37",
       "lat": 36.0957709,
-      "lng": 120.3561734
+      "lng": 120.3561734,
+      "latestObsDt": "2025-02-20 12:32",
+      "numSpeciesAllTime": 14
     },
     "海洪湿地公园 (Haihong Wetland Park)": {
       "locId": "L27776259",
@@ -30260,8 +30292,8 @@
       "subnational1Code": "CN-51",
       "lat": 31.4216267,
       "lng": 104.7881309,
-      "latestObsDt": "2024-02-01 11:00",
-      "numSpeciesAllTime": 43
+      "latestObsDt": "2025-02-19 10:00",
+      "numSpeciesAllTime": 57
     },
     "涵碧楼度假酒店 (Hanbilou Resort Hotel)": {
       "locId": "L39958430",
@@ -30271,7 +30303,7 @@
       "lat": 35.9752457,
       "lng": 120.2983695,
       "latestObsDt": "2025-02-11 11:49",
-      "numSpeciesAllTime": 19
+      "numSpeciesAllTime": 23
     },
     "淀山湖生态园 (Dianshan Lake Eco-Garden)": {
       "locId": "L37871053",
@@ -30398,8 +30430,8 @@
       "subnational1Code": "CN-44",
       "lat": 22.5482819,
       "lng": 114.0775655,
-      "latestObsDt": "2025-02-14 13:00",
-      "numSpeciesAllTime": 25
+      "latestObsDt": "2025-02-22 11:00",
+      "numSpeciesAllTime": 33
     },
     "深圳人才公园 (Shenzhen Talent Park)": {
       "locId": "L16027749",
@@ -30408,8 +30440,8 @@
       "subnational1Code": "CN-44",
       "lat": 22.5113379,
       "lng": 113.9487768,
-      "latestObsDt": "2025-02-18 14:17",
-      "numSpeciesAllTime": 132
+      "latestObsDt": "2025-02-21 15:30",
+      "numSpeciesAllTime": 134
     },
     "深圳人民公园 (People's Park, Shenzhen)": {
       "locId": "L40083635",
@@ -30426,7 +30458,7 @@
       "subnational1Code": "CN-44",
       "lat": 22.5784821,
       "lng": 114.1786451,
-      "latestObsDt": "2025-02-18 13:46",
+      "latestObsDt": "2025-02-22 08:00",
       "numSpeciesAllTime": 111
     },
     "深圳农科基地 (Shenzhen Base of Agricultural Sciences)": {
@@ -30466,7 +30498,7 @@
       "subnational1Code": "CN-44",
       "lat": 22.5401958,
       "lng": 114.0035313,
-      "latestObsDt": "2025-01-31 07:29",
+      "latestObsDt": "2025-02-23 09:21",
       "numSpeciesAllTime": 33
     },
     "深圳大学 (Shenzhen University)": {
@@ -30514,8 +30546,8 @@
       "subnational1Code": "CN-44",
       "lat": 22.5187671,
       "lng": 113.9806609,
-      "latestObsDt": "2025-02-17 07:31",
-      "numSpeciesAllTime": 76
+      "latestObsDt": "2025-02-23 07:49",
+      "numSpeciesAllTime": 79
     },
     "深圳湾公园--红树林鸟类自然保护区 (Shenzhen Bay Park--Mangrove Birds Nature Reserve)": {
       "locId": "L11678241",
@@ -30524,7 +30556,7 @@
       "subnational1Code": "CN-44",
       "lat": 22.5247652,
       "lng": 114.0112311,
-      "latestObsDt": "2025-02-02 09:40",
+      "latestObsDt": "2025-02-21 09:30",
       "numSpeciesAllTime": 161
     },
     "深圳湾运动公园 (Shenzhen Bay Sports Park)": {
@@ -30554,7 +30586,7 @@
       "subnational1Code": "CN-44",
       "lat": 22.5215789,
       "lng": 114.0001333,
-      "latestObsDt": "2025-02-18 10:00",
+      "latestObsDt": "2025-02-21 14:30",
       "numSpeciesAllTime": 211
     },
     "淹城遗址公园 (YanCheng Ruins)": {
@@ -30642,7 +30674,7 @@
       "subnational1Code": "CN-11",
       "lat": 40.0287317,
       "lng": 116.3665867,
-      "latestObsDt": "2025-02-14 11:00",
+      "latestObsDt": "2025-02-22 13:00",
       "numSpeciesAllTime": 57
     },
     "清涧公园 (Qingjian Park)": {
@@ -30846,8 +30878,8 @@
       "subnational1Code": "CN-11",
       "lat": 39.939495,
       "lng": 116.643024,
-      "latestObsDt": "2025-01-20 07:30",
-      "numSpeciesAllTime": 302
+      "latestObsDt": "2025-02-19 07:15",
+      "numSpeciesAllTime": 303
     },
     "温榆河-清河汇合段 (Wenyu & Qing River Confluence)": {
       "locId": "L29463847",
@@ -30856,8 +30888,8 @@
       "subnational1Code": "CN-11",
       "lat": 40.079663,
       "lng": 116.4913623,
-      "latestObsDt": "2024-11-30 12:12",
-      "numSpeciesAllTime": 39
+      "latestObsDt": "2025-02-22 16:01",
+      "numSpeciesAllTime": 40
     },
     "温榆河京密路桥段 (Wenyu River - Jingmi Rd Section)": {
       "locId": "L6950604",
@@ -30876,7 +30908,7 @@
       "subnational1Code": "CN-11",
       "lat": 40.0426162,
       "lng": 116.5488722,
-      "latestObsDt": "2025-02-14 14:33",
+      "latestObsDt": "2025-02-17 16:30",
       "numSpeciesAllTime": 118
     },
     "温榆河顺义段 (Wenyu River - Shunyi Section)": {
@@ -30904,8 +30936,8 @@
       "subnational1Code": "CN-35",
       "lat": 26.0968137,
       "lng": 119.3128002,
-      "latestObsDt": "2023-09-03 09:22",
-      "numSpeciesAllTime": 18
+      "latestObsDt": "2025-01-27 15:09",
+      "numSpeciesAllTime": 22
     },
     "温泉国家湿地公园 (Wenquan National Wetland Park)": {
       "locId": "L37988491",
@@ -30940,8 +30972,8 @@
       "subnational1Code": "CN-61",
       "lat": 34.2350283,
       "lng": 108.0710218,
-      "latestObsDt": "2025-01-08 16:45",
-      "numSpeciesAllTime": 160
+      "latestObsDt": "2025-02-22 17:15",
+      "numSpeciesAllTime": 161
     },
     "渭河源景区 (Weiheyuan Scenic Area)": {
       "locId": "L38285779",
@@ -31062,8 +31094,8 @@
       "subnational1Code": "CN-35",
       "lat": 24.5159727,
       "lng": 118.1978635,
-      "latestObsDt": "2024-12-15 14:35",
-      "numSpeciesAllTime": 58
+      "latestObsDt": "2025-02-22 13:58",
+      "numSpeciesAllTime": 71
     },
     "湘江江滩公园 (Xiangjiang Riverbank)": {
       "locId": "L26495102",
@@ -31223,7 +31255,7 @@
       "lat": 39.4452078,
       "lng": 119.2421722,
       "latestObsDt": "2024-05-11 13:09",
-      "numSpeciesAllTime": 166
+      "numSpeciesAllTime": 167
     },
     "滨州北海公园 (Beihai Park, Binzhou)": {
       "locId": "L38786425",
@@ -31270,7 +31302,7 @@
       "subnational1Code": "CN-31",
       "lat": 31.3831344,
       "lng": 121.530118,
-      "latestObsDt": "2025-02-04 14:40",
+      "latestObsDt": "2025-02-20 11:59",
       "numSpeciesAllTime": 161
     },
     "滨江水韵公园 (Binjiang Shuiyun Park)": {
@@ -31421,7 +31453,7 @@
       "lat": 24.9976027,
       "lng": 110.4587321,
       "latestObsDt": "2024-11-29 10:12",
-      "numSpeciesAllTime": 72
+      "numSpeciesAllTime": 73
     },
     "漩门湾三期围垦区 (Xuanmen Bay--Reclamation Area)": {
       "locId": "L10824656",
@@ -31707,7 +31739,7 @@
       "lat": 40.1306772,
       "lng": 116.6736699,
       "latestObsDt": "2025-02-17 13:35",
-      "numSpeciesAllTime": 91
+      "numSpeciesAllTime": 93
     },
     "潮白河向阳闸桥段 (Chaobai River at Xiangyang Sluice)": {
       "locId": "L12131808",
@@ -31716,7 +31748,7 @@
       "subnational1Code": "CN-11",
       "lat": 40.1692407,
       "lng": 116.6815777,
-      "latestObsDt": "2025-02-17 13:02",
+      "latestObsDt": "2025-02-20 14:29",
       "numSpeciesAllTime": 256
     },
     "潮白河国家湿地公园 (Chaobai River National Wetland Park)": {
@@ -31774,7 +31806,7 @@
       "subnational1Code": "CN-32",
       "lat": 31.2223965,
       "lng": 120.8002537,
-      "latestObsDt": "2025-02-10 07:26",
+      "latestObsDt": "2025-02-21 10:31",
       "numSpeciesAllTime": 95
     },
     "澄碧河水库 (Chengbihe Reservoir)": {
@@ -31914,7 +31946,7 @@
       "subnational1Code": "CN-44",
       "lat": 23.1812831,
       "lng": 113.3898068,
-      "latestObsDt": "2025-02-09 16:00",
+      "latestObsDt": "2025-02-19 09:06",
       "numSpeciesAllTime": 158
     },
     "灰柴沟 (Huichaigou)": {
@@ -32180,7 +32212,7 @@
       "subnational1Code": "CN-37",
       "lat": 37.2941467,
       "lng": 122.5658313,
-      "latestObsDt": "2019-02-08 12:20",
+      "latestObsDt": "2025-02-01 10:30",
       "numSpeciesAllTime": 6
     },
     "烟港沙洲 (Yangang Sandbar)": {
@@ -32660,8 +32692,8 @@
       "subnational1Code": "CN-32",
       "lat": 31.2574791,
       "lng": 120.7204594,
-      "latestObsDt": "2025-02-18 09:24",
-      "numSpeciesAllTime": 57
+      "latestObsDt": "2025-02-22 08:23",
+      "numSpeciesAllTime": 60
     },
     "独墅湖生态公园 (Dushu Lake Eco-Park)": {
       "locId": "L40119229",
@@ -32872,7 +32904,7 @@
       "subnational1Code": "CN-32",
       "lat": 32.0711103,
       "lng": 118.7954664,
-      "latestObsDt": "2025-02-15 14:52",
+      "latestObsDt": "2025-02-21 15:50",
       "numSpeciesAllTime": 108
     },
     "玉佛山风景区 (Yufoshan Scenic Area)": {
@@ -32942,7 +32974,7 @@
       "subnational1Code": "CN-11",
       "lat": 39.9169675,
       "lng": 116.3173091,
-      "latestObsDt": "2025-02-17 14:30",
+      "latestObsDt": "2025-02-22 08:36",
       "numSpeciesAllTime": 145
     },
     "玉渡山风景区 (Yudu Mountain Scenic Area)": {
@@ -32953,7 +32985,7 @@
       "lat": 40.5224858,
       "lng": 115.8970482,
       "latestObsDt": "2024-06-09 15:40",
-      "numSpeciesAllTime": 68
+      "numSpeciesAllTime": 70
     },
     "玉湖公园 (Yuhu Park)": {
       "locId": "L38256412",
@@ -33394,8 +33426,8 @@
       "subnational1Code": "CN-63",
       "lat": 37.1335124,
       "lng": 102.3946028,
-      "latestObsDt": "2024-07-21 13:30",
-      "numSpeciesAllTime": 70
+      "latestObsDt": "2025-02-22 12:48",
+      "numSpeciesAllTime": 73
     },
     "珠山公园 (Zhushan Park)": {
       "locId": "L38474032",
@@ -33422,7 +33454,7 @@
       "subnational1Code": "CN-44",
       "lat": 23.1200747,
       "lng": 113.3400249,
-      "latestObsDt": "2024-11-16 08:00",
+      "latestObsDt": "2025-02-20 17:51",
       "numSpeciesAllTime": 62
     },
     "珠海海滨公园 (Coastal Park, Zhuhai)": {
@@ -33546,8 +33578,8 @@
       "subnational1Code": "CN-53",
       "lat": 23.9670543,
       "lng": 97.8351917,
-      "latestObsDt": "2023-02-06 09:00",
-      "numSpeciesAllTime": 84
+      "latestObsDt": "2025-01-26 08:45",
+      "numSpeciesAllTime": 89
     },
     "瑞丽--西北山区 (Ruili--northwest hills)": {
       "locId": "L957899",
@@ -33566,8 +33598,8 @@
       "subnational1Code": "CN-53",
       "lat": 24.0714915,
       "lng": 97.820034,
-      "latestObsDt": "2023-07-19 08:40",
-      "numSpeciesAllTime": 178
+      "latestObsDt": "2025-02-20 13:28",
+      "numSpeciesAllTime": 179
     },
     "瑞丽河边 (Ruili River Walk)": {
       "locId": "L7540747",
@@ -33576,7 +33608,7 @@
       "subnational1Code": "CN-53",
       "lat": 23.9870368,
       "lng": 97.8784847,
-      "latestObsDt": "2025-01-25 10:00",
+      "latestObsDt": "2025-02-20 14:50",
       "numSpeciesAllTime": 142
     },
     "瑞丽泵房 (Ruili Pumphouse Area)": {
@@ -33866,8 +33898,8 @@
       "subnational1Code": "CN-35",
       "lat": 24.6283995,
       "lng": 117.9619723,
-      "latestObsDt": "2024-12-29 12:38",
-      "numSpeciesAllTime": 74
+      "latestObsDt": "2025-02-22 14:40",
+      "numSpeciesAllTime": 80
     },
     "田峪河湿地 (Tianyu River Wetlands)": {
       "locId": "L38297922",
@@ -33960,8 +33992,8 @@
       "subnational1Code": "CN-53",
       "lat": 24.0881832,
       "lng": 98.063997,
-      "latestObsDt": "2025-02-06 18:00",
-      "numSpeciesAllTime": 134
+      "latestObsDt": "2025-02-19 14:00",
+      "numSpeciesAllTime": 135
     },
     "畹町生态园 (Wanding Ecological Garden)": {
       "locId": "L6061627",
@@ -34138,7 +34170,7 @@
       "subnational1Code": "CN-32",
       "lat": 31.3311793,
       "lng": 120.7361174,
-      "latestObsDt": "2025-02-18 04:55",
+      "latestObsDt": "2025-02-20 14:00",
       "numSpeciesAllTime": 102
     },
     "白家明塘水库 (Baijia Mingtang Reservoir)": {
@@ -34336,8 +34368,8 @@
       "subnational1Code": "CN-46",
       "lat": 20.071217,
       "lng": 110.335289,
-      "latestObsDt": "2025-02-17 17:20",
-      "numSpeciesAllTime": 101
+      "latestObsDt": "2025-02-19 07:13",
+      "numSpeciesAllTime": 102
     },
     "白河公园--A区 (Baihe Park--Area A)": {
       "locId": "L38243411",
@@ -34373,7 +34405,7 @@
       "lat": 40.6712366,
       "lng": 116.6930123,
       "latestObsDt": "2024-05-03 09:21",
-      "numSpeciesAllTime": 144
+      "numSpeciesAllTime": 158
     },
     "白河自然保护区 (Baihe NNR)": {
       "locId": "L4683669",
@@ -34383,7 +34415,7 @@
       "lat": 33.30735,
       "lng": 104.15794,
       "latestObsDt": "2024-06-21 13:17",
-      "numSpeciesAllTime": 129
+      "numSpeciesAllTime": 128
     },
     "白泉山生态公园 (Baiquanshan Eco-Park)": {
       "locId": "L38024454",
@@ -34524,8 +34556,8 @@
       "subnational1Code": "CN-36",
       "lat": 29.0210364,
       "lng": 115.8185799,
-      "latestObsDt": "2025-02-18 16:55",
-      "numSpeciesAllTime": 107
+      "latestObsDt": "2025-02-22 16:44",
+      "numSpeciesAllTime": 108
     },
     "白菊花尖 (Baijuhua Peak)": {
       "locId": "L17398081",
@@ -34668,8 +34700,8 @@
       "subnational1Code": "CN-36",
       "lat": 28.8402384,
       "lng": 116.4561555,
-      "latestObsDt": "2025-02-15 12:46",
-      "numSpeciesAllTime": 111
+      "latestObsDt": "2025-02-21 07:42",
+      "numSpeciesAllTime": 114
     },
     "白鹤滩 (Baihetan)": {
       "locId": "L18065781",
@@ -34698,7 +34730,7 @@
       "subnational1Code": "CN-32",
       "lat": 31.2722638,
       "lng": 120.7202307,
-      "latestObsDt": "2025-02-18 09:04",
+      "latestObsDt": "2025-02-22 10:23",
       "numSpeciesAllTime": 94
     },
     "白鹭洲公园 (Bailuzhou Park)": {
@@ -34914,7 +34946,7 @@
       "subnational1Code": "CN-53",
       "lat": 25.2967388,
       "lng": 98.8025657,
-      "latestObsDt": "2025-02-10 15:18",
+      "latestObsDt": "2025-02-22 19:57",
       "numSpeciesAllTime": 469
     },
     "百花岭--上山路 (Baihualing--Uphill Road)": {
@@ -34924,8 +34956,8 @@
       "subnational1Code": "CN-53",
       "lat": 25.3049256,
       "lng": 98.7955309,
-      "latestObsDt": "2025-02-14 08:02",
-      "numSpeciesAllTime": 224
+      "latestObsDt": "2025-02-22 07:54",
+      "numSpeciesAllTime": 226
     },
     "百花岭--二台坡 (Baihualing--Ertaipo)": {
       "locId": "L36990540",
@@ -34974,8 +35006,8 @@
       "subnational1Code": "CN-53",
       "lat": 25.3104869,
       "lng": 98.79497,
-      "latestObsDt": "2025-02-18 11:10",
-      "numSpeciesAllTime": 205
+      "latestObsDt": "2025-02-23 12:40",
+      "numSpeciesAllTime": 210
     },
     "百花岭--黄竹河 (Baihualing--Huangzhu Stream)": {
       "locId": "L36990606",
@@ -35102,8 +35134,8 @@
       "subnational1Code": "CN-53",
       "lat": 24.6875838,
       "lng": 97.9393235,
-      "latestObsDt": "2025-02-18 12:55",
-      "numSpeciesAllTime": 247
+      "latestObsDt": "2025-02-22 12:54",
+      "numSpeciesAllTime": 248
     },
     "益寿山公园 (Yishoushan Park)": {
       "locId": "L38035706",
@@ -35570,7 +35602,7 @@
       "subnational1Code": "CN-36",
       "lat": 29.1614557,
       "lng": 117.8462863,
-      "latestObsDt": "2025-02-18 14:10",
+      "latestObsDt": "2025-02-20 08:30",
       "numSpeciesAllTime": 177
     },
     "石桅岩风景区 (Shiweiyan Scenic Area)": {
@@ -35610,7 +35642,7 @@
       "subnational1Code": "CN-53",
       "lat": 24.4760638,
       "lng": 97.5843317,
-      "latestObsDt": "2025-02-18 14:11",
+      "latestObsDt": "2025-02-23 10:30",
       "numSpeciesAllTime": 351
     },
     "石梯村--10号塘 (Shiti--Hide 10)": {
@@ -35640,8 +35672,8 @@
       "subnational1Code": "CN-53",
       "lat": 24.466038,
       "lng": 97.565592,
-      "latestObsDt": "2024-04-05 11:24",
-      "numSpeciesAllTime": 104
+      "latestObsDt": "2025-02-23 08:40",
+      "numSpeciesAllTime": 109
     },
     "石梯村--15号塘 (Shiti--Hide 15)": {
       "locId": "L10457542",
@@ -35786,7 +35818,7 @@
       "subnational1Code": "CN-32",
       "lat": 31.2407842,
       "lng": 120.5937733,
-      "latestObsDt": "2025-02-13 15:35",
+      "latestObsDt": "2025-02-22 14:56",
       "numSpeciesAllTime": 93
     },
     "石湾公园 (Shiwan Park)": {
@@ -35851,7 +35883,9 @@
       "countryCode": "CN",
       "subnational1Code": "CN-44",
       "lat": 22.6180401,
-      "lng": 114.1299016
+      "lng": 114.1299016,
+      "latestObsDt": "2025-02-20 16:53",
+      "numSpeciesAllTime": 1
     },
     "石门国家森林公园 (Shimen National Forest Park)": {
       "locId": "L14506973",
@@ -35974,8 +36008,8 @@
       "subnational1Code": "CN-31",
       "lat": 30.8189613,
       "lng": 121.5472534,
-      "latestObsDt": "2025-01-17 08:10",
-      "numSpeciesAllTime": 189
+      "latestObsDt": "2025-02-23 08:20",
+      "numSpeciesAllTime": 190
     },
     "碧湖平原 (Bihu Plains)": {
       "locId": "L12847350",
@@ -36264,7 +36298,7 @@
       "subnational1Code": "CN-35",
       "lat": 26.1567356,
       "lng": 119.2869932,
-      "latestObsDt": "2025-02-16 08:31",
+      "latestObsDt": "2025-02-22 08:00",
       "numSpeciesAllTime": 249
     },
     "福州国家森林公园--八一水库 (Fuzhou NFP--Bayi Reservoir)": {
@@ -36292,8 +36326,8 @@
       "subnational1Code": "CN-35",
       "lat": 26.0436808,
       "lng": 119.3500748,
-      "latestObsDt": "2025-01-23 13:00",
-      "numSpeciesAllTime": 67
+      "latestObsDt": "2025-02-04 10:00",
+      "numSpeciesAllTime": 68
     },
     "福州西湖 (Fuzhou West Lake)": {
       "locId": "L38722610",
@@ -36322,8 +36356,8 @@
       "subnational1Code": "CN-35",
       "lat": 26.0898293,
       "lng": 119.2339475,
-      "latestObsDt": "2024-12-21 13:00",
-      "numSpeciesAllTime": 81
+      "latestObsDt": "2025-02-19 15:29",
+      "numSpeciesAllTime": 82
     },
     "福建农林大学旗山校区 (Fujian Agriculture and Forestry University - Qishan Campus)": {
       "locId": "L30129852",
@@ -36428,7 +36462,7 @@
       "subnational1Code": "CN-46",
       "lat": 19.7187381,
       "lng": 109.2548438,
-      "latestObsDt": "2025-02-16 10:11",
+      "latestObsDt": "2025-02-22 20:34",
       "numSpeciesAllTime": 138
     },
     "秀山湖 (Xiushan Lake)": {
@@ -36527,7 +36561,7 @@
       "lat": 34.3813241,
       "lng": 109.2539483,
       "latestObsDt": "2024-11-21 08:23",
-      "numSpeciesAllTime": 24
+      "numSpeciesAllTime": 27
     },
     "秦山 (Qinshan Hill)": {
       "locId": "L17075546",
@@ -36593,7 +36627,7 @@
       "lat": 36.4629934,
       "lng": 103.6558529,
       "latestObsDt": "2024-12-15 16:00",
-      "numSpeciesAllTime": 137
+      "numSpeciesAllTime": 136
     },
     "秦皇岛人民公园 (People's Park, Qinhuangdao)": {
       "locId": "L38113794",
@@ -36820,7 +36854,7 @@
       "subnational1Code": "CN-44",
       "lat": 22.5643712,
       "lng": 114.0822136,
-      "latestObsDt": "2025-02-09 18:04",
+      "latestObsDt": "2025-02-22 16:55",
       "numSpeciesAllTime": 108
     },
     "笠帽山 (Limao Hill)": {
@@ -37070,8 +37104,8 @@
       "subnational1Code": "CN-32",
       "lat": 32.0654717,
       "lng": 118.8293831,
-      "latestObsDt": "2025-02-18 11:27",
-      "numSpeciesAllTime": 25
+      "latestObsDt": "2025-02-22 10:57",
+      "numSpeciesAllTime": 32
     },
     "紫金山庄 (The Purple Palace)": {
       "locId": "L17063041",
@@ -37171,7 +37205,9 @@
       "countryCode": "CN",
       "subnational1Code": "CN-15",
       "lat": 42.3015407,
-      "lng": 118.9928674
+      "lng": 118.9928674,
+      "latestObsDt": "2025-02-15 11:15",
+      "numSpeciesAllTime": 4
     },
     "红山森林动物园 (Hongshan Forest Zoo)": {
       "locId": "L16357756",
@@ -37376,8 +37412,8 @@
       "subnational1Code": "CN-53",
       "lat": 27.8800527,
       "lng": 99.6382713,
-      "latestObsDt": "2025-02-17 11:00",
-      "numSpeciesAllTime": 214
+      "latestObsDt": "2025-02-21 10:02",
+      "numSpeciesAllTime": 215
     },
     "纳木错 (Namtso Lake)": {
       "locId": "L4774240",
@@ -37516,7 +37552,7 @@
       "subnational1Code": "CN-11",
       "lat": 39.8392048,
       "lng": 116.2214634,
-      "latestObsDt": "2025-02-13 07:56",
+      "latestObsDt": "2025-02-22 15:35",
       "numSpeciesAllTime": 176
     },
     "绿塘河城市湿地公园 (Lütang River Wetland Park)": {
@@ -37869,7 +37905,9 @@
       "countryCode": "CN",
       "subnational1Code": "CN-53",
       "lat": 23.2721714,
-      "lng": 99.1934183
+      "lng": 99.1934183,
+      "latestObsDt": "2025-02-22 08:33",
+      "numSpeciesAllTime": 64
     },
     "翁塘垄水库 (Wengtanglong Reservoir)": {
       "locId": "L13350421",
@@ -37964,7 +38002,7 @@
       "subnational1Code": "CN-13",
       "lat": 38.038985,
       "lng": 114.388441,
-      "latestObsDt": "2025-02-17 11:25",
+      "latestObsDt": "2025-02-22 08:51",
       "numSpeciesAllTime": 118
     },
     "翠湖公园 (Cuihu Park)": {
@@ -38106,8 +38144,8 @@
       "subnational1Code": "CN-53",
       "lat": 26.8074874,
       "lng": 99.609257,
-      "latestObsDt": "2025-02-17 09:41",
-      "numSpeciesAllTime": 161
+      "latestObsDt": "2025-02-20 10:12",
+      "numSpeciesAllTime": 162
     },
     "老君山风景区 (Laojunshan Scenic Area)": {
       "locId": "L35950345",
@@ -38134,7 +38172,7 @@
       "subnational1Code": "CN-33",
       "lat": 30.2662168,
       "lng": 120.1170855,
-      "latestObsDt": "2025-02-18 12:00",
+      "latestObsDt": "2025-02-21 10:30",
       "numSpeciesAllTime": 78
     },
     "老屋里 (Laowuli)": {
@@ -38164,8 +38202,8 @@
       "subnational1Code": "CN-32",
       "lat": 32.0630809,
       "lng": 118.5674393,
-      "latestObsDt": "2024-06-15 17:00",
-      "numSpeciesAllTime": 50
+      "latestObsDt": "2025-02-22 09:22",
+      "numSpeciesAllTime": 55
     },
     "老山国家森林公园--老母猪沟 (Laoshan NFP--Laomuzhugou)": {
       "locId": "L17321301",
@@ -38544,8 +38582,8 @@
       "subnational1Code": "CN-33",
       "lat": 29.8985778,
       "lng": 122.3609795,
-      "latestObsDt": "2024-11-18 07:20",
-      "numSpeciesAllTime": 66
+      "latestObsDt": "2025-02-23 09:33",
+      "numSpeciesAllTime": 67
     },
     "船营公园 (Chuanying Park)": {
       "locId": "L38199041",
@@ -38672,8 +38710,8 @@
       "subnational1Code": "CN-53",
       "lat": 24.431476,
       "lng": 98.4757102,
-      "latestObsDt": "2025-02-11 16:50",
-      "numSpeciesAllTime": 69
+      "latestObsDt": "2025-02-20 09:59",
+      "numSpeciesAllTime": 71
     },
     "芒坝 (Mangba)": {
       "locId": "L12294419",
@@ -38682,8 +38720,8 @@
       "subnational1Code": "CN-53",
       "lat": 22.7181149,
       "lng": 100.4624732,
-      "latestObsDt": "2025-01-31 17:19",
-      "numSpeciesAllTime": 203
+      "latestObsDt": "2025-02-22 07:35",
+      "numSpeciesAllTime": 210
     },
     "芒宽农田 (Mangkuan Fields)": {
       "locId": "L28918530",
@@ -38722,8 +38760,8 @@
       "subnational1Code": "CN-53",
       "lat": 24.4085242,
       "lng": 98.5985666,
-      "latestObsDt": "2025-01-28 17:12",
-      "numSpeciesAllTime": 76
+      "latestObsDt": "2025-02-08 09:30",
+      "numSpeciesAllTime": 79
     },
     "芙蓉嶂 (Furongzhang)": {
       "locId": "L40088952",
@@ -38827,7 +38865,7 @@
       "lat": 19.9077218,
       "lng": 109.9745875,
       "latestObsDt": "2025-02-12 08:45",
-      "numSpeciesAllTime": 45
+      "numSpeciesAllTime": 46
     },
     "花坡 (Huapo)": {
       "locId": "L15306434",
@@ -38893,7 +38931,7 @@
       "lat": 26.4326692,
       "lng": 106.6721177,
       "latestObsDt": "2024-12-29 16:00",
-      "numSpeciesAllTime": 62
+      "numSpeciesAllTime": 65
     },
     "花溪十里河滩 (Huaxi Wetlands)": {
       "locId": "L7899184",
@@ -39116,8 +39154,8 @@
       "subnational1Code": "CN-32",
       "lat": 31.116445,
       "lng": 120.5975043,
-      "latestObsDt": "2025-02-16 16:16",
-      "numSpeciesAllTime": 118
+      "latestObsDt": "2025-02-22 10:09",
+      "numSpeciesAllTime": 120
     },
     "苏州虎丘湿地公园 (Suzhou Huqiu Wetland Park)": {
       "locId": "L17313628",
@@ -39438,7 +39476,7 @@
       "subnational1Code": "CN-61",
       "lat": 33.2564892,
       "lng": 107.5547576,
-      "latestObsDt": "2024-10-02 17:01",
+      "latestObsDt": "2025-02-22 13:32",
       "numSpeciesAllTime": 176
     },
     "草屿 (Cao Islet)": {
@@ -39478,7 +39516,7 @@
       "subnational1Code": "CN-44",
       "lat": 22.7944269,
       "lng": 113.9558998,
-      "latestObsDt": "2025-02-15 12:20",
+      "latestObsDt": "2025-02-18 20:00",
       "numSpeciesAllTime": 26
     },
     "荔林公园 (Lilin Park)": {
@@ -39584,8 +39622,8 @@
       "subnational1Code": "CN-33",
       "lat": 28.7538532,
       "lng": 118.9705369,
-      "latestObsDt": "2025-01-23 09:10",
-      "numSpeciesAllTime": 18
+      "latestObsDt": "2025-02-20 10:45",
+      "numSpeciesAllTime": 21
     },
     "荷塘月色湿地公园 (Lotus Pond Moonlight Wetland Park)": {
       "locId": "L39937435",
@@ -39612,7 +39650,7 @@
       "subnational1Code": "CN-32",
       "lat": 31.298658,
       "lng": 120.7289949,
-      "latestObsDt": "2025-02-08 16:48",
+      "latestObsDt": "2025-02-19 17:33",
       "numSpeciesAllTime": 24
     },
     "莎车叶尔羌国家湿地公园 (Yarkant National Wetland Park)": {
@@ -39714,8 +39752,8 @@
       "subnational1Code": "CN-53",
       "lat": 24.1085745,
       "lng": 97.9870005,
-      "latestObsDt": "2025-02-12 15:47",
-      "numSpeciesAllTime": 254
+      "latestObsDt": "2025-02-22 07:54",
+      "numSpeciesAllTime": 255
     },
     "莫高窟 (Mogao Caves)": {
       "locId": "L35278159",
@@ -39802,7 +39840,7 @@
       "subnational1Code": "CN-44",
       "lat": 22.5546764,
       "lng": 114.0566347,
-      "latestObsDt": "2025-02-18 13:45",
+      "latestObsDt": "2025-02-22 08:00",
       "numSpeciesAllTime": 100
     },
     "莲花山自然保护区 (Lianhuashan NNR)": {
@@ -39956,8 +39994,8 @@
       "subnational1Code": "CN-62",
       "lat": 35.947326,
       "lng": 104.1404192,
-      "latestObsDt": "2025-01-11 14:30",
-      "numSpeciesAllTime": 109
+      "latestObsDt": "2025-02-21 08:00",
+      "numSpeciesAllTime": 110
     },
     "萍水湖湿地公园 (Pingshui Lake Wetland Park)": {
       "locId": "L38551316",
@@ -40124,7 +40162,7 @@
       "subnational1Code": "CN-41",
       "lat": 31.9392172,
       "lng": 114.2442189,
-      "latestObsDt": "2025-02-12 10:00",
+      "latestObsDt": "2025-02-21 07:15",
       "numSpeciesAllTime": 242
     },
     "董寨国家级自然保护区--白云保护站 (Dongzhai NNR--Baiyun Station)": {
@@ -40254,8 +40292,8 @@
       "subnational1Code": "CN-33",
       "lat": 30.4815663,
       "lng": 120.9377687,
-      "latestObsDt": "2025-02-17 12:03",
-      "numSpeciesAllTime": 34
+      "latestObsDt": "2025-02-20 12:32",
+      "numSpeciesAllTime": 44
     },
     "蓟县大红峪沟 (Dahongyu Valley)": {
       "locId": "L32414012",
@@ -40780,8 +40818,8 @@
       "subnational1Code": "CN-53",
       "lat": 21.6006695,
       "lng": 101.5844983,
-      "latestObsDt": "2024-07-03 13:15",
-      "numSpeciesAllTime": 181
+      "latestObsDt": "2025-02-23 08:46",
+      "numSpeciesAllTime": 182
     },
     "袁家山 (Yuanjia Hill)": {
       "locId": "L30370692",
@@ -40874,7 +40912,7 @@
       "subnational1Code": "CN-32",
       "lat": 31.2746388,
       "lng": 120.7372131,
-      "latestObsDt": "2025-02-18 15:35",
+      "latestObsDt": "2025-02-20 15:11",
       "numSpeciesAllTime": 68
     },
     "西交利物浦大学南校区 (Xi'an Jiaotong-Liverpool University - South Campus)": {
@@ -41252,7 +41290,7 @@
       "subnational1Code": "CN-31",
       "lat": 31.1689605,
       "lng": 121.4638669,
-      "latestObsDt": "2025-02-09 15:39",
+      "latestObsDt": "2025-02-20 13:09",
       "numSpeciesAllTime": 38
     },
     "西峪水库 (Xiyu Reservoir)": {
@@ -41282,8 +41320,8 @@
       "subnational1Code": "CN-34",
       "lat": 31.8459636,
       "lng": 117.1635456,
-      "latestObsDt": "2025-01-18 08:12",
-      "numSpeciesAllTime": 76
+      "latestObsDt": "2025-02-20 09:40",
+      "numSpeciesAllTime": 78
     },
     "西林公园 (Xilin Park)": {
       "locId": "L38175352",
@@ -41462,8 +41500,8 @@
       "subnational1Code": "CN-33",
       "lat": 30.2673985,
       "lng": 120.0694644,
-      "latestObsDt": "2025-02-16 12:55",
-      "numSpeciesAllTime": 233
+      "latestObsDt": "2025-02-22 09:00",
+      "numSpeciesAllTime": 234
     },
     "西滨滩涂 (Xibin Mudflats)": {
       "locId": "L39795069",
@@ -41582,7 +41620,7 @@
       "subnational1Code": "CN-12",
       "lat": 38.9203016,
       "lng": 117.1898889,
-      "latestObsDt": "2025-02-15 15:47",
+      "latestObsDt": "2025-02-22 12:45",
       "numSpeciesAllTime": 166
     },
     "西递 (Xidi)": {
@@ -41603,7 +41641,7 @@
       "lat": 31.2007637,
       "lng": 121.3809565,
       "latestObsDt": "2023-12-09 09:25",
-      "numSpeciesAllTime": 29
+      "numSpeciesAllTime": 30
     },
     "西郊雨洪调蓄工程": {
       "locId": "L15302674",
@@ -41948,7 +41986,7 @@
       "subnational1Code": "CN-31",
       "lat": 31.2272431,
       "lng": 121.4920843,
-      "latestObsDt": "2025-01-09 11:12",
+      "latestObsDt": "2025-02-18 08:00",
       "numSpeciesAllTime": 31
     },
     "豫章溪大桥 (Yuzhang River Bridge)": {
@@ -41968,7 +42006,7 @@
       "subnational1Code": "CN-32",
       "lat": 31.4563976,
       "lng": 120.3398255,
-      "latestObsDt": "2025-02-15 15:51",
+      "latestObsDt": "2025-02-19 16:23",
       "numSpeciesAllTime": 167
     },
     "贡觉林卡 (Gonjolinka)": {
@@ -42269,7 +42307,7 @@
       "lat": 30.8813984,
       "lng": 121.9634606,
       "latestObsDt": "2025-02-16 14:47",
-      "numSpeciesAllTime": 103
+      "numSpeciesAllTime": 104
     },
     "赭山公园 (Zheshan Park)": {
       "locId": "L38650884",
@@ -42312,7 +42350,7 @@
       "subnational1Code": "CN-44",
       "lat": 23.14149,
       "lng": 113.26555,
-      "latestObsDt": "2025-02-15 15:00",
+      "latestObsDt": "2025-02-19 14:29",
       "numSpeciesAllTime": 132
     },
     "足荣古树公园 (Zurong Forest Park)": {
@@ -42398,7 +42436,7 @@
       "subnational1Code": "CN-11",
       "lat": 40.5864877,
       "lng": 117.1384109,
-      "latestObsDt": "2024-12-01 10:35",
+      "latestObsDt": "2025-02-16 13:36",
       "numSpeciesAllTime": 156
     },
     "边村湿地 (Biancun Wetlands)": {
@@ -42471,7 +42509,9 @@
       "countryCode": "CN",
       "subnational1Code": "CN-63",
       "lat": 37.3788026,
-      "lng": 101.414516
+      "lng": 101.414516,
+      "latestObsDt": "2025-02-21 16:46",
+      "numSpeciesAllTime": 5
     },
     "达尔宗湖 (Darzong Lake)": {
       "locId": "L7516686",
@@ -42816,8 +42856,8 @@
       "subnational1Code": "CN-45",
       "lat": 22.9867023,
       "lng": 105.8391094,
-      "latestObsDt": "2025-02-12 11:02",
-      "numSpeciesAllTime": 171
+      "latestObsDt": "2025-02-22 12:38",
+      "numSpeciesAllTime": 172
     },
     "那坡--水弄山区 (Napo--Shuinong Hills)": {
       "locId": "L29110071",
@@ -42897,7 +42937,7 @@
       "lat": 24.7309842,
       "lng": 97.5559472,
       "latestObsDt": "2025-02-14 17:44",
-      "numSpeciesAllTime": 309
+      "numSpeciesAllTime": 310
     },
     "邦亮长臂猿国家级自然保护区 (Bangliang Gibbon NNR)": {
       "locId": "L3502449",
@@ -43202,7 +43242,7 @@
       "subnational1Code": "CN-33",
       "lat": 29.8115245,
       "lng": 121.5436644,
-      "latestObsDt": "2025-02-18 07:00",
+      "latestObsDt": "2025-02-22 07:30",
       "numSpeciesAllTime": 127
     },
     "鄱阳湖国家湿地公园 (Poyang Lake National Wetland Park)": {
@@ -43382,8 +43422,8 @@
       "subnational1Code": "CN-53",
       "lat": 22.1697867,
       "lng": 100.8635433,
-      "latestObsDt": "2025-02-15 07:59",
-      "numSpeciesAllTime": 242
+      "latestObsDt": "2025-02-21 08:00",
+      "numSpeciesAllTime": 244
     },
     "野鸭湖 (Wild Duck Lake)": {
       "locId": "L992346",
@@ -43858,7 +43898,7 @@
       "subnational1Code": "CN-32",
       "lat": 31.2706917,
       "lng": 120.7554717,
-      "latestObsDt": "2025-02-12 13:28",
+      "latestObsDt": "2025-02-20 17:00",
       "numSpeciesAllTime": 79
     },
     "金银湖国家城市湿地公园 (Jinyin Lake Urban Wetland Park)": {
@@ -44077,7 +44117,9 @@
       "countryCode": "CN",
       "subnational1Code": "CN-33",
       "lat": 29.2266803,
-      "lng": 118.1029308
+      "lng": 118.1029308,
+      "latestObsDt": "2024-07-01 19:00",
+      "numSpeciesAllTime": 6
     },
     "钵池山公园 (Bochishan Park)": {
       "locId": "L39842659",
@@ -44230,7 +44272,7 @@
       "subnational1Code": "CN-33",
       "lat": 30.1175682,
       "lng": 120.0618738,
-      "latestObsDt": "2024-12-27 00:00",
+      "latestObsDt": "2025-02-19 07:40",
       "numSpeciesAllTime": 186
     },
     "铜铃山 (Tongling Mountain)": {
@@ -44374,7 +44416,7 @@
       "subnational1Code": "CN-44",
       "lat": 22.1353023,
       "lng": 113.0722705,
-      "latestObsDt": "2025-02-08 10:29",
+      "latestObsDt": "2025-02-15 13:50",
       "numSpeciesAllTime": 127
     },
     "银滩湿地公园 (Yintan Wetland Park)": {
@@ -44616,7 +44658,7 @@
       "subnational1Code": "CN-32",
       "lat": 31.2363082,
       "lng": 120.7332683,
-      "latestObsDt": "2025-02-15 10:37",
+      "latestObsDt": "2025-02-19 10:38",
       "numSpeciesAllTime": 85
     },
     "长兴岛郊野公园 (Changxing Island Country Park)": {
@@ -44765,7 +44807,9 @@
       "countryCode": "CN",
       "subnational1Code": "CN-44",
       "lat": 22.5234986,
-      "lng": 113.1364775
+      "lng": 113.1364775,
+      "latestObsDt": "2025-02-09 13:03",
+      "numSpeciesAllTime": 15
     },
     "长春世界雕塑公园 (Changchun World Sculpture Park)": {
       "locId": "L38058447",
@@ -45164,7 +45208,7 @@
       "subnational1Code": "CN-31",
       "lat": 31.144149,
       "lng": 121.369422,
-      "latestObsDt": "2025-02-09 15:15",
+      "latestObsDt": "2025-02-21 10:31",
       "numSpeciesAllTime": 89
     },
     "闵行文化公园 (Minhang Culture Park)": {
@@ -45220,7 +45264,7 @@
       "subnational1Code": "CN-35",
       "lat": 26.0316104,
       "lng": 119.6326017,
-      "latestObsDt": "2025-01-22 13:38",
+      "latestObsDt": "2025-02-22 14:30",
       "numSpeciesAllTime": 249
     },
     "阅山湖湿地公园 (Yueshanhu Wetland Park)": {
@@ -45340,7 +45384,7 @@
       "subnational1Code": "CN-11",
       "lat": 40.0774948,
       "lng": 116.044579,
-      "latestObsDt": "2025-02-17 07:30",
+      "latestObsDt": "2025-02-22 08:30",
       "numSpeciesAllTime": 125
     },
     "阳台山风景区 (Yangtaishan Scenic Area)": {
@@ -45676,7 +45720,7 @@
       "subnational1Code": "CN-45",
       "lat": 22.4767349,
       "lng": 106.9821722,
-      "latestObsDt": "2025-02-18 08:03",
+      "latestObsDt": "2025-02-18 08:10",
       "numSpeciesAllTime": 276
     },
     "陇川森林公园 (Longchuan Forest Park)": {
@@ -45950,7 +45994,7 @@
       "subnational1Code": "CN-65",
       "lat": 43.7983162,
       "lng": 87.5793776,
-      "latestObsDt": "2025-01-10 12:45",
+      "latestObsDt": "2025-02-22 12:00",
       "numSpeciesAllTime": 23
     },
     "雅鲁藏布大峡谷 (Yarlung Tsangpo Grand Canyon)": {
@@ -46107,7 +46151,9 @@
       "countryCode": "CN",
       "subnational1Code": "CN-53",
       "lat": 28.4411093,
-      "lng": 98.9167892
+      "lng": 98.9167892,
+      "latestObsDt": "2025-02-23 09:30",
+      "numSpeciesAllTime": 11
     },
     "雾灵山国家级自然保护区 (Wuling Mountain NNR)": {
       "locId": "L997331",
@@ -46226,8 +46272,8 @@
       "subnational1Code": "CN-53",
       "lat": 25.1190927,
       "lng": 99.2077469,
-      "latestObsDt": "2025-02-07 08:20",
-      "numSpeciesAllTime": 185
+      "latestObsDt": "2025-02-22 11:12",
+      "numSpeciesAllTime": 186
     },
     "青南村 (Qingnan Village)": {
       "locId": "L16236412",
@@ -46287,7 +46333,7 @@
       "lat": 30.8997943,
       "lng": 103.5701537,
       "latestObsDt": "2024-11-21 10:41",
-      "numSpeciesAllTime": 175
+      "numSpeciesAllTime": 174
     },
     "青山公园 (Qingshan Park)": {
       "locId": "L39033182",
@@ -46354,7 +46400,7 @@
       "subnational1Code": "CN-37",
       "lat": 36.0639295,
       "lng": 120.3490718,
-      "latestObsDt": "2025-02-09 12:26",
+      "latestObsDt": "2025-02-22 14:03",
       "numSpeciesAllTime": 184
     },
     "青岛儿童公园 (Children's Park, Qingdao)": {
@@ -46442,8 +46488,8 @@
       "subnational1Code": "CN-37",
       "lat": 36.0678428,
       "lng": 120.4419952,
-      "latestObsDt": "2025-02-05 13:47",
-      "numSpeciesAllTime": 12
+      "latestObsDt": "2025-02-22 09:22",
+      "numSpeciesAllTime": 13
     },
     "青岛石湾森林公园 (Qingdao Shiwan Forest Park)": {
       "locId": "L25527458",
@@ -46617,7 +46663,7 @@
       "lat": 36.8691155,
       "lng": 100.6621456,
       "latestObsDt": "2022-06-23 17:00",
-      "numSpeciesAllTime": 42
+      "numSpeciesAllTime": 47
     },
     "青海湖--鸟岛 (Qinghai Lake--Bird Island)": {
       "locId": "L997401",
@@ -46944,8 +46990,8 @@
       "subnational1Code": "CN-11",
       "lat": 40.102895,
       "lng": 116.7278564,
-      "latestObsDt": "2025-01-27 10:30",
-      "numSpeciesAllTime": 32
+      "latestObsDt": "2025-02-23 08:00",
+      "numSpeciesAllTime": 40
     },
     "顺义新城滨河森林公园二区 (Shunyi Riverside Forest Park Area II)": {
       "locId": "L29247652",
@@ -46954,7 +47000,7 @@
       "subnational1Code": "CN-11",
       "lat": 40.1146806,
       "lng": 116.703495,
-      "latestObsDt": "2025-02-15 13:30",
+      "latestObsDt": "2025-02-23 07:04",
       "numSpeciesAllTime": 89
     },
     "顺峰山公园 (Shunfengshan Park)": {
@@ -47032,7 +47078,7 @@
       "subnational1Code": "CN-11",
       "lat": 39.9926986,
       "lng": 116.272333,
-      "latestObsDt": "2025-02-15 08:00",
+      "latestObsDt": "2025-02-22 08:00",
       "numSpeciesAllTime": 253
     },
     "颐和园--万寿山 (Summer Palace--Longevity Hill)": {
@@ -47052,7 +47098,7 @@
       "subnational1Code": "CN-11",
       "lat": 39.9914673,
       "lng": 116.264186,
-      "latestObsDt": "2025-02-16 17:08",
+      "latestObsDt": "2025-02-23 11:45",
       "numSpeciesAllTime": 88
     },
     "颐湖健康主题公园 (Yihu Park, Dujiangyan)": {
@@ -47134,8 +47180,8 @@
       "subnational1Code": "CN-37",
       "lat": 35.8565074,
       "lng": 120.0479062,
-      "latestObsDt": "2025-01-10 11:08",
-      "numSpeciesAllTime": 54
+      "latestObsDt": "2025-02-23 09:30",
+      "numSpeciesAllTime": 59
     },
     "风车山 (Fengche Mountain)": {
       "locId": "L39394043",
@@ -47282,7 +47328,7 @@
       "subnational1Code": "CN-11",
       "lat": 39.9898787,
       "lng": 116.1908913,
-      "latestObsDt": "2024-12-21 10:02",
+      "latestObsDt": "2025-02-20 12:20",
       "numSpeciesAllTime": 117
     },
     "香山湖公园 (Xiangshan Lake Park)": {
@@ -47321,7 +47367,7 @@
       "lat": 27.9037968,
       "lng": 99.6403742,
       "latestObsDt": "2025-02-10 12:29",
-      "numSpeciesAllTime": 170
+      "numSpeciesAllTime": 169
     },
     "香格里雄古景区 (Shangri Xionggu Scenic Area)": {
       "locId": "L38991591",
@@ -47357,7 +47403,9 @@
       "countryCode": "CN",
       "subnational1Code": "CN-44",
       "lat": 22.5461057,
-      "lng": 114.0221868
+      "lng": 114.0221868,
+      "latestObsDt": "2025-02-23 10:01",
+      "numSpeciesAllTime": 5
     },
     "香蜜湖 (Xiangmi Lake)": {
       "locId": "L21369055",
@@ -47376,7 +47424,7 @@
       "subnational1Code": "CN-53",
       "lat": 24.7450467,
       "lng": 98.0672312,
-      "latestObsDt": "2025-02-16 09:33",
+      "latestObsDt": "2025-02-17 16:38",
       "numSpeciesAllTime": 156
     },
     "马久邑湖滨 (Majiuyi Lakefront)": {
@@ -47860,8 +47908,8 @@
       "subnational1Code": "CN-35",
       "lat": 26.013081,
       "lng": 119.310234,
-      "latestObsDt": "2025-02-15 08:29",
-      "numSpeciesAllTime": 45
+      "latestObsDt": "2025-02-22 09:25",
+      "numSpeciesAllTime": 47
     },
     "高罗海滩 (Gaoluo Beach)": {
       "locId": "L39644146",
@@ -48535,7 +48583,9 @@
       "countryCode": "CN",
       "subnational1Code": "CN-37",
       "lat": 36.0546331,
-      "lng": 120.4310456
+      "lng": 120.4310456,
+      "latestObsDt": "2025-02-01 17:00",
+      "numSpeciesAllTime": 3
     },
     "麦秀林场 (Maixiu Forest)": {
       "locId": "L38260683",
@@ -48791,7 +48841,9 @@
       "countryCode": "CN",
       "subnational1Code": "CN-37",
       "lat": 38.0681366,
-      "lng": 118.7461626
+      "lng": 118.7461626,
+      "latestObsDt": "2024-12-29 09:30",
+      "numSpeciesAllTime": 10
     },
     "黄河三角洲自然保护区--大汶流管理站 (Yellow River Delta NNR--Dawenliu Station)": {
       "locId": "L39460106",
@@ -49362,7 +49414,7 @@
       "subnational1Code": "CN-33",
       "lat": 31.0263176,
       "lng": 119.9040335,
-      "latestObsDt": "2024-01-09 11:15",
+      "latestObsDt": "2025-02-06 12:30",
       "numSpeciesAllTime": 36
     },
     "龙山海滨 (Longshan Coast)": {
@@ -49450,7 +49502,7 @@
       "subnational1Code": "CN-53",
       "lat": 21.8558386,
       "lng": 100.9378528,
-      "latestObsDt": "2025-02-09 19:01",
+      "latestObsDt": "2025-02-20 18:33",
       "numSpeciesAllTime": 97
     },
     "龙江公园 (Longjiang Park)": {
@@ -49514,8 +49566,8 @@
       "subnational1Code": "CN-51",
       "lat": 30.504519,
       "lng": 104.2991945,
-      "latestObsDt": "2025-02-18 08:13",
-      "numSpeciesAllTime": 67
+      "latestObsDt": "2025-02-19 09:00",
+      "numSpeciesAllTime": 69
     },
     "龙泉山--龚家山观景台 (Longquan Mountain--Gongjiashan Viewing)": {
       "locId": "L38242940",
@@ -50072,7 +50124,7 @@
       "subnational1Code": "CN-42",
       "lat": 30.5550025,
       "lng": 114.2723041,
-      "latestObsDt": "2025-02-09 13:30",
+      "latestObsDt": "2025-02-23 07:48",
       "numSpeciesAllTime": 56
     },
     "龟山公园 (Guishan Park)": {

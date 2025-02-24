@@ -44,21 +44,8 @@ class CommonBirdApp(App):
             self.version = APP_VERSION
         else:
             self.version = version.parse(APP_VERSION)
-
-        if (database_path / "ebird_cn_hotspots.json").exists():
-            with open(
-                database_path / "ebird_cn_hotspots.json", "r", encoding="utf-8"
-            ) as f:
-                data = json.load(f)
-                self.ebird_cn_hotspots: Dict = data["data"]
-                self.ebird_hotspots_update_date = data["last_update_date"]
-        if (database_path / "ebird_other_hotspots.json").exists():
-            with open(
-                database_path / "ebird_other_hotspots.json", "r", encoding="utf-8"
-            ) as f:
-                data = json.load(f)
-                self.ebird_other_hotspots: Dict = data["data"]
-                self.ebird_hotspots_update_date = data["last_update_date"]
+        
+        self.reload_hotspot_info()
 
         # all exists or all not exists
         assert all(
@@ -260,9 +247,13 @@ class CommonBirdApp(App):
             with open(
                 database_path / "ebird_cn_hotspots.json", "r", encoding="utf-8"
             ) as f:
-                self.ebird_cn_hotspots: Dict = json.load(f)
+                data = json.load(f)
+                self.ebird_cn_hotspots: Dict = data["data"]
+                self.ebird_hotspots_update_date = data["last_update_date"]
         if (database_path / "ebird_other_hotspots.json").exists():
             with open(
                 database_path / "ebird_other_hotspots.json", "r", encoding="utf-8"
             ) as f:
-                self.ebird_other_hotspots: Dict = json.load(f)
+                data = json.load(f)
+                self.ebird_other_hotspots: Dict = data["data"]
+                self.ebird_hotspots_update_date = data["last_update_date"]
