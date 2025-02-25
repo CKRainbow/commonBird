@@ -2,7 +2,7 @@ import json
 import os
 import webbrowser
 import platform
-from typing import Dict, List, Optional, TYPE_CHECKING
+from typing import Dict, List, Optional, Union, TYPE_CHECKING
 from packaging import version
 
 import httpx
@@ -37,7 +37,7 @@ class CommonBirdApp(App):
         self.ch4_to_eb_taxon_map = None
         self.ebird_taxon_info = None
 
-        self.location_assign = {}
+        self.location_assign:Dict[str, Union[str, Dict]] = {}
 
         self.first_open = True
         if APP_VERSION == "beta":
@@ -74,7 +74,7 @@ class CommonBirdApp(App):
 
         if (cache_path / "location_assign.json").exists():
             with open(cache_path / "location_assign.json", "r", encoding="utf-8") as f:
-                self.location_assign: Dict = json.load(f)
+                self.location_assign = json.load(f)
 
     def compose(self) -> ComposeResult:
         yield Header()

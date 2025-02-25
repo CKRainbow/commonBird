@@ -3,8 +3,9 @@ import os
 import asyncio
 import csv
 import time
+from numpy import isin
 import pytz
-from typing import Dict, Optional, TYPE_CHECKING
+from typing import Dict, Optional, Union, TYPE_CHECKING
 from datetime import datetime
 from pathlib import Path
 
@@ -193,12 +194,19 @@ class BirdreportToEbirdLocationAssignScreen(Screen):
             self.location_assign[point_name]["reports"].append(report)
 
         # TODO: 如何让个人地点也能进入缓存并自动应用
-        for point_name, converted_hotspot_name in self.app.location_assign.items():
+        for point_name, value in self.app.location_assign.items():
+            if isinstance(value, dict):
+                converted_hotspot_name = point_name
+                custom_info = value
+            else:
+                converted_hotspot_name = value
+                custom_info = None
+
             self.modify_converted_hotspot(
-                point_name, converted_hotspot_name, modify_cache=False
+                point_name, converted_hotspot_name, custom_info=custom_info, modify_cache=False
             )
 
-        self.temp_assign_cache = {}
+        self.temp_assign_cache: Dict[str, Union[str, Dict]] = {}
 
     @work
     async def on_mount(self) -> None:
@@ -332,7 +340,11 @@ class BirdreportToEbirdLocationAssignScreen(Screen):
         # conveted_hotspot is None means remaining
 
         if modify_cache:
-            self.temp_assign_cache[point_name] = converted_hotspot_name
+            if custom_info is not None:
+                self.temp_assign_cache[point_name] = custom_info
+            else:
+                self.temp_assign_cache[point_name] = converted_hotspot_name
+
             # set 10 as a threshold to save cache
             if len(self.temp_assign_cache) >= 10:
                 self.app.save_location_assign_cache(self.temp_assign_cache)
