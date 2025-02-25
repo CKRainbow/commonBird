@@ -202,6 +202,20 @@ class Birdreport:
 
         return result["data"]
 
+    async def member_get_point(self, point_id):
+        params = {
+            "point_id": str(point_id),
+        }
+
+        result = await self.get_data(
+            params,
+            "https://api.birdreport.cn/member/system/point/get",
+            encode=False,
+            decode=False,
+        )
+
+        return result["data"]
+
     async def member_get_excel(self, ids):
         params = {"ids": ",".join([str(id) for id in ids])}
 
@@ -414,8 +428,14 @@ class Birdreport:
             # and assign a psudo-point_name
             for checklist in handy_checklists.values():
                 first_record = checklist["obs"][0]
-                checklist["city_name"] = first_record["city_name"] if "city_name" in first_record else ""
-                checklist["district_name"] = first_record["district_name"] if "district_name" in first_record else ""
+                checklist["city_name"] = (
+                    first_record["city_name"] if "city_name" in first_record else ""
+                )
+                checklist["district_name"] = (
+                    first_record["district_name"]
+                    if "district_name" in first_record
+                    else ""
+                )
                 checklist["latitude"] = first_record["latitude"]
                 checklist["longitude"] = first_record["longitude"]
                 checklist["point_name"] = f"随手记地点-{checklist['start_time']}"

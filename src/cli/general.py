@@ -59,7 +59,6 @@ class TokenInputScreen(ModalScreen):
     async def on_input_submitted(self, event: Input.Submitted) -> None:
         if event.input.id == "token":
             user_input = event.input.value
-            # TODO: validation
             self.dismiss({"token": user_input, "token_name": self.token_name})
 
 

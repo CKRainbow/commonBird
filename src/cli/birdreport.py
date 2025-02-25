@@ -67,7 +67,6 @@ class BirdreportSearchReportScreen(Screen):
             classes="query_container",
         )
 
-    # TODO; async running
     async def on_button_pressed(self, event: Button.Pressed) -> None:
         async def background_sleep() -> None:
             await asyncio.sleep(3)
@@ -179,6 +178,7 @@ class BirdreportToEbirdLocationAssignScreen(Screen):
             point_name = report["point_name"]
             if point_name not in self.location_assign:
                 self.location_assign[point_name] = {
+                    "point_id": report["point_id"] if "point_id" in report else "",
                     "province": (
                         report["province_name"] if "province_name" in report else ""
                     ),
@@ -186,10 +186,13 @@ class BirdreportToEbirdLocationAssignScreen(Screen):
                     "district": (
                         report["district_name"] if "district_name" in report else ""
                     ),
+                    "longitude": report["longitude"] if "longitude" in report else "",
+                    "latitude": report["latitude"] if "latitude" in report else "",
                     "reports": [],
                 }
             self.location_assign[point_name]["reports"].append(report)
 
+        # TODO: 如何让个人地点也能进入缓存并自动应用
         for point_name, converted_hotspot_name in self.app.location_assign.items():
             self.modify_converted_hotspot(
                 point_name, converted_hotspot_name, modify_cache=False
@@ -239,9 +242,18 @@ class BirdreportToEbirdLocationAssignScreen(Screen):
                 variant="default",
             )
 
+            set_as_personal = Button(
+                "保留为个人地点",
+                name=point_name,
+                id="set_as_personal_" + str(point_id),
+                classes="set_as_personal",
+                variant="primary",
+            )
+
             assign_row = HorizontalGroup(
                 original_location_name,
                 converted_hotspot,
+                set_as_personal,
                 classes="assign_row",
             )
             horizonal_groups.append(assign_row)
@@ -281,8 +293,41 @@ class BirdreportToEbirdLocationAssignScreen(Screen):
 
         self.modify_converted_hotspot(event.button.name, hotspot_name)
 
+    @on(Button.Pressed, ".set_as_personal")
+    @work
+    async def on_button_set_as_personal_pressed(self, event: Button.Pressed) -> None:
+        point_name = event.button.name
+        point_index = event.button.id.split("_")[-1]
+        display_button: Button = self.app.query_one("#converted_hotspot_" + point_index)
+        report = self.location_assign[point_name]
+        # if there is no point_id, it is a casual report
+        if "point_id" not in report or not report["point_id"]:
+            custom_info = {
+                "lng": report["longitude"],
+                "lat": report["latitude"],
+            }
+            self.modify_converted_hotspot(
+                point_name, point_name, custom_info=custom_info
+            )
+        # if there is point_id, it is a point report
+        else:
+            point_id = report["point_id"]
+            point_info = await self.app.birdreport.member_get_point(point_id)
+            custom_info = {
+                "lng": point_info["longitude"],
+                "lat": point_info["latitude"],
+            }
+            self.modify_converted_hotspot(
+                point_name, point_name, custom_info=custom_info
+            )
+        display_button.label = point_name
+
     def modify_converted_hotspot(
-        self, point_name: str, converted_hotspot_name: str, modify_cache: bool = True
+        self,
+        point_name: str,
+        converted_hotspot_name: str,
+        custom_info: Dict = None,
+        modify_cache: bool = True,
     ) -> None:
         # conveted_hotspot is None means remaining
 
@@ -297,7 +342,9 @@ class BirdreportToEbirdLocationAssignScreen(Screen):
             self.location_assign[point_name]["lat"] = None
             self.location_assign[point_name]["lng"] = None
         else:
-            if converted_hotspot_name in self.app.ebird_cn_hotspots:
+            if custom_info is not None:
+                location_info = custom_info
+            elif converted_hotspot_name in self.app.ebird_cn_hotspots:
                 location_info = self.app.ebird_cn_hotspots[converted_hotspot_name]
             elif converted_hotspot_name in self.app.ebird_other_hotspots:
                 location_info = self.app.ebird_other_hotspots[converted_hotspot_name]
@@ -528,7 +575,6 @@ class BirdreportToEbirdScreen(Screen):
                 for taxon_info in self.app.ebird_taxon_info
             }
 
-        # FIXME: single csv file should be less than 1MB
         csvs = [[]]
         for report in reports:
             version = report["version"]
@@ -562,7 +608,8 @@ class BirdreportToEbirdScreen(Screen):
             start_time = time.strftime("%m/%d/%Y %H:%M", start_time)
             observation_date, start_time = start_time.split(" ")
             region_code = get_report_eb_region_code(
-                report["province_name"], report["city_name"] if "city_name" in report else ""
+                report["province_name"],
+                report["city_name"] if "city_name" in report else "",
             )
             if region_code.endswith("-"):
                 state = region_code
