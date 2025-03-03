@@ -3,7 +3,6 @@ import os
 import asyncio
 import csv
 import time
-from numpy import isin
 import pytz
 from typing import Dict, Optional, Union, TYPE_CHECKING
 from datetime import datetime
@@ -141,7 +140,7 @@ class SearchEbirdHotspotScreen(ModalScreen):
         if len(hotspot_infos) == 0:
             hotspot_listview.append(
                 ListItem(
-                    Label("无搜索结果，请尝试其他关键词"),
+                    Label("无搜索结果，点此不做修改"),
                     name=None,
                     classes="hotspot_item",
                 )
@@ -203,7 +202,10 @@ class BirdreportToEbirdLocationAssignScreen(Screen):
                 custom_info = None
 
             self.modify_converted_hotspot(
-                point_name, converted_hotspot_name, custom_info=custom_info, modify_cache=False
+                point_name,
+                converted_hotspot_name,
+                custom_info=custom_info,
+                modify_cache=False,
             )
 
         self.temp_assign_cache: Dict[str, Union[str, Dict]] = {}
@@ -241,7 +243,7 @@ class BirdreportToEbirdLocationAssignScreen(Screen):
             )
 
             converted_hotspot = Button(
-                "不做修改"
+                "不做修改，请点此修改"
                 if "converted_hotspot" not in info or info["converted_hotspot"] is None
                 else info["converted_hotspot"],
                 name=point_name,
