@@ -177,5 +177,17 @@
     {
       "name": "Pomatorhinus phayrei"
     }
+  ],
+  "Delichon urbicum": [
+    {
+      "loc": [
+        "XZ",
+        "XJ"
+      ],
+      "name": "Delichon urbicum"
+    },
+    {
+      "name": "Delichon lagopodum"
+    }
   ]
 }
