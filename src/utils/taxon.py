@@ -33,8 +33,10 @@ def process_loc(loc):
             return prov
 
 
-def highlight_rows(row, idxs):
-    if row.name in idxs:
+def highlight_rows(row, changed_idx, questionalble_idx):
+    if row.name in changed_idx:
+        return ["color: green"] * len(row)
+    elif row.name in questionalble_idx:
         return ["color: red"] * len(row)
     else:
         return [""] * len(row)
@@ -67,6 +69,7 @@ def preview_taxon_map(map_file: Path, output_path: Path):
     df = pd.DataFrame(columns=header)
 
     changed_idx = []
+    questionalble_idx = []
 
     for id, taxon_info in br_taxon_infos.items():
         latinname = taxon_info["latinname"].strip()
@@ -116,16 +119,24 @@ def preview_taxon_map(map_file: Path, output_path: Path):
                 changed_idx.append(len(df) - 1)
         else:
             ebird_taxon_info = ebird_taxon_infos[latinname]
+            ebird_com_name = ebird_taxon_info["comName"]
             df.loc[len(df)] = [
                 latinname,
                 name,
                 "->",
                 ebird_taxon_info["sciName"],
-                ebird_taxon_info["comName"],
+                ebird_com_name,
                 "",
             ]
+            if name != ebird_com_name:
+                questionalble_idx.append(len(df) - 1)
 
-    df = df.style.apply(highlight_rows, axis=1, idxs=changed_idx)
+    df = df.style.apply(
+        highlight_rows,
+        axis=1,
+        changed_idx=changed_idx,
+        questionalble_idx=questionalble_idx,
+    )
 
     df.to_html(output_path, index=False)
 

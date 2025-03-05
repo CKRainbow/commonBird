@@ -155,5 +155,16 @@
   ],
   "Cinnyris jugularis": "Cinnyris ornatus",
   "Chloropsis cochinchinensis": "Chloropsis moluccensis",
-  "Spelaeornis chocolatinus": "Spelaeornis reptatus"
+  "Spelaeornis chocolatinus": "Spelaeornis reptatus",
+  "Dryobates cathpharius": [
+    {
+      "loc": [
+        "XZ"
+      ],
+      "name": "Dryobates cathpharius"
+    },
+    {
+      "name": "Dryobates pernyii"
+    }
+  ]
 }
