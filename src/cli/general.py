@@ -133,9 +133,9 @@ class DomainScreen(Screen):
                     raise Exception
                 elif force_change and i == 0:
                     raise Exception
-                self.store_token(token_name, token)
                 if attr is None or attr.token != token:
                     attr = await cls.create(token)
+                self.store_token(token_name, token)
                 break
             except Exception as e:
                 print(e)

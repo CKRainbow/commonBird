@@ -192,8 +192,9 @@ class BirdreportToEbirdLocationAssignScreen(Screen):
                 }
             self.location_assign[point_name]["reports"].append(report)
 
-        # TODO: 如何让个人地点也能进入缓存并自动应用
         for point_name, value in self.app.location_assign.items():
+            if point_name not in self.location_assign:
+                continue
             if isinstance(value, dict):
                 converted_hotspot_name = point_name
                 custom_info = value
