@@ -44,7 +44,6 @@ jobs:
         node-version: '22'
     - name: Install dependencies
       run: |
-        npm i
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     - name: Build

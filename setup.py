@@ -22,7 +22,7 @@ setup(
     ],
     packages=find_packages(where="src"),
     package_data={},
-    install_requires=["pandas", "PyExecJS", "textual", "httpx", "python-dotenv"],
+    install_requires=["pandas", "textual", "httpx", "python-dotenv"],
     extras_require={"dev": ["textual-dev"]},
     entry_points={"console_scripts": ["run=cli:main"]},
 )

@@ -2,12 +2,9 @@ import multiprocessing
 import hashlib
 import json
 import asyncio
-import subprocess
 import time
 import os
-import platform
 import uuid
-import sys
 import base64
 from typing import Callable
 
@@ -16,27 +13,16 @@ from Crypto.Cipher import AES
 from Crypto.Util.Padding import unpad
 from dotenv import load_dotenv
 
-from src import inner_path, MyPopen
+from src import public_key_file
+from src.utils.long_rsa import LongRSAKey
 from src.utils.consts import BirdreportTaxonVersion
-
-if platform.system() == "Windows":
-    subprocess.Popen = MyPopen
-
-import execjs
-
 
 class Birdreport:
     def __init__(self, token: str):
-        # TODO: python-based js executor like
-        if getattr(sys, "frozen", False):
-            runtime = execjs.get("local_node")
-        else:
-            runtime = execjs.get()
-        with open(inner_path / "jQuertAjax.js", "r", encoding="utf-8") as f:
-            node_path = inner_path / "node_modules"
-            self.ctx = runtime.compile(f.read(), cwd=node_path)
         self.token = token
         self.user_info = None
+        
+        self.rsa = LongRSAKey(public_key_file)
 
     @classmethod
     async def create(cls, token: str):
@@ -63,10 +49,10 @@ class Birdreport:
         return uuid.uuid4().hex
 
     def encrypt(self, text):
-        return self.ctx.call("encrypt", text)
+        return self.rsa.encrypt(text)
 
     def encrypt_batch(self, texts):
-        return self.ctx.call("encryptBatch", texts)
+        pass
 
     def decrypt(self, text):
         cipher = AES.new(

@@ -8,9 +8,6 @@ Write-Output "GITHUB_API_TOKEN=`"$github_api_token`"" >> src/utils/consts.py
 
 pyinstaller --name commonBird `
     --add-data "common_bird_app.tcss:." `
-    --add-data "jQuertAjax.js:." `
-    --add-data "node_modules:node_modules" `
-    --add-binary "$((Get-Command node.exe).Source):." `
     --exclude-module pandas `
     --exclude-module numpy `
     --exclude-module textual-dev `

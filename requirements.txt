@@ -1,5 +1,4 @@
 pandas<3
-PyExecJS<2
 textual<2
 textual-dev<2
 httpx<1
