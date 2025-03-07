@@ -1,3 +1,4 @@
+import logging
 import multiprocessing
 import hashlib
 import json
@@ -350,7 +351,7 @@ class Birdreport:
                 for report in report_list:
                     _data_list.append(report)
             except Exception as e:
-                print(e)
+                logging.error(f"获取报告失败: {e}")
                 continue
             if len(report_list) == 0:
                 break

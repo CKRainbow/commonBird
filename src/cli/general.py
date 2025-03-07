@@ -1,3 +1,4 @@
+import logging
 import os
 from typing import Optional, Awaitable, Type, TYPE_CHECKING
 from itertools import count
@@ -138,7 +139,7 @@ class DomainScreen(Screen):
                 self.store_token(token_name, token)
                 break
             except Exception as e:
-                print(e)
+                logging.warning(f"Invelid Token {token_name}: {e}")
                 token_result = await self.app.push_screen_wait(
                     TokenInputScreen(token_name, text),
                 )

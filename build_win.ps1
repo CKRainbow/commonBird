@@ -8,6 +8,7 @@ Write-Output "GITHUB_API_TOKEN=`"$github_api_token`"" >> src/utils/consts.py
 
 pyinstaller --name commonBird `
     --add-data "common_bird_app.tcss:." `
+    --add-data "public_key.pem:." `
     --exclude-module pandas `
     --exclude-module numpy `
     --exclude-module textual-dev `
