@@ -25,15 +25,25 @@
     - 执行 `npm i` 安装 javascript 依赖项
     - 执行 `pip install -r requirements.txt` 安装 python 依赖项
 
-- 如何获取观鸟记录中心的认证 Token (适用于 Chromium 内核浏览器，如 Chrome/Edge/360 等，对于 Firefox Safari 等浏览器暂时没有教程，欢迎提交 issue)
-    - 打开观鸟记录中心[用户中心](https://www.birdreport.cn/member/index.html)
-    - 按下 `f12` 键打开开发工具 `DevTools`
-    - 点击上方选项卡`网络`(`Network`)并刷新页面
-    - 搜索 `msg` 并点击其中一个搜索结果
-    - 点击选项卡`标头`(`Header`)，一般来说默认就是这个选项卡
-    - 复制 `X-Auth-Token` 的内容填入即可
-    - **请注意在网页上重新登陆会导致 Token 发生变化，届时请重新获取**
-    - ![image](./res/bird_report_token.png)
+- 如何获取观鸟记录中心的认证 Token (目前对 Safari 等浏览器暂时没有教程，欢迎提交 issue / pull request)
+    - Chromium 内核浏览器，如 Chrome/Edge/360 等
+      - 打开观鸟记录中心[用户中心](https://www.birdreport.cn/member/index.html)
+      - 按下 `f12` 键打开开发工具 `DevTools`
+      - 点击上方选项卡`网络`(`Network`)并刷新页面
+      - 搜索 `msg` 并点击其中一个搜索结果
+      - 点击选项卡`标头`(`Header`)，一般来说默认就是这个选项卡
+      - 复制 `X-Auth-Token` 的内容填入即可
+      - **请注意在网页上重新登陆会导致 Token 发生变化，届时请重新获取**
+      - ![image](./res/bird_report_token.png)
+    - Gecko 内核浏览器, 如 Firefox:
+      - 打开观鸟记录中心[用户中心](https://www.birdreport.cn/member/index.html)
+      - 按下 `f12` 键打开开发工具 `DevTools`
+      - 点击上方选项卡`网络`并刷新界面
+      - 点击图示$\textcircled{1}$打开搜索界面
+      - 搜索`X-Auth-Token`
+      - 等待下方随便一个写着`api.birdreport.cn`的请求
+      - 点开, 复制`X-Auth-Token`
+      - ![image](./res/gecko_birdreport_token.jpg)
 
 - 如何获取 eBird API Token
     - 填写[eBird API Token 申请表](https://ebird.org/api/keygen)，随后便可获取 API Token
