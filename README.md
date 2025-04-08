@@ -26,7 +26,7 @@
     - 执行 `pip install -r requirements.txt` 安装 python 依赖项
 
 - 如何获取观鸟记录中心的认证 Token (适用于 Chromium 内核浏览器，如 Chrome/Edge/360 等，对于 Firefox Safari 等浏览器暂时没有教程，欢迎提交 issue)
-    - 打开观鸟记录中心[用户中心](birdreport.cn/member)
+    - 打开观鸟记录中心[用户中心](https://www.birdreport.cn/member/index.html)
     - 按下 `f12` 键打开开发工具 `DevTools`
     - 点击上方选项卡`网络`(`Network`)并刷新页面
     - 搜索 `msg` 并点击其中一个搜索结果
