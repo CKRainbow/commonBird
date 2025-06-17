@@ -4,10 +4,12 @@ import asyncio
 import csv
 import time
 import pytz
+import platform
 from typing import Dict, Optional, Union, TYPE_CHECKING
 from datetime import datetime
 from pathlib import Path
 
+import selenium
 from textual import on, work
 from textual.app import ComposeResult
 from textual.screen import Screen, ModalScreen
@@ -25,6 +27,7 @@ from textual.widgets import (
     ListItem,
 )
 from fuzzywuzzy.fuzz import partial_ratio
+from selenium import webdriver
 
 from src import application_path
 from src.birdreport.birdreport import Birdreport
@@ -757,6 +760,7 @@ class BirdreportScreen(DomainScreen):
                 Birdreport,
                 self.app.birdreport,
                 force_change=True,
+                input_screen=BirdreportTokenFetchScreen,
             )
         elif event.button.id == "retrieve_report":
             self.app.push_screen(
@@ -786,9 +790,72 @@ class BirdreportScreen(DomainScreen):
             self.change_token_hint,
             Birdreport,
             self.app.birdreport,
+            input_screen=BirdreportTokenFetchScreen,
         )
 
         if self.temporary:
             self.dismiss()
 
         await self.mount(self.composition)
+
+class BirdreportTokenFetchScreen(ModalScreen):
+    def __init__(self, token_name: str, hint_text: str, **kwargs):
+        super().__init__(kwargs)
+        self.token_name = token_name
+        self.hint_text = hint_text
+
+    def compose(self) -> ComposeResult:
+        yield Grid(
+            Label("请在弹出的浏览器界面登陆账号，随后点击“继续”\n选择取消则进入 Token 输入界面", id="hintText"),
+            Button(
+                "继续",
+                id="get_token",
+                variant="primary",
+            ),
+            Button(
+                "取消",
+                id="cancel",
+            ),
+            id="dialog",
+        )
+        
+    def on_mount(self) -> None:
+        self.driver = webdriver.Chrome()
+        self.driver.get("https://www.birdreport.cn/member/login.html")
+    
+    def select_driver(self) -> webdriver.remote.webdriver.BaseWebDriver:
+        plat = platform.system().lower()
+        if plat == "darwin":
+            supported_list = [webdriver.Safari, webdriver.Chrome, webdriver.Firefox, webdriver.Edge]
+        else:
+            supported_list = [webdriver.Chrome, webdriver.Firefox, webdriver.Edge, webdriver.Safari]
+        
+        for driver in supported_list:
+            try:
+                return driver()
+            except selenium.common.exceptions.NoSuchDriverException:
+                pass
+
+        raise RuntimeError("No supported driver found")
+    
+    async def on_button_pressed(self, event: Button.Pressed) -> None:
+        if event.button.id == "get_token":
+            local_storage = self.driver.execute_script("""
+                var items = {};
+                for (var i = 0; i < localStorage.length; i++) {
+                    var key = localStorage.key(i);
+                    items[key] = localStorage.getItem(key);
+                }
+                return items;
+            """)
+            self.driver.quit()
+            token = ""
+            if "$user" in local_storage:
+                user = json.loads(local_storage["$user"])
+                token = user["token"]
+                self.dismiss({"token": token, "token_name": self.token_name})
+            else:
+                self.dismiss(None)
+        elif event.button.id == "cancel":
+            self.driver.quit()
+            self.dismiss(None)

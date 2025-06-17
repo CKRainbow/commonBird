@@ -122,6 +122,7 @@ class DomainScreen(Screen):
         cls: Type,
         attr,
         force_change: bool = False,
+        input_screen: Optional[Screen] = None,
     ):
         token = os.getenv(token_name)
         for i in count(0):
@@ -140,10 +141,19 @@ class DomainScreen(Screen):
                 break
             except Exception as e:
                 logging.warning(f"Invelid Token {token_name}: {e}")
-                token_result = await self.app.push_screen_wait(
-                    TokenInputScreen(token_name, text),
-                )
-                token = token_result["token"]
+                if input_screen is None:
+                    input_screen = TokenInputScreen
+                try:
+                    token_result = await self.app.push_screen_wait(
+                        input_screen(token_name, text),
+                    )
+                except RuntimeError as e:
+                    logging.warning(f"Token Input Screen Error: {e}")
+                    token_result = None
+                if token_result is None:
+                    input_screen = TokenInputScreen
+                else:
+                    token = token_result["token"]
         return attr
 
 

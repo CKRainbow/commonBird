@@ -26,6 +26,11 @@
     - 执行 `pip install -r requirements.txt` 安装 python 依赖项
 
 - 如何获取观鸟记录中心的认证 Token (目前对 Safari 等浏览器暂时没有教程，欢迎提交 issue / pull request)
+    - 目前支持使用 `Selenium` 打开浏览器登录并自动获取 Token，目前支持的浏览器有：
+      - Chrome
+      - Firefox
+      - Microsoft Edge
+      - Safari (尚未测试)
     - Chromium 内核浏览器，如 Chrome/Edge/360 等
       - 打开观鸟记录中心[用户中心](https://www.birdreport.cn/member/index.html)
       - 按下 `f12` 键打开开发工具 `DevTools`

@@ -26,6 +26,10 @@ TokenInputScreen {
     align: center middle;
 }
 
+BirdreportTokenFetchScreen {
+    align: center middle;
+}
+
 ConfirmScreen {
     align: center middle;
 }
