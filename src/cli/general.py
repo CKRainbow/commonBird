@@ -168,13 +168,12 @@ class DisplayScreen(ModalScreen):
     def __init__(self, widget: Widget, function: Optional[Awaitable] = None, **kwargs):
         super().__init__(**kwargs)
         self.widget = widget
+        self.block = True
 
         if function:
             self.function = function
-            self.block = True
         else:
             self.function = None
-            self.block = False
 
     def compose(self) -> ComposeResult:
         yield self.widget
@@ -196,4 +195,6 @@ class DisplayScreen(ModalScreen):
     async def on_mount(self) -> None:
         if self.function:
             await self.function()
-        self.dismiss()
+            self.dismiss()
+        else:
+            self.block = False

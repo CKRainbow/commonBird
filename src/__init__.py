@@ -1,6 +1,18 @@
 import os
 import sys
 from pathlib import Path
+from typing import List
+
+from selenium.webdriver.common.driver_finder import DriverFinder
+
+selenium_ori_deiver_finder_to_arg = DriverFinder._to_args
+
+def selenium_ori_deiver_finder_to_arg_patch(self):
+    args: List = selenium_ori_deiver_finder_to_arg(self)
+    args.append("--offline")
+    return args
+
+DriverFinder._to_args = selenium_ori_deiver_finder_to_arg_patch
 
 if getattr(sys, "frozen", False):
     inner_path = Path(sys._MEIPASS)

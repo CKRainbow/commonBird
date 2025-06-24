@@ -5,11 +5,13 @@ import csv
 import time
 import pytz
 import platform
+import logging
 from typing import Dict, Optional, Union, TYPE_CHECKING
 from datetime import datetime
 from pathlib import Path
 
 import selenium
+from selenium.common.exceptions import WebDriverException
 from textual import on, work
 from textual.app import ComposeResult
 from textual.screen import Screen, ModalScreen
@@ -820,10 +822,10 @@ class BirdreportTokenFetchScreen(ModalScreen):
         )
         
     def on_mount(self) -> None:
-        self.driver = webdriver.Chrome()
+        self.driver = self._select_driver()
         self.driver.get("https://www.birdreport.cn/member/login.html")
     
-    def select_driver(self) -> webdriver.remote.webdriver.BaseWebDriver:
+    def _select_driver(self) -> webdriver.remote.webdriver.BaseWebDriver:
         plat = platform.system().lower()
         if plat == "darwin":
             supported_list = [webdriver.Safari, webdriver.Chrome, webdriver.Firefox, webdriver.Edge]
@@ -832,14 +834,27 @@ class BirdreportTokenFetchScreen(ModalScreen):
         
         for driver in supported_list:
             try:
-                return driver()
+                driver = driver()
+                return driver
             except selenium.common.exceptions.NoSuchDriverException:
                 pass
 
         raise RuntimeError("No supported driver found")
     
+    def _is_driver_alive(self) -> bool:
+        if self.driver is None:
+            return False
+        
+        try:
+            self.driver.execute_script("return true")
+            return True
+        except WebDriverException:
+            return False
+    
     async def on_button_pressed(self, event: Button.Pressed) -> None:
-        if event.button.id == "get_token":
+        if not self._is_driver_alive():
+            self.dismiss(None)
+        elif event.button.id == "get_token":
             local_storage = self.driver.execute_script("""
                 var items = {};
                 for (var i = 0; i < localStorage.length; i++) {
