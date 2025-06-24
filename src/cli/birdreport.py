@@ -821,8 +821,12 @@ class BirdreportTokenFetchScreen(ModalScreen):
             id="dialog",
         )
         
-    def on_mount(self) -> None:
-        self.driver = self._select_driver()
+    async def on_mount(self) -> None:
+        try:
+            self.driver = self._select_driver()
+        except RuntimeError:
+            self.dismiss(None)
+            return
         self.driver.get("https://www.birdreport.cn/member/login.html")
     
     def _select_driver(self) -> webdriver.remote.webdriver.BaseWebDriver:
@@ -830,13 +834,13 @@ class BirdreportTokenFetchScreen(ModalScreen):
         if plat == "darwin":
             supported_list = [webdriver.Safari, webdriver.Chrome, webdriver.Firefox, webdriver.Edge]
         else:
-            supported_list = [webdriver.Chrome, webdriver.Firefox, webdriver.Edge, webdriver.Safari]
+            supported_list = [webdriver.Edge, webdriver.Chrome, webdriver.Firefox, webdriver.Safari]
         
         for driver in supported_list:
             try:
                 driver = driver()
                 return driver
-            except selenium.common.exceptions.NoSuchDriverException:
+            except Exception:
                 pass
 
         raise RuntimeError("No supported driver found")

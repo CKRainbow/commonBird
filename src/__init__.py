@@ -9,7 +9,8 @@ selenium_ori_deiver_finder_to_arg = DriverFinder._to_args
 
 def selenium_ori_deiver_finder_to_arg_patch(self):
     args: List = selenium_ori_deiver_finder_to_arg(self)
-    args.append("--offline")
+    args.append("--timeout")
+    args.append("20")
     return args
 
 DriverFinder._to_args = selenium_ori_deiver_finder_to_arg_patch
