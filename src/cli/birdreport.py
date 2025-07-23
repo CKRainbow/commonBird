@@ -5,12 +5,10 @@ import csv
 import time
 import pytz
 import platform
-import logging
 from typing import Dict, Optional, Union, TYPE_CHECKING
 from datetime import datetime
 from pathlib import Path
 
-import selenium
 from selenium.common.exceptions import WebDriverException
 from textual import on, work
 from textual.app import ComposeResult
@@ -33,7 +31,7 @@ from selenium import webdriver
 
 from src import application_path
 from src.birdreport.birdreport import Birdreport
-from src.utils.location import EBIRD_REGION_CODE_TO_NAME, NAME_TO_EBIRD_REGION_CODE
+from src.utils.location import EBIRD_REGION_CODE_TO_NAME, NAME_TO_EBIRD_REGION_CODE, AB_LOCATION
 from src.utils.taxon import convert_taxon_z4_ebird
 from src.cli.general import ConfirmScreen, MessageScreen, DomainScreen, DisplayScreen
 from src.cli.ebird import EbirdScreen
@@ -45,8 +43,10 @@ if TYPE_CHECKING:
 def get_report_eb_region_code(province, city):
     if province == "台湾省":
         return NAME_TO_EBIRD_REGION_CODE[city]
-    else:
+    elif province in NAME_TO_EBIRD_REGION_CODE:
         return NAME_TO_EBIRD_REGION_CODE[province]
+    else:
+        return ""
 
 
 class BirdreportSearchReportScreen(Screen):
@@ -525,6 +525,10 @@ class BirdreportToEbirdScreen(Screen):
                 for candi_dup_old in candi_dup_old_checklists:
                     if candi_dup["id"] == candi_dup_old["id"]:
                         checklists.remove(candi_dup)
+
+            checklists = list(filter(
+                lambda x: x["province_name"] in AB_LOCATION.values(), checklists
+            ))
 
             self.app.cur_birdreport_data += checklists
 
