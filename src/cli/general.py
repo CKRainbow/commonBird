@@ -1,6 +1,6 @@
 import logging
 import os
-from typing import Optional, Awaitable, Type, TYPE_CHECKING
+from typing import List, Optional, Awaitable, Tuple, Type, TYPE_CHECKING
 from itertools import count
 
 from dotenv import load_dotenv, set_key
@@ -57,6 +57,9 @@ class TokenInputScreen(ModalScreen):
             id="dialog",
         )
 
+    def on_mount(self) -> None:
+        self.screen.styles.align = ("center", "middle")
+
     async def on_input_submitted(self, event: Input.Submitted) -> None:
         if event.input.id == "token":
             user_input = event.input.value
@@ -76,11 +79,38 @@ class ConfirmScreen(ModalScreen):
             id="dialog",
         )
 
+
     def on_button_pressed(self, event: Button.Pressed) -> None:
         if event.button.id == "confirm":
             self.dismiss(True)
         elif event.button.id == "cancel":
             self.dismiss(False)
+
+class OptionScreen(ModalScreen):
+    def __init__(self, message: str, options: List[Tuple[str, str]], **kwargs):
+        super().__init__(kwargs)
+        self.message = message
+        self.options = options
+
+    def compose(self) -> ComposeResult:
+        self.grid = Grid(
+            Label(self.message, id="messageText"),
+            *[Button(option[0], id=option[1]) for option in self.options],
+            id="dialog"
+        )
+
+        yield self.grid
+    
+    def on_mount(self) -> None:
+        self.screen.styles.align = ("center", "middle")
+        self.grid.styles.grid_size_columns = len(self.options)
+        label = self.query_one("#messageText")
+        label.styles.column_span = len(self.options)
+    
+    def on_button_pressed(self, event: Button.Pressed) -> None:
+        for option in self.options:
+            if event.button.id == option[1]:
+                self.dismiss(option[1])
 
 
 class MessageScreen(ModalScreen):
@@ -94,6 +124,9 @@ class MessageScreen(ModalScreen):
             Button("确定", id="confirm", variant="primary"),
             id="dialog",
         )
+
+    def on_mount(self) -> None:
+        self.screen.styles.align = ("center", "middle")
 
     def on_button_pressed(self, event: Button.Pressed) -> None:
         if event.button.id == "confirm":

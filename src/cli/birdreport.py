@@ -33,7 +33,7 @@ from src import application_path
 from src.birdreport.birdreport import Birdreport
 from src.utils.location import EBIRD_REGION_CODE_TO_NAME, NAME_TO_EBIRD_REGION_CODE, AB_LOCATION
 from src.utils.taxon import convert_taxon_z4_ebird
-from src.cli.general import ConfirmScreen, MessageScreen, DomainScreen, DisplayScreen
+from src.cli.general import ConfirmScreen, MessageScreen, DomainScreen, DisplayScreen, OptionScreen
 from src.cli.ebird import EbirdScreen
 
 if TYPE_CHECKING:
@@ -527,7 +527,7 @@ class BirdreportToEbirdScreen(Screen):
                         checklists.remove(candi_dup)
 
             checklists = list(filter(
-                lambda x: x["province_name"] in AB_LOCATION.values(), checklists
+                lambda x: "province_name" in x and x["province_name"] in AB_LOCATION.values(), checklists
             ))
 
             self.app.cur_birdreport_data += checklists
@@ -825,14 +825,34 @@ class BirdreportTokenFetchScreen(ModalScreen):
             id="dialog",
         )
         
+    @work
     async def on_mount(self) -> None:
+        selected_driver = await self.app.push_screen_wait(
+            OptionScreen(
+                "请选择要使用的浏览器",
+                [("Chrome", "chrome"), ("Firefox","firefox"), ("Edge", "edge") ,("Safari", "safari")],
+            )
+        )
+
         try:
-            self.driver = self._select_driver()
+            self.driver = self._get_driver(selected_driver)
         except RuntimeError:
             self.dismiss(None)
             return
         self.driver.get("https://www.birdreport.cn/member/login.html")
     
+    def _get_driver(self, driver_name: str) -> webdriver.remote.webdriver.BaseWebDriver:
+        if driver_name == "chrome":
+            return webdriver.Chrome()
+        elif driver_name == "firefox":
+            return webdriver.Firefox()
+        elif driver_name == "edge":
+            return webdriver.Edge()
+        elif driver_name == "safari":
+            return webdriver.Safari()
+        else:
+            raise ValueError(f"Unsupported driver: {driver_name}")
+
     def _select_driver(self) -> webdriver.remote.webdriver.BaseWebDriver:
         plat = platform.system().lower()
         if plat == "darwin":
