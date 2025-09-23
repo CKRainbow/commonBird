@@ -162,7 +162,7 @@ class DomainScreen(Screen):
             if i == 0:
                 text = change_token_hint
             else:
-                text = "先前输入的token无效，请重新输入。"
+                text = "先前输入的 token 无效或启动浏览器时出现错误\n请选择重新输入、退出后选择其他浏览器或手动获取 token。"
             try:
                 if not force_change and not token:
                     raise Exception

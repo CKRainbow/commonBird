@@ -1,4 +1,5 @@
 import json
+import logging
 import os
 import asyncio
 import csv
@@ -836,7 +837,8 @@ class BirdreportTokenFetchScreen(ModalScreen):
 
         try:
             self.driver = self._get_driver(selected_driver)
-        except RuntimeError:
+        except Exception as e:
+            logging.error(e)
             self.dismiss(None)
             return
         self.driver.get("https://www.birdreport.cn/member/login.html")
