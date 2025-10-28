@@ -27,23 +27,41 @@ from textual.widgets import (
     ListView,
     ListItem,
 )
+from textual.worker import Worker, WorkerState
 from fuzzywuzzy.fuzz import partial_ratio
 from selenium import webdriver
 
 from src import application_path
 from src.birdreport.birdreport import Birdreport
-from src.utils.location import EBIRD_REGION_CODE_TO_NAME, NAME_TO_EBIRD_REGION_CODE, AB_LOCATION
+from src.utils.location import (
+    EBIRD_REGION_CODE_TO_NAME,
+    NAME_TO_EBIRD_REGION_CODE,
+    AB_LOCATION,
+)
 from src.utils.taxon import convert_taxon_z4_ebird
-from src.cli.general import ConfirmScreen, MessageScreen, DomainScreen, DisplayScreen, OptionScreen
+from src.cli.general import (
+    ConfirmScreen,
+    MessageScreen,
+    DomainScreen,
+    DisplayScreen,
+    OptionScreen,
+)
 from src.cli.ebird import EbirdScreen
 
 if TYPE_CHECKING:
     from src.cli.app import CommonBirdApp
 
 
-def get_report_eb_region_code(province, city):
+def get_report_eb_region_code(province, city, district):
+    logging.debug(f"get_report_eb_region_code: {province}, {city}, {district}")
+    raise Exception("test exception")
     if province == "台湾省":
-        return NAME_TO_EBIRD_REGION_CODE[city]
+        if city in NAME_TO_EBIRD_REGION_CODE:
+            return NAME_TO_EBIRD_REGION_CODE[city]
+        elif district in NAME_TO_EBIRD_REGION_CODE:
+            return NAME_TO_EBIRD_REGION_CODE[district]
+        else:
+            return ""
     elif province in NAME_TO_EBIRD_REGION_CODE:
         return NAME_TO_EBIRD_REGION_CODE[province]
     else:
@@ -173,6 +191,18 @@ class SearchEbirdHotspotScreen(ModalScreen):
     async def on_listview_selected(self, event: ListView.Selected) -> None:
         self.dismiss(event.item.name)
 
+    def on_worker_state_changed(self, event: Worker.StateChanged) -> None:
+        if event.worker.state is WorkerState.ERROR:
+            # The exception object is in event.worker.error
+            exception = event.worker.error
+
+            # 5. Log the exception with the full traceback to the file
+            # Using exc_info=exception ensures the full traceback is included.
+            logging.critical(
+                f"Worker '{event.worker.name}' encountered a fatal error.",
+                exc_info=exception,
+            )
+
 
 class BirdreportToEbirdLocationAssignScreen(Screen):
     def __init__(self, **kwargs):
@@ -296,7 +326,10 @@ class BirdreportToEbirdLocationAssignScreen(Screen):
         birdreport_point_info = self.location_assign[point_name]
         province_code = get_report_eb_region_code(
             birdreport_point_info["province"],
-            birdreport_point_info["city"],
+            birdreport_point_info["city"] if "city" in birdreport_point_info else "",
+            birdreport_point_info["district"]
+            if "district" in birdreport_point_info
+            else "",
         )
         hotspot_name = await self.app.push_screen_wait(
             SearchEbirdHotspotScreen(point_name, province_code)
@@ -376,6 +409,18 @@ class BirdreportToEbirdLocationAssignScreen(Screen):
             self.location_assign[point_name]["lng"] = location_info["lng"]
 
         self.location_assign[point_name]["converted_hotspot"] = converted_hotspot_name
+
+    def on_worker_state_changed(self, event: Worker.StateChanged) -> None:
+        if event.worker.state is WorkerState.ERROR:
+            # The exception object is in event.worker.error
+            exception = event.worker.error
+
+            # 5. Log the exception with the full traceback to the file
+            # Using exc_info=exception ensures the full traceback is included.
+            logging.critical(
+                f"Worker '{event.worker.name}' encountered a fatal error.",
+                exc_info=exception,
+            )
 
 
 class BirdreportFilterScreen(Screen):
@@ -527,9 +572,13 @@ class BirdreportToEbirdScreen(Screen):
                     if candi_dup["id"] == candi_dup_old["id"]:
                         checklists.remove(candi_dup)
 
-            checklists = list(filter(
-                lambda x: "province_name" in x and x["province_name"] in AB_LOCATION.values(), checklists
-            ))
+            checklists = list(
+                filter(
+                    lambda x: "province_name" in x
+                    and x["province_name"] in AB_LOCATION.values(),
+                    checklists,
+                )
+            )
 
             self.app.cur_birdreport_data += checklists
 
@@ -556,7 +605,7 @@ class BirdreportToEbirdScreen(Screen):
 
         # TODO: 记录时长太长应有提示跳出，终止任务
         if len(checklist_files) >= 1:
-            checklist_file = checklist_files[0]
+            checklist_file = checklist_files[-1]
             use_existing = await self.app.push_screen_wait(
                 ConfirmScreen(f"文件{checklist_file.name}已经存在\n是否使用已有数据？"),
             )
@@ -635,6 +684,7 @@ class BirdreportToEbirdScreen(Screen):
             region_code = get_report_eb_region_code(
                 report["province_name"],
                 report["city_name"] if "city_name" in report else "",
+                report["district_name"] if "district_name" in report else "",
             )
             if region_code.endswith("-"):
                 state = region_code
@@ -722,6 +772,18 @@ class BirdreportToEbirdScreen(Screen):
                 writer = csv.writer(f)
                 writer.writerows(csvs[i])
 
+    def on_worker_state_changed(self, event: Worker.StateChanged) -> None:
+        if event.worker.state is WorkerState.ERROR:
+            # The exception object is in event.worker.error
+            exception = event.worker.error
+
+            # 5. Log the exception with the full traceback to the file
+            # Using exc_info=exception ensures the full traceback is included.
+            logging.critical(
+                f"Worker '{event.worker.name}' encountered a fatal error.",
+                exc_info=exception,
+            )
+
 
 class BirdreportScreen(DomainScreen):
     def __init__(self, **kwargs):
@@ -805,6 +867,7 @@ class BirdreportScreen(DomainScreen):
 
         await self.mount(self.composition)
 
+
 class BirdreportTokenFetchScreen(ModalScreen):
     def __init__(self, token_name: str, hint_text: str, **kwargs):
         super().__init__(kwargs)
@@ -813,7 +876,10 @@ class BirdreportTokenFetchScreen(ModalScreen):
 
     def compose(self) -> ComposeResult:
         yield Grid(
-            Label("请在弹出的浏览器界面登陆账号，随后点击“继续”\n选择取消则进入 Token 输入界面", id="hintText"),
+            Label(
+                "请在弹出的浏览器界面登陆账号，随后点击“继续”\n选择取消则进入 Token 输入界面",
+                id="hintText",
+            ),
             Button(
                 "继续",
                 id="get_token",
@@ -825,13 +891,18 @@ class BirdreportTokenFetchScreen(ModalScreen):
             ),
             id="dialog",
         )
-        
+
     @work
     async def on_mount(self) -> None:
         selected_driver = await self.app.push_screen_wait(
             OptionScreen(
                 "请选择要使用的浏览器",
-                [("Chrome", "chrome"), ("Firefox","firefox"), ("Edge", "edge") ,("Safari", "safari")],
+                [
+                    ("Chrome", "chrome"),
+                    ("Firefox", "firefox"),
+                    ("Edge", "edge"),
+                    ("Safari", "safari"),
+                ],
             )
         )
 
@@ -842,7 +913,7 @@ class BirdreportTokenFetchScreen(ModalScreen):
             self.dismiss(None)
             return
         self.driver.get("https://www.birdreport.cn/member/login.html")
-    
+
     def _get_driver(self, driver_name: str) -> webdriver.remote.webdriver.BaseWebDriver:
         if driver_name == "chrome":
             return webdriver.Chrome()
@@ -858,10 +929,20 @@ class BirdreportTokenFetchScreen(ModalScreen):
     def _select_driver(self) -> webdriver.remote.webdriver.BaseWebDriver:
         plat = platform.system().lower()
         if plat == "darwin":
-            supported_list = [webdriver.Safari, webdriver.Chrome, webdriver.Firefox, webdriver.Edge]
+            supported_list = [
+                webdriver.Safari,
+                webdriver.Chrome,
+                webdriver.Firefox,
+                webdriver.Edge,
+            ]
         else:
-            supported_list = [webdriver.Edge, webdriver.Chrome, webdriver.Firefox, webdriver.Safari]
-        
+            supported_list = [
+                webdriver.Edge,
+                webdriver.Chrome,
+                webdriver.Firefox,
+                webdriver.Safari,
+            ]
+
         for driver in supported_list:
             try:
                 driver = driver()
@@ -870,17 +951,17 @@ class BirdreportTokenFetchScreen(ModalScreen):
                 pass
 
         raise RuntimeError("No supported driver found")
-    
+
     def _is_driver_alive(self) -> bool:
         if self.driver is None:
             return False
-        
+
         try:
             self.driver.execute_script("return true")
             return True
         except WebDriverException:
             return False
-    
+
     async def on_button_pressed(self, event: Button.Pressed) -> None:
         if not self._is_driver_alive():
             self.dismiss(None)
@@ -904,3 +985,15 @@ class BirdreportTokenFetchScreen(ModalScreen):
         elif event.button.id == "cancel":
             self.driver.quit()
             self.dismiss(None)
+
+    def on_worker_state_changed(self, event: Worker.StateChanged) -> None:
+        if event.worker.state is WorkerState.ERROR:
+            # The exception object is in event.worker.error
+            exception = event.worker.error
+
+            # 5. Log the exception with the full traceback to the file
+            # Using exc_info=exception ensures the full traceback is included.
+            logging.critical(
+                f"Worker '{event.worker.name}' encountered a fatal error.",
+                exc_info=exception,
+            )
