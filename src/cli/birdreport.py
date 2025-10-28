@@ -54,7 +54,6 @@ if TYPE_CHECKING:
 
 def get_report_eb_region_code(province, city, district):
     logging.debug(f"get_report_eb_region_code: {province}, {city}, {district}")
-    raise Exception("test exception")
     if province == "台湾省":
         if city in NAME_TO_EBIRD_REGION_CODE:
             return NAME_TO_EBIRD_REGION_CODE[city]
