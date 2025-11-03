@@ -1,4 +1,5 @@
 import json
+import logging
 import os
 import webbrowser
 import platform
@@ -10,6 +11,7 @@ from textual import work, on
 from textual.app import App, ComposeResult
 from textual.containers import VerticalScroll, HorizontalGroup
 from textual.widgets import Footer, Header, Button, Markdown
+from textual.worker import Worker, WorkerState
 
 from src import application_path, database_path, inner_path, cache_path
 from src.utils.consts import GITHUB_API_TOKEN, APP_VERSION, DOWNLOAD_URL
@@ -37,14 +39,14 @@ class CommonBirdApp(App):
         self.ch4_to_eb_taxon_map = None
         self.ebird_taxon_info = None
 
-        self.location_assign:Dict[str, Union[str, Dict]] = {}
+        self.location_assign: Dict[str, Union[str, Dict]] = {}
 
         self.first_open = True
         if APP_VERSION == "beta":
             self.version = APP_VERSION
         else:
             self.version = version.parse(APP_VERSION)
-        
+
         self.reload_hotspot_info()
 
         # all exists or all not exists
@@ -257,3 +259,15 @@ class CommonBirdApp(App):
                 data = json.load(f)
                 self.ebird_other_hotspots: Dict = data["data"]
                 self.ebird_hotspots_update_date = data["last_update_date"]
+
+    def on_worker_state_changed(self, event: Worker.StateChanged) -> None:
+        if event.worker.state is WorkerState.ERROR:
+            # The exception object is in event.worker.error
+            exception = event.worker.error
+
+            # 5. Log the exception with the full traceback to the file
+            # Using exc_info=exception ensures the full traceback is included.
+            logging.critical(
+                f"Worker '{event.worker.name}' encountered a fatal error.",
+                exc_info=exception,
+            )

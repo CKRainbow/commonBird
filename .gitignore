@@ -5,7 +5,7 @@ __pycache__
 dev
 .cache
 
-log
+*.log
 *_checklists.json
 *.csv
 .env

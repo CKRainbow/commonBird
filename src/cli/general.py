@@ -15,6 +15,7 @@ from textual.widgets import (
     Label,
     Input,
 )
+from textual.worker import Worker, WorkerState
 
 from src import env_path
 
@@ -79,12 +80,12 @@ class ConfirmScreen(ModalScreen):
             id="dialog",
         )
 
-
     def on_button_pressed(self, event: Button.Pressed) -> None:
         if event.button.id == "confirm":
             self.dismiss(True)
         elif event.button.id == "cancel":
             self.dismiss(False)
+
 
 class OptionScreen(ModalScreen):
     def __init__(self, message: str, options: List[Tuple[str, str]], **kwargs):
@@ -96,17 +97,17 @@ class OptionScreen(ModalScreen):
         self.grid = Grid(
             Label(self.message, id="messageText"),
             *[Button(option[0], id=option[1]) for option in self.options],
-            id="dialog"
+            id="dialog",
         )
 
         yield self.grid
-    
+
     def on_mount(self) -> None:
         self.screen.styles.align = ("center", "middle")
         self.grid.styles.grid_size_columns = len(self.options)
         label = self.query_one("#messageText")
         label.styles.column_span = len(self.options)
-    
+
     def on_button_pressed(self, event: Button.Pressed) -> None:
         for option in self.options:
             if event.button.id == option[1]:
@@ -231,3 +232,15 @@ class DisplayScreen(ModalScreen):
             self.dismiss()
         else:
             self.block = False
+
+    def on_worker_state_changed(self, event: Worker.StateChanged) -> None:
+        if event.worker.state is WorkerState.ERROR:
+            # The exception object is in event.worker.error
+            exception = event.worker.error
+
+            # 5. Log the exception with the full traceback to the file
+            # Using exc_info=exception ensures the full traceback is included.
+            logging.critical(
+                f"Worker '{event.worker.name}' encountered a fatal error.",
+                exc_info=exception,
+            )

@@ -1,8 +1,10 @@
+import logging
 from typing import TYPE_CHECKING
 
 from textual import on, work
 from textual.containers import VerticalScroll
 from textual.widgets import Button, LoadingIndicator
+from textual.worker import Worker, WorkerState
 
 from src.cli.general import DomainScreen, DisplayScreen
 from src.ebird.ebird import EBird
@@ -73,3 +75,15 @@ class EbirdScreen(DomainScreen):
             self.dismiss()
 
         await self.mount(self.composition)
+
+    def on_worker_state_changed(self, event: Worker.StateChanged) -> None:
+        if event.worker.state is WorkerState.ERROR:
+            # The exception object is in event.worker.error
+            exception = event.worker.error
+
+            # 5. Log the exception with the full traceback to the file
+            # Using exc_info=exception ensures the full traceback is included.
+            logging.critical(
+                f"Worker '{event.worker.name}' encountered a fatal error.",
+                exc_info=exception,
+            )
