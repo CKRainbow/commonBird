@@ -329,7 +329,13 @@ class BirdreportToEbirdLocationAssignScreen(Screen):
         # if there is point_id, it is a point report
         else:
             point_id = report["point_id"]
-            point_info = await self.app.birdreport.member_get_point(point_id)
+            try:
+                point_info = await self.app.birdreport.member_get_point(point_id)
+            except Exception as e:
+                logging.error(e)
+                display_button.label = '网络错误，请重试'
+                return
+
             custom_info = {
                 "lng": point_info["longitude"],
                 "lat": point_info["latitude"],
