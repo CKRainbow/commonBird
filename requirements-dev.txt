@@ -1,0 +1,7 @@
+-r requirements.txt
+
+textual-dev<2
+pyinstaller<7
+pytest<9
+pytest-asyncio<2
+respx<1

@@ -39,6 +39,7 @@ from src.utils.location import (
     AB_LOCATION,
 )
 from src.utils.taxon import convert_taxon_z4_ebird
+from src.utils.api_exceptions import ApiErrorBase
 from src.cli.general import (
     ConfirmScreen,
     MessageScreen,
@@ -257,10 +258,17 @@ class BirdreportToEbirdLocationAssignScreen(Screen):
         if is_update:
             if self.app.ebird is None:
                 await self.app.push_screen_wait(EbirdScreen(temporary=True))
-            await self.app.push_screen_wait(
-                DisplayScreen(LoadingIndicator(), self.app.ebird.update_cn_hotspots)
-            )
-            self.app.reload_hotspot_info()
+            try:
+                loading_screen = DisplayScreen(LoadingIndicator())
+                self.app.push_screen(loading_screen)
+                await self.app.ebird.update_cn_hotspots()
+                loading_screen.dismiss()
+                self.app.reload_hotspot_info()
+            except ApiErrorBase as e:
+                await self.app.push_screen_wait(
+                    MessageScreen(f"更新eBird热点失败: {e}")
+                )
+                loading_screen.dismiss()
 
         vertical_scroll = VerticalScroll(id="location_assign_scroll")
         await self.mount(vertical_scroll)
@@ -363,9 +371,9 @@ class BirdreportToEbirdLocationAssignScreen(Screen):
             point_id = report["point_id"]
             try:
                 point_info = await self.app.birdreport.member_get_point(point_id)
-            except Exception as e:
-                logging.error(e)
-                display_button.label = '网络错误，请重试'
+            except ApiErrorBase as e:
+                logging.warning(f"获取地点信息失败: {e}")
+                await self.app.push_screen_wait(MessageScreen(f"获取地点信息失败: {e}"))
                 return
 
             custom_info = {
@@ -557,10 +565,14 @@ class BirdreportToEbirdScreen(Screen):
     async def on_mount(self) -> None:
         username = self.app.birdreport.user_info["username"]
 
-        async def load_report(start_date: str = ""):
-            checklists = await self.app.birdreport.member_get_reports(
-                start_date=start_date
-            )
+        async def load_report(start_date: str = "") -> int:
+            try:
+                checklists = await self.app.birdreport.member_get_reports(
+                    start_date=start_date
+                )
+            except ApiErrorBase as e:
+                await self.app.push_screen_wait(MessageScreen(f"获取报告失败: {e}"))
+                return -1
             candi_dup_checklists = list(
                 filter(
                     lambda x: x["start_time"].split(" ")[0] == start_date, checklists
@@ -619,10 +631,16 @@ class BirdreportToEbirdScreen(Screen):
                 self.app.cur_birdreport_data = json.load(f)
                 update_date = checklist_file.stem.split("_")[-2]
             os.remove(checklist_file)
-            await load_report(update_date)
+            status = await load_report(update_date)
+            if status == -1:
+                self.dismiss()
+                return
         else:
             self.app.cur_birdreport_data = []
-            await load_report()
+            status = await load_report()
+            if status == -1:
+                self.dismiss()
+                return
 
         await self.app.push_screen_wait(BirdreportFilterScreen())
 
@@ -630,7 +648,13 @@ class BirdreportToEbirdScreen(Screen):
             self.app.ebird_cn_hotspots is not None
             and self.app.ebird_other_hotspots is not None
         ):
-            await self.app.push_screen_wait(BirdreportToEbirdLocationAssignScreen())
+            status = await self.app.push_screen_wait(
+                BirdreportToEbirdLocationAssignScreen()
+            )
+
+            if status == -1:
+                self.dismiss()
+                return
 
         await self.app.push_screen_wait(
             MessageScreen(
@@ -828,7 +852,7 @@ class BirdreportScreen(DomainScreen):
     @work
     async def on_button_pressed(self, event: Button.Pressed) -> None:
         if event.button.id == "change_token":
-            self.app.birdreport = await self.check_token(
+            result = await self.check_token(
                 self.token_name,
                 self.change_token_hint,
                 Birdreport,
@@ -836,6 +860,11 @@ class BirdreportScreen(DomainScreen):
                 force_change=True,
                 input_screen=BirdreportTokenFetchScreen,
             )
+            if result is None:
+                await self.app.push_screen_wait(MessageScreen("Token 未发生改变"))
+                return
+            self.app.birdreport = result
+
         elif event.button.id == "retrieve_report":
             self.app.push_screen(
                 BirdreportSearchReportScreen(self.app.birdreport),
@@ -859,13 +888,23 @@ class BirdreportScreen(DomainScreen):
         self.title = "中国观鸟记录中心"
         self.sub_title = "可能会对记录中心服务器带来压力，酌情使用"
 
-        self.app.birdreport = await self.check_token(
+        result = await self.check_token(
             self.token_name,
             self.change_token_hint,
             Birdreport,
             self.app.birdreport,
             input_screen=BirdreportTokenFetchScreen,
         )
+
+        if result is None:
+            await self.app.push_screen_wait(MessageScreen("未提供有效 Token"))
+            if self.temporary:
+                self.dismiss()
+            else:
+                self.app.pop_screen()
+            return
+
+        self.app.birdreport = result
 
         if self.temporary:
             self.dismiss()

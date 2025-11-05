@@ -45,7 +45,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
+        pip install -r requirements-dev.txt
     - name: Build
       run: |
         bash ./build_linux.sh ${{ needs.get-tag.outputs.tag }} "${{ secrets.CONTENT_RETRIEVE_TOKEN }}"
@@ -74,7 +74,7 @@ jobs:
       run: |
         npm i
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
+        pip install -r requirements-dev.txt
     - name: Build
       run: |
         bash ./build_mac.sh ${{ needs.get-tag.outputs.tag }} "${{ secrets.CONTENT_RETRIEVE_TOKEN }}"
@@ -104,7 +104,7 @@ jobs:
       run: |
         npm i
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
+        pip install -r requirements-dev.txt
     - name: Build
       run: |
         ./build_win.ps1 ${{ needs.get-tag.outputs.tag }} "${{ secrets.CONTENT_RETRIEVE_TOKEN }}"
@@ -133,7 +133,7 @@ jobs:
       run: |
         npm i
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
+        pip install -r requirements-dev.txt
     - name: Build
       run: |
         bash ./build_mac.sh ${{ needs.get-tag.outputs.tag }} "${{ secrets.CONTENT_RETRIEVE_TOKEN }}"

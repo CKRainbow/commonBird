@@ -19,6 +19,8 @@ from textual.worker import Worker, WorkerState
 
 from src import env_path
 
+from src.utils.api_exceptions import ApiErrorBase
+
 if TYPE_CHECKING:
     from src.cli.app import CommonBirdApp
 
@@ -163,31 +165,39 @@ class DomainScreen(Screen):
             if i == 0:
                 text = change_token_hint
             else:
-                text = "先前输入的 token 无效或启动浏览器时出现错误\n请选择重新输入、退出后选择其他浏览器或手动获取 token。"
-            try:
-                if not force_change and not token:
-                    raise Exception
-                elif force_change and i == 0:
-                    raise Exception
-                if attr is None or attr.token != token:
+                text = "先前输入的 token 无效或启动浏览器时出现错误\n请选择重新输入、退出后选择其他浏览器或手动获取 token。\n留空视为取消输入。"
+
+            if not force_change and token and (attr is None or attr.token != token):
+                try:
                     attr = await cls.create(token)
-                self.store_token(token_name, token)
-                break
-            except Exception as e:
-                logging.warning(f"Invelid Token {token_name}: {e}")
-                if input_screen is None:
-                    input_screen = TokenInputScreen
+                    self.store_token(token_name, token)
+                    break
+                except ApiErrorBase:
+                    token = None
+
+            if force_change or not token:
                 try:
                     token_result = await self.app.push_screen_wait(
                         input_screen(token_name, text),
                     )
+                    if token_result is None:
+                        # User cancelled
+                        if i > 0:  # if user cancelled at the second time, exit
+                            break
+                        else:  # if user cancelled at the first time, just use the old token
+                            if attr is not None:
+                                break
+                            else:
+                                input_screen = TokenInputScreen
+                                continue
+                    token = token_result["token"]
+                    input_screen = TokenInputScreen
+                    force_change = False  # a new token has been provided
+                    if token is None or token == "":
+                        break
                 except RuntimeError as e:
                     logging.warning(f"Token Input Screen Error: {e}")
-                    token_result = None
-                if token_result is None:
-                    input_screen = TokenInputScreen
-                else:
-                    token = token_result["token"]
+
         return attr
 
 

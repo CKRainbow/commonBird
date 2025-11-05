@@ -6,8 +6,9 @@ from textual.containers import VerticalScroll
 from textual.widgets import Button, LoadingIndicator
 from textual.worker import Worker, WorkerState
 
-from src.cli.general import DomainScreen, DisplayScreen
+from src.cli.general import DomainScreen, DisplayScreen, MessageScreen
 from src.ebird.ebird import EBird
+from src.utils.api_exceptions import ApiErrorBase
 
 if TYPE_CHECKING:
     from src.cli.app import CommonBirdApp
@@ -47,29 +48,49 @@ class EbirdScreen(DomainScreen):
     @on(Button.Pressed, "#update_hotspot")
     @work
     async def on_update_hotspot_pressed(self, event: Button.Pressed) -> None:
-        await self.app.push_screen_wait(
-            DisplayScreen(LoadingIndicator(), self.app.ebird.update_cn_hotspots)
-        )
+        try:
+            loading_screen = DisplayScreen(LoadingIndicator())
+            self.app.push_screen(loading_screen)
+            await self.app.ebird.update_cn_hotspots()
+            loading_screen.dismiss()
+        except ApiErrorBase as e:
+            await self.app.push_screen_wait(MessageScreen(f"更新eBird热点失败: {e}"))
+            loading_screen.dismiss()
+            return
         self.app.reload_hotspot_info()
 
     @work
     async def on_button_pressed(self, event: Button.Pressed) -> None:
         if event.button.id == "change_token":
-            self.app.ebird = await self.check_token(
+            result = await self.check_token(
                 self.token_name,
                 self.change_token_hint,
                 EBird,
                 self.app.ebird,
                 force_change=True,
             )
+            if result is None:
+                await self.app.push_screen_wait(MessageScreen("Token 未发生改变"))
+                return
+            self.app.ebird = result
         elif event.button.id == "back":
             self.app.pop_screen()
 
     @work
     async def on_mount(self) -> None:
-        self.app.ebird = await self.check_token(
+        result = await self.check_token(
             self.token_name, self.change_token_hint, EBird, self.app.ebird
         )
+
+        if result is None:
+            await self.app.push_screen_wait(MessageScreen("未提供有效 Token"))
+            if self.temporary:
+                self.dismiss()
+            else:
+                self.app.pop_screen()
+            return
+
+        self.app.ebird = result
 
         if self.temporary:
             self.dismiss()

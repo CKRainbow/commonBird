@@ -7,6 +7,7 @@ from enum import Enum
 
 import httpx
 from dotenv import load_dotenv
+from tenacity import retry, stop_after_attempt, wait_fixed, retry_if_exception_type
 from ebird.api.validation import (
     clean_back,
     clean_dist,
@@ -19,6 +20,18 @@ from ebird.api.hotspots import REGION_HOTSPOTS_URL
 from ebird.api.regions import REGION_LIST_URL
 
 from src import database_path
+from src.utils.api_exceptions import (
+    ApiError,
+    AuthenticationError,
+    ApiErrorBase,
+    NetworkError,
+    ServerError,
+)
+
+
+def raise_last_exception(retry_state):
+    """reraise the last exception"""
+    raise retry_state.outcome.exception()
 
 
 class RegionType(Enum):
@@ -27,11 +40,33 @@ class RegionType(Enum):
     SUBNATIONAL2 = "subnational2"
 
 
+@retry(
+    stop=stop_after_attempt(3),
+    wait=wait_fixed(2),
+    retry=retry_if_exception_type((NetworkError, ServerError)),
+    retry_error_callback=raise_last_exception,
+)
 async def call(url: str, params: Dict, headers: Dict) -> Dict:
-    async with httpx.AsyncClient() as client:
-        response = await client.get(url, params=params, headers=headers)
-        res = response.json()
-    return res
+    try:
+        async with httpx.AsyncClient() as client:
+            response = await client.get(url, params=params, headers=headers)
+
+        if response.status_code in [401, 403]:
+            raise AuthenticationError(f"Authentication error: {response.status_code}")
+        if response.status_code >= 500:
+            raise ServerError(f"Server error: {response.status_code}")
+        if response.status_code >= 400:
+            raise ApiError(f"API error: {response.status_code}")
+
+        return response.json()
+    except ApiErrorBase:
+        raise
+    except httpx.RequestError as e:
+        raise NetworkError(f"Network error: {e}") from e
+    except json.JSONDecodeError as e:
+        raise ApiError(f"Failed to decode JSON response: {e}") from e
+    except Exception as e:
+        raise ApiErrorBase(f"An unexpected error occurred: {e}") from e
 
 
 class EBird:

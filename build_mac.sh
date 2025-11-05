@@ -14,6 +14,9 @@ pyinstaller --name commonBird \
     --exclude-module numpy \
     --exclude-module textual-dev \
     --exclude-module pyinstaller \
+    --exclude-module pytest \
+    --exclude-module pytest-asyncio \
+    --exclude-module respx \
     --onefile \
     cli.py
 

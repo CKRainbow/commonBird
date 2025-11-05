@@ -1,12 +1,11 @@
 pandas<3
 textual<2
-textual-dev<2
 httpx<1
-pyinstaller<7
 python-dotenv<2
 ebird-api<4
-tqdm
+tqdm<5
 fuzzywuzzy<1
 python-Levenshtein<1
 pycryptodome<4
 selenium<5
+tenacity<10

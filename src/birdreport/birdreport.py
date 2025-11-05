@@ -13,16 +13,30 @@ import httpx
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import unpad
 from dotenv import load_dotenv
+from tenacity import retry, stop_after_attempt, wait_fixed, retry_if_exception_type
 
 from src import public_key_file
 from src.utils.long_rsa import LongRSAKey
 from src.utils.consts import BirdreportTaxonVersion
+from src.utils.api_exceptions import (
+    ApiError,
+    AuthenticationError,
+    ApiErrorBase,
+    NetworkError,
+    ServerError,
+)
+
+
+def raise_last_exception(retry_state):
+    """reraise the last exception"""
+    raise retry_state.outcome.exception()
+
 
 class Birdreport:
     def __init__(self, token: str):
         self.token = token
         self.user_info = None
-        
+
         self.rsa = LongRSAKey(public_key_file)
 
     @classmethod
@@ -325,20 +339,43 @@ class Birdreport:
         )
         return a
 
+    @retry(
+        stop=stop_after_attempt(3),
+        wait=wait_fixed(2),
+        retry=retry_if_exception_type((NetworkError, ServerError)),
+        retry_error_callback=raise_last_exception,
+    )
     async def get_data(self, param, url, encode=True, decode=True):
         if encode:
             headers, format_param = await self.get_crypt_request_info(param)
         else:
             headers, format_param = self.get_request_info(param)
 
-        async with httpx.AsyncClient() as client:
-            response = await client.post(url, headers=headers, data=format_param)
-        if decode:
-            encrypt_res = response.json()
-            _data = json.loads(self.decrypt(encrypt_res["data"]))
-        else:
-            _data = response.json()
-        return _data
+        try:
+            async with httpx.AsyncClient() as client:
+                response = await client.post(url, headers=headers, data=format_param)
+
+            if response.status_code == 401:
+                raise AuthenticationError("Invalid token")
+            if response.status_code >= 500:
+                raise ServerError(f"Server error: {response.status_code}")
+            if response.status_code >= 400:
+                raise ApiError(f"API error: {response.status_code}")
+
+            if decode:
+                encrypt_res = response.json()
+                _data = json.loads(self.decrypt(encrypt_res["data"]))
+            else:
+                _data = response.json()
+            return _data
+        except ApiErrorBase:
+            raise
+        except httpx.RequestError as e:
+            raise NetworkError(f"Network error: {e}") from e
+        except json.JSONDecodeError as e:
+            raise ApiError(f"Failed to decode JSON response: {e}") from e
+        except Exception as e:
+            raise ApiErrorBase(f"An unexpected error occurred: {e}") from e
 
     async def get_all_report_url_list(self, data, report_api: Callable, limit=50):
         page = 1
