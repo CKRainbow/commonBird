@@ -1,6 +1,8 @@
+import base64
 import json
 import logging
 import os
+import io
 import asyncio
 import csv
 import time
@@ -10,6 +12,7 @@ from typing import Dict, Optional, Union, TYPE_CHECKING
 from datetime import datetime
 from pathlib import Path
 
+from PIL import Image as PILImage
 from selenium.common.exceptions import WebDriverException
 from textual import on, work
 from textual.app import ComposeResult
@@ -27,6 +30,7 @@ from textual.widgets import (
     ListView,
     ListItem,
 )
+from textual_image.widget import Image
 from textual.worker import Worker, WorkerState
 from fuzzywuzzy.fuzz import partial_ratio
 from selenium import webdriver
@@ -39,7 +43,8 @@ from src.utils.location import (
     AB_LOCATION,
 )
 from src.utils.taxon import convert_taxon_z4_ebird
-from src.utils.api_exceptions import ApiErrorBase
+from src.utils.token import store_token, check_token
+from src.utils.api_exceptions import ApiErrorBase, AuthenticationError
 from src.cli.general import (
     ConfirmScreen,
     MessageScreen,
@@ -819,9 +824,6 @@ class BirdreportScreen(DomainScreen):
         super().__init__(**kwargs)
         self.app: CommonBirdApp
 
-        self.change_token_hint = (
-            "请输入观鸟记录中心的认证token\n具体获取方法参加 README.md 说明文件"
-        )
         self.token_name = "BIRDREPORT_TOKEN"
 
         self.composition = VerticalScroll(
@@ -837,9 +839,7 @@ class BirdreportScreen(DomainScreen):
                 id="convert_ebird",
                 tooltip="将某用户的所有记录迁移至EBird",
             ),
-            Button(
-                "修改 Token", id="change_token", tooltip="修改观鸟记录中心的认证token"
-            ),
+            Button("切换用户", id="change_user", tooltip="通过登录窗口切换用户"),
             Button(
                 "返回",
                 id="back",
@@ -851,19 +851,13 @@ class BirdreportScreen(DomainScreen):
 
     @work
     async def on_button_pressed(self, event: Button.Pressed) -> None:
-        if event.button.id == "change_token":
-            result = await self.check_token(
-                self.token_name,
-                self.change_token_hint,
-                Birdreport,
-                self.app.birdreport,
-                force_change=True,
-                input_screen=BirdreportTokenFetchScreen,
-            )
-            if result is None:
+        if event.button.id == "change_user":
+            client = await self.app.push_screen_wait(BirdreportLoginScreen())
+            if client is None:
                 await self.app.push_screen_wait(MessageScreen("Token 未发生改变"))
                 return
-            self.app.birdreport = result
+            self.app.birdreport = client
+            store_token(self.token_name, client.token)
 
         elif event.button.id == "retrieve_report":
             self.app.push_screen(
@@ -888,15 +882,12 @@ class BirdreportScreen(DomainScreen):
         self.title = "中国观鸟记录中心"
         self.sub_title = "可能会对记录中心服务器带来压力，酌情使用"
 
-        result = await self.check_token(
-            self.token_name,
-            self.change_token_hint,
-            Birdreport,
-            self.app.birdreport,
-            input_screen=BirdreportTokenFetchScreen,
-        )
+        if self.app.birdreport is None:
+            client = await check_token(self.token_name, Birdreport)
+            if client is None:
+                client = await self.app.push_screen_wait(BirdreportLoginScreen())
 
-        if result is None:
+        if client is None:
             await self.app.push_screen_wait(MessageScreen("未提供有效 Token"))
             if self.temporary:
                 self.dismiss()
@@ -904,12 +895,70 @@ class BirdreportScreen(DomainScreen):
                 self.app.pop_screen()
             return
 
-        self.app.birdreport = result
+        self.app.birdreport = client
+        store_token(self.token_name, client.token)
 
         if self.temporary:
             self.dismiss()
 
         await self.mount(self.composition)
+
+
+class BirdreportLoginScreen(ModalScreen):
+    def __init__(self, name=None, id=None, classes=None):
+        super().__init__(name, id, classes)
+        self.token = ""
+
+    def compose(self):
+        yield Grid(
+            Label("账户"),
+            Input(id="username"),
+            Label("密码"),
+            Input(id="password"),
+            Image(id="kaptcha"),
+            Input(id="code"),
+            Button("登录", id="login", variant="primary"),
+            Button("取消", id="cancel"),
+            Button("重新生成验证码", id="generate_kaptcha"),
+            classes="login_grid",
+        )
+
+    async def generate_kaptcha(self):
+        image_widget = self.query_exactly_one("#kaptcha")
+        try:
+            result = await Birdreport.retrieve_kaptcha()
+        except ApiErrorBase:
+            await self.app.push_screen_wait(MessageScreen("获取验证码失败"))
+            image_widget.image = None
+
+        self.token = result.get("authToken")
+        base64_image = result.get("image")
+        base64_image = base64.b64decode(base64_image)
+        base64_image = io.BytesIO(base64_image)
+        image = PILImage.open(base64_image)
+        image_widget.image = image
+
+    @work
+    async def on_mount(self, event):
+        await self.generate_kaptcha()
+
+    async def on_button_pressed(self, event: Button.Pressed) -> None:
+        if event.button.id == "login":
+            try:
+                client = await Birdreport.login(
+                    username=self.query_one("#username").value,
+                    password=self.query_one("#password").value,
+                    code=self.query_one("#code").value,
+                    authToken=self.token,
+                )
+            except ApiErrorBase as e:
+                await self.app.push_screen_wait(MessageScreen(e.message))
+            else:
+                self.dismiss(client)
+        elif event.button.id == "cancel":
+            self.dismiss()
+        elif event.button.id == "generate_kaptcha":
+            await self.generate_kaptcha()
 
 
 class BirdreportTokenFetchScreen(ModalScreen):

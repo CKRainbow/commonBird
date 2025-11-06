@@ -46,6 +46,26 @@ class Birdreport:
         instance.user_info = user_info
         return instance
 
+    @classmethod
+    async def retrieve_kaptcha(cls):
+        instance = cls("")
+        return await instance.get_kaptcha()
+
+    @classmethod
+    async def login(cls, username, password, code, authToken):
+        instance = cls("")
+        result = await instance.get_login_info(username, password, code, authToken)
+        if result["code"] != 0:
+            print(result)
+            raise AuthenticationError(result["msg"])
+        user_info = {"username": result["data"]["username"]}
+        token = result["data"]["token"]
+
+        instance.token = token
+        instance.user_info = user_info
+
+        return instance
+
     def get_back_date(self, n):
         t = int(time.time()) - n * 60 * 60 * 24
         # ta_now = time.localtime(now)
@@ -146,6 +166,40 @@ class Birdreport:
         format_data = self.format(_data)
         headers = self.get_headers()
         return headers, format_data
+
+    async def get_kaptcha(self):
+        query = {"t": self.getTimestamp()}
+
+        result = await self.get_data(
+            None,
+            "https://api.birdreport.cn/member/system/auth/kaptcha",
+            query=query,
+            encode=False,
+            decode=False,
+            method="GET",
+        )
+
+        return {
+            "image": result["data"]["image"],
+            "authToken": result["data"]["authToken"],
+        }
+
+    async def get_login_info(self, username, password, code, authToken):
+        data = {
+            "authToken": authToken,
+            "account": username,
+            "password": password,
+            "vercode": code,
+            "device": '"{"os":"windows","ie":false,"weixin":false,"android":false,"ios":false}"',
+            "user_agent": "mozilla/5.0 (windows nt 10.0; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/141.0.0.0 safari/537.36",
+        }
+
+        return await self.get_data(
+            data,
+            "https://api.birdreport.cn/member/system/auth/login",
+            encode=False,
+            decode=False,
+        )
 
     def get_activity_detail(self, aid):
         params = {
@@ -345,19 +399,33 @@ class Birdreport:
         retry=retry_if_exception_type((NetworkError, ServerError)),
         retry_error_callback=raise_last_exception,
     )
-    async def get_data(self, param, url, encode=True, decode=True):
+    async def get_data(
+        self, param, url, query=None, encode=True, decode=True, method="POST"
+    ):
         if encode:
             headers, format_param = await self.get_crypt_request_info(param)
         else:
             headers, format_param = self.get_request_info(param)
 
         try:
-            async with httpx.AsyncClient() as client:
-                response = await client.post(url, headers=headers, data=format_param)
+            print(url, headers, format_param, query)
+            async with httpx.AsyncClient(follow_redirects=True) as client:
+                if method == "POST":
+                    response = await client.post(
+                        url,
+                        headers=headers,
+                        data=format_param if param is not None else None,
+                        params=query,
+                    )
+                elif method == "GET":
+                    response = await client.get(url, headers=headers, params=query)
+                else:
+                    raise ApiError("Invalid method")
 
             if response.status_code == 401:
                 raise AuthenticationError("Invalid token")
             if response.status_code >= 500:
+                print(response.content)
                 raise ServerError(f"Server error: {response.status_code}")
             if response.status_code >= 400:
                 raise ApiError(f"API error: {response.status_code}")
@@ -657,8 +725,8 @@ class Birdreport:
 
 
 if __name__ == "__main__":
-    load_dotenv()
-    y = Birdreport(os.getenv("BIRDREPORT_TOKEN"))
+    # load_dotenv()
+    # y = Birdreport(os.getenv("BIRDREPORT_TOKEN"))
 
     # re = y.decrypt(
     #     "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"
@@ -671,8 +739,19 @@ if __name__ == "__main__":
         # result = await asyncio.create_task(y.member_get_taxon_list())
         # with open("bird_report_taxon_list.json", "w", encoding="utf-8") as f:
         #     json.dump(result, f, ensure_ascii=False, indent=2)
-        result = await y.get_taxon_info(1)
-        print(result)
+        result = await Birdreport.retrieve_kaptcha()
+        # show base64 image
+        image = base64.b64decode(result["image"])
+
+        with open("dev/bird_report_kaptcha.png", "wb") as f:
+            f.write(image)
+        code = input()
+
+        result = await Birdreport.login(
+            "19921890821", "Rainbow526920", code, result["authToken"]
+        )
+
+        print(result.token, result.user_info)
 
     asyncio.run(test())
     # asyncio.run(test())

@@ -177,6 +177,10 @@ class DomainScreen(Screen):
 
             if force_change or not token:
                 try:
+                    if (
+                        input_screen is None
+                    ):  # if no input screen provided, use the default one
+                        input_screen = TokenInputScreen
                     token_result = await self.app.push_screen_wait(
                         input_screen(token_name, text),
                     )

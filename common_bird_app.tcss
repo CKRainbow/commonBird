@@ -163,3 +163,48 @@ BirdreportFilterScreen {
         }
     }
 }
+
+BirdreportLoginScreen {
+    align: center middle;
+    
+    .login_grid {
+        grid-size: 6 5;
+        grid-gutter: 2;
+        
+        padding: 4;
+        
+        #code {
+            height: auto;
+            column-span: 3;
+            row-span: 2;
+            content-align: center middle;
+        }
+        
+        Image {
+            height: auto;
+            width: auto;
+            column-span: 3;
+            row-span: 3;
+        }
+        
+        Input {
+            height: auto;
+            column-span: 2;
+            row-span: 2;
+            content-align: center middle;
+        }
+        
+        Label {
+            width: 100%;
+            height: 100%;
+            content-align: center middle;
+        }
+        
+        Button {
+            height: auto;
+            width: auto;
+            row-span: 2;
+        }
+
+    }
+}
