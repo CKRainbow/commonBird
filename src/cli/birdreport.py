@@ -905,9 +905,12 @@ class BirdreportScreen(DomainScreen):
 
 
 class BirdreportLoginScreen(ModalScreen):
+    image: PILImage.Image | None
+
     def __init__(self, name=None, id=None, classes=None):
         super().__init__(name, id, classes)
         self.token = ""
+        self.image = None
 
     def compose(self):
         yield Grid(
@@ -917,6 +920,9 @@ class BirdreportLoginScreen(ModalScreen):
             Input(id="password"),
             Image(id="kaptcha"),
             Input(id="code"),
+            Button(
+                "显示验证码", id="show_kaptcha", tooltip="仅在终端不支持显示图片时使用"
+            ),
             Button("登录", id="login", variant="primary"),
             Button("取消", id="cancel"),
             Button("重新生成验证码", id="generate_kaptcha"),
@@ -937,6 +943,9 @@ class BirdreportLoginScreen(ModalScreen):
         base64_image = io.BytesIO(base64_image)
         image = PILImage.open(base64_image)
         image_widget.image = image
+        self.image = image
+
+        logging.debug(type(image_widget))
 
     @work
     async def on_mount(self, event):
@@ -959,6 +968,9 @@ class BirdreportLoginScreen(ModalScreen):
             self.dismiss()
         elif event.button.id == "generate_kaptcha":
             await self.generate_kaptcha()
+        elif event.button.id == "show_kaptcha":
+            if self.image is not None:
+                self.image.show()
 
 
 class BirdreportTokenFetchScreen(ModalScreen):

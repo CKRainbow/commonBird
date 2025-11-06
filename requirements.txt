@@ -9,3 +9,4 @@ python-Levenshtein<1
 pycryptodome<4
 selenium<5
 tenacity<10
+textual-image[textual]<1
