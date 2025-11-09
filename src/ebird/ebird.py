@@ -18,6 +18,7 @@ from ebird.api.validation import (
 )
 from ebird.api.hotspots import REGION_HOTSPOTS_URL
 from ebird.api.regions import REGION_LIST_URL
+from ebird.api.taxonomy import TAXONOMY_URL
 
 from src import database_path
 from src.utils.api_exceptions import (
@@ -135,6 +136,18 @@ class EBird:
 
         res = await call(url, params, headers)
         return res
+    
+    async def get_taxonomy(self):
+        url = TAXONOMY_URL
+
+        params = {"fmt": "json", "locale": self.locale}
+
+        headers = {
+            "X-eBirdApiToken": self.token,
+        }
+
+        res = await call(url, params, headers)
+        return res
 
 
 if __name__ == "__main__":
@@ -142,14 +155,10 @@ if __name__ == "__main__":
     ebird = EBird(os.getenv("EBIRD_TOKEN"))
 
     async def inner():
-        result = []
-        result.extend(await ebird.get_regions(RegionType.SUBNATIONAL1, "CN"))
-        result.extend(await ebird.get_regions(RegionType.SUBNATIONAL1, "MO"))
-        result.extend(await ebird.get_regions(RegionType.SUBNATIONAL1, "HK"))
-        result.extend(await ebird.get_regions(RegionType.SUBNATIONAL1, "TW"))
+        result = await ebird.get_taxonomy()
         return result
 
     result = asyncio.run(inner())
 
-    with open("regions.json", "w", encoding="utf-8") as f:
+    with open("ebird_taxonomy.json", "w", encoding="utf-8") as f:
         json.dump(result, f, ensure_ascii=False, indent=2)
