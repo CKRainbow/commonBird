@@ -1,6 +1,5 @@
 {
   "Amaurornis cinerea": "Poliolimnas cinereus",
-  "Grus virgo": "Anthropoides virgo",
   "Ixobrychus minutus": "Botaurus minutus",
   "Ixobrychus sinensis": "Botaurus sinensis",
   "Ixobrychus eurhythmus": "Botaurus eurhythmus",
@@ -192,5 +191,6 @@
     }
   ],
   "Butorides striata": "Butorides atricapilla",
-  "Ptilinopus leclancheri": "Ramphiculus leclancheri"
+  "Ptilinopus leclancheri": "Ramphiculus leclancheri",
+  "Anthropoides virgo": "Grus virgo"
 }
