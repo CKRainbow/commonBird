@@ -57,7 +57,7 @@ jobs:
         retention-days: 7
 
   build-mac-x64:
-    runs-on: macos-13
+    runs-on: macos-15
     needs: get-tag
 
     steps:
