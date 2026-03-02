@@ -14,6 +14,7 @@ from pathlib import Path
 
 from PIL import Image as PILImage
 from selenium.common.exceptions import WebDriverException
+from selenium import webdriver
 from textual import on, work
 from textual.app import ComposeResult
 from textual.screen import Screen, ModalScreen
@@ -596,8 +597,10 @@ class BirdreportToEbirdScreen(Screen):
 
             checklists = list(
                 filter(
-                    lambda x: "province_name" in x
-                    and x["province_name"] in AB_LOCATION.values(),
+                    lambda x: (
+                        "province_name" in x
+                        and x["province_name"] in AB_LOCATION.values()
+                    ),
                     checklists,
                 )
             )
@@ -1019,7 +1022,7 @@ class BirdreportTokenFetchScreen(ModalScreen):
             return
         self.driver.get("https://www.birdreport.cn/member/login.html")
 
-    def _get_driver(self, driver_name: str) -> webdriver.remote.webdriver.BaseWebDriver:
+    def _get_driver(self, driver_name: str):
         if driver_name == "chrome":
             return webdriver.Chrome()
         elif driver_name == "firefox":
@@ -1031,7 +1034,7 @@ class BirdreportTokenFetchScreen(ModalScreen):
         else:
             raise ValueError(f"Unsupported driver: {driver_name}")
 
-    def _select_driver(self) -> webdriver.remote.webdriver.BaseWebDriver:
+    def _select_driver(self):
         plat = platform.system().lower()
         if plat == "darwin":
             supported_list = [
