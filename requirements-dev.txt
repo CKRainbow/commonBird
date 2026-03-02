@@ -5,3 +5,4 @@ pyinstaller<7
 pytest<9
 pytest-asyncio<2
 respx<1
+rich<14
