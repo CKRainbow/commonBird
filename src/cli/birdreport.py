@@ -157,11 +157,11 @@ class SearchEbirdHotspotScreen(ModalScreen):
 
         # 繁体简体（或许可以都转为简体后搜索）
         hotspot_infos_cn = filter(
-            lambda x: partial_ratio(hotspot_name, x[0]) > 80,
+            lambda x: partial_ratio(hotspot_name, x[1]["locName"]) > 80,
             self.target_cn_hotspot.items(),
         )
         hotspot_infos_other = filter(
-            lambda x: partial_ratio(hotspot_name, x[0]) > 80,
+            lambda x: partial_ratio(hotspot_name, x[1]["locName"]) > 80,
             self.target_other_hotspot.items(),
         )
 
@@ -255,6 +255,13 @@ class BirdreportToEbirdLocationAssignScreen(Screen):
 
         self.temp_assign_cache: Dict[str, Union[str, Dict]] = {}
 
+    def get_hotspot_name(self, loc_id: str) -> str:
+        if loc_id in self.app.ebird_cn_hotspots:
+            return self.app.ebird_cn_hotspots[loc_id]["locName"]
+        if loc_id in self.app.ebird_other_hotspots:
+            return self.app.ebird_other_hotspots[loc_id]["locName"]
+        return loc_id
+
     @work
     async def on_mount(self) -> None:
         last_update_date = self.app.ebird_hotspots_update_date
@@ -297,7 +304,7 @@ class BirdreportToEbirdLocationAssignScreen(Screen):
             converted_hotspot = Button(
                 "不做修改，请点此修改"
                 if "converted_hotspot" not in info or info["converted_hotspot"] is None
-                else info["converted_hotspot"],
+                else self.get_hotspot_name(info["converted_hotspot"]),
                 name=point_name,
                 id="converted_hotspot_" + str(point_id),
                 classes="converted_hotspot",
@@ -354,7 +361,7 @@ class BirdreportToEbirdLocationAssignScreen(Screen):
         if hotspot_name is None:
             button.label = "不做修改"
         else:
-            button.label = hotspot_name
+            button.label = self.get_hotspot_name(hotspot_name)
 
         self.modify_converted_hotspot(event.button.name, hotspot_name)
 

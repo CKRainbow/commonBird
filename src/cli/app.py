@@ -76,38 +76,31 @@ class CommonBirdApp(App):
 
         if (cache_path / "location_assign.json").exists():
             with open(cache_path / "location_assign.json", "r", encoding="utf-8") as f:
-                ## FIXME: 这个应该有个版本号的
-                self.location_assign = json.load(f)
-                ### 修复 0.11.0 更新后导致的地点分配失效的问题
-                if (
-                    not isinstance(self.version, str)
-                    and self.version >= version.parse("0.11.0")
-                    and len(self.location_assign) > 0
-                    and all("|" not in v for k, v in self.location_assign.items())
-                ):
-                    id_to_name = {}
-                    for k, v in self.ebird_cn_hotspots.items():
-                        if v["locName"] not in id_to_name:
-                            id_to_name[v["locName"]] = []
-                        id_to_name[v["locName"]].append(k)
-                    for k, v in self.ebird_other_hotspots.items():
-                        if v["locName"] not in id_to_name:
-                            id_to_name[v["locName"]] = []
-                        id_to_name[v["locName"]].append(k)
-                    # remove duplicated names
-                    result = {}
-                    for k, v in id_to_name.items():
-                        if len(v) == 1:
-                            result[k] = v[0]
-                    id_to_name = result
+                cache_data = json.load(f)
+
+                if "version" in cache_data and "data" in cache_data:
+                    self.location_assign = cache_data["data"]
+                else:
+                    # Old format, needs migration
+                    self.location_assign = cache_data
+
+                    # Build a mapping from locName to locId, and subnational1Code|locName to locId
+                    name_to_id = {}
+                    for loc_id, v in self.ebird_cn_hotspots.items():
+                        name_to_id[v["locName"]] = loc_id
+                    for loc_id, v in self.ebird_other_hotspots.items():
+                        name_to_id[v["locName"]] = loc_id
+
                     result = {}
                     for k, v in self.location_assign.items():
-                        if v in id_to_name:
-                            result[k] = id_to_name[v]
-                        elif "随手记地点" in k:
+                        if isinstance(v, dict):
+                            result[k] = v
+                        elif v in name_to_id:
+                            result[k] = name_to_id[v]
+                        else:
                             result[k] = v
                     self.location_assign = result
-                    self.save_location_assign_cache(self.location_assign)
+                    self.save_location_assign_cache({})
 
     def compose(self) -> ComposeResult:
         yield Header()
@@ -272,8 +265,10 @@ class CommonBirdApp(App):
             k: v for k, v in self.location_assign.items() if v is not None
         }
 
+        cache_data = {"version": APP_VERSION, "data": self.location_assign}
+
         with open(cache_path / "location_assign.json", "w", encoding="utf-8") as f:
-            json.dump(self.location_assign, f, ensure_ascii=False, indent=4)
+            json.dump(cache_data, f, ensure_ascii=False, indent=4)
 
     def reload_hotspot_info(self) -> None:
         if (database_path / "ebird_cn_hotspots.json").exists():
@@ -283,6 +278,20 @@ class CommonBirdApp(App):
                 data = json.load(f)
                 self.ebird_cn_hotspots: Dict = data["data"]
                 self.ebird_hotspots_update_date = data["last_update_date"]
+
+                # Migrate old format to new format
+                if self.ebird_cn_hotspots and any(
+                    "|" in k for k in self.ebird_cn_hotspots.keys()
+                ):
+                    self.ebird_cn_hotspots = {
+                        v["locId"]: v for v in self.ebird_cn_hotspots.values()
+                    }
+                    data["data"] = self.ebird_cn_hotspots
+                    with open(
+                        database_path / "ebird_cn_hotspots.json", "w", encoding="utf-8"
+                    ) as fw:
+                        json.dump(data, fw, ensure_ascii=False, indent=2)
+
         if (database_path / "ebird_other_hotspots.json").exists():
             with open(
                 database_path / "ebird_other_hotspots.json", "r", encoding="utf-8"
@@ -290,6 +299,21 @@ class CommonBirdApp(App):
                 data = json.load(f)
                 self.ebird_other_hotspots: Dict = data["data"]
                 self.ebird_hotspots_update_date = data["last_update_date"]
+
+                # Migrate old format to new format
+                if self.ebird_other_hotspots and any(
+                    "|" in k for k in self.ebird_other_hotspots.keys()
+                ):
+                    self.ebird_other_hotspots = {
+                        v["locId"]: v for v in self.ebird_other_hotspots.values()
+                    }
+                    data["data"] = self.ebird_other_hotspots
+                    with open(
+                        database_path / "ebird_other_hotspots.json",
+                        "w",
+                        encoding="utf-8",
+                    ) as fw:
+                        json.dump(data, fw, ensure_ascii=False, indent=2)
 
     def on_worker_state_changed(self, event: Worker.StateChanged) -> None:
         if event.worker.state is WorkerState.ERROR:
