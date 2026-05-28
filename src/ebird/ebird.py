@@ -94,9 +94,12 @@ class EBird:
         res = await call(url, params, headers)
         return res
 
-    async def update_cn_hotspots(self):
+    async def update_hotspots(self):
         res = await self.get_hotspots("CN")
-        res = {hotspot["locName"]: hotspot for hotspot in res}
+        res = {
+            hotspot["subnational1Code"] + "|" + hotspot["locName"]: hotspot
+            for hotspot in res
+        }
         res = {
             "last_update_date": datetime.datetime.now().strftime("%Y-%m-%d"),
             "data": res,
@@ -112,7 +115,10 @@ class EBird:
         hk_res = await self.get_hotspots("HK")
         mo_res = await self.get_hotspots("MO")
         res = tw_res + hk_res + mo_res
-        res = {hotspot["locName"]: hotspot for hotspot in res}
+        res = {
+            hotspot["subnational1Code"] + "|" + hotspot["locName"]: hotspot
+            for hotspot in res
+        }
         res = {
             "last_update_date": datetime.datetime.now().strftime("%Y-%m-%d"),
             "data": res,
@@ -136,7 +142,7 @@ class EBird:
 
         res = await call(url, params, headers)
         return res
-    
+
     async def get_taxonomy(self):
         url = TAXONOMY_URL
 

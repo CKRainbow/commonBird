@@ -51,7 +51,7 @@ class EbirdScreen(DomainScreen):
         try:
             loading_screen = DisplayScreen(LoadingIndicator())
             self.app.push_screen(loading_screen)
-            await self.app.ebird.update_cn_hotspots()
+            await self.app.ebird.update_hotspots()
             loading_screen.dismiss()
         except ApiErrorBase as e:
             await self.app.push_screen_wait(MessageScreen(f"更新eBird热点失败: {e}"))

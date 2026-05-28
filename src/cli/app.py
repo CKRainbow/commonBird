@@ -76,7 +76,38 @@ class CommonBirdApp(App):
 
         if (cache_path / "location_assign.json").exists():
             with open(cache_path / "location_assign.json", "r", encoding="utf-8") as f:
+                ## FIXME: 这个应该有个版本号的
                 self.location_assign = json.load(f)
+                ### 修复 0.11.0 更新后导致的地点分配失效的问题
+                if (
+                    not isinstance(self.version, str)
+                    and self.version >= version.parse("0.11.0")
+                    and len(self.location_assign) > 0
+                    and all("|" not in v for k, v in self.location_assign.items())
+                ):
+                    id_to_name = {}
+                    for k, v in self.ebird_cn_hotspots.items():
+                        if v["locName"] not in id_to_name:
+                            id_to_name[v["locName"]] = []
+                        id_to_name[v["locName"]].append(k)
+                    for k, v in self.ebird_other_hotspots.items():
+                        if v["locName"] not in id_to_name:
+                            id_to_name[v["locName"]] = []
+                        id_to_name[v["locName"]].append(k)
+                    # remove duplicated names
+                    result = {}
+                    for k, v in id_to_name.items():
+                        if len(v) == 1:
+                            result[k] = v[0]
+                    id_to_name = result
+                    result = {}
+                    for k, v in self.location_assign.items():
+                        if v in id_to_name:
+                            result[k] = id_to_name[v]
+                        elif "随手记地点" in k:
+                            result[k] = v
+                    self.location_assign = result
+                    self.save_location_assign_cache(self.location_assign)
 
     def compose(self) -> ComposeResult:
         yield Header()

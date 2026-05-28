@@ -157,12 +157,12 @@ class SearchEbirdHotspotScreen(ModalScreen):
 
         # 繁体简体（或许可以都转为简体后搜索）
         hotspot_infos_cn = filter(
-            lambda x: partial_ratio(hotspot_name, x["locName"]) > 80,
-            self.target_cn_hotspot.values(),
+            lambda x: partial_ratio(hotspot_name, x[0]) > 80,
+            self.target_cn_hotspot.items(),
         )
         hotspot_infos_other = filter(
-            lambda x: partial_ratio(hotspot_name, x["locName"]) > 80,
-            self.target_other_hotspot.values(),
+            lambda x: partial_ratio(hotspot_name, x[0]) > 80,
+            self.target_other_hotspot.items(),
         )
 
         hotspot_infos = list(hotspot_infos_cn) + list(hotspot_infos_other)
@@ -184,11 +184,13 @@ class SearchEbirdHotspotScreen(ModalScreen):
             hotspot_listview.append(
                 ListItem(
                     Label(
-                        hotspot_info["locName"]
+                        hotspot_info[1]["locName"]
                         + "\n"
-                        + EBIRD_REGION_CODE_TO_NAME[hotspot_info["subnational1Code"]],
+                        + EBIRD_REGION_CODE_TO_NAME[
+                            hotspot_info[1]["subnational1Code"]
+                        ],
                     ),
-                    name=hotspot_info["locName"],
+                    name=hotspot_info[0],
                     classes="hotspot_item",
                 )
             )
@@ -267,7 +269,7 @@ class BirdreportToEbirdLocationAssignScreen(Screen):
             try:
                 loading_screen = DisplayScreen(LoadingIndicator())
                 self.app.push_screen(loading_screen)
-                await self.app.ebird.update_cn_hotspots()
+                await self.app.ebird.update_hotspots()
                 loading_screen.dismiss()
                 self.app.reload_hotspot_info()
             except ApiErrorBase as e:
@@ -889,6 +891,8 @@ class BirdreportScreen(DomainScreen):
             client = await check_token(self.token_name, Birdreport)
             if client is None:
                 client = await self.app.push_screen_wait(BirdreportLoginScreen())
+        else:
+            client = self.app.birdreport
 
         if client is None:
             await self.app.push_screen_wait(MessageScreen("未提供有效 Token"))
