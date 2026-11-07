@@ -26,7 +26,8 @@ Z3_TO_Z4 = {
 def process_loc(loc):
     splited = loc.split("-")
     if len(splited) >= 1:
-        prov = AB_LOCATION[splited[0]]
+        # 未知省份代码不应让整个转换过程崩溃，原样保留
+        prov = AB_LOCATION.get(splited[0], splited[0])
         if len(splited) >= 2:
             return f"{prov}-{splited[1]}"
         else:
@@ -142,24 +143,37 @@ def preview_taxon_map(map_file: Path, output_path: Path):
 
 
 def convert_taxon_z4_ebird(report, taxon_map):
-    obs = report["obs"]
-    prov = report["province_name"]
-    city = report["city_name"] if "city_name" in report else ""
-    _, month, _ = report["start_time"].split(" ")[0].split("-")
+    obs = report.get("obs") or []
+    prov = report.get("province_name", "")
+    city = report.get("city_name", "")
+    # start_time 形如 "2025-11-08 08:25:00"；格式异常时不做“按月份筛选”的转换
+    month = None
+    date_part = (report.get("start_time") or "").split(" ")[0]
+    date_parts = date_part.split("-")
+    if len(date_parts) >= 2 and date_parts[1].isdigit():
+        month = int(date_parts[1])
 
     for taxon in obs:
-        latin_name = taxon["latinname"].strip()
+        latin_name = (taxon.get("latinname") or "").strip()
+        if not latin_name:
+            continue
         if latin_name in taxon_map:
             converted_latinname = taxon_map[latin_name]
             if isinstance(converted_latinname, List):
                 for idx, convert_cond in enumerate(converted_latinname):
+                    new_name = convert_cond.get("name")
+                    if not isinstance(new_name, str):
+                        continue
                     if "loc" in convert_cond:
                         locs_cond = [process_loc(loc) for loc in convert_cond["loc"]]
                         if not ((prov in locs_cond) or (f"{prov}-{city}" in locs_cond)):
                             continue
                     if "time" in convert_cond:
+                        if month is None:
+                            # 无法判断月份，跳过带月份条件的转换，避免错误替换
+                            continue
                         # "time" can be "1-3,5-9"
-                        time_ranges = convert_cond["time"].split(",")
+                        time_ranges = str(convert_cond["time"]).split(",")
                         time_range = set()
                         for tr in time_ranges:
                             if "-" in tr:
@@ -167,9 +181,9 @@ def convert_taxon_z4_ebird(report, taxon_map):
                                 time_range.update(range(int(start), int(end) + 1))
                             else:
                                 time_range.add(int(tr))
-                        if int(month) not in time_range:
+                        if month not in time_range:
                             continue
-                    taxon["latinname"] = convert_cond["name"]
+                    taxon["latinname"] = new_name
                     break
             else:
                 taxon["latinname"] = converted_latinname

@@ -1,5 +1,11 @@
 -r requirements.txt
 
+# 仅开发/打包使用：
+# pandas —— taxon_map_preview.py 渲染对照表（打包脚本会调用），运行时按需延迟导入
+# tqdm   —— src/utils/location.py 的离线地点映射脚本
+pandas<3
+tqdm<5
+
 textual-dev<2
 pyinstaller<7
 pytest<9

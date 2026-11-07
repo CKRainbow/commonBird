@@ -6,7 +6,6 @@ import asyncio
 from typing import Dict, List
 
 from dotenv import load_dotenv
-from tqdm import tqdm
 
 from src.birdreport.birdreport import Birdreport
 from src import database_path
@@ -129,6 +128,15 @@ def process_name(name):
     return (name, group_name)
 
 
+def _batch_size() -> int:
+    """每批并发的请求数。
+
+    单核机器（或受限容器）上 cpu_count() // 2 会等于 0，用它取模会抛
+    ZeroDivisionError，所以最少取 1。
+    """
+    return max(1, multiprocessing.cpu_count() // 2)
+
+
 async def extract_group_locations(
     client: Birdreport, ebird_hotspots: List, old_group_locs: Dict = None
 ) -> Dict:
@@ -147,7 +155,7 @@ async def extract_group_locations(
             group_names.append(group_name)
 
         if (
-            len(tasks) % (multiprocessing.cpu_count() // 2) == 0
+            len(tasks) % _batch_size() == 0
             or hotspot == ebird_hotspots[-1]
         ):
             result = await asyncio.gather(*tasks)
@@ -165,6 +173,10 @@ async def get_location_map(
     old_location_map: Dict = None,
     group_locs: Dict = None,
 ) -> Dict:
+    # 仅供离线构建地点映射数据的开发脚本使用（本文件 __main__ 入口），
+    # 因此 tqdm 改为延迟导入，运行时不依赖它
+    from tqdm import tqdm
+
     if old_location_map is None:
         old_location_map = []
 
@@ -183,7 +195,7 @@ async def get_location_map(
         names.append(name)
 
         if (
-            len(tasks) % (multiprocessing.cpu_count() // 2) == 0
+            len(tasks) % _batch_size() == 0
             or hotspot == ebird_hotspots[-1]
         ):
             result = await asyncio.gather(*tasks)
@@ -191,7 +203,7 @@ async def get_location_map(
                 group_name = group_names[idx]
                 name = names[idx]
                 if group_locs is not None:
-                    group_loc = group_locs[group_name]
+                    group_loc = group_locs.get(group_name, [])
                     locs.extend(group_loc)
                 locs = list(set([loc["point_name"] for loc in locs]))
                 old_location_map[name] = locs

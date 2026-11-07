@@ -9,6 +9,7 @@ from textual.worker import Worker, WorkerState
 from src.cli.general import DomainScreen, DisplayScreen, MessageScreen
 from src.ebird.ebird import EBird
 from src.utils.api_exceptions import ApiErrorBase
+from src.utils.token_format import validate_token
 
 if TYPE_CHECKING:
     from src.cli.app import CommonBirdApp
@@ -37,13 +38,9 @@ class EbirdScreen(DomainScreen):
         )
 
     def store_token(self, token_name: str, token: str) -> None:
-        # the token must be 32 characters and consists of only number and letters
-        if len(token) != 12 or not token.isalnum():
-            raise ValueError(
-                "token must be 12 characters and consists of only number and letters"
-            )
-
-        super().store_token(token_name, token)
+        # eBird 的 key 格式变过（旧版 12 位、新版 8-4-4-4-12 的 UUID），
+        # 这里不做长度/字符集硬校验，合法性交给服务器判定
+        super().store_token(token_name, validate_token(token))
 
     @on(Button.Pressed, "#update_hotspot")
     @work

@@ -2,9 +2,15 @@ class ApiErrorBase(Exception):
     """Base exception for all API errors."""
 
     def __init__(self, message, *args):
-        super().__init__(*args)
+        super().__init__(message, *args)
 
         self.message = message
+
+
+class DataFileError(ApiErrorBase):
+    """Raised when a local data file cannot be read or written."""
+
+    pass
 
 
 class NetworkError(ApiErrorBase):

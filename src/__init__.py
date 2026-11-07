@@ -1,19 +1,6 @@
 import os
 import sys
 from pathlib import Path
-from typing import List
-
-from selenium.webdriver.common.driver_finder import DriverFinder
-
-selenium_ori_deiver_finder_to_arg = DriverFinder._to_args
-
-def selenium_ori_deiver_finder_to_arg_patch(self):
-    args: List = selenium_ori_deiver_finder_to_arg(self)
-    args.append("--timeout")
-    args.append("20")
-    return args
-
-DriverFinder._to_args = selenium_ori_deiver_finder_to_arg_patch
 
 if getattr(sys, "frozen", False):
     inner_path = Path(sys._MEIPASS)
@@ -29,7 +16,9 @@ output_path = application_path / "output"
 
 public_key_file = inner_path / "public_key.pem"
 
-if not database_path.exists():
-    database_path.mkdir()
-if not cache_path.exists():
-    cache_path.mkdir()
+# 程序目录可能不可写（例如安装在 Program Files 下），建目录失败不能让程序起不来
+for _path in (database_path, cache_path):
+    try:
+        _path.mkdir(exist_ok=True)
+    except OSError:
+        pass

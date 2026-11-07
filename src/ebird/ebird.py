@@ -28,6 +28,7 @@ from src.utils.api_exceptions import (
     NetworkError,
     ServerError,
 )
+from src.utils.files import write_json
 
 
 def raise_last_exception(retry_state):
@@ -78,8 +79,7 @@ class EBird:
     @classmethod
     async def create(cls, token: str):
         instance = cls(token)
-        res = await instance.get_regions(RegionType.SUBNATIONAL1, "MO")
-        print(res)
+        await instance.get_regions(RegionType.SUBNATIONAL1, "MO")
         return instance
 
     async def get_hotspots(self, region: str, back: int = None):
@@ -101,13 +101,9 @@ class EBird:
             "last_update_date": datetime.datetime.now().strftime("%Y-%m-%d"),
             "data": res,
         }
-        old_cn_hotspots = database_path / "ebird_cn_hotspots.json"
-        old_cn_hotspots_bak = old_cn_hotspots.with_suffix(".json.bak")
-        if old_cn_hotspots_bak.exists():
-            os.remove(old_cn_hotspots_bak)
-        os.rename(old_cn_hotspots, old_cn_hotspots.with_suffix(".json.bak"))
-        with open(old_cn_hotspots, "w", encoding="utf-8") as f:
-            json.dump(res, f, ensure_ascii=False, indent=2)
+        # 旧文件改名备份由 write_json 负责：首次运行缺少文件、数据库目录只读
+        # 等情况都会抛出带提示的 DataFileError，而不是 FileNotFoundError/PermissionError
+        write_json(database_path / "ebird_cn_hotspots.json", res, backup=True)
         tw_res = await self.get_hotspots("TW")
         hk_res = await self.get_hotspots("HK")
         mo_res = await self.get_hotspots("MO")
@@ -117,13 +113,7 @@ class EBird:
             "last_update_date": datetime.datetime.now().strftime("%Y-%m-%d"),
             "data": res,
         }
-        old_other_hotspots = database_path / "ebird_other_hotspots.json"
-        old_other_hotspots_bak = old_other_hotspots.with_suffix(".json.bak")
-        if old_other_hotspots_bak.exists():
-            os.remove(old_other_hotspots_bak)
-        os.rename(old_other_hotspots, old_other_hotspots.with_suffix(".json.bak"))
-        with open(old_other_hotspots, "w", encoding="utf-8") as f:
-            json.dump(res, f, ensure_ascii=False, indent=2)
+        write_json(database_path / "ebird_other_hotspots.json", res, backup=True)
 
     async def get_regions(self, region_type: RegionType, region: str):
         url = REGION_LIST_URL % (region_type.value, clean_region(region))

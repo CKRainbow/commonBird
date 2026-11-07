@@ -1,13 +1,13 @@
-pandas<3
 textual<2
 httpx<1
 python-dotenv<2
 ebird-api<4
-tqdm<5
 fuzzywuzzy<1
 python-Levenshtein<1
 pycryptodome<4
-selenium<5
+packaging<27
+pillow<14
+pytz<2027
 tenacity<10
 textual-image[textual]<1
 rich<14

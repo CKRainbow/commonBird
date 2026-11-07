@@ -1,9 +1,8 @@
-import json
 import logging
 import os
 import webbrowser
 import platform
-from typing import Dict, List, Optional, Union, TYPE_CHECKING
+from typing import Dict, Optional, Union, TYPE_CHECKING
 from packaging import version
 
 import httpx
@@ -14,7 +13,9 @@ from textual.widgets import Footer, Header, Button, Markdown
 from textual.worker import Worker, WorkerState
 
 from src import application_path, database_path, inner_path, cache_path
+from src.utils.api_exceptions import DataFileError
 from src.utils.consts import GITHUB_API_TOKEN, APP_VERSION, DOWNLOAD_URL
+from src.utils.files import read_json, write_json
 from src.cli.birdreport import BirdreportScreen
 from src.cli.ebird import EbirdScreen
 from src.cli.general import ConfirmScreen, MessageScreen, DisplayScreen
@@ -49,58 +50,49 @@ class CommonBirdApp(App):
 
         self.reload_hotspot_info()
 
-        # all exists or all not exists
-        assert all(
-            (
-                self.ebird_cn_hotspots,
-                self.ebird_other_hotspots,
+        # 热点数据应同时存在或同时缺失，缺一个时只记录日志，不再 assert 让程序崩溃
+        if bool(self.ebird_cn_hotspots) != bool(self.ebird_other_hotspots):
+            logging.warning(
+                "热点数据不完整：ebird_cn_hotspots.json 与 ebird_other_hotspots.json 应同时存在"
             )
-        ) or all(
-            (
-                not self.ebird_cn_hotspots,
-                not self.ebird_other_hotspots,
-            )
-        )
 
-        if (database_path / "ch4_to_eb_taxon_map.json").exists():
-            with open(
-                database_path / "ch4_to_eb_taxon_map.json", "r", encoding="utf-8"
-            ) as f:
-                self.ch4_to_eb_taxon_map = json.load(f)
+        # 数据文件缺失或损坏时返回 None，由后续逻辑给出提示（如 on_mount 中的检查），
+        # 而不是在启动阶段抛出 JSONDecodeError/KeyError 直接退出
+        self.ch4_to_eb_taxon_map = read_json(database_path / "ch4_to_eb_taxon_map.json")
+        self.ebird_taxon_info = read_json(database_path / "ebird_taxonomy.json")
 
-        if (database_path / "ebird_taxonomy.json").exists():
-            with open(
-                database_path / "ebird_taxonomy.json", "r", encoding="utf-8"
-            ) as f:
-                self.ebird_taxon_info: Optional[List] = json.load(f)
+        cache_data = read_json(cache_path / "location_assign.json")
+        if isinstance(cache_data, dict):
+            if "version" in cache_data and "data" in cache_data:
+                self.location_assign = cache_data["data"] or {}
+            else:
+                # Old format, needs migration
+                self.location_assign = cache_data
+                self.migrate_legacy_location_assign()
 
-        if (cache_path / "location_assign.json").exists():
-            with open(cache_path / "location_assign.json", "r", encoding="utf-8") as f:
-                cache_data = json.load(f)
+    def migrate_legacy_location_assign(self) -> None:
+        """把只存 locName 的旧版地点缓存迁移为 locId。"""
+        if not self.ebird_cn_hotspots and not self.ebird_other_hotspots:
+            # 没有热点数据时无法迁移，保留旧数据，等更新热点后再迁移
+            logging.warning("缺少热点数据，跳过旧版地点缓存迁移")
+            return
 
-                if "version" in cache_data and "data" in cache_data:
-                    self.location_assign = cache_data["data"]
-                else:
-                    # Old format, needs migration
-                    self.location_assign = cache_data
+        name_to_id = {}
+        for loc_id, v in (self.ebird_cn_hotspots or {}).items():
+            name_to_id[v.get("locName", loc_id)] = loc_id
+        for loc_id, v in (self.ebird_other_hotspots or {}).items():
+            name_to_id[v.get("locName", loc_id)] = loc_id
 
-                    # Build a mapping from locName to locId, and subnational1Code|locName to locId
-                    name_to_id = {}
-                    for loc_id, v in self.ebird_cn_hotspots.items():
-                        name_to_id[v["locName"]] = loc_id
-                    for loc_id, v in self.ebird_other_hotspots.items():
-                        name_to_id[v["locName"]] = loc_id
-
-                    result = {}
-                    for k, v in self.location_assign.items():
-                        if isinstance(v, dict):
-                            result[k] = v
-                        elif v in name_to_id:
-                            result[k] = name_to_id[v]
-                        else:
-                            result[k] = v
-                    self.location_assign = result
-                    self.save_location_assign_cache({})
+        result = {}
+        for k, v in self.location_assign.items():
+            if isinstance(v, dict):
+                result[k] = v
+            elif v in name_to_id:
+                result[k] = name_to_id[v]
+            else:
+                result[k] = v
+        self.location_assign = result
+        self.save_location_assign_cache({})
 
     def compose(self) -> ComposeResult:
         yield Header()
@@ -149,26 +141,32 @@ class CommonBirdApp(App):
     @on(Button.Pressed, "#changelog")
     @work
     async def on_changelog_pressed(self, event: Button.Pressed) -> None:
-        await self.push_screen_wait(
-            DisplayScreen(
-                Markdown(
-                    open(
-                        application_path / "changelog.md", "r", encoding="utf-8"
-                    ).read()
-                )
+        content = self._read_text("changelog.md")
+        if content is None:
+            await self.push_screen_wait(
+                MessageScreen("无法读取 changelog.md，请检查程序文件是否完整")
             )
-        )
+            return
+        await self.push_screen_wait(DisplayScreen(Markdown(content)))
 
     @on(Button.Pressed, "#help")
     @work
     async def on_help_pressed(self, event: Button.Pressed) -> None:
-        await self.push_screen_wait(
-            DisplayScreen(
-                Markdown(
-                    open(application_path / "README.md", "r", encoding="utf-8").read()
-                )
+        content = self._read_text("README.md")
+        if content is None:
+            await self.push_screen_wait(
+                MessageScreen("无法读取 README.md，请检查程序文件是否完整")
             )
-        )
+            return
+        await self.push_screen_wait(DisplayScreen(Markdown(content)))
+
+    def _read_text(self, name: str) -> Optional[str]:
+        """读取程序目录下的文本文件，缺失或不可读时返回 None。"""
+        try:
+            return (application_path / name).read_text(encoding="utf-8")
+        except (OSError, UnicodeDecodeError) as e:
+            logging.error(f"读取 {name} 失败：{e}")
+            return None
 
     ABOUT_MARKDOWN = f"""
 ## 当前版本
@@ -254,7 +252,9 @@ class CommonBirdApp(App):
                         self.sub_title = (
                             f"当前版本为最新版本：{self.version.base_version}"
                         )
-                except httpx.HTTPError as e:
+                except (httpx.HTTPError, KeyError, ValueError) as e:
+                    # 网络异常、返回体缺字段（KeyError）、版本号无法解析（ValueError）都不能崩
+                    logging.error(f"检查更新失败：{e}")
                     await self.push_screen_wait(
                         MessageScreen(f"获取最新版本信息失败：{e}")
                     )
@@ -267,53 +267,53 @@ class CommonBirdApp(App):
 
         cache_data = {"version": APP_VERSION, "data": self.location_assign}
 
-        with open(cache_path / "location_assign.json", "w", encoding="utf-8") as f:
-            json.dump(cache_data, f, ensure_ascii=False, indent=4)
+        try:
+            write_json(cache_path / "location_assign.json", cache_data, indent=4)
+        except DataFileError as e:
+            # 缓存目录不可写时不能崩，提示后继续（本次会话的地点分配仍然可用）
+            logging.critical(f"保存地点分配缓存失败：{e}")
+            try:
+                self.notify(f"{e}\n本次的地点分配结果不会被保存", severity="error")
+            except Exception:  # notify 在 app 尚未运行时不可用
+                pass
 
     def reload_hotspot_info(self) -> None:
-        if (database_path / "ebird_cn_hotspots.json").exists():
-            with open(
-                database_path / "ebird_cn_hotspots.json", "r", encoding="utf-8"
-            ) as f:
-                data = json.load(f)
-                self.ebird_cn_hotspots: Dict = data["data"]
-                self.ebird_hotspots_update_date = data["last_update_date"]
+        data = read_json(database_path / "ebird_cn_hotspots.json")
+        if isinstance(data, dict) and "data" in data:
+            self.ebird_cn_hotspots = data["data"] or {}
+            self.ebird_hotspots_update_date = data.get("last_update_date")
 
-                # Migrate old format to new format
-                if self.ebird_cn_hotspots and any(
-                    "|" in k for k in self.ebird_cn_hotspots.keys()
-                ):
-                    self.ebird_cn_hotspots = {
-                        v["locId"]: v for v in self.ebird_cn_hotspots.values()
-                    }
-                    data["data"] = self.ebird_cn_hotspots
-                    with open(
-                        database_path / "ebird_cn_hotspots.json", "w", encoding="utf-8"
-                    ) as fw:
-                        json.dump(data, fw, ensure_ascii=False, indent=2)
+            # Migrate old format to new format
+            if self.ebird_cn_hotspots and any(
+                "|" in k for k in self.ebird_cn_hotspots.keys()
+            ):
+                self.ebird_cn_hotspots = {
+                    v["locId"]: v for v in self.ebird_cn_hotspots.values()
+                }
+                data["data"] = self.ebird_cn_hotspots
+                self._rewrite_hotspot_file("ebird_cn_hotspots.json", data)
 
-        if (database_path / "ebird_other_hotspots.json").exists():
-            with open(
-                database_path / "ebird_other_hotspots.json", "r", encoding="utf-8"
-            ) as f:
-                data = json.load(f)
-                self.ebird_other_hotspots: Dict = data["data"]
-                self.ebird_hotspots_update_date = data["last_update_date"]
+        data = read_json(database_path / "ebird_other_hotspots.json")
+        if isinstance(data, dict) and "data" in data:
+            self.ebird_other_hotspots = data["data"] or {}
+            self.ebird_hotspots_update_date = data.get("last_update_date")
 
-                # Migrate old format to new format
-                if self.ebird_other_hotspots and any(
-                    "|" in k for k in self.ebird_other_hotspots.keys()
-                ):
-                    self.ebird_other_hotspots = {
-                        v["locId"]: v for v in self.ebird_other_hotspots.values()
-                    }
-                    data["data"] = self.ebird_other_hotspots
-                    with open(
-                        database_path / "ebird_other_hotspots.json",
-                        "w",
-                        encoding="utf-8",
-                    ) as fw:
-                        json.dump(data, fw, ensure_ascii=False, indent=2)
+            # Migrate old format to new format
+            if self.ebird_other_hotspots and any(
+                "|" in k for k in self.ebird_other_hotspots.keys()
+            ):
+                self.ebird_other_hotspots = {
+                    v["locId"]: v for v in self.ebird_other_hotspots.values()
+                }
+                data["data"] = self.ebird_other_hotspots
+                self._rewrite_hotspot_file("ebird_other_hotspots.json", data)
+
+    def _rewrite_hotspot_file(self, name: str, data: dict) -> None:
+        """把迁移后的热点数据写回文件；失败只记录日志，不影响启动。"""
+        try:
+            write_json(database_path / name, data)
+        except DataFileError as e:
+            logging.error(f"迁移热点数据失败：{e}")
 
     def on_worker_state_changed(self, event: Worker.StateChanged) -> None:
         if event.worker.state is WorkerState.ERROR:
@@ -326,3 +326,10 @@ class CommonBirdApp(App):
                 f"Worker '{event.worker.name}' encountered a fatal error.",
                 exc_info=exception,
             )
+            # 把失败原因显示给用户，避免操作静默失败、界面像卡住一样
+            try:
+                self.notify(
+                    f"操作失败：{exception or '未知错误'}", severity="error", timeout=10
+                )
+            except Exception:
+                pass

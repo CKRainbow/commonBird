@@ -20,6 +20,7 @@ from textual.worker import Worker, WorkerState
 from src import env_path
 
 from src.utils.api_exceptions import ApiErrorBase
+from src.utils.token_format import normalize_token
 
 if TYPE_CHECKING:
     from src.cli.app import CommonBirdApp
@@ -65,7 +66,7 @@ class TokenInputScreen(ModalScreen):
 
     async def on_input_submitted(self, event: Input.Submitted) -> None:
         if event.input.id == "token":
-            user_input = event.input.value
+            user_input = normalize_token(event.input.value)
             self.dismiss({"token": user_input, "token_name": self.token_name})
 
 
@@ -160,7 +161,7 @@ class DomainScreen(Screen):
         force_change: bool = False,
         input_screen: Optional[Screen] = None,
     ):
-        token = os.getenv(token_name)
+        token = normalize_token(os.getenv(token_name))
         for i in count(0):
             if i == 0:
                 text = change_token_hint
@@ -173,6 +174,10 @@ class DomainScreen(Screen):
                     self.store_token(token_name, token)
                     break
                 except ApiErrorBase:
+                    token = None
+                except ValueError as e:
+                    # token 本身格式不合法，提示用户重新输入，而不是让 worker 崩溃
+                    logging.warning(f"Invalid token format: {e}")
                     token = None
 
             if force_change or not token:
@@ -194,7 +199,7 @@ class DomainScreen(Screen):
                             else:
                                 input_screen = TokenInputScreen
                                 continue
-                    token = token_result["token"]
+                    token = normalize_token(token_result["token"])
                     input_screen = TokenInputScreen
                     force_change = False  # a new token has been provided
                     if token is None or token == "":

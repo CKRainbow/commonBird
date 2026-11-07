@@ -17,11 +17,12 @@
 ## 如何使用
 - 若使用该仓库，执行 `python cli.py` 即可运行
 - 若使用打包后的软件，解压后双击 `commonBird(.exe)` 即可运行
- 
+- 开发/发版相关文档见 `docs/`
+    - `docs/release.md`：发版流程（tag 驱动 CI）、本地自检与应急打包
+
 ## FAQ
 - 环境要求(仅运行代码需要)
-    - 需要具备 `node` 和 `python` 环境
-    - 执行 `npm i` 安装 javascript 依赖项
+    - 需要具备 `python` 环境（3.10+）
     - 执行 `pip install -r requirements.txt` 安装 python 依赖项
 
 - 如何获取观鸟记录中心的认证 Token (目前对 Safari 等浏览器暂时没有教程，欢迎提交 issue / pull request)
@@ -47,6 +48,8 @@
 
 - 如何获取 eBird API Token
     - 填写[eBird API Token 申请表](https://ebird.org/api/keygen)，随后便可获取 API Token
+    - eBird 目前发放的 Token 形如 `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`（8-4-4-4-12，共 36 位）；早期申请的 Token 为 12 位短串。两种格式软件都支持
+    - 复制时请勿带入多余的空格或换行（程序会自动去掉空白字符，但仍然建议核对）
 
 - 地点分配的缓存数据保存在哪里？
     - 保存在 `./.cache/` 文件夹中，文件名为 `location.json`

@@ -7,14 +7,11 @@ import asyncio
 import csv
 import time
 import pytz
-import platform
 from typing import Dict, Optional, Union, TYPE_CHECKING
 from datetime import datetime
 from pathlib import Path
 
 from PIL import Image as PILImage
-from selenium.common.exceptions import WebDriverException
-from selenium import webdriver
 from textual import on, work
 from textual.app import ComposeResult
 from textual.screen import Screen, ModalScreen
@@ -34,7 +31,6 @@ from textual.widgets import (
 from textual_image.widget import Image
 from textual.worker import Worker, WorkerState
 from fuzzywuzzy.fuzz import partial_ratio
-from selenium import webdriver
 
 from src import application_path
 from src.birdreport.birdreport import Birdreport
@@ -45,13 +41,13 @@ from src.utils.location import (
 )
 from src.utils.taxon import convert_taxon_z4_ebird
 from src.utils.token import store_token, check_token
-from src.utils.api_exceptions import ApiErrorBase, AuthenticationError
+from src.utils.token_format import validate_token
+from src.utils.api_exceptions import ApiErrorBase, AuthenticationError, DataFileError
 from src.cli.general import (
     ConfirmScreen,
     MessageScreen,
     DomainScreen,
     DisplayScreen,
-    OptionScreen,
 )
 from src.cli.ebird import EbirdScreen
 
@@ -108,7 +104,6 @@ class BirdreportSearchReportScreen(Screen):
 
             username = self.query_one("#username").value
             pointname = self.query_one("#pointname").value
-            print(username, pointname)
             asyncio.create_task(background_sleep())
 
 
@@ -120,13 +115,13 @@ class SearchEbirdHotspotScreen(ModalScreen):
         self.point_name = point_name
         self.target_cn_hotspot = {
             name: hotspot
-            for name, hotspot in self.app.ebird_cn_hotspots.items()
-            if hotspot["subnational1Code"] == self.province
+            for name, hotspot in (self.app.ebird_cn_hotspots or {}).items()
+            if hotspot.get("subnational1Code") == self.province
         }
         self.target_other_hotspot = {
             name: hotspot
-            for name, hotspot in self.app.ebird_other_hotspots.items()
-            if hotspot["subnational1Code"] == self.province
+            for name, hotspot in (self.app.ebird_other_hotspots or {}).items()
+            if hotspot.get("subnational1Code") == self.province
         }
 
     def compose(self) -> ComposeResult:
@@ -157,11 +152,11 @@ class SearchEbirdHotspotScreen(ModalScreen):
 
         # 繁体简体（或许可以都转为简体后搜索）
         hotspot_infos_cn = filter(
-            lambda x: partial_ratio(hotspot_name, x[1]["locName"]) > 80,
+            lambda x: partial_ratio(hotspot_name, x[1].get("locName", "")) > 80,
             self.target_cn_hotspot.items(),
         )
         hotspot_infos_other = filter(
-            lambda x: partial_ratio(hotspot_name, x[1]["locName"]) > 80,
+            lambda x: partial_ratio(hotspot_name, x[1].get("locName", "")) > 80,
             self.target_other_hotspot.items(),
         )
 
@@ -184,11 +179,12 @@ class SearchEbirdHotspotScreen(ModalScreen):
             hotspot_listview.append(
                 ListItem(
                     Label(
-                        hotspot_info[1]["locName"]
+                        hotspot_info[1].get("locName", "")
                         + "\n"
-                        + EBIRD_REGION_CODE_TO_NAME[
-                            hotspot_info[1]["subnational1Code"]
-                        ],
+                        + EBIRD_REGION_CODE_TO_NAME.get(
+                            hotspot_info[1].get("subnational1Code", ""),
+                            hotspot_info[1].get("subnational1Code", ""),
+                        ),
                     ),
                     name=hotspot_info[0],
                     classes="hotspot_item",
@@ -273,17 +269,21 @@ class BirdreportToEbirdLocationAssignScreen(Screen):
         if is_update:
             if self.app.ebird is None:
                 await self.app.push_screen_wait(EbirdScreen(temporary=True))
-            try:
-                loading_screen = DisplayScreen(LoadingIndicator())
-                self.app.push_screen(loading_screen)
-                await self.app.ebird.update_hotspots()
-                loading_screen.dismiss()
-                self.app.reload_hotspot_info()
-            except ApiErrorBase as e:
-                await self.app.push_screen_wait(
-                    MessageScreen(f"更新eBird热点失败: {e}")
-                )
-                loading_screen.dismiss()
+            if self.app.ebird is None:
+                # 用户取消输入 Token，跳过更新（不能直接调用 None.update_hotspots）
+                logging.warning("未提供 eBird Token，跳过热点更新")
+            else:
+                try:
+                    loading_screen = DisplayScreen(LoadingIndicator())
+                    self.app.push_screen(loading_screen)
+                    await self.app.ebird.update_hotspots()
+                    loading_screen.dismiss()
+                    self.app.reload_hotspot_info()
+                except (ApiErrorBase, OSError) as e:
+                    await self.app.push_screen_wait(
+                        MessageScreen(f"更新eBird热点失败: {e}")
+                    )
+                    loading_screen.dismiss()
 
         vertical_scroll = VerticalScroll(id="location_assign_scroll")
         await self.mount(vertical_scroll)
@@ -578,7 +578,11 @@ class BirdreportToEbirdScreen(Screen):
 
     @work
     async def on_mount(self) -> None:
-        username = self.app.birdreport.user_info["username"]
+        if self.app.birdreport is None or not self.app.birdreport.user_info:
+            await self.app.push_screen_wait(MessageScreen("尚未登录观鸟记录中心"))
+            self.dismiss()
+            return
+        username = self.app.birdreport.user_info.get("username", "")
 
         async def load_report(start_date: str = "") -> int:
             try:
@@ -590,18 +594,19 @@ class BirdreportToEbirdScreen(Screen):
                 return -1
             candi_dup_checklists = list(
                 filter(
-                    lambda x: x["start_time"].split(" ")[0] == start_date, checklists
+                    lambda x: x.get("start_time", "").split(" ")[0] == start_date,
+                    checklists,
                 )
             )
             candi_dup_old_checklists = list(
                 filter(
-                    lambda x: x["start_time"].split(" ")[0] == start_date,
+                    lambda x: x.get("start_time", "").split(" ")[0] == start_date,
                     self.app.cur_birdreport_data,
                 )
             )
             for candi_dup in candi_dup_checklists:
                 for candi_dup_old in candi_dup_old_checklists:
-                    if candi_dup["id"] == candi_dup_old["id"]:
+                    if candi_dup.get("id") == candi_dup_old.get("id"):
                         checklists.remove(candi_dup)
 
             checklists = list(
@@ -620,12 +625,18 @@ class BirdreportToEbirdScreen(Screen):
                 "%Y-%m-%d"
             )
 
-            with open(
-                application_path / f"{username}_{self.cur_date}_checklists.json",
-                "w",
-                encoding="utf-8",
-            ) as f:
-                json.dump(self.app.cur_birdreport_data, f, ensure_ascii=False, indent=2)
+            try:
+                with open(
+                    application_path / f"{username}_{self.cur_date}_checklists.json",
+                    "w",
+                    encoding="utf-8",
+                ) as f:
+                    json.dump(
+                        self.app.cur_birdreport_data, f, ensure_ascii=False, indent=2
+                    )
+            except OSError as e:
+                # 缓存只是方便下次续跑，写不了也不该中断本次转换
+                logging.warning(f"写入检查单缓存失败：{e}")
 
             loading_label = self.query_one(LoadingIndicator)
             await loading_label.remove()
@@ -644,10 +655,22 @@ class BirdreportToEbirdScreen(Screen):
                 ConfirmScreen(f"文件{checklist_file.name}已经存在\n是否使用已有数据？"),
             )
         if use_existing:
-            with open(checklist_file, "r", encoding="utf-8") as f:
-                self.app.cur_birdreport_data = json.load(f)
-                update_date = checklist_file.stem.split("_")[-2]
-            os.remove(checklist_file)
+            try:
+                with open(checklist_file, "r", encoding="utf-8") as f:
+                    self.app.cur_birdreport_data = json.load(f)
+            except (OSError, json.JSONDecodeError) as e:
+                # 缓存文件损坏时提示并退出，而不是抛异常让界面卡住
+                await self.app.push_screen_wait(
+                    MessageScreen(f"读取 {checklist_file.name} 失败：{e}")
+                )
+                self.dismiss()
+                return
+            date_parts = checklist_file.stem.split("_")
+            update_date = date_parts[-2] if len(date_parts) >= 2 else ""
+            try:
+                os.remove(checklist_file)
+            except OSError as e:
+                logging.warning(f"删除旧缓存文件 {checklist_file.name} 失败：{e}")
             status = await load_report(update_date)
             if status == -1:
                 self.dismiss()
@@ -679,9 +702,12 @@ class BirdreportToEbirdScreen(Screen):
             )
         )
 
-        await self.dump_as_ebird_csv(
-            self.cur_date,
-        )
+        try:
+            await self.dump_as_ebird_csv(
+                self.cur_date,
+            )
+        except DataFileError as e:
+            await self.app.push_screen_wait(MessageScreen(str(e)))
         self.dismiss()
 
     async def dump_as_ebird_csv(self, update_date):
@@ -696,12 +722,20 @@ class BirdreportToEbirdScreen(Screen):
             }
 
         csvs = [[]]
+        unknown_taxa = set()
         for report in reports:
-            version = report["version"]
-            obs = report["obs"]
+            version = report.get("version", "")
+            obs = report.get("obs") or []
 
-            start_time = time.strptime(report["start_time"], "%Y-%m-%d %H:%M:%S")
-            end_time = time.strptime(report["end_time"], "%Y-%m-%d %H:%M:%S")
+            try:
+                start_time = time.strptime(report["start_time"], "%Y-%m-%d %H:%M:%S")
+                end_time = time.strptime(report["end_time"], "%Y-%m-%d %H:%M:%S")
+            except (KeyError, ValueError) as e:
+                # 单条记录时间异常不应该中断整个导出
+                logging.warning(
+                    f"跳过时间字段异常的报告 {report.get('serial_id')}：{e}"
+                )
+                continue
             duration = (time.mktime(end_time) - time.mktime(start_time)) // 60
 
             # FIXME: need alert
@@ -722,22 +756,31 @@ class BirdreportToEbirdScreen(Screen):
                 checklist_comment += "\\n"
             # TODO: 可选是否添加
             checklist_comment += (
-                f"Converted from BirdReport CN, report ID: {report['serial_id']}"
+                f"Converted from BirdReport CN, report ID: {report.get('serial_id', '')}"
             )
 
             start_time = time.strftime("%m/%d/%Y %H:%M", start_time)
             observation_date, start_time = start_time.split(" ")
             region_code = get_report_eb_region_code(
-                report["province_name"],
-                report["city_name"] if "city_name" in report else "",
-                report["district_name"] if "district_name" in report else "",
+                report.get("province_name", ""),
+                report.get("city_name", ""),
+                report.get("district_name", ""),
             )
-            if region_code.endswith("-"):
+            if not region_code:
+                # 省份/城市无法映射到 eBird 区域（例如境外记录或台湾省未知城市），
+                # 留空而不是让 split("-") 抛 ValueError 中断整个导出
+                country, state = "", ""
+                logging.warning(
+                    f"报告 {report.get('serial_id')} 无法获取 eBird 区域代码："
+                    f"{report.get('province_name', '')} {report.get('city_name', '')} "
+                    f"{report.get('district_name', '')}"
+                )
+            elif region_code.endswith("-"):
                 state = region_code
                 country = region_code[:-1]
             else:
                 country, state = region_code.split("-")
-            location_name = report["point_name"]
+            location_name = report.get("point_name", "")
             lat = report["lat"] if "lat" in report else ""
             lng = report["lng"] if "lng" in report else ""
             protocol = "historical"  # historical
@@ -745,7 +788,7 @@ class BirdreportToEbirdScreen(Screen):
 
             if "real_quantity" in report:
                 real_quantity = report["real_quantity"] == 1
-            elif all([o["taxon_count"] == 1 for o in obs]):
+            elif all([o.get("taxon_count", 0) == 1 for o in obs]):
                 real_quantity = False
             else:
                 real_quantity = True
@@ -764,16 +807,26 @@ class BirdreportToEbirdScreen(Screen):
                 common_name = ""
                 genus = ""
                 species = ""
-                if ebird_taxon_info_dict is not None:
-                    common_name = ebird_taxon_info_dict[entry["latinname"]]["comName"]
+                latin_name = (entry.get("latinname") or "").strip()
+                taxon_info = (
+                    ebird_taxon_info_dict.get(latin_name)
+                    if ebird_taxon_info_dict is not None
+                    else None
+                )
+                if taxon_info is not None:
+                    common_name = taxon_info["comName"]
                     if common_name == "鹗":
                         common_name = "鹗鹗"
                 else:
-                    splited_latinname = entry["latinname"].split(" ")
+                    # 名录中找不到该学名（新分类、杂交种、拼写差异等）时退化为按学名拆分，
+                    # 不能让 KeyError 中断整个导出
+                    splited_latinname = latin_name.split(" ")
                     genus = splited_latinname[0]
                     species = " ".join(splited_latinname[1:])
+                    if ebird_taxon_info_dict is not None:
+                        unknown_taxa.add(latin_name or entry.get("taxon_name", ""))
 
-                species_count = entry["taxon_count"] if real_quantity else "X"
+                species_count = entry.get("taxon_count", "") if real_quantity else "X"
 
                 note = entry["note"].replace("\n", "\\n") if "note" in entry else ""
 
@@ -809,14 +862,28 @@ class BirdreportToEbirdScreen(Screen):
                 csvs.append([])
 
         for i in range(len(csvs)):
-            with open(
-                application_path / f"{username}_{update_date}_checklists_{i}.csv",
-                "w",
-                encoding="utf-8",
-                newline="",
-            ) as f:
-                writer = csv.writer(f)
-                writer.writerows(csvs[i])
+            try:
+                with open(
+                    application_path / f"{username}_{update_date}_checklists_{i}.csv",
+                    "w",
+                    encoding="utf-8",
+                    newline="",
+                ) as f:
+                    writer = csv.writer(f)
+                    writer.writerows(csvs[i])
+            except OSError as e:
+                raise DataFileError(f"无法写入 csv 文件：{e}") from e
+
+        if unknown_taxa:
+            names = sorted(unknown_taxa)
+            logging.warning(f"以下学名未在 eBird 名录中找到：{names}")
+            await self.app.push_screen_wait(
+                MessageScreen(
+                    "以下鸟种未在 eBird 名录中找到，已按学名拆分写入，请手动核对：\n"
+                    + "、".join(names[:20])
+                    + (f"\n……共 {len(names)} 条" if len(names) > 20 else "")
+                )
+            )
 
     def on_worker_state_changed(self, event: Worker.StateChanged) -> None:
         if event.worker.state is WorkerState.ERROR:
@@ -881,13 +948,9 @@ class BirdreportScreen(DomainScreen):
             self.app.pop_screen()
 
     def store_token(self, token_name: str, token: str) -> None:
-        # the token must be 32 characters and consists of only number and letters
-        if len(token) != 32 or not token.isalnum():
-            raise ValueError(
-                "token must be 32 characters and consists of only number and letters"
-            )
-
-        super().store_token(token_name, token)
+        # 记录中心的 token 目前是 32 位大写十六进制，但同样不做长度/字符集硬校验，
+        # 合法性交给服务器判定，避免服务方更换格式后 token 无法使用
+        super().store_token(token_name, validate_token(token))
 
     @work
     async def on_mount(self) -> None:
@@ -950,12 +1013,30 @@ class BirdreportLoginScreen(ModalScreen):
         except ApiErrorBase:
             await self.app.push_screen_wait(MessageScreen("获取验证码失败"))
             image_widget.image = None
+            return
 
-        self.token = result.get("authToken")
+        result = result or {}
         base64_image = result.get("image")
-        base64_image = base64.b64decode(base64_image)
-        base64_image = io.BytesIO(base64_image)
-        image = PILImage.open(base64_image)
+        auth_token = result.get("authToken")
+        if not base64_image or not auth_token:
+            await self.app.push_screen_wait(
+                MessageScreen("获取验证码失败：服务器返回的数据不完整")
+            )
+            image_widget.image = None
+            return
+
+        try:
+            image = PILImage.open(io.BytesIO(base64.b64decode(base64_image)))
+        except (ValueError, OSError) as e:
+            # base64 内容损坏 / 图片无法识别
+            logging.error(f"验证码图片解析失败：{e}")
+            await self.app.push_screen_wait(
+                MessageScreen("验证码图片解析失败，请重新生成验证码")
+            )
+            image_widget.image = None
+            return
+
+        self.token = auth_token
         image_widget.image = image
         self.image = image
 
@@ -985,134 +1066,3 @@ class BirdreportLoginScreen(ModalScreen):
         elif event.button.id == "show_kaptcha":
             if self.image is not None:
                 self.image.show()
-
-
-class BirdreportTokenFetchScreen(ModalScreen):
-    def __init__(self, token_name: str, hint_text: str, **kwargs):
-        super().__init__(kwargs)
-        self.token_name = token_name
-        self.hint_text = hint_text
-
-    def compose(self) -> ComposeResult:
-        yield Grid(
-            Label(
-                "请在弹出的浏览器界面登陆账号，随后点击“继续”\n选择取消则进入 Token 输入界面",
-                id="hintText",
-            ),
-            Button(
-                "继续",
-                id="get_token",
-                variant="primary",
-            ),
-            Button(
-                "取消",
-                id="cancel",
-            ),
-            id="dialog",
-        )
-
-    @work
-    async def on_mount(self) -> None:
-        selected_driver = await self.app.push_screen_wait(
-            OptionScreen(
-                "请选择要使用的浏览器",
-                [
-                    ("Chrome", "chrome"),
-                    ("Firefox", "firefox"),
-                    ("Edge", "edge"),
-                    ("Safari", "safari"),
-                ],
-            )
-        )
-
-        try:
-            self.driver = self._get_driver(selected_driver)
-        except Exception as e:
-            logging.error(e)
-            self.dismiss(None)
-            return
-        self.driver.get("https://www.birdreport.cn/member/login.html")
-
-    def _get_driver(self, driver_name: str):
-        if driver_name == "chrome":
-            return webdriver.Chrome()
-        elif driver_name == "firefox":
-            return webdriver.Firefox()
-        elif driver_name == "edge":
-            return webdriver.Edge()
-        elif driver_name == "safari":
-            return webdriver.Safari()
-        else:
-            raise ValueError(f"Unsupported driver: {driver_name}")
-
-    def _select_driver(self):
-        plat = platform.system().lower()
-        if plat == "darwin":
-            supported_list = [
-                webdriver.Safari,
-                webdriver.Chrome,
-                webdriver.Firefox,
-                webdriver.Edge,
-            ]
-        else:
-            supported_list = [
-                webdriver.Edge,
-                webdriver.Chrome,
-                webdriver.Firefox,
-                webdriver.Safari,
-            ]
-
-        for driver in supported_list:
-            try:
-                driver = driver()
-                return driver
-            except Exception:
-                pass
-
-        raise RuntimeError("No supported driver found")
-
-    def _is_driver_alive(self) -> bool:
-        if self.driver is None:
-            return False
-
-        try:
-            self.driver.execute_script("return true")
-            return True
-        except WebDriverException:
-            return False
-
-    async def on_button_pressed(self, event: Button.Pressed) -> None:
-        if not self._is_driver_alive():
-            self.dismiss(None)
-        elif event.button.id == "get_token":
-            local_storage = self.driver.execute_script("""
-                var items = {};
-                for (var i = 0; i < localStorage.length; i++) {
-                    var key = localStorage.key(i);
-                    items[key] = localStorage.getItem(key);
-                }
-                return items;
-            """)
-            self.driver.quit()
-            token = ""
-            if "$user" in local_storage:
-                user = json.loads(local_storage["$user"])
-                token = user["token"]
-                self.dismiss({"token": token, "token_name": self.token_name})
-            else:
-                self.dismiss(None)
-        elif event.button.id == "cancel":
-            self.driver.quit()
-            self.dismiss(None)
-
-    def on_worker_state_changed(self, event: Worker.StateChanged) -> None:
-        if event.worker.state is WorkerState.ERROR:
-            # The exception object is in event.worker.error
-            exception = event.worker.error
-
-            # 5. Log the exception with the full traceback to the file
-            # Using exc_info=exception ensures the full traceback is included.
-            logging.critical(
-                f"Worker '{event.worker.name}' encountered a fatal error.",
-                exc_info=exception,
-            )

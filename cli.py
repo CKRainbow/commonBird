@@ -7,17 +7,24 @@ from src import application_path, env_path
 from src.cli.app import CommonBirdApp
 from textual.logging import TextualHandler
 
-# 创建文件处理器
-file_handler = logging.FileHandler(
-    filename=application_path / "dump.log", mode="w", encoding="utf-8"
-)
+# 创建文件处理器：程序目录不可写（如安装在 Program Files 下）时不能让程序起不来
+handlers = [TextualHandler()]
+try:
+    handlers.insert(
+        0,
+        logging.FileHandler(
+            filename=application_path / "dump.log", mode="w", encoding="utf-8"
+        ),
+    )
+except OSError:
+    pass
 
 # 配置日志
 logging.basicConfig(
     level=logging.DEBUG,
     format="%(asctime)s %(levelname)s %(message)s",
     datefmt="%Y-%m-%d %H:%M:%S",
-    handlers=[file_handler, TextualHandler()],
+    handlers=handlers,
 )
 
 logger = logging.getLogger(__name__)
@@ -39,7 +46,11 @@ def handle_uncaught_exception(exc_type, exc_value, exc_traceback):
 sys.excepthook = handle_uncaught_exception
 
 if not env_path.exists():
-    open(env_path, "a").close()
+    try:
+        env_path.touch()
+    except OSError:
+        # 程序目录不可写时无法保存 token，但不能因此启动失败
+        pass
 load_dotenv(env_path)
 
 
